@@ -1,6 +1,6 @@
 class EnsurePromise {
 	constructor(func){
-		if(typeof func == 'function'){
+		if(typeof func === 'function'){
 			try {
 				return Promise.resolve(func());
 			} catch(err) {

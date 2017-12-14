@@ -32,7 +32,7 @@ class DBotsPoster {
 	  * @param {String} service The service to post to
 	  * @returns {Interval} The interval that is responsible for posting
 	  */
-	startInterval(interval = 1800000, onRequest = null){
+	startInterval(interval = 1800000){
 		if(this._interval) clearTimeout(this._interval);
 		this._interval = setInterval(this.post, interval);
 		return this._interval;
@@ -65,7 +65,7 @@ class DBotsPoster {
 	  */
 	postManual(serverCount, service = 'all'){
 		if(!this.options.apiKeys) throw new Error('NO_API_KEYS');
-		if(!service || service == 'all') return Promise.all(Object.keys(this.options.apiKeys).map(k => this.postManual(serverCount, k)));
+		if(!service || service === 'all') return Promise.all(Object.keys(this.options.apiKeys).map(k => this.postManual(serverCount, k)));
 		if(!Constants.AvailableServices.includes(service)) throw new Error('INVALID_SERVICE', service);
 		if(!Object.keys(this.options.apiKeys).includes(service)) throw new Error('SERVICE_WITH_NO_KEY', service);
 		return FormatRequest(Constants.PostFormat[service](this.options.apiKeys[service], this.options.clientID, serverCount, this.options.shard));

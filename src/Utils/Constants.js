@@ -15,7 +15,7 @@ exports.PostFormat = {
 			body: shard ? { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : { server_count: serverCount }
 		}
 	},
-	lsterminalink: (token, clientID, serverCount, shard) => {
+	lsterminalink: (token, clientID, serverCount) => {
 		return {
 			method: 'post',
 			url: `https://ls.terminal.ink/api/v1/bots/${clientID}`,
@@ -23,7 +23,7 @@ exports.PostFormat = {
 			body: { server_count: serverCount }
 		}
 	},
-	carbon: (token, _, serverCount, shard) => {
+	carbon: (token, _, serverCount) => {
 		return {
 			method: 'post',
 			url: 'https://www.carbonitex.net/discord/data/botdata.php',

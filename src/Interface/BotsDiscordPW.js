@@ -31,7 +31,7 @@ class BotsDiscordPW extends ServiceBase {
 	getBotStats(id){
 		return this._request({
 			url: `https://bots.discord.pw/api/bots/${id}/stats`,
-			headers: { Authorization: token }
+			headers: { Authorization: this.token }
 		}, true);
 	}
 

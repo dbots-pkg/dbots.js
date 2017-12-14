@@ -8,7 +8,8 @@
     "url": "git+https://github.com/Snazzah/dbots.js.git"
   },
   "scripts": {
-    "doc": "jsdoc ./src -d ./doc -r"
+    "doc": "jsdoc ./src -d ./doc -r",
+    "hint": "jshint ./src"
   },
   "keywords": [
     "api",
