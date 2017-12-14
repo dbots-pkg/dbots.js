@@ -1,0 +1,11 @@
+{
+	"undef": true,
+	"unused": true,
+	"eqeqeq": true,
+	"esversion": 6,
+	"asi": true,
+	"browser": false,
+	"node": true,
+	"loopfunc": true,
+	"expr": true
+}
