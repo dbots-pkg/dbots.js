@@ -14,3 +14,5 @@ class ServiceBase {
 		return FormatRequest(form);
 	}
 }
+
+module.exports = ServiceBase;

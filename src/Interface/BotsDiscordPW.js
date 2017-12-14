@@ -19,9 +19,9 @@ class BotsDiscordPW extends ServiceBase {
 	 */
 	getBot(id){
 		return this._request({
-            url: `https://bots.discord.pw/api/bots/${id}`,
-            headers: { Authorization: this.token }
-        }, true);
+			url: `https://bots.discord.pw/api/bots/${id}`,
+			headers: { Authorization: this.token }
+		}, true);
 	}
 
 	/**
@@ -30,9 +30,9 @@ class BotsDiscordPW extends ServiceBase {
 	 */
 	getBotStats(id){
 		return this._request({
-            url: `https://bots.discord.pw/api/bots/${id}/stats`,
-            headers: { Authorization: token }
-        }, true);
+			url: `https://bots.discord.pw/api/bots/${id}/stats`,
+			headers: { Authorization: token }
+		}, true);
 	}
 
 	/**
@@ -40,9 +40,9 @@ class BotsDiscordPW extends ServiceBase {
 	 */
 	getBots(){
 		return this._request({
-            url: `https://bots.discord.pw/api/bots`,
-            headers: { Authorization: this.token }
-        }, true);
+			url: `https://bots.discord.pw/api/bots`,
+			headers: { Authorization: this.token }
+		}, true);
 	}
 }
 

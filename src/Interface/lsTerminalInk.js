@@ -11,9 +11,9 @@ class lsTerminalInk extends ServiceBase {
 	 */
 	test(id){
 		return this._request({
-            url: `https://ls.terminal.ink/api/v1/test/${id}`,
-            headers: { Authorization: token }
-        }, true)
+			url: `https://ls.terminal.ink/api/v1/test/${id}`,
+			headers: { Authorization: token }
+		}, true)
 	}
 
 	/**
