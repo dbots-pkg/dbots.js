@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: DBotsPoster.js</title>
+    <title>JSDoc: Source: Interface/Poster.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: DBotsPoster.js</h1>
+    <h1 class="page-title">Source: Interface/Poster.js</h1>
 
     
 
@@ -33,15 +33,17 @@ const FormatRequest = require('../Utils/FormatRequest');
 /**
  * A class that posts server count to listing site(s).
  * @constructor
- * @param {PosterOptions} options The additional options.
+ * @param {PosterOptions} options The options needed to construct the poster.
  */
-class DBotsPoster {
+class Poster {
 	constructor(options){
-		if (!options || options.constructor.name !== 'Object') throw new Error("An Object is required to construct a poster.");
+		if (!options || typeof options !== 'object') throw new Error("An object is required ad a parameter to construct a poster.");
 		this.client = options.client;
-		if(this.client &amp;&amp; !options.clientLibrary &amp;&amp; !options.serverCount) throw new Error("clientID or serverCount must be defined when a client is defined.");
+		if (typeof options.useSharding !== 'boolean') options.useSharding = true;
+		if(this.client &amp;&amp; !options.serverCount) throw new Error("clientID or serverCount must be defined when a client is defined.");
 		if(!this.client &amp;&amp; !options.clientID) throw new Error("clientID must be defined when client is non-existant.");
 		if(this.client &amp;&amp; !options.clientID) Object.assign(options, Constants.AutoValueFunctions(options.clientLibrary));
+		if(!options.useSharding) options.shard = undefined;
 		this.options = options;
 	}
 
@@ -51,17 +53,17 @@ class DBotsPoster {
 	  */
 	getServerCount(){
 		if(!this.client) throw new Error('Cannot retrieve server count from non-existant client');
-		if(this.options.serverCount) return new EnsurePromise(this.options.serverCount);
+		if(this.options.serverCount &amp;&amp; !this.options.clientLibrary) return new EnsurePromise(this.options.serverCount);
 		return new EnsurePromise(Constants.ServerCountFunctions[this.options.clientLibrary](this.client));
 	}
 
 	/**
 	  * Creates an interval that posts to all services
-	  * @param {String} service The service to post to
+	  * @param {number} interval The time (in ms) to reach to post to all {link Service}s again.
 	  * @returns {Interval} The interval that is responsible for posting
 	  */
-	startInterval(interval = 1800000, onRequest = null){
-		if(this._interval) clearTimeout(this._interval);
+	startInterval(interval = 1800000){
+		clearTimeout(this._interval);
 		this._interval = setInterval(this.post, interval);
 		return this._interval;
 	}
@@ -88,19 +90,20 @@ class DBotsPoster {
 	/**
 	  * Manually posts a server count to a service
 	  * @param {Number} serverCount The server count to post to the service
-	  * @param {String} service The service to post to
+	  * @param {Service} service The service to post to
 	  * @returns {Promise&lt;Object|Array&lt;Object>>} The result(s) of the post
 	  */
 	postManual(serverCount, service = 'all'){
-		if(!this.options.apiKeys) throw new Error('NO_API_KEYS');
-		if(!service || service == 'all') return Promise.all(Object.keys(this.options.apiKeys).map(this.post));
+		if(!this.options.apiKeys &amp;&amp; !this.options.post) throw new Error('NO_API_KEYS');
+		if(!this.options.apiKeys || service === 'custom') return new EnsurePromise(this.options.post, this.options.clientID, serverCount, this.options.shard);
+		if(!service || service === 'all') return Promise.all(Object.keys(this.options.apiKeys).map(k => this.postManual(serverCount, k)));
 		if(!Constants.AvailableServices.includes(service)) throw new Error('INVALID_SERVICE', service);
 		if(!Object.keys(this.options.apiKeys).includes(service)) throw new Error('SERVICE_WITH_NO_KEY', service);
-		return Constants.PostFormat[service](this.options.apiKeys[service], this.options.clientID, serverCount, this.options.shard)
+		return FormatRequest(Constants.PostFormat[service](this.options.apiKeys[service], this.options.clientID, serverCount, this.options.shard));
 	}
 }
 
-module.exports = DBotsPoster;</code></pre>
+module.exports = Poster;</code></pre>
         </article>
     </section>
 
@@ -110,13 +113,13 @@ module.exports = DBotsPoster;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BotsDiscordPW.html">BotsDiscordPW</a></li><li><a href="DBotsPoster.html">DBotsPoster</a></li><li><a href="DiscordBotsOrg.html">DiscordBotsOrg</a></li><li><a href="lsTerminalInk.html">lsTerminalInk</a></li><li><a href="ServiceBase.html">ServiceBase</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BotsDiscordPW.html">BotsDiscordPW</a></li><li><a href="DiscordBotsOrg.html">DiscordBotsOrg</a></li><li><a href="lsTerminalInk.html">lsTerminalInk</a></li><li><a href="Poster.html">Poster</a></li><li><a href="ServiceBase.html">ServiceBase</a></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Wed Dec 13 2017 18:58:49 GMT-0600 (Central Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sat Dec 30 2017 02:05:44 GMT-0600 (Central Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>
