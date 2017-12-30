@@ -1,5 +1,5 @@
 module.exports = {
-	Poster: require('./Interface/DBotsPoster'),
+	Poster: require('./Interface/Poster'),
 	BotsDiscordPW: require('./Interface/BotsDiscordPW'),
 	DiscordBotsOrg: require('./Interface/DiscordBotsOrg'),
 	lsTerminalInk: require('./Interface/lsTerminalInk'),

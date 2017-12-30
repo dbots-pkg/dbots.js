@@ -9,6 +9,7 @@ class ServiceBase {
 	constructor(token){
 		this.token = token;
 	}
+
 	_request(form, requiresToken){
 		if(requiresToken && !this.token) throw new Error('This function requires a token')
 		return FormatRequest(form);

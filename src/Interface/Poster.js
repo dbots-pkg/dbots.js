@@ -5,15 +5,17 @@ const FormatRequest = require('../Utils/FormatRequest');
 /**
  * A class that posts server count to listing site(s).
  * @constructor
- * @param {PosterOptions} options The additional options.
+ * @param {PosterOptions} options The options needed to construct the poster.
  */
-class DBotsPoster {
+class Poster {
 	constructor(options){
-		if (!options || options.constructor.name !== 'Object') throw new Error("An Object is required to construct a poster.");
+		if (!options || typeof options !== 'object') throw new Error("An object is required ad a parameter to construct a poster.");
 		this.client = options.client;
-		if(this.client && !options.clientLibrary && !options.serverCount) throw new Error("clientID or serverCount must be defined when a client is defined.");
+		if (typeof options.useSharding !== 'boolean') options.useSharding = true;
+		if(this.client && !options.serverCount) throw new Error("clientID or serverCount must be defined when a client is defined.");
 		if(!this.client && !options.clientID) throw new Error("clientID must be defined when client is non-existant.");
 		if(this.client && !options.clientID) Object.assign(options, Constants.AutoValueFunctions(options.clientLibrary));
+		if(!options.useSharding) options.shard = undefined;
 		this.options = options;
 	}
 
@@ -23,17 +25,17 @@ class DBotsPoster {
 	  */
 	getServerCount(){
 		if(!this.client) throw new Error('Cannot retrieve server count from non-existant client');
-		if(this.options.serverCount) return new EnsurePromise(this.options.serverCount);
+		if(this.options.serverCount && !this.options.clientLibrary) return new EnsurePromise(this.options.serverCount);
 		return new EnsurePromise(Constants.ServerCountFunctions[this.options.clientLibrary](this.client));
 	}
 
 	/**
 	  * Creates an interval that posts to all services
-	  * @param {String} service The service to post to
+	  * @param {number} interval The time (in ms) to reach to post to all {link Service}s again.
 	  * @returns {Interval} The interval that is responsible for posting
 	  */
 	startInterval(interval = 1800000){
-		if(this._interval) clearTimeout(this._interval);
+		clearTimeout(this._interval);
 		this._interval = setInterval(this.post, interval);
 		return this._interval;
 	}
@@ -60,11 +62,12 @@ class DBotsPoster {
 	/**
 	  * Manually posts a server count to a service
 	  * @param {Number} serverCount The server count to post to the service
-	  * @param {String} service The service to post to
+	  * @param {Service} service The service to post to
 	  * @returns {Promise<Object|Array<Object>>} The result(s) of the post
 	  */
 	postManual(serverCount, service = 'all'){
-		if(!this.options.apiKeys) throw new Error('NO_API_KEYS');
+		if(!this.options.apiKeys && !this.options.post) throw new Error('NO_API_KEYS');
+		if(!this.options.apiKeys || service === 'custom') return new EnsurePromise(this.options.post, this.options.clientID, serverCount, this.options.shard);
 		if(!service || service === 'all') return Promise.all(Object.keys(this.options.apiKeys).map(k => this.postManual(serverCount, k)));
 		if(!Constants.AvailableServices.includes(service)) throw new Error('INVALID_SERVICE', service);
 		if(!Object.keys(this.options.apiKeys).includes(service)) throw new Error('SERVICE_WITH_NO_KEY', service);
@@ -72,4 +75,4 @@ class DBotsPoster {
 	}
 }
 
-module.exports = DBotsPoster;
+module.exports = Poster;

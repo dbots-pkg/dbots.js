@@ -1,3 +1,27 @@
+/**
+ * Options for a poster.
+ * @typedef {Object} PosterOptions
+ * @property {Object} [apiKeys] An object that pairs a {@link Service} with their token.
+ * @property {Object} [client] The client that a supported {@link Library} uses to manage the Discord application.
+ * Requires {@link #clientLibrary} to be present.
+ * @property {string} [clientID] The client ID used for posting to a {@link Service}.
+ * Automatically filled in when {@link #client} is present.
+ * @property {Library} [clientLibrary] The library that the client is based on.
+ * @property {PromiseResolvable} [post] The function to use when posting to a server that uses the client ID,
+ * the amount of servers, and a {@link Shard}. This will be used when the {@link Service} is `custom`.
+ * @property {Shard} [shard] The shard data for using different methods of posting to services.
+ * @property {PromiseResolvable} [serverCount] The function to use when retrieving the amount of servers a client/shard is in.
+ ^ Uses the client as a parameter.
+ * @property {number} [useSharding=true] Whether or not to use a {@link Service}s sharding method when posting.
+ */
+
+/**
+ * A shard that is used when posting to services.
+ * @typedef {Object} Shard
+ * @property {number} [count] The amount of shards the client uses
+ * @property {number} [id] The shard ID that is being used by the poster
+ */
+
 exports.PostFormat = {
 	botsdiscordpw: (token, clientID, serverCount, shard) => {
 		return {
@@ -32,12 +56,29 @@ exports.PostFormat = {
 	}
 }
 
+/**
+ * A service supported by the package. Here are the available services:
+ * * botsdiscordpw
+ * * discordbotsorg
+ * * lsterminalink
+ * * carbon
+ * @typedef {string} Service
+ */
+
 exports.AvailableServices = [
 	'botsdiscordpw',
 	'discordbotsorg',
 	'lsterminalink',
 	'carbon'
 ]
+
+/**
+ * A library supported by the package. Here are the available libraries:
+ * * discord.js
+ * * discord.io
+ * * discordie
+ * @typedef {string} Library
+ */
 
 exports.SupportingLibraries = [
 	'discord.js',

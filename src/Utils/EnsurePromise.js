@@ -1,11 +1,12 @@
+/**
+   * Data that can be resolved to give a string. This can either be a Function or a Promise
+   * @typedef {Function|Promise} PromiseResolvable
+   */
+
 class EnsurePromise {
-	constructor(func){
+	constructor(func, ...args){
 		if(typeof func === 'function'){
-			try {
-				return Promise.resolve(func());
-			} catch(err) {
-				return Promise.reject(err);
-			}
+			return new Promise(resolve => resolve(func(...args)))
 		}else return func;
 	}
 }
