@@ -1,6 +1,6 @@
 {
   "name": "dbots",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Discord bot list poster and stats retriever",
   "main": "./src/index",
   "repository": {
