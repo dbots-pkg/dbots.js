@@ -9,11 +9,11 @@ const FormatRequest = require('../Utils/FormatRequest');
  */
 class Poster {
 	constructor(options){
-		if (!options || typeof options !== 'object') throw new Error("An object is required ad a parameter to construct a poster.");
+		if (!options || typeof options !== 'object') throw new Error("An object is required a parameter to construct a poster.");
 		this.client = options.client;
 		if (typeof options.useSharding !== 'boolean') options.useSharding = true;
 		if(!this.client && !options.clientID) throw new Error("clientID must be defined when client is non-existant.");
-		if(this.client && !options.clientID) Object.assign(options, Constants.AutoValueFunctions(options.clientLibrary));
+		if(this.client && !options.clientID) Object.assign(options, Constants.AutoValueFunctions[options.clientLibrary](options.client));
 		if(!options.useSharding) options.shard = undefined;
 		this.options = options;
 	}
@@ -24,9 +24,9 @@ class Poster {
 	  */
 	getServerCount(){
 		if(!this.client) throw new Error('Cannot retrieve server count from non-existant client');
-		if(this.options.serverCount && !this.options.clientLibrary) return new EnsurePromise(this.options.serverCount);
+		if(this.options.serverCount && !this.options.clientLibrary) return EnsurePromise(this.options.serverCount);
 		if(!this.options.serverCount && !this.options.clientLibrary) throw new Error('Cannot retrieve server count from unknown client');
-		return new EnsurePromise(Constants.ServerCountFunctions[this.options.clientLibrary](this.client));
+		return EnsurePromise(Constants.ServerCountFunctions[this.options.clientLibrary], this.client);
 	}
 
 	/**
@@ -67,7 +67,7 @@ class Poster {
 	  */
 	postManual(serverCount, service = 'all'){
 		if(!this.options.apiKeys && !this.options.post) throw new Error('NO_API_KEYS');
-		if(!this.options.apiKeys || service === 'custom') return new EnsurePromise(this.options.post, this.options.clientID, serverCount, this.options.shard);
+		if(!this.options.apiKeys || service === 'custom') return EnsurePromise(this.options.post, this.options.clientID, serverCount, this.options.shard);
 		if(!service || service === 'all') return Promise.all(Object.keys(this.options.apiKeys).map(k => this.postManual(serverCount, k)));
 		if(!Constants.AvailableServices.includes(service)) throw new Error('INVALID_SERVICE', service);
 		if(!Object.keys(this.options.apiKeys).includes(service)) throw new Error('SERVICE_WITH_NO_KEY', service);

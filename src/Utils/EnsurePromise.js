@@ -3,12 +3,8 @@
    * @typedef {Function|Promise} PromiseResolvable
    */
 
-class EnsurePromise {
-	constructor(func, ...args){
-		if(typeof func === 'function'){
-			return new Promise(resolve => resolve(func(...args)))
-		}else return func;
-	}
+module.exports = function EnsurePromise(func, ...args) {
+  if(typeof func === 'function'){
+    return new Promise(resolve => resolve(func(...args)))
+  }else if(func instanceof Promise) return func;
 }
-
-module.exports = EnsurePromise;
