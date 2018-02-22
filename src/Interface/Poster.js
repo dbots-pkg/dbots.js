@@ -12,7 +12,6 @@ class Poster {
 		if (!options || typeof options !== 'object') throw new Error("An object is required ad a parameter to construct a poster.");
 		this.client = options.client;
 		if (typeof options.useSharding !== 'boolean') options.useSharding = true;
-		if(this.client && !options.serverCount) throw new Error("clientID or serverCount must be defined when a client is defined.");
 		if(!this.client && !options.clientID) throw new Error("clientID must be defined when client is non-existant.");
 		if(this.client && !options.clientID) Object.assign(options, Constants.AutoValueFunctions(options.clientLibrary));
 		if(!options.useSharding) options.shard = undefined;
@@ -26,6 +25,7 @@ class Poster {
 	getServerCount(){
 		if(!this.client) throw new Error('Cannot retrieve server count from non-existant client');
 		if(this.options.serverCount && !this.options.clientLibrary) return new EnsurePromise(this.options.serverCount);
+		if(!this.options.serverCount && !this.options.clientLibrary) throw new Error('Cannot retrieve server count from unknown client');
 		return new EnsurePromise(Constants.ServerCountFunctions[this.options.clientLibrary](this.client));
 	}
 
