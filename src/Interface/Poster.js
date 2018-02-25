@@ -36,7 +36,7 @@ class Poster {
 	  */
 	startInterval(interval = 1800000){
 		clearTimeout(this._interval);
-		this._interval = setInterval(this.post.bind(this), interval);
+		this._interval = setInterval(() => this.post(), interval);
 		return this._interval;
 	}
 
