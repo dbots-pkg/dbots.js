@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Interface/BotsDiscordPW.js</title>
+    <title>JSDoc: Source: Interface/BotsForDiscord.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Interface/BotsDiscordPW.js</h1>
+    <h1 class="page-title">Source: Interface/BotsForDiscord.js</h1>
 
     
 
@@ -29,16 +29,26 @@
             <pre class="prettyprint source linenums"><code>const ServiceBase = require('./ServiceBase')
 
 /**
- * Represents the bots.discord.pw service
- * @see https://bots.discord.pw/api
+ * Represents the Bots For Discord service
+ * @see https://botsfordiscord.com/docs/v1
  */
-class BotsDiscordPW extends ServiceBase {
+class BotsForDiscord extends ServiceBase {
   /**
-   * Gets the user listed for this service
-   * @param {string} id The user's ID.
+   * Tests the initialized token
+   * @param {string} id The ID of a bot that the token is in control of.
    */
-  getUser(id){
-    return this._request({ url: `https://bots.discord.pw/api/users/${id}` })
+  test(id){
+    return this._request({
+      url: `https://botsfordiscord.com/api/v1/test/${id}`,
+      headers: { Authorization: this.token }
+    }, true)
+  }
+
+  /**
+   * Gets a list of bots on this service
+   */
+  getBots(){
+    return this._request({ url: `https://botsfordiscord.com/api/v1/bots` });
   }
 
   /**
@@ -46,35 +56,20 @@ class BotsDiscordPW extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBot(id){
-    return this._request({
-      url: `https://bots.discord.pw/api/bots/${id}`,
-      headers: { Authorization: this.token }
-    }, true);
+    return this._request({ url: `https://botsfordiscord.com/api/v1/bots/${id}` });
   }
 
   /**
-   * Gets the bot's stats listed on this service
+   * Gets the embed picture for this bot
    * @param {string} id The bot's ID.
+   * @param {Object} query The querystring that will be used in the request
    */
-  getBotStats(id){
-    return this._request({
-      url: `https://bots.discord.pw/api/bots/${id}/stats`,
-      headers: { Authorization: this.token }
-    }, true);
-  }
-
-  /**
-   * Gets a list of bots on this service
-   */
-  getBots(){
-    return this._request({
-      url: `https://bots.discord.pw/api/bots`,
-      headers: { Authorization: this.token }
-    }, true);
+  getBotEmbed(id, query){
+    return this._request({ url: `https://botsfordiscord.com/api/v1/bots/${id}/embed`, query });
   }
 }
 
-module.exports = BotsDiscordPW;</code></pre>
+module.exports = BotsForDiscord;</code></pre>
         </article>
     </section>
 
