@@ -47,6 +47,14 @@ exports.PostFormat = {
 			body: { server_count: serverCount }
 		}
 	},
+	botsfordiscord: (token, clientID, serverCount) => {
+		return {
+			method: 'post',
+			url: `https://botsfordiscord.com/api/v1/bots/${clientID}`,
+			headers: { Authorization: token },
+			body: { server_count: serverCount }
+		}
+	},
 	carbon: (token, _, serverCount) => {
 		return {
 			method: 'post',

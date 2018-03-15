@@ -1,7 +1,7 @@
 const ServiceBase = require('./ServiceBase')
 
 /**
- * Represents the ls.terminal.inks service
+ * Represents the ls.terminal.ink's service
  * @see https://ls.terminal.ink/docs/v1
  */
 class lsTerminalInk extends ServiceBase {
