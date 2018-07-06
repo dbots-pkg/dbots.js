@@ -36,7 +36,7 @@ class Listcord extends ServiceBase {
    * Gets the data on the voters for this bot
    * @param {string} id The bot's ID.
    */
-  getBotVotes(id, query){
+  getBotVotes(id){
     return this._request({ url: `https://listcord.com/api/bot/${id}/votes` });
   }
 }
