@@ -52,9 +52,10 @@ class Poster {
     * @see DBotsPoster#postManual
     */
   post(service){
+    _this = this
     return new Promise((resolve, reject) => {
-      this.getServerCount().then(count => {
-        return this.postManual(count, service);
+      _this.getServerCount().then(count => {
+        return _this.postManual(count, service);
       }).then(resolve).catch(reject);
     })
   }
