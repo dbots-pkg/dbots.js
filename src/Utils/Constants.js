@@ -55,6 +55,14 @@ exports.PostFormat = {
       body: { server_count: serverCount }
     }
   },
+  listcord: (token, clientID, serverCount) => {
+    return {
+      method: 'post',
+      url: `https://listcord.com/api/bot/${clientID}/guilds`,
+      headers: { Authorization: token },
+      body: { guilds: serverCount }
+    }
+  },
   carbon: (token, _, serverCount) => {
     return {
       method: 'post',
@@ -69,6 +77,7 @@ exports.PostFormat = {
  * * botsdiscordpw
  * * discordbotsorg
  * * lsterminalink
+ * * listcord
  * * carbon
  * @typedef {string} Service
  */
@@ -77,6 +86,7 @@ exports.AvailableServices = [
   'botsdiscordpw',
   'discordbotsorg',
   'lsterminalink',
+  'listcord',
   'carbon'
 ]
 

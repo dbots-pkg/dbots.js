@@ -61,3 +61,4 @@ qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](s
  - [ls.terminal.ink `lsterminalink`](https://ls.terminal.ink)
  - [carbonitex.net `carbon`](http://carbonitex.net/discord/bots)
  - [botsfordiscord.com `botsfordiscord`](http://botsfordiscord.com)
+ - [listcord.com `listcord`](http://listcord.com)
