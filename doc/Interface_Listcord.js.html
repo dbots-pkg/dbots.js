@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Interface/lsTerminalInk.js</title>
+    <title>JSDoc: Source: Interface/Listcord.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Interface/lsTerminalInk.js</h1>
+    <h1 class="page-title">Source: Interface/Listcord.js</h1>
 
     
 
@@ -29,26 +29,27 @@
             <pre class="prettyprint source linenums"><code>const ServiceBase = require('./ServiceBase')
 
 /**
- * Represents the ls.terminal.ink's service
- * @see https://ls.terminal.ink/docs/v1
+ * Represents the listcord.com service
+ * @see https://listcord.com/developers/docs
  */
-class lsTerminalInk extends ServiceBase {
+class Listcord extends ServiceBase {
   /**
-   * Tests the initialized token
-   * @param {string} id The ID of a bot that the token is in control of.
+   * Gets the list of bots listed for this service
+   * @param {number} limit The amount of IDs to list.
+   * @param {number} offset The offset of the list.
    */
-  test(id){
-    return this._request({
-      url: `https://ls.terminal.ink/api/v1/test/${id}`,
-      headers: { Authorization: this.token }
-    }, true)
+  getBots(limit = 20, offset = 0){
+    return this._request({ url: `https://listcord.com/api/bots/${limit}/${offset}` });
   }
 
   /**
-   * Gets a list of bots on this service
+   * Searches a term amongst the bots in this service
+   * @param {string} q Query to seearch for.
+   * @param {number} limit The amount of IDs to list.
+   * @param {number} offset The offset of the list.
    */
-  getBots(){
-    return this._request({ url: `https://ls.terminal.ink/api/v1/bots` });
+  searchBots(q, limit = 20, offset = 0){
+    return this._request({ url: `https://listcord.com/api/bots/${limit}/${offset}`, query: { q } });
   }
 
   /**
@@ -56,20 +57,19 @@ class lsTerminalInk extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBot(id){
-    return this._request({ url: `https://ls.terminal.ink/api/v1/bots/${id}` });
+    return this._request({ url: `https://listcord.com/api/bot/${id}` });
   }
 
   /**
-   * Gets the embed picture for this bot
+   * Gets the data on the voters for this bot
    * @param {string} id The bot's ID.
-   * @param {Object} query The querystring that will be used in the request
    */
-  getBotEmbed(id, query){
-    return this._request({ url: `https://ls.terminal.ink/api/v1/bots/${id}/embed`, query });
+  getBotVotes(id){
+    return this._request({ url: `https://listcord.com/api/bot/${id}/votes` });
   }
 }
 
-module.exports = lsTerminalInk;</code></pre>
+module.exports = Listcord;</code></pre>
         </article>
     </section>
 
