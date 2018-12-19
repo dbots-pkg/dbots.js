@@ -19,7 +19,7 @@
 const dbots = require('dbots');
 const poster = new dbots.Poster({
     apiKeys: {
-        botsdiscordpw: '…',
+        discordbotsgg: '…',
         discordbotsorg: '…',
         lsterminalink: '…',
         carbon: '…'
@@ -37,7 +37,7 @@ const dbots = require('dbots');
 const poster = new dbots.Poster({
     client, // Client MUST be logged in to be put into a poster
     apiKeys: {
-        botsdiscordpw: '…',
+        discordbotsgg: '…',
         discordbotsorg: '…',
         lsterminalink: '…',
         carbon: '…'
@@ -57,7 +57,7 @@ qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](s
 
 ## Supporting Services
  - [discordbots.org `discordbotsorg`](https://discordbots.org)
- - [bots.discord.pw `botsdiscordpw`](https://bots.discord.pw)
+ - [discord.bots.gg `discordbotsgg`](https://discord.bots.gg)
  - [ls.terminal.ink `lsterminalink`](https://ls.terminal.ink)
  - [carbonitex.net `carbon`](http://carbonitex.net/discord/bots)
  - [botsfordiscord.com `botsfordiscord`](http://botsfordiscord.com)

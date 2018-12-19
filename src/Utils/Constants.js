@@ -23,12 +23,12 @@
  */
 
 exports.PostFormat = {
-  botsdiscordpw: (token, clientID, serverCount, shard) => {
+  discordbotsgg: (token, clientID, serverCount, shard) => {
     return {
       method: 'post',
-      url: `https://bots.discord.pw/api/bots/${clientID}/stats`,
+      url: `https://discord.bots.gg/api/v1/bots/${clientID}/stats`,
       headers: { Authorization: token },
-      body: shard ? { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : { server_count: serverCount }
+      body: shard ? { guildCount: serverCount, shardId: shard.id, shardCount: shard.count } : { guildCount: serverCount }
     }
   },
   discordbotsorg: (token, clientID, serverCount, shard) => {
@@ -74,7 +74,7 @@ exports.PostFormat = {
 
 /**
  * A service supported by the package. Here are the available services:
- * * botsdiscordpw
+ * * discordbotsgg
  * * discordbotsorg
  * * lsterminalink
  * * listcord
@@ -83,7 +83,7 @@ exports.PostFormat = {
  */
 
 exports.AvailableServices = [
-  'botsdiscordpw',
+  'discordbotsgg',
   'discordbotsorg',
   'lsterminalink',
   'listcord',
