@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Interface/Listcord.js</title>
+    <title>JSDoc: Source: Interface/DiscordBotsGG.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Interface/Listcord.js</h1>
+    <h1 class="page-title">Source: Interface/DiscordBotsGG.js</h1>
 
     
 
@@ -29,47 +29,35 @@
             <pre class="prettyprint source linenums"><code>const ServiceBase = require('./ServiceBase')
 
 /**
- * Represents the listcord.com service
- * @see https://listcord.com/developers/docs
+ * Represents the bots.discord.pw service
+ * @see https://discord.bots.gg/docs
  */
-class Listcord extends ServiceBase {
-  /**
-   * Gets the list of bots listed for this service
-   * @param {number} limit The amount of IDs to list.
-   * @param {number} offset The offset of the list.
-   */
-  getBots(limit = 20, offset = 0){
-    return this._request({ url: `https://listcord.com/api/bots/${limit}/${offset}` });
-  }
-
-  /**
-   * Searches a term amongst the bots in this service
-   * @param {string} q Query to seearch for.
-   * @param {number} limit The amount of IDs to list.
-   * @param {number} offset The offset of the list.
-   */
-  searchBots(q, limit = 20, offset = 0){
-    return this._request({ url: `https://listcord.com/api/bots/${limit}/${offset}`, query: { q } });
-  }
-
+class DiscordBotsGG extends ServiceBase {
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
    */
-  getBot(id){
-    return this._request({ url: `https://listcord.com/api/bot/${id}` });
+  getBot(id, sanitized = false){
+    return this._request({
+      url: `https://discord.bots.gg/api/v1/bots/${id}`,
+      headers: { Authorization: this.token },
+      query: { sanitized }
+    }, true);
   }
 
   /**
-   * Gets the data on the voters for this bot
-   * @param {string} id The bot's ID.
+   * Gets a list of bots on this service
    */
-  getBotVotes(id){
-    return this._request({ url: `https://listcord.com/api/bot/${id}/votes` });
+  getBots(query){
+    return this._request({
+      url: `https://discord.bots.gg/api/v1/bots`,
+      headers: { Authorization: this.token },
+      query
+    }, true);
   }
 }
 
-module.exports = Listcord;</code></pre>
+module.exports = DiscordBotsGG;</code></pre>
         </article>
     </section>
 
