@@ -55,6 +55,14 @@ exports.PostFormat = {
       body: { server_count: serverCount }
     }
   },
+  botsondiscord: (token, clientID, serverCount) => {
+    return {
+      method: 'post',
+      url: `https://bots.ondiscord.xyz/bot-api/bots/${clientID}/guilds`,
+      headers: { Authorization: token },
+      body: { guildCount: serverCount }
+    }
+  },
   listcord: (token, clientID, serverCount) => {
     return {
       method: 'post',
@@ -76,6 +84,8 @@ exports.PostFormat = {
  * A service supported by the package. Here are the available services:
  * * discordbotsgg
  * * discordbotsorg
+ * * botsfordiscord
+ * * botsondiscord
  * * lsterminalink
  * * listcord
  * * carbon
@@ -85,6 +95,8 @@ exports.PostFormat = {
 exports.AvailableServices = [
   'discordbotsgg',
   'discordbotsorg',
+  'botsfordiscord',
+  'botsondiscord',
   'lsterminalink',
   'listcord',
   'carbon'

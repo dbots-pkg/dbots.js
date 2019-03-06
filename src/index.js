@@ -4,6 +4,7 @@ module.exports = {
   BotsForDiscord: require('./Interface/BotsForDiscord'),
   DiscordBotsOrg: require('./Interface/DiscordBotsOrg'),
   lsTerminalInk: require('./Interface/lsTerminalInk'),
+  BotsOnDiscord: require('./Interface/BotsOnDiscord'),
   Listcord: require('./Interface/Listcord'),
   Constants: require('./Utils/Constants'),
   EnsurePromise: require('./Utils/EnsurePromise'),

@@ -2,42 +2,48 @@ const ServiceBase = require('./ServiceBase')
 
 /**
  * Represents the Bots For Discord service
- * @see https://botsfordiscord.com/docs/v1
+ * @see https://docs.botsfordiscord.com/
  */
 class BotsForDiscord extends ServiceBase {
-  /**
-   * Tests the initialized token
-   * @param {string} id The ID of a bot that the token is in control of.
-   */
-  test(id){
-    return this._request({
-      url: `https://botsfordiscord.com/api/v1/test/${id}`,
-      headers: { Authorization: this.token }
-    }, true)
-  }
-
-  /**
-   * Gets a list of bots on this service
-   */
-  getBots(){
-    return this._request({ url: `https://botsfordiscord.com/api/v1/bots` });
-  }
-
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
    */
   getBot(id){
-    return this._request({ url: `https://botsfordiscord.com/api/v1/bots/${id}` });
+    return this._request({ url: `https://botsfordiscord.com/api/bot/${id}` });
   }
 
   /**
-   * Gets the embed picture for this bot
+   * Gets the widget for this bot
    * @param {string} id The bot's ID.
    * @param {Object} query The querystring that will be used in the request
    */
-  getBotEmbed(id, query){
-    return this._request({ url: `https://botsfordiscord.com/api/v1/bots/${id}/embed`, query });
+  getBotWidget(id, query){
+    return this._request({ url: `https://botsfordiscord.com/api/bots/${id}/widget`, query });
+  }
+
+  /**
+   * Gets the votes for this bot
+   * @param {string} id The bot's ID.
+   */
+  getBotVotes(id){
+    return this._request({ url: `https://botsfordiscord.com/api/bots/${id}/votes` });
+  }
+
+  /**
+   * Gets the user listed for this service
+   * @param {string} id The user's ID.
+   */
+  getUser(id){
+    return this._request({ url: `https://botsfordiscord.com/api/user/${id}` });
+  }
+
+  /**
+   * Gets the user's list of managed bots
+   * @param {string} id The user's ID.
+   */
+  getUserBots(id){
+    return this._request({ url: `https://botsfordiscord.com/api/user/${id}/bots` });
   }
 }
 
