@@ -26,5 +26,9 @@
   },
   "dependencies": {
     "snekfetch": "^3.5.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.2",
+    "jshint": "^2.10.2"
   }
 }
