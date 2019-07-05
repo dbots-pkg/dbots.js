@@ -63,3 +63,4 @@ qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](s
  - [botsfordiscord.com `botsfordiscord`](http://botsfordiscord.com)
  - [bots.ondiscord.xyz `botsondiscord`](http://bots.ondiscord.xyz)
  - [listcord.com `listcord`](http://listcord.com)
+ - [discordbotlist.com `discordbotlist`](https://discordbotlist.com)
