@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Interface/lsTerminalInk.js</title>
+    <title>JSDoc: Source: Interface/DiscordBotList.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Interface/lsTerminalInk.js</h1>
+    <h1 class="page-title">Source: Interface/DiscordBotList.js</h1>
 
     
 
@@ -29,47 +29,20 @@
             <pre class="prettyprint source linenums"><code>const ServiceBase = require('./ServiceBase')
 
 /**
- * Represents the ls.terminal.ink's service
- * @see https://ls.terminal.ink/docs/v1
+ * Represents the Discord Bot List service
+ * @see https://discordbotlist.com/api-docs
  */
-class lsTerminalInk extends ServiceBase {
+class DiscordBotList extends ServiceBase {
   /**
-   * Tests the initialized token
-   * @param {string} id The ID of a bot that the token is in control of.
-   */
-  test(id){
-    return this._request({
-      url: `https://ls.terminal.ink/api/v1/test/${id}`,
-      headers: { Authorization: this.token }
-    }, true)
-  }
-
-  /**
-   * Gets a list of bots on this service
-   */
-  getBots(){
-    return this._request({ url: `https://ls.terminal.ink/api/v1/bots` });
-  }
-
-  /**
-   * Gets the bot listed for this service
+   * Gets the widget for this bot
    * @param {string} id The bot's ID.
    */
-  getBot(id){
-    return this._request({ url: `https://ls.terminal.ink/api/v1/bots/${id}` });
-  }
-
-  /**
-   * Gets the embed picture for this bot
-   * @param {string} id The bot's ID.
-   * @param {Object} query The querystring that will be used in the request
-   */
-  getBotEmbed(id, query){
-    return this._request({ url: `https://ls.terminal.ink/api/v1/bots/${id}/embed`, query });
+  getBotWidget(id) {
+    return this._request({ url: `https://discordbotlist.com/bots/${id}/widget` });
   }
 }
 
-module.exports = lsTerminalInk;</code></pre>
+module.exports = DiscordBotList;</code></pre>
         </article>
     </section>
 

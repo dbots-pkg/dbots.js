@@ -142,7 +142,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line10">line 10</a>
+        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line11">line 11</a>
     </li></ul></dd>
     
 
@@ -152,6 +152,8 @@
 
     
 </dl>
+
+
 
 
 
@@ -271,11 +273,233 @@
 
 
 
+
+
 <h5>Returns:</h5>
 
         
 <div class="param-desc">
     Amount of servers the client/shard is in
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Number></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getUserCount"><span class="type-signature"></span>getUserCount<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;Number>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Retrieves the current user count of the client/shard
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line36">line 36</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Amount of users the client/shard is connected with
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Number></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getVoiceConnections"><span class="type-signature"></span>getVoiceConnections<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;Number>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Retrieves the current voice connection count of the client/shard
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line47">line 47</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Number of active voice connections
 </div>
 
 
@@ -356,7 +580,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line54">line 54</a>
+        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line76">line 76</a>
     </li></ul></dd>
     
 
@@ -391,13 +615,15 @@
 
 
 
+
+
         
             
 
     
 
     
-    <h4 class="name" id="postManual"><span class="type-signature"></span>postManual<span class="signature">(serverCount, service)</span><span class="type-signature"> &rarr; {Promise.&lt;(Object|Array.&lt;Object>)>}</span></h4>
+    <h4 class="name" id="postManual"><span class="type-signature"></span>postManual<span class="signature">(serverCount, service, userCount<span class="signature-attributes">opt</span>, voiceConnections<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;(Object|Array.&lt;Object>)>}</span></h4>
     
 
     
@@ -429,6 +655,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
         <th>Default</th>
@@ -455,6 +683,14 @@
             
             </td>
 
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
             
 
             
@@ -483,6 +719,14 @@
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
                 <td class="default">
@@ -493,6 +737,80 @@
             
 
             <td class="description last">The service to post to</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>userCount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">The server count to post to the service</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>voiceConnections</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">The voice connection count to post to the service</td>
         </tr>
 
     
@@ -533,7 +851,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line69">line 69</a>
+        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line98">line 98</a>
     </li></ul></dd>
     
 
@@ -543,6 +861,8 @@
 
     
 </dl>
+
+
 
 
 
@@ -698,7 +1018,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line37">line 37</a>
+        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line59">line 59</a>
     </li></ul></dd>
     
 
@@ -708,6 +1028,8 @@
 
     
 </dl>
+
+
 
 
 
@@ -806,7 +1128,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line46">line 46</a>
+        <a href="Interface_Poster.js.html">Interface/Poster.js</a>, <a href="Interface_Poster.js.html#line68">line 68</a>
     </li></ul></dd>
     
 
@@ -816,6 +1138,8 @@
 
     
 </dl>
+
+
 
 
 
@@ -850,13 +1174,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BotsForDiscord.html">BotsForDiscord</a></li><li><a href="DiscordBotsGG.html">DiscordBotsGG</a></li><li><a href="DiscordBotsOrg.html">DiscordBotsOrg</a></li><li><a href="Listcord.html">Listcord</a></li><li><a href="lsTerminalInk.html">lsTerminalInk</a></li><li><a href="Poster.html">Poster</a></li><li><a href="ServiceBase.html">ServiceBase</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BotsForDiscord.html">BotsForDiscord</a></li><li><a href="BotsOnDiscord.html">BotsOnDiscord</a></li><li><a href="DiscordBotList.html">DiscordBotList</a></li><li><a href="DiscordBotsGG.html">DiscordBotsGG</a></li><li><a href="DiscordBotsOrg.html">DiscordBotsOrg</a></li><li><a href="Listcord.html">Listcord</a></li><li><a href="lsTerminalInk.html">lsTerminalInk</a></li><li><a href="Poster.html">Poster</a></li><li><a href="ServiceBase.html">ServiceBase</a></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Dec 18 2018 19:14:23 GMT-0600 (Central Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.2</a> on Fri Jul 05 2019 23:08:36 GMT+0200 (ora legale Europa occidentale)
 </footer>
 
 <script> prettyPrint(); </script>
