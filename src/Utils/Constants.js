@@ -122,17 +122,37 @@ exports.ServerCountFunctions = {
   'discordie': client => { return client.Guilds.size; }
 }
 
+/**
+ * An event that can be added an handler for. These are the available events:
+ * * autopost
+ * @typedef {string} CustomEvent
+ */
+/**
+ * Emitted after the interval is run.
+ * @event Poster#autopost
+ * @param {Object|Array<Object>} result The result(s) of the post
+ */
+exports.SupportedEvents = [
+  'autopost'
+]
+
 exports.AutoValueFunctions = {
-  'discord.js': client => { return {
-    clientID: client.user.id,
-    shard: client.shard ? { id: client.shard.id, count: client.shard.count } : undefined
-  }; },
-  'discord.io': client => { return {
-    clientID: client.id,
-    shard: client._shard ? { id: client._shard[0], count: client._shard[1] } : undefined
-  }; },
-  'discordie': client => { return {
-    clientID: client.User.id,
-    shard: client.options.shardId && client.options.shardCount ? { id: client.options.shardId, count: client.options.shardCount } : undefined
-  }; }
+  'discord.js': client => {
+    return {
+      clientID: client.user.id,
+      shard: client.shard ? { id: client.shard.id, count: client.shard.count } : undefined
+    };
+  },
+  'discord.io': client => {
+    return {
+      clientID: client.id,
+      shard: client._shard ? { id: client._shard[0], count: client._shard[1] } : undefined
+    };
+  },
+  'discordie': client => {
+    return {
+      clientID: client.User.id,
+      shard: client.options.shardId && client.options.shardCount ? { id: client.options.shardId, count: client.options.shardCount } : undefined
+    };
+  }
 }
