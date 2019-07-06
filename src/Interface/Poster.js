@@ -39,8 +39,8 @@ class Poster {
   startInterval(interval = 1800000) {
     clearTimeout(this._interval);
     this._interval = setInterval(() => this.post().then(result => {
-      for (let handler of this.handlers['autopost']) EnsurePromise(handler, result);
-      resolve(result);
+      for (let handler of this.handlers.autopost) EnsurePromise(handler, result);
+      return result
     }), interval);
     return this._interval;
   }
