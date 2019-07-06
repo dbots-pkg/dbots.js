@@ -51,6 +51,11 @@ declare module 'dbots' {
 
   /** A class that posts server count to listing site(s). */
   export class Poster {
+    client?: object
+    clientID: string
+    options: PosterOptions
+    _interval?: NodeJS.Timeout
+
     /**
      * A class that posts server count to listing site(s).
      * @param options The options needed to construct the poster.
