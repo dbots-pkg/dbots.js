@@ -36,6 +36,8 @@ declare module 'dbots' {
     /** The client that a supported `Library` uses to manage the Discord application. Requires `clientLibrary` to be present. */
     client?: object
     /** The client ID used for posting to a `Service`. Automatically filled in when `client` is present. */
+    clientID?: string
+    /** The library that the client is based on. */
     clientLibrary?: Library
     /** The function to use when posting to a server that uses the client ID, the amount of servers, and a `Shard`. This will be used when the `Service` is `custom`. */
     post?: PromiseResolvable
