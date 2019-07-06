@@ -93,7 +93,7 @@ class Poster {
   }
 
   /**
-   * Adds an handler for an event
+   * Removes an handler for an event
    * @param {CustomEvent} event The name of the event to remove the handler from
    * @param {PromiseResolvable} handler The function that is run with the event
    * @returns {Array<PromiseResolvable>} The array of handlers currently set for that event
