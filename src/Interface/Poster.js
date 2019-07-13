@@ -39,8 +39,8 @@ class Poster {
   startInterval(interval = 1800000) {
     clearTimeout(this._interval);
     this._interval = setInterval(() => this.post().then(result => {
-      for (let handler of this.handlers.autopost) EnsurePromise(handler, result);
-      return result
+      this.runHandlers('autopost', result);
+      return result;
     }), interval);
     return this._interval;
   }
@@ -104,6 +104,16 @@ class Poster {
     let index = this.handlers[event].indexOf(handler);
     if (index >= 0) this.handlers[event].splice(index, 1);
     return this.handlers[event];
+  }
+
+  /**
+   * Manually triggers an event with custom arguments
+   * @param {CustomEvent} event The name of the event to run the handlers for
+   * @param  {...any} args The arguments to pass to the handlers
+   */
+  runHandlers(event, ...args) {
+    if (!Constants.SupportedEvents.includes(event)) throw new Error('Can\'t remove handler for an unsupported event.');
+    for (let handler of this.handlers[event]) EnsurePromise(handler(...args));
   }
 }
 
