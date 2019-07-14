@@ -50,7 +50,7 @@ exports.PostFormat = {
   botsfordiscord: (token, clientID, serverCount) => {
     return {
       method: 'post',
-      url: `https://botsfordiscord.com/api/v1/bots/${clientID}`,
+      url: `https://botsfordiscord.com/api/bot/${clientID}`,
       headers: { Authorization: token },
       body: { server_count: serverCount }
     }
@@ -123,16 +123,22 @@ exports.ServerCountFunctions = {
 }
 
 exports.AutoValueFunctions = {
-  'discord.js': client => { return {
-    clientID: client.user.id,
-    shard: client.shard ? { id: client.shard.id, count: client.shard.count } : undefined
-  }; },
-  'discord.io': client => { return {
-    clientID: client.id,
-    shard: client._shard ? { id: client._shard[0], count: client._shard[1] } : undefined
-  }; },
-  'discordie': client => { return {
-    clientID: client.User.id,
-    shard: client.options.shardId && client.options.shardCount ? { id: client.options.shardId, count: client.options.shardCount } : undefined
-  }; }
+  'discord.js': client => {
+    return {
+      clientID: client.user.id,
+      shard: client.shard ? { id: client.shard.id, count: client.shard.count } : undefined
+    };
+  },
+  'discord.io': client => {
+    return {
+      clientID: client.id,
+      shard: client._shard ? { id: client._shard[0], count: client._shard[1] } : undefined
+    };
+  },
+  'discordie': client => {
+    return {
+      clientID: client.User.id,
+      shard: client.options.shardId && client.options.shardCount ? { id: client.options.shardId, count: client.options.shardCount } : undefined
+    };
+  }
 }
