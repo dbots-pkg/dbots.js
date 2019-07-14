@@ -1,7 +1,8 @@
-import { Shard } from "../src/Utils/Constants";
+import { Shard, SupportedEvents } from "../src/Utils/Constants";
 
 type Library = 'discord.js' | 'discord.io' | 'discordie'
-type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'lsterminalink' | 'listcord' | 'carbon'
+type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'lsterminalink' | 'listcord' | 'carbon' | 'discordbotlist'
+type CustomEvent = 'autopost'
 
 class ServiceBase {
   constructor(token: string)
@@ -23,6 +24,11 @@ interface keyFormat {
   lsterminalink?: string
   listcord?: string
   carbon?: string
+  discordbotlist?: string
+}
+
+interface handlerCollector {
+  autopost: ((result: object | object[]) => void)[]
 }
 
 declare module 'dbots' {
@@ -45,6 +51,10 @@ declare module 'dbots' {
     shard?: Shard
     /** The function to use when retrieving the amount of servers a client/shard is in. Uses the client as a parameter. */
     serverCount?: PromiseResolvable
+    /** The function to use when retrieving the amount of users a client/shard is connected with. Uses the client as a parameter. */
+    userCount?: PromiseResolvable
+    /** The function to use when retrieving the number of active voice connections. Uses the client as a parameter. */
+    voiceConnections?: PromiseResolvable
     /** Whether or not to use a `Service` sharding method when posting. */
     useSharding?= true
   }
@@ -53,6 +63,7 @@ declare module 'dbots' {
   export class Poster {
     client?: object
     clientID: string
+    handlers: handlerCollector
     options: PosterOptions
     _interval?: NodeJS.Timeout
 
@@ -67,6 +78,18 @@ declare module 'dbots' {
      * @returns Amount of servers the client/shard is in
      */
     getServerCount(): Promise<number>
+
+    /**
+     * Retrieves the current user count of the client/shard
+     * @returns Amount of users the client/shard is connected with
+     */
+    getUserCount(): Promise<number>
+
+    /**
+     * Retrieves the current voice connection count of the client/shard
+     * @returns Number of active voice connections
+     */
+    getVoiceConnections(): Promise<number>
 
     /**
      * Creates an interval that posts to all services
@@ -89,9 +112,39 @@ declare module 'dbots' {
      * Manually posts a server count to a service
      * @param serverCount The server count to post to the service
      * @param service The service to post to
+     * @param userCount The server count to post to the service
+     * @param voiceConnections The voice connection count to post to the service
      * @returns The result(s) of the post
      */
+
     postManual(serverCount: number, service?: Service): Promise<object | object[]>
+
+    /**
+     * Adds an handler for an event
+     * @param event The name of the event to add the handler to
+     * @param handler The function that is run with the event
+     * @returns The array of handlers currently set for that event
+     */
+    addHandler(event: 'autopost', handler: (result: object | object[]) => void): PromiseResolvable[]
+    addHandler(event: CustomEvent, handler: PromiseResolvable): PromiseResolvable[]
+
+    /**
+     * Removes an handler for an event
+     * @param event The name of the event to remove the handler from
+     * @param handler The function that is run with the event
+     * @returns The array of handlers currently set for that event
+     */
+    removeHandler(event: 'autopost', handler: (result: object | object[]) => void): PromiseResolvable[]
+    removeHandler(event: CustomEvent, handler: PromiseResolvable): PromiseResolvable[]
+
+    /**
+    * Manually triggers an event with custom arguments
+    * @param event The name of the event to run the handlers for
+    * @param args The arguments to pass to the handlers
+    */
+    runHandlers(event: 'autopost', result: object | object[]): void
+    runHandlers(event: CustomEvent, ...args: any[]): void
+
   }
 
   //#region services
@@ -254,6 +307,18 @@ declare module 'dbots' {
      */
     getBotVotes(id: string): Promise<any>
   }
+
+  /**
+   * Represents the Discord Bot List service
+   * @see https://discordbotlist.com/api-docs
+   */
+  class DiscordBotList extends ServiceBase {
+    /**
+     * Gets the widget for this bot
+     * @param id The bot's ID.
+     */
+    getBotWidget(id: string): Promise<any>
+  }
   //#endregion
 
 
@@ -266,12 +331,20 @@ declare module 'dbots' {
       botsondiscord: (token: string, clientID: string, serverCount: number) => RequestFormat
       listcord: (token: string, clientID: string, serverCount: number) => RequestFormat
       carbon: (token: string, _: any, serverCount: number) => RequestFormat
+      discordbotlist: (token: string, clientID: string, serverCount: number, shard?: Shard, usersCount?: number, voiceConnections?: number) => RequestFormat
     }
 
     AvailableServices: string[]
     SupportingLibraries: string[]
+    SupportedEvents: string[]
 
     ServerCountFunctions: {
+      [library: Library]: (client: any) => number
+    }
+    UserCountFunctions: {
+      [library: Library]: (client: any) => number
+    }
+    VoiceConnectionsFunctions: {
       [library: Library]: (client: any) => number
     }
     AutoValueFunctions: {
