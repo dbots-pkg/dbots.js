@@ -54,7 +54,7 @@ exports.PostFormat = {
   botsfordiscord: (token, clientID, serverCount) => {
     return {
       method: 'post',
-      url: `https://botsfordiscord.com/api/v1/bots/${clientID}`,
+      url: `https://botsfordiscord.com/api/bot/${clientID}`,
       headers: { Authorization: token },
       body: { server_count: serverCount }
     }
