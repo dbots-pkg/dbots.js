@@ -141,6 +141,20 @@ exports.ServerCountFunctions = {
   'discordie': client => { return client.Guilds.size; }
 }
 
+/**
+ * An event that can be added an handler for. These are the available events:
+ * * autopost
+ * @typedef {string} CustomEvent
+ */
+/**
+ * Emitted after the interval is run.
+ * @event Poster#autopost
+ * @param {Object|Array<Object>} result The result(s) of the post
+ */
+exports.SupportedEvents = [
+  'autopost'
+]
+
 exports.UserCountFunctions = {
   'discord.js': client => { return client.users.size; },
   'discord.io': client => { return Object.keys(client.users).length; },

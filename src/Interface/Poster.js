@@ -16,6 +16,8 @@ class Poster {
     if (this.client && !options.clientID) Object.assign(options, Constants.AutoValueFunctions[options.clientLibrary](options.client));
     if (!options.useSharding) options.shard = undefined;
     this.options = options;
+    this.handlers = {};
+    for (let event of Constants.SupportedEvents) this.handlers[event] = [];
   }
 
   /**
@@ -58,7 +60,10 @@ class Poster {
     */
   startInterval(interval = 1800000) {
     clearTimeout(this._interval);
-    this._interval = setInterval(() => this.post(), interval);
+    this._interval = setInterval(() => this.post().then(result => {
+      this.runHandlers('autopost', result);
+      return result;
+    }), interval);
     return this._interval;
   }
 
@@ -103,6 +108,42 @@ class Poster {
     if (!Object.keys(this.options.apiKeys).includes(service)) throw new Error('SERVICE_WITH_NO_KEY', service);
     if (service === 'discordbotlist') return FormatRequest(Constants.PostFormat[service](this.options.apiKeys[service], this.options.clientID, serverCount, this.options.shard, userCount, voiceConnections));
     return FormatRequest(Constants.PostFormat[service](this.options.apiKeys[service], this.options.clientID, serverCount, this.options.shard));
+  }
+
+  /**
+   * Adds an handler for an event
+   * @param {CustomEvent} event The name of the event to add the handler to
+   * @param {PromiseResolvable} handler The function that is run with the event
+   * @returns {Array<PromiseResolvable>} The array of handlers currently set for that event
+   */
+  addHandler(event, handler) {
+    if (!Constants.SupportedEvents.includes(event)) throw new Error('Can\'t add handler for an unsupported event.');
+    if (!(handler instanceof Function || handler instanceof Promise)) throw new Error('Given handler is not a PromiseResolvable.');
+    return this.handlers[event].push(handler);
+  }
+
+  /**
+   * Removes an handler for an event
+   * @param {CustomEvent} event The name of the event to remove the handler from
+   * @param {PromiseResolvable} handler The function that is run with the event
+   * @returns {Array<PromiseResolvable>} The array of handlers currently set for that event
+   */
+  removeHandler(event, handler) {
+    if (!Constants.SupportedEvents.includes(event)) throw new Error('Can\'t remove handler for an unsupported event.');
+    if (!(handler instanceof Function || handler instanceof Promise)) throw new Error('Given handler is not a PromiseResolvable.');
+    let index = this.handlers[event].indexOf(handler);
+    if (index >= 0) this.handlers[event].splice(index, 1);
+    return this.handlers[event];
+  }
+
+  /**
+   * Manually triggers an event with custom arguments
+   * @param {CustomEvent} event The name of the event to run the handlers for
+   * @param  {...any} args The arguments to pass to the handlers
+   */
+  runHandlers(event, ...args) {
+    if (!Constants.SupportedEvents.includes(event)) throw new Error('Can\'t remove handler for an unsupported event.');
+    for (let handler of this.handlers[event]) EnsurePromise(handler(...args));
   }
 }
 
