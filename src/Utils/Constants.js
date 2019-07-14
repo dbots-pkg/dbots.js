@@ -12,6 +12,10 @@
  * @property {Shard} [shard] The shard data for using different methods of posting to services.
  * @property {PromiseResolvable} [serverCount] The function to use when retrieving the amount of servers a client/shard is in.
  ^ Uses the client as a parameter.
+ * @property {PromiseResolvable} [userCount] The function to use when retrieving the amount of users a client/shard is connected with.
+ ^ Uses the client as a parameter.
+ * @property {PromiseResolvable} [voiceConnections] The function to use when retrieving the number of active voice connections.
+ ^ Uses the client as a parameter.
  * @property {number} [useSharding=true] Whether or not to use a {@link Service}s sharding method when posting.
  */
 
@@ -50,7 +54,7 @@ exports.PostFormat = {
   botsfordiscord: (token, clientID, serverCount) => {
     return {
       method: 'post',
-      url: `https://botsfordiscord.com/api/v1/bots/${clientID}`,
+      url: `https://botsfordiscord.com/api/bot/${clientID}`,
       headers: { Authorization: token },
       body: { server_count: serverCount }
     }
@@ -77,6 +81,19 @@ exports.PostFormat = {
       url: 'https://www.carbonitex.net/discord/data/botdata.php',
       body: { key: token, servercount: serverCount }
     }
+  },
+  discordbotlist: (token, clientID, serverCount, shard, usersCount, voiceConnections) => {
+    const body = { guilds: serverCount };
+    if (shard) body.shard_id = shard.id;
+    if (usersCount) body.users = usersCount;
+    if (voiceConnections) body.voice_connections = voiceConnections;
+
+    return {
+      method: 'post',
+      url: `https://discordbotlist.com/api/bots/${clientID}/stats`,
+      headers: { Authorization: `Bot ${token}` },
+      body
+    }
   }
 }
 
@@ -89,6 +106,7 @@ exports.PostFormat = {
  * * lsterminalink
  * * listcord
  * * carbon
+ * * discordbotlist
  * @typedef {string} Service
  */
 
@@ -99,7 +117,8 @@ exports.AvailableServices = [
   'botsondiscord',
   'lsterminalink',
   'listcord',
-  'carbon'
+  'carbon',
+  'discordbotlist'
 ]
 
 /**
@@ -135,6 +154,18 @@ exports.ServerCountFunctions = {
 exports.SupportedEvents = [
   'autopost'
 ]
+
+exports.UserCountFunctions = {
+  'discord.js': client => { return client.users.size; },
+  'discord.io': client => { return Object.keys(client.users).length; },
+  'discordie': client => { return client.Users.size; }
+}
+
+exports.VoiceConnectionsFunctions = {
+  'discord.js': client => { return client.voiceConnections.size; },
+  'discord.io': () => { return Object.keys(client._vChannels).length; },
+  'discordie': client => { return client.VoiceConnections.length; }
+}
 
 exports.AutoValueFunctions = {
   'discord.js': client => {
