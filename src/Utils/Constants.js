@@ -149,7 +149,7 @@ exports.UserCountFunctions = {
 
 exports.VoiceConnectionsFunctions = {
   'discord.js': client => { return client.voiceConnections.size; },
-  'discord.io': () => { }, // I can't figure out how to do that, if you do please fix it and submit a PR.
+  'discord.io': () => { return Object.keys(client._vChannels).length; },
   'discordie': client => { return client.VoiceConnections.length; }
 }
 
