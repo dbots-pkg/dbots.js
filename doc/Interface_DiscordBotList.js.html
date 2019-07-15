@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Utils/EnsurePromise.js</title>
+    <title>JSDoc: Source: Interface/DiscordBotList.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Utils/EnsurePromise.js</h1>
+    <h1 class="page-title">Source: Interface/DiscordBotList.js</h1>
 
     
 
@@ -26,16 +26,23 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
-   * Data that can be resolved to give a string. This can either be a Function or a Promise
-   * @typedef {Function|Promise} PromiseResolvable
-   */
+            <pre class="prettyprint source linenums"><code>const ServiceBase = require('./ServiceBase')
 
-module.exports = function EnsurePromise(func, ...args) {
-  if(typeof func === 'function'){
-    return new Promise(resolve => resolve(func(...args)))
-  }else if(func instanceof Promise) return func;
-}</code></pre>
+/**
+ * Represents the Discord Bot List service
+ * @see https://discordbotlist.com/api-docs
+ */
+class DiscordBotList extends ServiceBase {
+  /**
+   * Gets the widget for this bot
+   * @param {string} id The bot's ID.
+   */
+  getBotWidget(id) {
+    return this._request({ url: `https://discordbotlist.com/bots/${id}/widget` });
+  }
+}
+
+module.exports = DiscordBotList;</code></pre>
         </article>
     </section>
 
