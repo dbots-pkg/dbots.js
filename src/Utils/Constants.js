@@ -163,7 +163,7 @@ exports.UserCountFunctions = {
 
 exports.VoiceConnectionsFunctions = {
   'discord.js': client => { return client.voiceConnections.size; },
-  'discord.io': () => { return Object.keys(client._vChannels).length; },
+  'discord.io': client => { return Object.keys(client._vChannels).length; },
   'discordie': client => { return client.VoiceConnections.length; }
 }
 
