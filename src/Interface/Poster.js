@@ -55,7 +55,7 @@ class Poster {
 
   /**
     * Creates an interval that posts to all services
-    * @param {number} interval The time (in ms) to reach to post to all {link Service}s again.
+    * @param {number} interval The time (in ms) to reach to post to all {@link Service}s again.
     * @returns {Interval} The interval that is responsible for posting
     */
   startInterval(interval = 1800000) {
