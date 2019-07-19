@@ -58,7 +58,7 @@ qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](s
 ## Supporting Services
  - [discordbots.org `discordbotsorg`](https://discordbots.org)
  - [discord.bots.gg `discordbotsgg`](https://discord.bots.gg)
- - [ls.terminal.ink `lsterminalink`](https://ls.terminal.ink)
+ - [discordapps.dev `discordappsdev`](https://discordapps.dev)
  - [carbonitex.net `carbon`](http://carbonitex.net/discord/bots)
  - [botsfordiscord.com `botsfordiscord`](http://botsfordiscord.com)
  - [bots.ondiscord.xyz `botsondiscord`](http://bots.ondiscord.xyz)

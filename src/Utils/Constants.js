@@ -43,12 +43,12 @@ exports.PostFormat = {
       body: shard ? { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : { server_count: serverCount }
     }
   },
-  lsterminalink: (token, clientID, serverCount) => {
+  discordappsdev: (token, clientID, serverCount) => {
     return {
       method: 'post',
-      url: `https://ls.terminal.ink/api/v1/bots/${clientID}`,
+      url: `https://api.discordapps.dev/api/v2/bots/${clientID}`,
       headers: { Authorization: token },
-      body: { server_count: serverCount }
+      body: { bot: { count: serverCount } }
     }
   },
   botsfordiscord: (token, clientID, serverCount) => {
@@ -103,7 +103,7 @@ exports.PostFormat = {
  * * discordbotsorg
  * * botsfordiscord
  * * botsondiscord
- * * lsterminalink
+ * * discordappsdev
  * * listcord
  * * carbon
  * * discordbotlist
@@ -115,7 +115,7 @@ exports.AvailableServices = [
   'discordbotsorg',
   'botsfordiscord',
   'botsondiscord',
-  'lsterminalink',
+  'discordappsdev',
   'listcord',
   'carbon',
   'discordbotlist'
