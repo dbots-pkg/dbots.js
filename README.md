@@ -65,3 +65,4 @@ qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](s
  - [listcord.com `listcord`](http://listcord.com)
  - [discordbotlist.com `discordbotlist`](https://discordbotlist.com)
  - [divinediscordbots.com `divinediscordbots`](https://divinediscordbots.com)
+ - [discord.boats `discordboats`](https://discord.boats)

@@ -102,6 +102,14 @@ exports.PostFormat = {
       headers: { Authorization: token },
       body: { server_count: serverCount }
     }
+  },
+  discordboats: (token, clientID, serverCount) => {
+    return {
+      method: 'post',
+      url: `https://discord.boats/api/v2/bot/${clientID}`,
+      headers: { Authorization: token },
+      body: { server_count: serverCount }
+    }
   }
 }
 
@@ -116,6 +124,7 @@ exports.PostFormat = {
  * * carbon
  * * discordbotlist
  * * divinediscordbots
+ * * discordboats
  * @typedef {string} Service
  */
 
@@ -128,7 +137,8 @@ exports.AvailableServices = [
   'listcord',
   'carbon',
   'discordbotlist',
-  'divinediscordbots'
+  'divinediscordbots',
+  'discordboats'
 ]
 
 /**
