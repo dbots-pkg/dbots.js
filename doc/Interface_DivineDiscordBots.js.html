@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Interface/DiscordBotsGG.js</title>
+    <title>JSDoc: Source: Interface/DivineDiscordBots.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Interface/DiscordBotsGG.js</h1>
+    <h1 class="page-title">Source: Interface/DivineDiscordBots.js</h1>
 
     
 
@@ -29,35 +29,28 @@
             <pre class="prettyprint source linenums"><code>const ServiceBase = require('./ServiceBase')
 
 /**
- * Represents the bots.discord.pw service
- * @see https://discord.bots.gg/docs
+ * Represents the divinediscordbots.com's service
+ * @see https://divinediscordbots.com/api
  */
-class DiscordBotsGG extends ServiceBase {
+class DivineDiscordBots extends ServiceBase {
   /**
-   * Gets the bot listed for this service
+   * Gets the bot stats for your bot
    * @param {string} id The bot's ID.
    */
-  getBot(id, sanitized = false){
-    return this._request({
-      url: `https://discord.bots.gg/api/v1/bots/${id}`,
-      headers: { Authorization: this.token },
-      query: { sanitized }
-    }, true);
+  getBotStats(id){
+    return this._request({ url: `https://divinediscordbots.com/bot/${id}/stats` });
   }
 
   /**
-   * Gets a list of bots on this service
+   * Gets the bot votes for your bot
+   * @param {string} id The bot's ID.
    */
-  getBots(query){
-    return this._request({
-      url: `https://discord.bots.gg/api/v1/bots`,
-      headers: { Authorization: this.token },
-      query
-    }, true);
+  getBotVotes(id){
+    return this._request({ url: `https://divinediscordbots.com/bot/${id}/votes` });
   }
 }
 
-module.exports = DiscordBotsGG;</code></pre>
+module.exports = DivineDiscordBots;</code></pre>
         </article>
     </section>
 
