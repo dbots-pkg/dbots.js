@@ -94,6 +94,14 @@ exports.PostFormat = {
       headers: { Authorization: `Bot ${token}` },
       body
     }
+  },
+  divinediscordbots: (token, clientID, serverCount) => {
+    return {
+      method: 'post',
+      url: `https://divinediscordbots.com/bot/${clientID}/stats`,
+      headers: { Authorization: token },
+      body: { server_count: serverCount }
+    }
   }
 }
 
@@ -107,6 +115,7 @@ exports.PostFormat = {
  * * listcord
  * * carbon
  * * discordbotlist
+ * * divinediscordbots
  * @typedef {string} Service
  */
 
@@ -118,7 +127,8 @@ exports.AvailableServices = [
   'discordappsdev',
   'listcord',
   'carbon',
-  'discordbotlist'
+  'discordbotlist',
+  'divinediscordbots'
 ]
 
 /**

@@ -8,6 +8,7 @@ module.exports = {
   BotsOnDiscord: require('./Interface/BotsOnDiscord'),
   Listcord: require('./Interface/Listcord'),
   DiscordBotsList: require('./Interface/DiscordBotList'),
+  DivineDiscordBots: require('./Interface/DivineDiscordBots'),
 
   Constants: require('./Utils/Constants'),
   EnsurePromise: require('./Utils/EnsurePromise'),

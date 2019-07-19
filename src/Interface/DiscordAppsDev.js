@@ -6,17 +6,6 @@ const ServiceBase = require('./ServiceBase')
  */
 class DiscordAppsDev extends ServiceBase {
   /**
-   * Tests the initialized token
-   * @param {string} id The ID of a bot that the token is in control of.
-   */
-  test(id){
-    return this._request({
-      url: `https://api.discordapps.dev/api/v2/test/${id}`,
-      headers: { Authorization: this.token }
-    }, true)
-  }
-
-  /**
    * Gets a list of bots on this service
    */
   getBots(){
