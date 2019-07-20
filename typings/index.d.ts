@@ -1,7 +1,7 @@
 import { Shard, SupportedEvents } from "../src/Utils/Constants";
 
 type Library = 'discord.js' | 'discord.io' | 'discordie'
-type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'lsterminalink' | 'listcord' | 'carbon' | 'discordbotlist'
+type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'listcord' | 'carbon' | 'discordbotlist'
 type CustomEvent = 'autopost'
 
 class ServiceBase {
@@ -21,7 +21,7 @@ interface keyFormat {
   discordbotsorg?: string
   botsfordiscord?: string
   botsondiscord?: string
-  lsterminalink?: string
+  discordappsdev?: string
   listcord?: string
   carbon?: string
   discordbotlist?: string
@@ -242,10 +242,10 @@ declare module 'dbots' {
   }
 
   /**
-   * Represents the ls.terminal.ink's service
-   * @see https://ls.terminal.ink/docs/v1
+   * Represents the discordapps.dev's service
+   * @see https://discordapps.dev/en-GB/posts/docs/api-v2/
    */
-  export class lsTerminalInk extends ServiceBase {
+  export class DiscordAppsDev extends ServiceBase {
     /**
      * Tests the initialized token
      * @param id The ID of a bot that the token is in control of.
@@ -326,7 +326,7 @@ declare module 'dbots' {
     PostFormat: {
       discordbotsgg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
       discordbotsorg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
-      lsterminalink: (token: string, clientID: string, serverCount: number) => RequestFormat
+      discordappsdev: (token: string, clientID: string, serverCount: number) => RequestFormat
       botsfordiscord: (token: string, clientID: string, serverCount: number) => RequestFormat
       botsondiscord: (token: string, clientID: string, serverCount: number) => RequestFormat
       listcord: (token: string, clientID: string, serverCount: number) => RequestFormat
