@@ -1,7 +1,7 @@
 import { Shard, SupportedEvents } from "../src/Utils/Constants";
 
 type Library = 'discord.js' | 'discord.io' | 'discordie'
-type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'listcord' | 'carbon' | 'discordbotlist' | 'divinediscordbots'
+type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'listcord' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats'
 type CustomEvent = 'autopost'
 
 class ServiceBase {
@@ -26,6 +26,7 @@ interface keyFormat {
   carbon?: string
   discordbotlist?: string
   divinediscordbots?: string
+  discordboats?: string
 }
 
 interface handlerCollector {
@@ -338,6 +339,31 @@ declare module 'dbots' {
      */
     getBotVotes(id: string): Promise<any>
   }
+
+  /**
+   * Represents the discord.boats's service
+   * @see https://discord.boats/api/docs
+   */
+  class DiscordBoats extends ServiceBase {
+    /**
+     * Gets the bot listed for this service
+     * @param id The bot's ID.
+     */
+    getBot(id: string): Promise<any>
+
+    /**
+     * Gets the user listed for this service
+     * @param id The user's ID.
+     */
+    getUser(id: string): Promise<any>
+
+    /**
+     * Whether or not a user has voted for a bot
+     * @param id The bot's ID.
+     * @param userID The user's ID.
+     */
+    userVoted(id: string, userID: string): Promise<any>
+  }
   //#endregion
 
 
@@ -352,6 +378,7 @@ declare module 'dbots' {
       carbon: (token: string, _: any, serverCount: number) => RequestFormat
       discordbotlist: (token: string, clientID: string, serverCount: number, shard?: Shard, usersCount?: number, voiceConnections?: number) => RequestFormat
       divinediscordbots: (token: string, clientID: string, serverCount: number) => RequestFormat
+      discordboats: (token: string, clientID: string, serverCount: number) => RequestFormat
     }
 
     AvailableServices: string[]
