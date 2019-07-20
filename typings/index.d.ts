@@ -1,7 +1,7 @@
 import { Shard, SupportedEvents } from "../src/Utils/Constants";
 
 type Library = 'discord.js' | 'discord.io' | 'discordie'
-type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'lsterminalink' | 'listcord' | 'carbon' | 'discordbotlist'
+type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'listcord' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats'
 type CustomEvent = 'autopost'
 
 class ServiceBase {
@@ -21,10 +21,12 @@ interface keyFormat {
   discordbotsorg?: string
   botsfordiscord?: string
   botsondiscord?: string
-  lsterminalink?: string
+  discordappsdev?: string
   listcord?: string
   carbon?: string
   discordbotlist?: string
+  divinediscordbots?: string
+  discordboats?: string
 }
 
 interface handlerCollector {
@@ -242,10 +244,10 @@ declare module 'dbots' {
   }
 
   /**
-   * Represents the ls.terminal.ink's service
-   * @see https://ls.terminal.ink/docs/v1
+   * Represents the discordapps.dev's service
+   * @see https://discordapps.dev/en-GB/posts/docs/api-v2/
    */
-  export class lsTerminalInk extends ServiceBase {
+  export class DiscordAppsDev extends ServiceBase {
     /**
      * Tests the initialized token
      * @param id The ID of a bot that the token is in control of.
@@ -319,6 +321,49 @@ declare module 'dbots' {
      */
     getBotWidget(id: string): Promise<any>
   }
+
+  /**
+  * Represents the divinediscordbots.com's service
+  * @see https://divinediscordbots.com/api
+  */
+  class DivineDiscordBots extends ServiceBase {
+    /**
+     * Gets the bot stats for your bot
+     * @param id The bot's ID.
+     */
+    getBotStats(id: string): Promise<any>
+
+    /**
+     * Gets the bot votes for your bot
+     * @param id The bot's ID.
+     */
+    getBotVotes(id: string): Promise<any>
+  }
+
+  /**
+   * Represents the discord.boats's service
+   * @see https://discord.boats/api/docs
+   */
+  class DiscordBoats extends ServiceBase {
+    /**
+     * Gets the bot listed for this service
+     * @param id The bot's ID.
+     */
+    getBot(id: string): Promise<any>
+
+    /**
+     * Gets the user listed for this service
+     * @param id The user's ID.
+     */
+    getUser(id: string): Promise<any>
+
+    /**
+     * Whether or not a user has voted for a bot
+     * @param id The bot's ID.
+     * @param userID The user's ID.
+     */
+    userVoted(id: string, userID: string): Promise<any>
+  }
   //#endregion
 
 
@@ -326,12 +371,14 @@ declare module 'dbots' {
     PostFormat: {
       discordbotsgg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
       discordbotsorg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
-      lsterminalink: (token: string, clientID: string, serverCount: number) => RequestFormat
+      discordappsdev: (token: string, clientID: string, serverCount: number) => RequestFormat
       botsfordiscord: (token: string, clientID: string, serverCount: number) => RequestFormat
       botsondiscord: (token: string, clientID: string, serverCount: number) => RequestFormat
       listcord: (token: string, clientID: string, serverCount: number) => RequestFormat
       carbon: (token: string, _: any, serverCount: number) => RequestFormat
       discordbotlist: (token: string, clientID: string, serverCount: number, shard?: Shard, usersCount?: number, voiceConnections?: number) => RequestFormat
+      divinediscordbots: (token: string, clientID: string, serverCount: number) => RequestFormat
+      discordboats: (token: string, clientID: string, serverCount: number) => RequestFormat
     }
 
     AvailableServices: string[]
