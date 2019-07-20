@@ -1,7 +1,7 @@
 import { Shard, SupportedEvents } from "../src/Utils/Constants";
 
 type Library = 'discord.js' | 'discord.io' | 'discordie'
-type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'listcord' | 'carbon' | 'discordbotlist'
+type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'listcord' | 'carbon' | 'discordbotlist' | 'divinediscordbots'
 type CustomEvent = 'autopost'
 
 class ServiceBase {
@@ -25,6 +25,7 @@ interface keyFormat {
   listcord?: string
   carbon?: string
   discordbotlist?: string
+  divinediscordbots?: string
 }
 
 interface handlerCollector {
@@ -319,6 +320,24 @@ declare module 'dbots' {
      */
     getBotWidget(id: string): Promise<any>
   }
+
+  /**
+  * Represents the divinediscordbots.com's service
+  * @see https://divinediscordbots.com/api
+  */
+  class DivineDiscordBots extends ServiceBase {
+    /**
+     * Gets the bot stats for your bot
+     * @param id The bot's ID.
+     */
+    getBotStats(id: string): Promise<any>
+
+    /**
+     * Gets the bot votes for your bot
+     * @param id The bot's ID.
+     */
+    getBotVotes(id: string): Promise<any>
+  }
   //#endregion
 
 
@@ -332,6 +351,7 @@ declare module 'dbots' {
       listcord: (token: string, clientID: string, serverCount: number) => RequestFormat
       carbon: (token: string, _: any, serverCount: number) => RequestFormat
       discordbotlist: (token: string, clientID: string, serverCount: number, shard?: Shard, usersCount?: number, voiceConnections?: number) => RequestFormat
+      divinediscordbots: (token: string, clientID: string, serverCount: number) => RequestFormat
     }
 
     AvailableServices: string[]
