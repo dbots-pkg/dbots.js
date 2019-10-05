@@ -32,7 +32,7 @@ exports.PostFormat = {
       method: 'post',
       url: `https://discord.bots.gg/api/v1/bots/${clientID}/stats`,
       headers: { Authorization: token },
-      body: shard ? { guildCount: serverCount, shardId: shard.id, shardCount: shard.count } : { guildCount: serverCount }
+      data: shard ? { guildCount: serverCount, shardId: shard.id, shardCount: shard.count } : { guildCount: serverCount }
     }
   },
   discordbotsorg: (token, clientID, serverCount, shard) => {
@@ -40,7 +40,7 @@ exports.PostFormat = {
       method: 'post',
       url: `https://discordbots.org/api/bots/${clientID}/stats`,
       headers: { Authorization: token },
-      body: shard ? { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : { server_count: serverCount }
+      data: shard ? { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : { server_count: serverCount }
     }
   },
   discordappsdev: (token, clientID, serverCount) => {
@@ -48,7 +48,7 @@ exports.PostFormat = {
       method: 'post',
       url: `https://api.discordapps.dev/api/v2/bots/${clientID}`,
       headers: { Authorization: token },
-      body: { bot: { count: serverCount } }
+      data: { bot: { count: serverCount } }
     }
   },
   botsfordiscord: (token, clientID, serverCount) => {
@@ -56,7 +56,7 @@ exports.PostFormat = {
       method: 'post',
       url: `https://botsfordiscord.com/api/bot/${clientID}`,
       headers: { Authorization: token },
-      body: { server_count: serverCount }
+      data: { server_count: serverCount }
     }
   },
   botsondiscord: (token, clientID, serverCount) => {
@@ -64,7 +64,7 @@ exports.PostFormat = {
       method: 'post',
       url: `https://bots.ondiscord.xyz/bot-api/bots/${clientID}/guilds`,
       headers: { Authorization: token },
-      body: { guildCount: serverCount }
+      data: { guildCount: serverCount }
     }
   },
   listcord: (token, clientID, serverCount) => {
@@ -72,27 +72,27 @@ exports.PostFormat = {
       method: 'post',
       url: `https://listcord.com/api/bot/${clientID}/guilds`,
       headers: { Authorization: token },
-      body: { guilds: serverCount }
+      data: { guilds: serverCount }
     }
   },
   carbon: (token, _, serverCount) => {
     return {
       method: 'post',
       url: 'https://www.carbonitex.net/discord/data/botdata.php',
-      body: { key: token, servercount: serverCount }
+      data: { key: token, servercount: serverCount }
     }
   },
   discordbotlist: (token, clientID, serverCount, shard, usersCount, voiceConnections) => {
-    const body = { guilds: serverCount };
-    if (shard) body.shard_id = shard.id;
-    if (usersCount) body.users = usersCount;
-    if (voiceConnections) body.voice_connections = voiceConnections;
+    const data = { guilds: serverCount };
+    if (shard) data.shard_id = shard.id;
+    if (usersCount) data.users = usersCount;
+    if (voiceConnections) data.voice_connections = voiceConnections;
 
     return {
       method: 'post',
       url: `https://discordbotlist.com/api/bots/${clientID}/stats`,
       headers: { Authorization: `Bot ${token}` },
-      body
+      data
     }
   },
   divinediscordbots: (token, clientID, serverCount) => {
@@ -100,7 +100,7 @@ exports.PostFormat = {
       method: 'post',
       url: `https://divinediscordbots.com/bot/${clientID}/stats`,
       headers: { Authorization: token },
-      body: { server_count: serverCount }
+      data: { server_count: serverCount }
     }
   },
   discordboats: (token, clientID, serverCount) => {
@@ -108,7 +108,7 @@ exports.PostFormat = {
       method: 'post',
       url: `https://discord.boats/api/v2/bot/${clientID}`,
       headers: { Authorization: token },
-      body: { server_count: serverCount }
+      data: { server_count: serverCount }
     }
   }
 }

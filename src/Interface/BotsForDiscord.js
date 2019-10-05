@@ -9,7 +9,7 @@ class BotsForDiscord extends ServiceBase {
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
    */
-  getBot(id){
+  getBot(id) {
     return this._request({ url: `https://botsfordiscord.com/api/bot/${id}` });
   }
 
@@ -18,15 +18,15 @@ class BotsForDiscord extends ServiceBase {
    * @param {string} id The bot's ID.
    * @param {Object} query The querystring that will be used in the request
    */
-  getBotWidget(id, query){
-    return this._request({ url: `https://botsfordiscord.com/api/bots/${id}/widget`, query });
+  getBotWidget(id, query) {
+    return this._request({ url: `https://botsfordiscord.com/api/bots/${id}/widget`, params: query });
   }
 
   /**
    * Gets the votes for this bot
    * @param {string} id The bot's ID.
    */
-  getBotVotes(id){
+  getBotVotes(id) {
     return this._request({ url: `https://botsfordiscord.com/api/bots/${id}/votes` });
   }
 
@@ -34,7 +34,7 @@ class BotsForDiscord extends ServiceBase {
    * Gets the user listed for this service
    * @param {string} id The user's ID.
    */
-  getUser(id){
+  getUser(id) {
     return this._request({ url: `https://botsfordiscord.com/api/user/${id}` });
   }
 
@@ -42,7 +42,7 @@ class BotsForDiscord extends ServiceBase {
    * Gets the user's list of managed bots
    * @param {string} id The user's ID.
    */
-  getUserBots(id){
+  getUserBots(id) {
     return this._request({ url: `https://botsfordiscord.com/api/user/${id}/bots` });
   }
 }

@@ -9,14 +9,14 @@ class DiscordBotsOrg extends ServiceBase {
    * Gets the user listed for this service
    * @param {string} id The user's ID.
    */
-  getUser(id){
+  getUser(id) {
     return this._request({ url: `https://discordbots.org/api/users/${id}` })
   }
 
   /**
    * Gets the list of bots listed for this service
    */
-  getBots(){
+  getBots() {
     return this._request({ url: `https://discordbots.org/api/bots` });
   }
 
@@ -24,7 +24,7 @@ class DiscordBotsOrg extends ServiceBase {
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
    */
-  getBot(id){
+  getBot(id) {
     return this._request({ url: `https://discordbots.org/api/bots/${id}` });
   }
 
@@ -32,7 +32,7 @@ class DiscordBotsOrg extends ServiceBase {
    * Gets the bot's stats listed on this service
    * @param {string} id The bot's ID.
    */
-  getBotStats(id){
+  getBotStats(id) {
     return this._request({ url: `https://discordbots.org/api/bots/${id}/stats` });
   }
 
@@ -41,8 +41,8 @@ class DiscordBotsOrg extends ServiceBase {
    * @param {string} id The bot's ID.
    * @param {Object} query The querystring that will be used in the request
    */
-  getBotVotes(id, query){
-    return this._request({ url: `https://discordbots.org/api/bots/${id}/votes`, query });
+  getBotVotes(id, query) {
+    return this._request({ url: `https://discordbots.org/api/bots/${id}/votes`, params: query });
   }
 
   /**
@@ -50,8 +50,8 @@ class DiscordBotsOrg extends ServiceBase {
    * @param {string} id The bot's ID.
    * @param {Object} query The querystring that will be used in the request
    */
-  getBotEmbed(id, query){
-    return this._request({ url: `https://discordbots.org/api/widget/${id}.png`, query });
+  getBotEmbed(id, query) {
+    return this._request({ url: `https://discordbots.org/api/widget/${id}.png`, params: query });
   }
 }
 

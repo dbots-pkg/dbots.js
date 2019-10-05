@@ -10,25 +10,25 @@ class Listcord extends ServiceBase {
    * @param {number} limit The amount of IDs to list.
    * @param {number} offset The offset of the list.
    */
-  getBots(limit = 20, offset = 0){
+  getBots(limit = 20, offset = 0) {
     return this._request({ url: `https://listcord.com/api/bots/${limit}/${offset}` });
   }
 
   /**
    * Searches a term amongst the bots in this service
-   * @param {string} q Query to seearch for.
+   * @param {string} q Query to search for.
    * @param {number} limit The amount of IDs to list.
    * @param {number} offset The offset of the list.
    */
-  searchBots(q, limit = 20, offset = 0){
-    return this._request({ url: `https://listcord.com/api/bots/${limit}/${offset}`, query: { q } });
+  searchBots(q, limit = 20, offset = 0) {
+    return this._request({ url: `https://listcord.com/api/bots/${limit}/${offset}`, params: { q } });
   }
 
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
    */
-  getBot(id){
+  getBot(id) {
     return this._request({ url: `https://listcord.com/api/bot/${id}` });
   }
 
@@ -36,7 +36,7 @@ class Listcord extends ServiceBase {
    * Gets the data on the voters for this bot
    * @param {string} id The bot's ID.
    */
-  getBotVotes(id){
+  getBotVotes(id) {
     return this._request({ url: `https://listcord.com/api/bot/${id}/votes` });
   }
 }
