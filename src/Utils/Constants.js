@@ -19,13 +19,21 @@
  * @property {number} [useSharding=true] Whether or not to use a {@link Service}s sharding method when posting.
  */
 
+let topgg = (token, clientID, serverCount, shard) => {
+  return {
+    method: 'post',
+    url: `https://top.gg/api/bots/${clientID}/stats`,
+    headers: { Authorization: token },
+    data: shard ? { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : { server_count: serverCount }
+  }
+}
+
 /**
  * A shard that is used when posting to services.
  * @typedef {Object} Shard
  * @property {number} [count] The amount of shards the client uses
  * @property {number} [id] The shard ID that is being used by the poster
  */
-
 exports.PostFormat = {
   discordbotsgg: (token, clientID, serverCount, shard) => {
     return {
@@ -35,14 +43,8 @@ exports.PostFormat = {
       data: shard ? { guildCount: serverCount, shardId: shard.id, shardCount: shard.count } : { guildCount: serverCount }
     }
   },
-  discordbotsorg: (token, clientID, serverCount, shard) => {
-    return {
-      method: 'post',
-      url: `https://discordbots.org/api/bots/${clientID}/stats`,
-      headers: { Authorization: token },
-      data: shard ? { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : { server_count: serverCount }
-    }
-  },
+  discordbotsorg: topgg, //deprecated
+  topgg,
   discordappsdev: (token, clientID, serverCount) => {
     return {
       method: 'post',
@@ -116,7 +118,8 @@ exports.PostFormat = {
 /**
  * A service supported by the package. Here are the available services:
  * * discordbotsgg
- * * discordbotsorg
+ * * discordbotsorg (deprecated)
+ * * topgg
  * * botsfordiscord
  * * botsondiscord
  * * discordappsdev
@@ -130,7 +133,8 @@ exports.PostFormat = {
 
 exports.AvailableServices = [
   'discordbotsgg',
-  'discordbotsorg',
+  'discordbotsorg', // deprecated
+  'topgg',
   'botsfordiscord',
   'botsondiscord',
   'discordappsdev',

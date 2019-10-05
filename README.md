@@ -20,7 +20,7 @@ const dbots = require('dbots');
 const poster = new dbots.Poster({
     apiKeys: {
         discordbotsgg: '…',
-        discordbotsorg: '…',
+        topgg: '…',
         lsterminalink: '…',
         carbon: '…'
     }
@@ -38,7 +38,7 @@ const poster = new dbots.Poster({
     client, // Client MUST be logged in to be put into a poster
     apiKeys: {
         discordbotsgg: '…',
-        discordbotsorg: '…',
+        topgg: '…',
         lsterminalink: '…',
         carbon: '…'
     },
@@ -56,7 +56,7 @@ izy521      | [![npm](static/npm.png)](https://npmjs.com/discord.io) [![GitHub](
 qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](static/github.png)](https://github.com/qeled/discordie) discordie
 
 ## Supporting Services
- - [discordbots.org `discordbotsorg`](https://discordbots.org)
+ - [top.gg (formerly discordbots.org)  `topgg` or `discordbotsorg`](https://top.gg)*
  - [discord.bots.gg `discordbotsgg`](https://discord.bots.gg)
  - [discordapps.dev `discordappsdev`](https://discordapps.dev)
  - [carbonitex.net `carbon`](http://carbonitex.net/discord/bots)
@@ -66,3 +66,6 @@ qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](s
  - [discordbotlist.com `discordbotlist`](https://discordbotlist.com)
  - [divinediscordbots.com `divinediscordbots`](https://divinediscordbots.com)
  - [discord.boats `discordboats`](https://discord.boats)
+
+\* discordbots.org is currently rebranding to top.gg: they will gradually make changes to add new functionalities, you can find more info [here](https://medium.com/discord-bots/announcing-top-gg-the-next-phase-of-discord-bots-2ac3eb3b81bd).  
+To ensure backwards compatibility we will keep the `discordbotsorg` service active, but only as a reference to `topgg`, keeping it in a "deprecated" state; when the rebranding will be completed, we'll publish a major version update deleting any remains of the old name. If you're reading this, please switch to the classes of the new service ;)

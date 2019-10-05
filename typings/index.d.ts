@@ -2,7 +2,7 @@ import { Shard, SupportedEvents } from '../src/Utils/Constants';
 import { AxiosRequestConfig } from 'axios'
 
 type Library = 'discord.js' | 'discord.io' | 'discordie'
-type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'listcord' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats'
+type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'listcord' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats'
 type CustomEvent = 'autopost'
 
 class ServiceBase {
@@ -18,18 +18,7 @@ interface RequestFormat extends AxiosRequestConfig {
   params?: object
 }
 
-interface keyFormat {
-  discordbotsgg?: string
-  discordbotsorg?: string
-  botsfordiscord?: string
-  botsondiscord?: string
-  discordappsdev?: string
-  listcord?: string
-  carbon?: string
-  discordbotlist?: string
-  divinediscordbots?: string
-  discordboats?: string
-}
+type keyFormat = Record<Service, string>
 
 interface handlerCollector {
   autopost: ((result: object | object[]) => void)[]
@@ -205,10 +194,10 @@ declare module 'dbots' {
   }
 
   /**
-   * Represents the discordbots.org service
-   * @see https://discordbots.org/api/docs
+   * Represents the top.gg (formerly discordbots.org) service
+   * @see https://top.gg/api/docs
    */
-  export class DiscordBotsOrg extends ServiceBase {
+  export class TopGG extends ServiceBase {
     /**
      * Gets the user listed for this service
      * @param id The user's ID.
@@ -244,6 +233,13 @@ declare module 'dbots' {
      */
     getBotEmbed(id: string, query: object): Promise<any>
   }
+
+  /**
+   * Represents the discordbots.org service
+   * @see https://discordbots.org/api/docs
+   * @deprecated
+   */
+  export class DiscordBotsOrg extends TopGG { }
 
   /**
    * Represents the discordapps.dev's service
@@ -372,7 +368,8 @@ declare module 'dbots' {
   export interface Constants {
     PostFormat: {
       discordbotsgg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
-      discordbotsorg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
+      discordbotsorg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat // deprecated
+      topgg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
       discordappsdev: (token: string, clientID: string, serverCount: number) => RequestFormat
       botsfordiscord: (token: string, clientID: string, serverCount: number) => RequestFormat
       botsondiscord: (token: string, clientID: string, serverCount: number) => RequestFormat

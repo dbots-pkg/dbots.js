@@ -3,7 +3,8 @@ module.exports = {
 
   DiscordBotsGG: require('./Interface/DiscordBotsGG'),
   BotsForDiscord: require('./Interface/BotsForDiscord'),
-  DiscordBotsOrg: require('./Interface/DiscordBotsOrg'),
+  DiscordBotsOrg: require('./Interface/TopGG'), // deprecated
+  TopGG: require('./Interface/TopGG'),
   DiscordAppsDev: require('./Interface/DiscordAppsDev'),
   BotsOnDiscord: require('./Interface/BotsOnDiscord'),
   Listcord: require('./Interface/Listcord'),
