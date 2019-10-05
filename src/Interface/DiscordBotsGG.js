@@ -9,7 +9,7 @@ class DiscordBotsGG extends ServiceBase {
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
    */
-  getBot(id, sanitized = false){
+  getBot(id, sanitized = false) {
     return this._request({
       url: `https://discord.bots.gg/api/v1/bots/${id}`,
       headers: { Authorization: this.token },
@@ -20,11 +20,11 @@ class DiscordBotsGG extends ServiceBase {
   /**
    * Gets a list of bots on this service
    */
-  getBots(query){
+  getBots(query) {
     return this._request({
       url: `https://discord.bots.gg/api/v1/bots`,
       headers: { Authorization: this.token },
-      query
+      params: query
     }, true);
   }
 }
