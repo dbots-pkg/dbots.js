@@ -18,7 +18,10 @@ interface RequestFormat extends AxiosRequestConfig {
   params?: object
 }
 
-type keyFormat = Record<Service, string>
+type PartialRecord<K extends keyof any, T> = {
+  [P in K]?: T
+}
+type keyFormat = PartialRecord<Service, string>
 
 interface handlerCollector {
   autopost: ((result: object | object[]) => void)[]
