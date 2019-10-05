@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Interface/DiscordBoats.js</title>
+    <title>JSDoc: Source: Utils/FormatRequest.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Interface/DiscordBoats.js</h1>
+    <h1 class="page-title">Source: Utils/FormatRequest.js</h1>
 
     
 
@@ -26,40 +26,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const ServiceBase = require('./ServiceBase')
+            <pre class="prettyprint source linenums"><code>const axios = require('axios');
 
-/**
- * Represents the discord.boats's service
- * @see https://discord.boats/api/docs
- */
-class DiscordBoats extends ServiceBase {
-  /**
-   * Gets the bot listed for this service
-   * @param {string} id The bot's ID.
-   */
-  getBot(id) {
-    return this._request({ url: `https://discord.boats/api/v2/bot/${id}` });
-  }
-
-  /**
-   * Gets the user listed for this service
-   * @param {string} id The user's ID.
-   */
-  getUser(id) {
-    return this._request({ url: `https://discord.boats/api/v2/user/${id}` });
-  }
-
-  /**
-   * Whether or not a user has voted for a bot
-   * @param {string} id The bot's ID.
-   * @param {string} userID The user's ID.
-   */
-  userVoted(id, userID) {
-    return this._request({ url: `https://discord.boats/api/v2/bot/${id}/voted?id=${userID}` });
-  }
+/*
+{
+  method: '',
+  url: '',
+  headers: { ... },
+  data: { ... }
 }
+*/
 
-module.exports = DiscordBoats;</code></pre>
+/** 
+ * Returns a request
+ * @param {object} options An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
+ * @param {string} options.method The method to use
+ * @param {string} options.url The URL for the request
+ * @param {Object.&lt;string, string>} options.headers The headers to append to the request
+ * @param {Object.&lt;string, string|number>} options.data The data to send with the request, if the method allows it
+ * @param {Object.&lt;string, string|number>} options.params The query parameters for the request
+ * @returns {Promise&lt;any>} The request
+ */
+module.exports = function FormatRequest(options) {
+  if (!options.method) options.method = 'get';
+  if (options.body) {
+    options.data = options.body;
+    delete options.body;
+  }
+  if (options.query) {
+    options.params = options.query;
+    delete options.query;
+  }
+  return axios(options);
+}</code></pre>
         </article>
     </section>
 
