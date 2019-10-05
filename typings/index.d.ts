@@ -1,4 +1,5 @@
-import { Shard, SupportedEvents } from "../src/Utils/Constants";
+import { Shard, SupportedEvents } from '../src/Utils/Constants';
+import { AxiosRequestConfig } from 'axios'
 
 type Library = 'discord.js' | 'discord.io' | 'discordie'
 type Service = 'discordbotsgg' | 'discordbotsorg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'listcord' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats'
@@ -9,11 +10,12 @@ class ServiceBase {
   _request(form, requiresToken?: boolean): Promise<any>
 }
 
-interface RequestFormat {
+interface RequestFormat extends AxiosRequestConfig {
   method: string
   url: string
   headers?: object
-  body: object
+  data?: object
+  params?: object
 }
 
 interface keyFormat {
