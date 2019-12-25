@@ -103,8 +103,22 @@ class Poster {
     if (!service || service === 'all') return Promise.all(Object.keys(this.options.apiKeys).map(k => this.postManual(serverCount, k)));
     if (!Constants.AvailableServices.includes(service)) throw new Error('INVALID_SERVICE', service);
     if (!Object.keys(this.options.apiKeys).includes(service)) throw new Error('SERVICE_WITH_NO_KEY', service);
-    if (service === 'discordbotlist') return FormatRequest(Constants.PostFormat[service](this.options.apiKeys[service], this.options.clientID, serverCount, this.options.shard, userCount, voiceConnections));
-    return FormatRequest(Constants.PostFormat[service](this.options.apiKeys[service], this.options.clientID, serverCount, this.options.shard));
+    return new Promise((resolve, reject) => {
+      FormatRequest(
+        Constants.PostFormat[service](this.options.apiKeys[service],
+          this.options.clientID,
+          serverCount,
+          this.options.shard,
+          userCount,
+          voiceConnections
+      )).then(result => {
+        this.runHandlers('post', result);
+        resolve(result);
+      }).catch(error => {
+        this.runHandlers('postfail', error);
+        reject(error);
+      });
+    });
   }
 
   /**
