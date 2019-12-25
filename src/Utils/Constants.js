@@ -129,7 +129,6 @@ exports.PostFormat = {
  * * botsfordiscord
  * * botsondiscord
  * * discordappsdev
- * * listcord
  * * carbon
  * * discordbotlist
  * * divinediscordbots
@@ -146,7 +145,6 @@ exports.AvailableServices = [
   'botsfordiscord',
   'botsondiscord',
   'discordappsdev',
-  'listcord',
   'carbon',
   'discordbotlist',
   'divinediscordbots',
