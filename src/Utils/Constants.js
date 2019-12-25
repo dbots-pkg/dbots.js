@@ -126,6 +126,7 @@ exports.PostFormat = {
  * * discordbotlist
  * * divinediscordbots
  * * discordboats
+ * * botlistspace
  * @typedef {string} Service
  */
 
