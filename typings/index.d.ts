@@ -3,7 +3,7 @@ import { AxiosRequestConfig } from 'axios'
 
 type Library = 'discord.js' | 'discord.io' | 'discordie'
 type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'listcord' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats'
-type CustomEvent = 'autopost'
+type CustomEvent = 'autopost' | 'autopostfail'
 
 class ServiceBase {
   constructor(token: string)
@@ -25,6 +25,7 @@ type keyFormat = PartialRecord<Service, string>
 
 interface handlerCollector {
   autopost: ((result: object | object[]) => void)[]
+  autopostfail: ((result: object | object[]) => void)[]
 }
 
 declare module 'dbots' {
@@ -122,6 +123,7 @@ declare module 'dbots' {
      * @returns The array of handlers currently set for that event
      */
     addHandler(event: 'autopost', handler: (result: object | object[]) => void): PromiseResolvable[]
+    addHandler(event: 'autopostfail', handler: (result: object | object[]) => void): PromiseResolvable[]
     addHandler(event: CustomEvent, handler: PromiseResolvable): PromiseResolvable[]
 
     /**
@@ -131,6 +133,7 @@ declare module 'dbots' {
      * @returns The array of handlers currently set for that event
      */
     removeHandler(event: 'autopost', handler: (result: object | object[]) => void): PromiseResolvable[]
+    removeHandler(event: 'autopostfail', handler: (result: object | object[]) => void): PromiseResolvable[]
     removeHandler(event: CustomEvent, handler: PromiseResolvable): PromiseResolvable[]
 
     /**
@@ -139,6 +142,7 @@ declare module 'dbots' {
     * @param args The arguments to pass to the handlers
     */
     runHandlers(event: 'autopost', result: object | object[]): void
+    runHandlers(event: 'autopostfail', result: object | object[]): void
     runHandlers(event: CustomEvent, ...args: any[]): void
 
   }

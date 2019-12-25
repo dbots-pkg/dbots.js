@@ -171,12 +171,18 @@ exports.ServerCountFunctions = {
  * @typedef {string} CustomEvent
  */
 /**
- * Emitted after the interval is run.
+ * Emitted when the interval has ran.
  * @event Poster#autopost
  * @param {Object|Array<Object>} result The result(s) of the post
  */
+/**
+ * Emitted when the interval failed to post.
+ * @event Poster#autopostfail
+ * @param {Object|Array<Object>} result The error(s) of the post
+ */
 exports.SupportedEvents = [
-  'autopost'
+  'autopost',
+  'autopostfail'
 ]
 
 exports.UserCountFunctions = {

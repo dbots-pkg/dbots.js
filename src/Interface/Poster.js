@@ -63,7 +63,7 @@ class Poster {
     this._interval = setInterval(() => this.post().then(result => {
       this.runHandlers('autopost', result);
       return result;
-    }), interval);
+    }).catch(error => this.runHandlers('autopostfail', error)), interval);
     return this._interval;
   }
 
@@ -79,17 +79,14 @@ class Poster {
     * @see DBotsPoster#postManual
     */
   post(service) {
-    let _this = this
+    let _this = this;
     return new Promise((resolve, reject) => {
-      _this.getServerCount().then(serverCount => {
-        if ([undefined, 'all', 'custom', 'discordbotlist'].includes(service))
-          return Promise.all([_this.getUserCount(), _this.getVoiceConnections()])
-            .then(([userCount, voiceConnections]) => {
-              resolve(_this.postManual(serverCount, service, userCount, voiceConnections))
-            });
-        else return _this.postManual(serverCount, service);
-      }).then(resolve).catch(reject);
-    })
+      return Promise.all([_this.getServerCount(), _this.getUserCount(), _this.getVoiceConnections()])
+        .then(([serverCount, userCount, voiceConnections]) => {
+          _this.postManual(serverCount, service, userCount, voiceConnections)
+            .then(resolve).catch(reject);
+        }).catch(reject);
+    });
   }
 
   /**
