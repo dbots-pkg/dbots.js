@@ -67,14 +67,6 @@ exports.PostFormat = {
       data: { guildCount: serverCount }
     };
   },
-  listcord: (token, clientID, serverCount) => {
-    return {
-      method: 'post',
-      url: `https://listcord.com/api/bot/${clientID}/guilds`,
-      headers: { Authorization: token },
-      data: { guilds: serverCount }
-    };
-  },
   carbon: (token, _, serverCount) => {
     return {
       method: 'post',
