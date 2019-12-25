@@ -1,4 +1,4 @@
-const ServiceBase = require('./ServiceBase')
+const ServiceBase = require('./ServiceBase');
 
 /**
  * Represents the top.gg (formerly discordbots.org) service
@@ -10,7 +10,7 @@ class TopGG extends ServiceBase {
    * @param {string} id The user's ID.
    */
   getUser(id) {
-    return this._request({ url: `https://top.gg/api/users/${id}` })
+    return this._request({ url: `https://top.gg/api/users/${id}` });
   }
 
   /**

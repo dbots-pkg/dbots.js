@@ -1,4 +1,4 @@
-const FormatRequest = require('../Utils/FormatRequest')
+const FormatRequest = require('../Utils/FormatRequest');
 
 /**
  * Represents a service
@@ -11,7 +11,7 @@ class ServiceBase {
   }
 
   _request(form, requiresToken){
-    if(requiresToken && !this.token) throw new Error('This function requires a token')
+    if(requiresToken && !this.token) throw new Error('This function requires a token');
     return FormatRequest(form);
   }
 }

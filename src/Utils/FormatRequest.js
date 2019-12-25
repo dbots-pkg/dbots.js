@@ -30,4 +30,4 @@ module.exports = function FormatRequest(options) {
     delete options.query;
   }
   return axios(options);
-}
+};

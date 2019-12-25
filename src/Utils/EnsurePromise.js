@@ -5,6 +5,6 @@
 
 module.exports = function EnsurePromise(func, ...args) {
   if(typeof func === 'function'){
-    return new Promise(resolve => resolve(func(...args)))
-  }else if(func instanceof Promise) return func;
-}
+    return new Promise(resolve => resolve(func(...args)));
+  } else if(func instanceof Promise) return func;
+};

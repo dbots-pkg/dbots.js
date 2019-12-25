@@ -15,4 +15,4 @@ module.exports = {
   Constants: require('./Utils/Constants'),
   EnsurePromise: require('./Utils/EnsurePromise'),
   FormatRequest: require('./Utils/FormatRequest')
-}
+};

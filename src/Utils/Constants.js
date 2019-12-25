@@ -32,7 +32,7 @@ exports.PostFormat = {
       url: `https://top.gg/api/bots/${clientID}/stats`,
       headers: { Authorization: token },
       data: shard ? { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : { server_count: serverCount }
-    }
+    };
   },
   discordbotsorg: (...a) => exports.PostFormat.topgg(...a), // deprecated
   discordappsdev: (token, clientID, serverCount) => {
@@ -41,7 +41,7 @@ exports.PostFormat = {
       url: `https://api.discordapps.dev/api/v2/bots/${clientID}`,
       headers: { Authorization: token },
       data: { bot: { count: serverCount } }
-    }
+    };
   },
   botsfordiscord: (token, clientID, serverCount) => {
     return {
@@ -49,7 +49,7 @@ exports.PostFormat = {
       url: `https://botsfordiscord.com/api/bot/${clientID}`,
       headers: { Authorization: token },
       data: { server_count: serverCount }
-    }
+    };
   },
   botsondiscord: (token, clientID, serverCount) => {
     return {
@@ -57,7 +57,7 @@ exports.PostFormat = {
       url: `https://bots.ondiscord.xyz/bot-api/bots/${clientID}/guilds`,
       headers: { Authorization: token },
       data: { guildCount: serverCount }
-    }
+    };
   },
   listcord: (token, clientID, serverCount) => {
     return {
@@ -65,14 +65,14 @@ exports.PostFormat = {
       url: `https://listcord.com/api/bot/${clientID}/guilds`,
       headers: { Authorization: token },
       data: { guilds: serverCount }
-    }
+    };
   },
   carbon: (token, _, serverCount) => {
     return {
       method: 'post',
       url: 'https://www.carbonitex.net/discord/data/botdata.php',
       data: { key: token, servercount: serverCount }
-    }
+    };
   },
   discordbotlist: (token, clientID, serverCount, shard, usersCount, voiceConnections) => {
     const data = { guilds: serverCount };
@@ -85,7 +85,7 @@ exports.PostFormat = {
       url: `https://discordbotlist.com/api/bots/${clientID}/stats`,
       headers: { Authorization: `Bot ${token}` },
       data
-    }
+    };
   },
   divinediscordbots: (token, clientID, serverCount) => {
     return {
@@ -93,7 +93,7 @@ exports.PostFormat = {
       url: `https://divinediscordbots.com/bot/${clientID}/stats`,
       headers: { Authorization: token },
       data: { server_count: serverCount }
-    }
+    };
   },
   discordboats: (token, clientID, serverCount) => {
     return {
@@ -101,9 +101,9 @@ exports.PostFormat = {
       url: `https://discord.boats/api/v2/bot/${clientID}`,
       headers: { Authorization: token },
       data: { server_count: serverCount }
-    }
+    };
   }
-}
+};
 
 /**
  * A service supported by the package. Here are the available services:
@@ -133,7 +133,7 @@ exports.AvailableServices = [
   'discordbotlist',
   'divinediscordbots',
   'discordboats'
-]
+];
 
 /**
  * A library supported by the package. Here are the available libraries:
@@ -147,13 +147,13 @@ exports.SupportingLibraries = [
   'discord.js',
   'discord.io',
   'discordie'
-]
+];
 
 exports.ServerCountFunctions = {
   'discord.js': client => { return client.guilds.size; },
   'discord.io': client => { return Object.keys(client.servers).length; },
   'discordie': client => { return client.Guilds.size; }
-}
+};
 
 /**
  * An event that can be added an handler for. These are the available events:
@@ -173,19 +173,19 @@ exports.ServerCountFunctions = {
 exports.SupportedEvents = [
   'autopost',
   'autopostfail'
-]
+];
 
 exports.UserCountFunctions = {
   'discord.js': client => { return client.users.size; },
   'discord.io': client => { return Object.keys(client.users).length; },
   'discordie': client => { return client.Users.size; }
-}
+};
 
 exports.VoiceConnectionsFunctions = {
   'discord.js': client => { return client.broadcasts.size; },
   'discord.io': client => { return Object.keys(client._vChannels).length; },
   'discordie': client => { return client.VoiceConnections.length; }
-}
+};
 
 exports.AutoValueFunctions = {
   'discord.js': client => {
@@ -206,4 +206,4 @@ exports.AutoValueFunctions = {
       shard: client.options.shardId && client.options.shardCount ? { id: client.options.shardId, count: client.options.shardCount } : undefined
     };
   }
-}
+};

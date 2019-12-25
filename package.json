@@ -10,6 +10,7 @@
   },
   "scripts": {
     "doc": "jsdoc ./src -d ./doc -r",
+    "eslint": "eslint ./src",
     "hint": "jshint ./src"
   },
   "keywords": [
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "jsdoc": "^3.6.3",
+    "eslint": "^6.5.1",
     "jshint": "^2.10.2"
   }
 }
