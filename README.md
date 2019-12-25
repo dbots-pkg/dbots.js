@@ -62,10 +62,13 @@ qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](s
  - [carbonitex.net `carbon`](http://carbonitex.net/discord/bots)
  - [botsfordiscord.com `botsfordiscord`](http://botsfordiscord.com)
  - [bots.ondiscord.xyz `botsondiscord`](http://bots.ondiscord.xyz)
- - [listcord.com `listcord`](http://listcord.com)
+ - ~~[listcord.com `listcord`](http://listcord.com)~~**
  - [discordbotlist.com `discordbotlist`](https://discordbotlist.com)
  - [divinediscordbots.com `divinediscordbots`](https://divinediscordbots.com)
  - [discord.boats `discordboats`](https://discord.boats)
+ - [botlist.space `botlistspace`](https://botlist.space)
 
 \* discordbots.org is currently rebranding to top.gg: they will gradually make changes to add new functionalities, you can find more info [here](https://medium.com/discord-bots/announcing-top-gg-the-next-phase-of-discord-bots-2ac3eb3b81bd).  
 To ensure backwards compatibility we will keep the `discordbotsorg` service active, but only as a reference to `topgg`, keeping it in a "deprecated" state; when the rebranding will be completed, we'll publish a major version update deleting any remains of the old name. If you're reading this, please switch to the classes of the new service ;)
+
+\*\* Listcord as of now is defunct, any references of Listcord will be removed next release.

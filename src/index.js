@@ -7,10 +7,10 @@ module.exports = {
   TopGG: require('./Interface/TopGG'),
   DiscordAppsDev: require('./Interface/DiscordAppsDev'),
   BotsOnDiscord: require('./Interface/BotsOnDiscord'),
-  Listcord: require('./Interface/Listcord'),
   DiscordBotsList: require('./Interface/DiscordBotList'),
   DivineDiscordBots: require('./Interface/DivineDiscordBots'),
   DiscordBoats: require('./Interface/DiscordBoats'),
+  BotListSpace: require('./Interface/BotListSpace'),
 
   Constants: require('./Utils/Constants'),
   EnsurePromise: require('./Utils/EnsurePromise'),

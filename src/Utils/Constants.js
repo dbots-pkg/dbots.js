@@ -102,6 +102,14 @@ exports.PostFormat = {
       headers: { Authorization: token },
       data: { server_count: serverCount }
     };
+  },
+  botlistspace: (token, clientID, serverCount) => {
+    return {
+      method: 'post',
+      url: `https://api.botlist.space/v1/bots/${clientID}`,
+      headers: { Authorization: token, 'Content-Type': 'application/json' },
+      data: { server_count: serverCount }
+    };
   }
 };
 
@@ -132,7 +140,8 @@ exports.AvailableServices = [
   'carbon',
   'discordbotlist',
   'divinediscordbots',
-  'discordboats'
+  'discordboats',
+  'botlistspace'
 ];
 
 /**
