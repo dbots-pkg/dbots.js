@@ -26,7 +26,7 @@ class Poster {
     */
   getServerCount() {
     if (!this.client) throw new Error('Cannot retrieve server count from non-existant client');
-    if (this.options.serverCount && !this.options.clientLibrary) return EnsurePromise(this.options.serverCount);
+    if (this.options.serverCount) return EnsurePromise(this.options.serverCount);
     if (!this.options.serverCount && !this.options.clientLibrary) throw new Error('Cannot retrieve server count from unknown client');
     return EnsurePromise(Constants.ServerCountFunctions[this.options.clientLibrary], this.client);
   }
@@ -37,7 +37,7 @@ class Poster {
    */
   getUserCount() {
     if (!this.client) throw new Error('Cannot retrieve user count from non-existant client');
-    if (this.options.userCount && !this.options.clientLibrary) return EnsurePromise(this.options.userCount);
+    if (this.options.userCount) return EnsurePromise(this.options.userCount);
     if (!this.options.userCount && !this.options.clientLibrary) throw new Error('Cannot retrieve user count from unknown client');
     return EnsurePromise(Constants.UserCountFunctions[this.options.clientLibrary], this.client);
   }
@@ -48,7 +48,7 @@ class Poster {
    */
   getVoiceConnections() {
     if (!this.client) throw new Error('Cannot retrieve voice connection count from non-existant client');
-    if (this.options.voiceConnections && !this.options.clientLibrary) return EnsurePromise(this.options.voiceConnections);
+    if (this.options.voiceConnections) return EnsurePromise(this.options.voiceConnections);
     if (!this.options.voiceConnections && !this.options.clientLibrary) throw new Error('Cannot retrieve voice connection count from unknown client');
     return EnsurePromise(Constants.VoiceConnectionsFunctions[this.options.clientLibrary], this.client);
   }
