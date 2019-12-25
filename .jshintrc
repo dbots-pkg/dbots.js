@@ -1,11 +1,14 @@
 {
-	"undef": true,
-	"unused": true,
-	"eqeqeq": true,
-	"esversion": 6,
-	"asi": true,
-	"browser": false,
-	"node": true,
-	"loopfunc": true,
-	"expr": true
+  "maxerr"        : 100,
+  "freeze"        : false,
+  "quotmark"      : false,
+  "strict"        : false,
+  "varstmt"       : true,
+  "eqnull"        : true,
+  "esversion"     : 8,
+  "multistr"      : false,
+  "shadow"        : true,
+  "browser"       : false,
+  "mocha"         : false,
+  "node"          : true
 }
