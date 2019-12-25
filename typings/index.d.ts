@@ -2,7 +2,7 @@ import { Shard, SupportedEvents } from '../src/Utils/Constants';
 import { AxiosRequestConfig } from 'axios'
 
 type Library = 'discord.js' | 'discord.io' | 'discordie'
-type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats' | 'botlistspace'
+type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats' | 'botlistspace' | 'discordbotworld'
 type CustomEvent = 'autopost' | 'autopostfail'
 
 class ServiceBase {
@@ -378,6 +378,39 @@ declare module 'dbots' {
      */
     getUserBots(id: string): Promise<any>
   }
+
+  /**
+   * Represents the discordbot.world's service
+   * @see https://discordbot.world/docs
+   */
+  class DiscordBotWorld extends ServiceBase {
+    /**  Gets a list of bots on this service **/
+    getBots(): Promise<any>
+  
+    /**
+     * Gets the bot listed for this service
+     * @param {string} id The bot's ID.
+     */
+    getBot(id: string): Promise<any>
+  
+    /**
+     * Gets the bot's stats on this service
+     * @param {string} id The bot's ID.
+     */
+    getBotStats(id: string): Promise<any>
+  
+    /**
+     * Gets the list of people who liked this bot
+     * @param {string} id The bot's ID.
+     */
+    getBotLikes(id: string): Promise<any>
+  
+    /**
+     * Gets the user listed for this service
+     * @param {string} id The user's ID.
+     */
+    getUser(id: string): Promise<any>
+  }
   //#endregion
 
 
@@ -389,11 +422,12 @@ declare module 'dbots' {
       discordappsdev: (token: string, clientID: string, serverCount: number) => RequestFormat
       botsfordiscord: (token: string, clientID: string, serverCount: number) => RequestFormat
       botsondiscord: (token: string, clientID: string, serverCount: number) => RequestFormat
-      listcord: (token: string, clientID: string, serverCount: number) => RequestFormat
       carbon: (token: string, _: any, serverCount: number) => RequestFormat
       discordbotlist: (token: string, clientID: string, serverCount: number, shard?: Shard, usersCount?: number, voiceConnections?: number) => RequestFormat
       divinediscordbots: (token: string, clientID: string, serverCount: number) => RequestFormat
       discordboats: (token: string, clientID: string, serverCount: number) => RequestFormat
+      botlistspace: (token: string, clientID: string, serverCount: number) => RequestFormat
+      discordbotworld: (token: string, clientID: string, serverCount: number) => RequestFormat
     }
 
     AvailableServices: string[]

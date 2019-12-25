@@ -67,6 +67,7 @@ qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](s
  - [divinediscordbots.com `divinediscordbots`](https://divinediscordbots.com)
  - [discord.boats `discordboats`](https://discord.boats)
  - [botlist.space `botlistspace`](https://botlist.space)
+ - [discordbot.world `discordbotworld`](https://discordbot.world)
 
 \* discordbots.org is currently rebranding to top.gg: they will gradually make changes to add new functionalities, you can find more info [here](https://medium.com/discord-bots/announcing-top-gg-the-next-phase-of-discord-bots-2ac3eb3b81bd).  
 To ensure backwards compatibility we will keep the `discordbotsorg` service active, but only as a reference to `topgg`, keeping it in a "deprecated" state; when the rebranding will be completed, we'll publish a major version update deleting any remains of the old name. If you're reading this, please switch to the classes of the new service ;)

@@ -110,6 +110,14 @@ exports.PostFormat = {
       headers: { Authorization: token, 'Content-Type': 'application/json' },
       data: { server_count: serverCount }
     };
+  },
+  discordbotworld: (token, clientID, serverCount) => {
+    return {
+      method: 'post',
+      url: `https://discordbot.world/api/bot/${clientID}/stats`,
+      headers: { Authorization: token },
+      data: { guild_count: serverCount }
+    };
   }
 };
 
@@ -127,6 +135,7 @@ exports.PostFormat = {
  * * divinediscordbots
  * * discordboats
  * * botlistspace
+ * * discordbotworld
  * @typedef {string} Service
  */
 
@@ -142,7 +151,8 @@ exports.AvailableServices = [
   'discordbotlist',
   'divinediscordbots',
   'discordboats',
-  'botlistspace'
+  'botlistspace',
+  'discordbotworld'
 ];
 
 /**

@@ -11,6 +11,7 @@ module.exports = {
   DivineDiscordBots: require('./Interface/DivineDiscordBots'),
   DiscordBoats: require('./Interface/DiscordBoats'),
   BotListSpace: require('./Interface/BotListSpace'),
+  DiscordBotWorld: require('./Interface/DiscordBotWorld'),
 
   Constants: require('./Utils/Constants'),
   EnsurePromise: require('./Utils/EnsurePromise'),
