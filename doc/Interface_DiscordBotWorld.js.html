@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: ServiceBase</title>
+    <title>JSDoc: Source: Interface/DiscordBotWorld.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,186 +17,68 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: ServiceBase</h1>
+    <h1 class="page-title">Source: Interface/DiscordBotWorld.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ServiceBase<span class="signature">(token)</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description">Represents a service</div>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-    <h2>Constructor</h2>
-    
-
-    
-    <h4 class="name" id="ServiceBase"><span class="type-signature"></span>new ServiceBase<span class="signature">(token)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>token</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The token/key for the service</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Interface_ServiceBase.js.html">Interface/ServiceBase.js</a>, <a href="Interface_ServiceBase.js.html#line9">line 9</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const ServiceBase = require('./ServiceBase');
+
+/**
+ * Represents the discordbot.world's service
+ * @see https://discordbot.world/docs
+ */
+class DiscordBotWorld extends ServiceBase {
+  /**
+   * Gets a list of bots on this service
+   */
+  getBots(){
+    return this._request({ url: `https://discordbot.world/api/bots` });
+  }
+
+  /**
+   * Gets the bot listed for this service
+   * @param {string} id The bot's ID.
+   */
+  getBot(id) {
+    return this._request({ url: `https://discordbot.world/api/bots/${id}/info` });
+  }
+
+  /**
+   * Gets the bot's stats on this service
+   * @param {string} id The bot's ID.
+   */
+  getBotStats(id) {
+    return this._request({ url: `https://discordbot.world/api/bots/${id}/stats` });
+  }
+
+  /**
+   * Gets the list of people who liked this bot
+   * @param {string} id The bot's ID.
+   */
+  getBotLikes(id) {
+    return this._request({
+      url: `https://discordbot.world/api/bots/${id}/likes`,
+      headers: { Authorization: this.token }
+    }, true);
+  }
+
+  /**
+   * Gets the user listed for this service
+   * @param {string} id The user's ID.
+   */
+  getUser(id) {
+    return this._request({ url: `https://discordbot.world/api/user/${id}` });
+  }
+}
+
+module.exports = DiscordBotWorld;</code></pre>
+        </article>
+    </section>
 
 
 

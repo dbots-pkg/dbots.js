@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Interface/DiscordAppsDev.js</title>
+    <title>JSDoc: Source: Interface/BotListSpace.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Interface/DiscordAppsDev.js</h1>
+    <h1 class="page-title">Source: Interface/BotListSpace.js</h1>
 
     
 
@@ -29,41 +29,69 @@
             <pre class="prettyprint source linenums"><code>const ServiceBase = require('./ServiceBase');
 
 /**
- * Represents the discordapps.dev's service
- * @see https://discordapps.dev/en-GB/posts/docs/api-v2/
+ * Represents the botlist.space's service
+ * @see https://docs.botlist.space/
  */
-class DiscordAppsDev extends ServiceBase {
+class BotListSpace extends ServiceBase {
+  /**
+   * Gets the statistics of this service
+   */
+  getStatistics() {
+    return this._request({ url: 'https://api.botlist.space/v1/statistics' });
+  }
+
   /**
    * Gets a list of bots on this service
    */
   getBots(){
-    return this._request({ url: `https://api.discordapps.dev/api/v2/bots` });
-  }
-
-  /**
-   * Gets a list of applications on this service
-   */
-  getApps(){
-    return this._request({ url: `https://api.discordapps.dev/api/v2/apps` });
-  }
-
-  /**
-   * Gets a list of RPC applications on this service
-   */
-  getRPCApps(){
-    return this._request({ url: `https://api.discordapps.dev/api/v2/rpc` });
+    return this._request({ url: `https://api.botlist.space/v1/bots` });
   }
 
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
    */
-  getBot(id){
-    return this._request({ url: `https://api.discordapps.dev/api/v2/bots/${id}` });
+  getBot(id) {
+    return this._request({ url: `https://api.botlist.space/v1/bots/${id}` });
+  }
+
+  /**
+   * Gets the data on the voters for this bot
+   * @param {string} id The bot's ID.
+   */
+  getBotVotes(id) {
+    return this._request({
+      url: `https://api.botlist.space/v1/bots/${id}/upvotes`,
+      headers: { Authorization: this.token }
+    }, true);
+  }
+
+  /**
+   * Gets the uptime of a bot listed for this service
+   * @param {string} id The bot's ID.
+   */
+  getBotUptime(id) {
+    return this._request({ url: `https://api.botlist.space/v1/bots/${id}/uptime` });
+  }
+
+  /**
+   * Gets the user listed for this service
+   * @param {string} id The user's ID.
+   */
+  getUser(id) {
+    return this._request({ url: `https://api.botlist.space/v1/users/${id}` });
+  }
+
+  /**
+   * Gets the user's bots listed for this service
+   * @param {string} id The user's ID.
+   */
+  getUserBots(id) {
+    return this._request({ url: `https://api.botlist.space/v1/users/${id}/bots` });
   }
 }
 
-module.exports = DiscordAppsDev;</code></pre>
+module.exports = BotListSpace;</code></pre>
         </article>
     </section>
 
