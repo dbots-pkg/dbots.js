@@ -19,15 +19,6 @@
  * @property {number} [useSharding=true] Whether or not to use a {@link Service}s sharding method when posting.
  */
 
-let topgg = (token, clientID, serverCount, shard) => {
-  return {
-    method: 'post',
-    url: `https://top.gg/api/bots/${clientID}/stats`,
-    headers: { Authorization: token },
-    data: shard ? { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : { server_count: serverCount }
-  }
-}
-
 /**
  * A shard that is used when posting to services.
  * @typedef {Object} Shard
@@ -35,16 +26,15 @@ let topgg = (token, clientID, serverCount, shard) => {
  * @property {number} [id] The shard ID that is being used by the poster
  */
 exports.PostFormat = {
-  discordbotsgg: (token, clientID, serverCount, shard) => {
+  topgg: (token, clientID, serverCount, shard) => {
     return {
       method: 'post',
-      url: `https://discord.bots.gg/api/v1/bots/${clientID}/stats`,
+      url: `https://top.gg/api/bots/${clientID}/stats`,
       headers: { Authorization: token },
-      data: shard ? { guildCount: serverCount, shardId: shard.id, shardCount: shard.count } : { guildCount: serverCount }
+      data: shard ? { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : { server_count: serverCount }
     }
   },
-  discordbotsorg: topgg, //deprecated
-  topgg,
+  discordbotsorg: (...a) => exports.PostFormat.topgg(...a), // deprecated
   discordappsdev: (token, clientID, serverCount) => {
     return {
       method: 'post',
