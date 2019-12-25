@@ -2,12 +2,12 @@ import { Shard, SupportedEvents } from '../src/Utils/Constants';
 import { AxiosRequestConfig } from 'axios'
 
 type Library = 'discord.js' | 'discord.io' | 'discordie'
-type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'listcord' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats'
+type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats' | 'botlistspace'
 type CustomEvent = 'autopost' | 'autopostfail'
 
 class ServiceBase {
   constructor(token: string)
-  _request(form, requiresToken?: boolean): Promise<any>
+  _request(form: object, requiresToken?: boolean): Promise<any>
 }
 
 interface RequestFormat extends AxiosRequestConfig {
@@ -283,39 +283,6 @@ declare module 'dbots' {
   class BotsOnDiscord extends ServiceBase { }
 
   /**
-   * Represents the listcord.com service
-   * @see https://listcord.com/developers/docs
-   */
-  class Listcord extends ServiceBase {
-    /**
-     * Gets the list of bots listed for this service
-     * @param limit The amount of IDs to list.
-     * @param offset The offset of the list.
-     */
-    getBots(limit?: number, offset?: number): Promise<any>
-
-    /**
-     * Searches a term amongst the bots in this service
-     * @param q Query to seearch for.
-     * @param limit The amount of IDs to list.
-     * @param offset The offset of the list.
-     */
-    searchBots(q: string, limit?: number, offset?: number): Promise<any>
-
-    /**
-     * Gets the bot listed for this service
-     * @param id The bot's ID.
-     */
-    getBot(id: string): Promise<any>
-
-    /**
-     * Gets the data on the voters for this bot
-     * @param id The bot's ID.
-     */
-    getBotVotes(id: string): Promise<any>
-  }
-
-  /**
    * Represents the Discord Bot List service
    * @see https://discordbotlist.com/api-docs
    */
@@ -368,6 +335,48 @@ declare module 'dbots' {
      * @param userID The user's ID.
      */
     userVoted(id: string, userID: string): Promise<any>
+  }
+
+  /**
+   * Represents the botlist.space's service
+   * @see https://docs.botlist.space/
+   */
+  class BotListSpace extends ServiceBase {
+    /** Gets the statistics of this service **/
+    getStatistics(): Promise<any>
+  
+    /**  Gets a list of bots on this service **/
+    getBots(): Promise<any>
+  
+    /**
+     * Gets the bot listed for this service
+     * @param {string} id The bot's ID.
+     */
+    getBot(id: string): Promise<any>
+  
+    /**
+     * Gets the data on the voters for this bot
+     * @param {string} id The bot's ID.
+     */
+    getBotVotes(id: string): Promise<any>
+  
+    /**
+     * Gets the uptime of a bot listed for this service
+     * @param {string} id The bot's ID.
+     */
+    getBotUptime(id: string): Promise<any>
+  
+    /**
+     * Gets the user listed for this service
+     * @param {string} id The user's ID.
+     */
+    getUser(id: string): Promise<any>
+  
+    /**
+     * Gets the user's bots listed for this service
+     * @param {string} id The user's ID.
+     */
+    getUserBots(id: string): Promise<any>
   }
   //#endregion
 
