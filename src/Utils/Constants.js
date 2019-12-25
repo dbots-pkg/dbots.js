@@ -35,6 +35,14 @@ exports.PostFormat = {
     };
   },
   discordbotsorg: (...a) => exports.PostFormat.topgg(...a), // deprecated
+  discordbotsgg: (token, clientID, serverCount, shard) => {
+    return {
+      method: 'post',
+      url: `https://discord.bots.gg/api/v1/bots/${clientID}/stats`,
+      headers: { Authorization: token },
+      data: shard ? { guildCount: serverCount, shardId: shard.id, shardCount: shard.count } : { guildCount: serverCount }
+    };
+  },
   discordappsdev: (token, clientID, serverCount) => {
     return {
       method: 'post',
@@ -188,9 +196,21 @@ exports.ServerCountFunctions = {
  * @event Poster#autopostfail
  * @param {Object|Array<Object>} result The error(s) of the post
  */
+/**
+ * Emitted when a post succeeds.
+ * @event Poster#post
+ * @param {Object} result The result of the post
+ */
+/**
+ * Emitted when a post fails.
+ * @event Poster#postfail
+ * @param {Object} result The error of the post
+ */
 exports.SupportedEvents = [
   'autopost',
-  'autopostfail'
+  'autopostfail',
+  'post',
+  'postfail'
 ];
 
 exports.UserCountFunctions = {
