@@ -13,7 +13,9 @@ jobs:
       - run: npm install
 
       - run: npm run doc
+        if: contains(github.ref, 'master')
       - uses: EndBug/add-and-commit@v2
+        if: contains(github.ref, 'master')
         with:
           message: "[auto] Update documentation"
           path: doc
