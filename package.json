@@ -11,7 +11,9 @@
   "scripts": {
     "doc": "jsdoc ./src -d ./doc -r",
     "eslint": "eslint ./src",
-    "hint": "jshint ./src"
+    "gpr-setup": "node scripts/gpr.js",
+    "hint": "jshint ./src",
+    "lint": "npm run eslint && npm run hint"
   },
   "keywords": [
     "api",
