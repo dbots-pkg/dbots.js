@@ -12,6 +12,7 @@ module.exports = {
   DiscordBoats: require('./Interface/DiscordBoats'),
   BotListSpace: require('./Interface/BotListSpace'),
   DiscordBotWorld: require('./Interface/DiscordBotWorld'),
+  GlennBotList: require('./Interface/GlennBotList'),
 
   Constants: require('./Utils/Constants'),
   EnsurePromise: require('./Utils/EnsurePromise'),

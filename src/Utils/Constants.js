@@ -118,6 +118,13 @@ exports.PostFormat = {
       headers: { Authorization: token },
       data: { guild_count: serverCount }
     };
+  },
+  glennbotlist: (token, clientID, serverCount) => {
+    return {
+      method: 'post',
+      url: `https://glennbotlist.xyz/api/post/stats/bot/${clientID}`,
+      data: { serverCount, authorization: token }
+    };
   }
 };
 
@@ -135,6 +142,7 @@ exports.PostFormat = {
  * * discordboats
  * * botlistspace
  * * discordbotworld
+ * * glennbotlist
  * @typedef {string} Service
  */
 
@@ -150,7 +158,8 @@ exports.AvailableServices = [
   'divinediscordbots',
   'discordboats',
   'botlistspace',
-  'discordbotworld'
+  'discordbotworld',
+  'glennbotlist'
 ];
 
 /**

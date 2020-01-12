@@ -2,7 +2,7 @@ import { Shard, SupportedEvents } from '../src/Utils/Constants';
 import { AxiosRequestConfig } from 'axios'
 
 type Library = 'discord.js' | 'discord.io' | 'discordie'
-type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats' | 'botlistspace' | 'discordbotworld'
+type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats' | 'botlistspace' | 'discordbotworld' | 'glennbotlist'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
 
 class ServiceBase {
@@ -419,6 +419,12 @@ declare module 'dbots' {
      */
     getUser(id: string): Promise<any>
   }
+
+  /**
+   * Represents the Glenn Bot List service
+   * @see https://docs.glennbotlist.xyz/
+   */
+  class GlennBotList extends ServiceBase { }
   //#endregion
 
 
@@ -436,6 +442,7 @@ declare module 'dbots' {
       discordboats: (token: string, clientID: string, serverCount: number) => RequestFormat
       botlistspace: (token: string, clientID: string, serverCount: number) => RequestFormat
       discordbotworld: (token: string, clientID: string, serverCount: number) => RequestFormat
+      glennbotlist: (token: string, clientID: string, serverCount: number) => RequestFormat
     }
 
     AvailableServices: string[]
