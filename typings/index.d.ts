@@ -1,7 +1,7 @@
 import { Shard, SupportedEvents } from '../src/Utils/Constants';
 import { AxiosRequestConfig } from 'axios'
 
-type Library = 'discord.js' | 'discord.io' | 'discordie'
+type Library = 'discord.js' | 'discord.io' | 'discordie' | 'eris'
 type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats' | 'botlistspace' | 'discordbotworld' | 'glennbotlist'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
 

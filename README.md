@@ -54,6 +54,7 @@ Creator     | Name
 hydrabolt   | [![npm](static/npm.png)](https://npmjs.com/discord.js) [![GitHub](static/github.png)](https://github.com/hydrabolt/discord.js) discord.js
 izy521      | [![npm](static/npm.png)](https://npmjs.com/discord.io) [![GitHub](static/github.png)](https://github.com/izy521/discord.io) discord.io
 qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](static/github.png)](https://github.com/qeled/discordie) discordie
+abalabahaha | [![npm](static/npm.png)](https://npmjs.com/eris) [![GitHub](static/github.png)](https://github.com/abalabahaha/eris) eris
 
 ## Supporting Services
  - [top.gg (formerly discordbots.org)  `topgg` or `discordbotsorg`](https://top.gg)*
