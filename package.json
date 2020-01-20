@@ -32,8 +32,9 @@
     "axios": "^0.19.0"
   },
   "devDependencies": {
-    "jsdoc": "^3.6.3",
+    "@types/node": "^13.1.8",
     "eslint": "^6.5.1",
+    "jsdoc": "^3.6.3",
     "jshint": "^2.10.2"
   }
 }

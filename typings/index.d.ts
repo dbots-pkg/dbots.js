@@ -5,13 +5,12 @@ type Library = 'discord.js' | 'discord.io' | 'discordie' | 'eris'
 type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats' | 'botlistspace' | 'discordbotworld' | 'glennbotlist'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
 
-class ServiceBase {
+export class ServiceBase {
   constructor(token: string)
   _request(form: object, requiresToken?: boolean): Promise<any>
 }
 
 interface RequestFormat extends AxiosRequestConfig {
-  method: string
   url: string
   headers?: object
   data?: object
@@ -55,7 +54,7 @@ declare module 'dbots' {
     /** The function to use when retrieving the number of active voice connections. Uses the client as a parameter. */
     voiceConnections?: PromiseResolvable
     /** Whether or not to use a `Service` sharding method when posting. */
-    useSharding?= true
+    useSharding?: boolean
   }
 
   /** A class that posts server count to listing site(s). */
@@ -95,7 +94,7 @@ declare module 'dbots' {
      * @param interval The time (in ms) to reach to post to all {link  Service}s again.
      * @returns The interval that is responsible for posting
      */
-    startInterval(interval = 1800000): NodeJS.Timeout
+    startInterval(interval?: number): NodeJS.Timeout
 
     /** Destroys the current interval */
     stopInterval(): void
@@ -165,7 +164,7 @@ declare module 'dbots' {
      * Gets the bot listed for this service
      * @param id The bot's ID.
      */
-    getBot(id: string, sanitized = false): Promise<any>
+    getBot(id: string, sanitized?: boolean): Promise<any>
 
     /** Gets a list of bots on this service */
     getBots(query): Promise<any>
@@ -352,34 +351,34 @@ declare module 'dbots' {
   class BotListSpace extends ServiceBase {
     /** Gets the statistics of this service **/
     getStatistics(): Promise<any>
-  
+
     /**  Gets a list of bots on this service **/
     getBots(): Promise<any>
-  
+
     /**
      * Gets the bot listed for this service
      * @param {string} id The bot's ID.
      */
     getBot(id: string): Promise<any>
-  
+
     /**
      * Gets the data on the voters for this bot
      * @param {string} id The bot's ID.
      */
     getBotVotes(id: string): Promise<any>
-  
+
     /**
      * Gets the uptime of a bot listed for this service
      * @param {string} id The bot's ID.
      */
     getBotUptime(id: string): Promise<any>
-  
+
     /**
      * Gets the user listed for this service
      * @param {string} id The user's ID.
      */
     getUser(id: string): Promise<any>
-  
+
     /**
      * Gets the user's bots listed for this service
      * @param {string} id The user's ID.
@@ -394,25 +393,25 @@ declare module 'dbots' {
   class DiscordBotWorld extends ServiceBase {
     /**  Gets a list of bots on this service **/
     getBots(): Promise<any>
-  
+
     /**
      * Gets the bot listed for this service
      * @param {string} id The bot's ID.
      */
     getBot(id: string): Promise<any>
-  
+
     /**
      * Gets the bot's stats on this service
      * @param {string} id The bot's ID.
      */
     getBotStats(id: string): Promise<any>
-  
+
     /**
      * Gets the list of people who liked this bot
      * @param {string} id The bot's ID.
      */
     getBotLikes(id: string): Promise<any>
-  
+
     /**
      * Gets the user listed for this service
      * @param {string} id The user's ID.
@@ -427,43 +426,28 @@ declare module 'dbots' {
   class GlennBotList extends ServiceBase { }
   //#endregion
 
+  export interface PostFormat extends Record<Service, (token: string, clientID: string, serverCount: number) => RequestFormat> {
+    discordbotsgg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
+    discordbotsorg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat // deprecated
+    topgg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
+    carbon: (token: string, _: any, serverCount: number) => RequestFormat
+    discordbotlist: (token: string, clientID: string, serverCount: number, shard?: Shard, usersCount?: number, voiceConnections?: number) => RequestFormat
+  }
 
   export interface Constants {
-    PostFormat: {
-      discordbotsgg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
-      discordbotsorg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat // deprecated
-      topgg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
-      discordappsdev: (token: string, clientID: string, serverCount: number) => RequestFormat
-      botsfordiscord: (token: string, clientID: string, serverCount: number) => RequestFormat
-      botsondiscord: (token: string, clientID: string, serverCount: number) => RequestFormat
-      carbon: (token: string, _: any, serverCount: number) => RequestFormat
-      discordbotlist: (token: string, clientID: string, serverCount: number, shard?: Shard, usersCount?: number, voiceConnections?: number) => RequestFormat
-      divinediscordbots: (token: string, clientID: string, serverCount: number) => RequestFormat
-      discordboats: (token: string, clientID: string, serverCount: number) => RequestFormat
-      botlistspace: (token: string, clientID: string, serverCount: number) => RequestFormat
-      discordbotworld: (token: string, clientID: string, serverCount: number) => RequestFormat
-      glennbotlist: (token: string, clientID: string, serverCount: number) => RequestFormat
-    }
+    PostFormat: PostFormat
 
     AvailableServices: string[]
     SupportingLibraries: string[]
     SupportedEvents: string[]
 
-    ServerCountFunctions: {
-      [library: Library]: (client: any) => number
-    }
-    UserCountFunctions: {
-      [library: Library]: (client: any) => number
-    }
-    VoiceConnectionsFunctions: {
-      [library: Library]: (client: any) => number
-    }
-    AutoValueFunctions: {
-      [library: Library]: (client: any) => {
-        clientID: string,
-        shard?: object
-      }
-    }
+    ServerCountFunctions: Record<Library, (client: any) => number>
+    UserCountFunctions: Record<Library, (client: any) => number>
+    VoiceConnectionsFunctions: Record<Library, (client: any) => number>
+    AutoValueFunctions: Record<Library, (client: any) => {
+      clientID: string,
+      shard?: object
+    }>
   }
 
   export function EnsurePromise(func: Function, ...args: any[]): Promise<any>
