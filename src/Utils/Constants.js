@@ -122,7 +122,7 @@ exports.PostFormat = {
   glennbotlist: (token, clientID, serverCount) => {
     return {
       method: 'post',
-      url: `https://glennbotlist.xyz/api/post/stats/bot/${clientID}`,
+      url: `https://glennbotlist.xyz/api/v2/bot/${clientID}/stats`,
       data: { serverCount, authorization: token }
     };
   }
