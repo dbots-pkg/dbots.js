@@ -123,7 +123,8 @@ exports.PostFormat = {
     return {
       method: 'post',
       url: `https://glennbotlist.xyz/api/v2/bot/${clientID}/stats`,
-      data: { serverCount, authorization: token }
+      headers: { Authorization: token },
+      data: { serverCount }
     };
   }
 };
