@@ -1,18 +1,18 @@
 module.exports = {
   Poster: require('./Interface/Poster'),
 
-  DiscordBotsGG: require('./Interface/DiscordBotsGG'),
-  BotsForDiscord: require('./Interface/BotsForDiscord'),
-  DiscordBotsOrg: require('./Interface/TopGG'), // deprecated
-  TopGG: require('./Interface/TopGG'),
-  DiscordAppsDev: require('./Interface/DiscordAppsDev'),
-  BotsOnDiscord: require('./Interface/BotsOnDiscord'),
-  DiscordBotsList: require('./Interface/DiscordBotList'),
-  DivineDiscordBots: require('./Interface/DivineDiscordBots'),
-  DiscordBoats: require('./Interface/DiscordBoats'),
-  BotListSpace: require('./Interface/BotListSpace'),
-  DiscordBotWorld: require('./Interface/DiscordBotWorld'),
-  GlennBotList: require('./Interface/GlennBotList'),
+  DiscordBotsGG: require('./Interface/Lists/DiscordBotsGG'),
+  BotsForDiscord: require('./Interface/Lists/BotsForDiscord'),
+  DiscordBotsOrg: require('./Interface/Lists/TopGG'), // deprecated
+  TopGG: require('./Interface/Lists/TopGG'),
+  DiscordAppsDev: require('./Interface/Lists/DiscordAppsDev'),
+  BotsOnDiscord: require('./Interface/Lists/BotsOnDiscord'),
+  DiscordBotsList: require('./Interface/Lists/DiscordBotList'),
+  DivineDiscordBots: require('./Interface/Lists/DivineDiscordBots'),
+  DiscordBoats: require('./Interface/Lists/DiscordBoats'),
+  BotListSpace: require('./Interface/Lists/BotListSpace'),
+  DiscordBotWorld: require('./Interface/Lists/DiscordBotWorld'),
+  GlennBotList: require('./Interface/Lists/GlennBotList'),
 
   Constants: require('./Utils/Constants'),
   EnsurePromise: require('./Utils/EnsurePromise'),

@@ -1,4 +1,4 @@
-const ServiceBase = require('./ServiceBase');
+const ServiceBase = require('../ServiceBase');
 
 /**
  * Represents the bots.discord.pw service
