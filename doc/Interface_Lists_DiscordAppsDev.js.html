@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Utils/FormatRequest.js</title>
+    <title>JSDoc: Source: Interface/Lists/DiscordAppsDev.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Utils/FormatRequest.js</h1>
+    <h1 class="page-title">Source: Interface/Lists/DiscordAppsDev.js</h1>
 
     
 
@@ -26,39 +26,44 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const axios = require('axios');
+            <pre class="prettyprint source linenums"><code>const ServiceBase = require('../ServiceBase');
 
-/*
-{
-  method: '',
-  url: '',
-  headers: { ... },
-  data: { ... }
-}
-*/
-
-/** 
- * Returns a request
- * @param {object} options An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
- * @param {string} options.method The method to use
- * @param {string} options.url The URL for the request
- * @param {Object.&lt;string, string>} options.headers The headers to append to the request
- * @param {Object.&lt;string, string|number>} options.data The data to send with the request, if the method allows it
- * @param {Object.&lt;string, string|number>} options.params The query parameters for the request
- * @returns {Promise&lt;any>} The request
+/**
+ * Represents the discordapps.dev's service
+ * @see https://discordapps.dev/en-GB/posts/docs/api-v2/
  */
-module.exports = function FormatRequest(options) {
-  if (!options.method) options.method = 'get';
-  if (options.body) {
-    options.data = options.body;
-    delete options.body;
+class DiscordAppsDev extends ServiceBase {
+  /**
+   * Gets a list of bots on this service
+   */
+  getBots(){
+    return this._request({ url: `https://api.discordapps.dev/api/v2/bots` });
   }
-  if (options.query) {
-    options.params = options.query;
-    delete options.query;
+
+  /**
+   * Gets a list of applications on this service
+   */
+  getApps(){
+    return this._request({ url: `https://api.discordapps.dev/api/v2/apps` });
   }
-  return axios(options);
-};</code></pre>
+
+  /**
+   * Gets a list of RPC applications on this service
+   */
+  getRPCApps(){
+    return this._request({ url: `https://api.discordapps.dev/api/v2/rpc` });
+  }
+
+  /**
+   * Gets the bot listed for this service
+   * @param {string} id The bot's ID.
+   */
+  getBot(id){
+    return this._request({ url: `https://api.discordapps.dev/api/v2/bots/${id}` });
+  }
+}
+
+module.exports = DiscordAppsDev;</code></pre>
         </article>
     </section>
 

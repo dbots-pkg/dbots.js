@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Utils/FormatRequest.js</title>
+    <title>JSDoc: Source: Interface/Lists/BotsForDiscord.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Utils/FormatRequest.js</h1>
+    <h1 class="page-title">Source: Interface/Lists/BotsForDiscord.js</h1>
 
     
 
@@ -26,39 +26,56 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const axios = require('axios');
+            <pre class="prettyprint source linenums"><code>const ServiceBase = require('../ServiceBase');
 
-/*
-{
-  method: '',
-  url: '',
-  headers: { ... },
-  data: { ... }
-}
-*/
-
-/** 
- * Returns a request
- * @param {object} options An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
- * @param {string} options.method The method to use
- * @param {string} options.url The URL for the request
- * @param {Object.&lt;string, string>} options.headers The headers to append to the request
- * @param {Object.&lt;string, string|number>} options.data The data to send with the request, if the method allows it
- * @param {Object.&lt;string, string|number>} options.params The query parameters for the request
- * @returns {Promise&lt;any>} The request
+/**
+ * Represents the Bots For Discord service
+ * @see https://docs.botsfordiscord.com/
  */
-module.exports = function FormatRequest(options) {
-  if (!options.method) options.method = 'get';
-  if (options.body) {
-    options.data = options.body;
-    delete options.body;
+class BotsForDiscord extends ServiceBase {
+  /**
+   * Gets the bot listed for this service
+   * @param {string} id The bot's ID.
+   */
+  getBot(id) {
+    return this._request({ url: `https://botsfordiscord.com/api/bot/${id}` });
   }
-  if (options.query) {
-    options.params = options.query;
-    delete options.query;
+
+  /**
+   * Gets the widget for this bot
+   * @param {string} id The bot's ID.
+   * @param {Object} query The querystring that will be used in the request
+   */
+  getBotWidget(id, query) {
+    return this._request({ url: `https://botsfordiscord.com/api/bots/${id}/widget`, params: query });
   }
-  return axios(options);
-};</code></pre>
+
+  /**
+   * Gets the votes for this bot
+   * @param {string} id The bot's ID.
+   */
+  getBotVotes(id) {
+    return this._request({ url: `https://botsfordiscord.com/api/bots/${id}/votes` });
+  }
+
+  /**
+   * Gets the user listed for this service
+   * @param {string} id The user's ID.
+   */
+  getUser(id) {
+    return this._request({ url: `https://botsfordiscord.com/api/user/${id}` });
+  }
+
+  /**
+   * Gets the user's list of managed bots
+   * @param {string} id The user's ID.
+   */
+  getUserBots(id) {
+    return this._request({ url: `https://botsfordiscord.com/api/user/${id}/bots` });
+  }
+}
+
+module.exports = BotsForDiscord;</code></pre>
         </article>
     </section>
 

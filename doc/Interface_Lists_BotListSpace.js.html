@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: Utils/FormatRequest.js</title>
+    <title>JSDoc: Source: Interface/Lists/BotListSpace.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: Utils/FormatRequest.js</h1>
+    <h1 class="page-title">Source: Interface/Lists/BotListSpace.js</h1>
 
     
 
@@ -26,39 +26,72 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const axios = require('axios');
+            <pre class="prettyprint source linenums"><code>const ServiceBase = require('../ServiceBase');
 
-/*
-{
-  method: '',
-  url: '',
-  headers: { ... },
-  data: { ... }
-}
-*/
-
-/** 
- * Returns a request
- * @param {object} options An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
- * @param {string} options.method The method to use
- * @param {string} options.url The URL for the request
- * @param {Object.&lt;string, string>} options.headers The headers to append to the request
- * @param {Object.&lt;string, string|number>} options.data The data to send with the request, if the method allows it
- * @param {Object.&lt;string, string|number>} options.params The query parameters for the request
- * @returns {Promise&lt;any>} The request
+/**
+ * Represents the botlist.space's service
+ * @see https://docs.botlist.space/
  */
-module.exports = function FormatRequest(options) {
-  if (!options.method) options.method = 'get';
-  if (options.body) {
-    options.data = options.body;
-    delete options.body;
+class BotListSpace extends ServiceBase {
+  /**
+   * Gets the statistics of this service
+   */
+  getStatistics() {
+    return this._request({ url: 'https://api.botlist.space/v1/statistics' });
   }
-  if (options.query) {
-    options.params = options.query;
-    delete options.query;
+
+  /**
+   * Gets a list of bots on this service
+   */
+  getBots(){
+    return this._request({ url: `https://api.botlist.space/v1/bots` });
   }
-  return axios(options);
-};</code></pre>
+
+  /**
+   * Gets the bot listed for this service
+   * @param {string} id The bot's ID.
+   */
+  getBot(id) {
+    return this._request({ url: `https://api.botlist.space/v1/bots/${id}` });
+  }
+
+  /**
+   * Gets the data on the voters for this bot
+   * @param {string} id The bot's ID.
+   */
+  getBotVotes(id) {
+    return this._request({
+      url: `https://api.botlist.space/v1/bots/${id}/upvotes`,
+      headers: { Authorization: this.token }
+    }, true);
+  }
+
+  /**
+   * Gets the uptime of a bot listed for this service
+   * @param {string} id The bot's ID.
+   */
+  getBotUptime(id) {
+    return this._request({ url: `https://api.botlist.space/v1/bots/${id}/uptime` });
+  }
+
+  /**
+   * Gets the user listed for this service
+   * @param {string} id The user's ID.
+   */
+  getUser(id) {
+    return this._request({ url: `https://api.botlist.space/v1/users/${id}` });
+  }
+
+  /**
+   * Gets the user's bots listed for this service
+   * @param {string} id The user's ID.
+   */
+  getUserBots(id) {
+    return this._request({ url: `https://api.botlist.space/v1/users/${id}/bots` });
+  }
+}
+
+module.exports = BotListSpace;</code></pre>
         </article>
     </section>
 
