@@ -18,7 +18,7 @@ jobs:
         if: contains(github.ref, 'master')
         with:
           message: "[auto] Update documentation"
-          path: doc
+          path: docs
           pattern: "*.*"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
