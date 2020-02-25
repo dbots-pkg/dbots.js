@@ -3,12 +3,13 @@ const ServiceBase = require('../ServiceBase');
 /**
  * Represents the discordbot.world's service
  * @see https://discordbot.world/docs
+ * @extends {ServiceBase}
  */
 class DiscordBotWorld extends ServiceBase {
   /**
    * Gets a list of bots on this service
    */
-  getBots(){
+  getBots() {
     return this._request({ url: `https://discordbot.world/api/bots` });
   }
 

@@ -3,6 +3,7 @@ const ServiceBase = require('../ServiceBase');
 /**
  * Represents the top.gg (formerly discordbots.org) service
  * @see https://top.gg/api/docs
+ * @extends {ServiceBase}
  */
 class TopGG extends ServiceBase {
   /**

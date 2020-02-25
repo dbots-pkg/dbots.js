@@ -3,6 +3,7 @@ const ServiceBase = require('../ServiceBase');
 /**
  * Represents the botlist.space's service
  * @see https://docs.botlist.space/
+ * @extends {ServiceBase}
  */
 class BotListSpace extends ServiceBase {
   /**
@@ -15,7 +16,7 @@ class BotListSpace extends ServiceBase {
   /**
    * Gets a list of bots on this service
    */
-  getBots(){
+  getBots() {
     return this._request({ url: `https://api.botlist.space/v1/bots` });
   }
 

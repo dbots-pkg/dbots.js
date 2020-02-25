@@ -3,13 +3,14 @@ const ServiceBase = require('../ServiceBase');
 /**
  * Represents the divinediscordbots.com's service
  * @see https://divinediscordbots.com/api
+ * @extends {ServiceBase}
  */
 class DivineDiscordBots extends ServiceBase {
   /**
    * Gets the bot stats for your bot
    * @param {string} id The bot's ID.
    */
-  getBotStats(id){
+  getBotStats(id) {
     return this._request({ url: `https://divinediscordbots.com/bot/${id}/stats` });
   }
 
@@ -17,7 +18,7 @@ class DivineDiscordBots extends ServiceBase {
    * Gets the bot votes for your bot
    * @param {string} id The bot's ID.
    */
-  getBotVotes(id){
+  getBotVotes(id) {
     return this._request({ url: `https://divinediscordbots.com/bot/${id}/votes` });
   }
 }
