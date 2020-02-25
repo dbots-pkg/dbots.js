@@ -9,7 +9,7 @@
     "url": "git+https://github.com/Snazzah/dbots.js.git"
   },
   "scripts": {
-    "doc": "jsdoc ./src -d ./docs -r",
+    "docs": "docgen --source src --output docs/docs.json",
     "eslint": "eslint ./src",
     "gpr-setup": "node scripts/gpr.js",
     "hint": "jshint ./src",
@@ -33,8 +33,8 @@
   },
   "devDependencies": {
     "@types/node": "^13.1.8",
+    "discord.js-docgen": "github:discordjs/docgen",
     "eslint": "^6.5.1",
-    "jsdoc": "^3.6.3",
     "jshint": "^2.10.2"
   }
 }
