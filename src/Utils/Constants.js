@@ -189,6 +189,9 @@ exports.ServerCountFunctions = {
 /**
  * An event that can be added an handler for. These are the available events:
  * * autopost
+ * * autopostfail
+ * * post
+ * * postfail
  * @typedef {string} CustomEvent
  */
 /**
