@@ -10,12 +10,29 @@ const FormatRequest = require('../Utils/FormatRequest');
 class Poster {
   constructor(options) {
     if (!options || typeof options !== 'object') throw new Error("An object is required a parameter to construct a poster.");
+
+    /**
+     * The client that will be used to fecth the stats.
+     * @type {Object}
+     */
     this.client = options.client;
+
     if (typeof options.useSharding !== 'boolean') options.useSharding = true;
     if (!this.client && !options.clientID) throw new Error("clientID must be defined when client is non-existant.");
     if (this.client && !options.clientID) Object.assign(options, Constants.AutoValueFunctions[options.clientLibrary](options.client));
     if (!options.useSharding) options.shard = undefined;
+
+    /**
+     * The options the poster was built with.
+     * @type {PosterOptions}
+     * @readonly
+     */
     this.options = options;
+
+    /**
+     * The list of event handlers for every custom event.
+     * @type {Object.<CustomEvent, Array<PromiseResolvable>>}
+     */
     this.handlers = {};
     for (let event of Constants.SupportedEvents) this.handlers[event] = [];
   }
@@ -111,13 +128,13 @@ class Poster {
           this.options.shard,
           userCount,
           voiceConnections
-      )).then(result => {
-        this.runHandlers('post', result);
-        resolve(result);
-      }).catch(error => {
-        this.runHandlers('postfail', error);
-        reject(error);
-      });
+        )).then(result => {
+          this.runHandlers('post', result);
+          resolve(result);
+        }).catch(error => {
+          this.runHandlers('postfail', error);
+          reject(error);
+        });
     });
   }
 
