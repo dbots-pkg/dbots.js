@@ -2,10 +2,3 @@
   files:
     - name: Welcome
       path: welcome.md
-    - name: Test
-      path: test.md
-
-- name: Test
-  files:
-    - name: Test
-      path: test.md
