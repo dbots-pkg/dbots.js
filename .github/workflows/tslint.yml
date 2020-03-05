@@ -1,0 +1,36 @@
+name: Lint TS definitions
+on:
+  push:
+    branches:
+      - "*"
+      - "!docs"
+    paths:
+      - "typings/**"
+      - ".github/workflows/tslint.yml"
+
+jobs:
+  tslint:
+    name: Lint TS definitions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node v12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run TSLint
+        run: npm run tslint:fix
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v4
+        with:
+          add: typings
+          message: "[auto] Lint ts definitions"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

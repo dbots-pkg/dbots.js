@@ -14,7 +14,8 @@
     "gpr-setup": "node scripts/gpr.js",
     "hint": "jshint ./src",
     "lint": "npm run eslint && npm run hint",
-    "tslint": "tslint ./typings/*.d.ts --fix",
+    "tslint": "tslint ./typings/*.d.ts",
+    "tslint:fix": "tslint ./typings/*.d.ts --fix",
     "webpack": "webpack",
     "prepublishOnly": "npm run lint && NODE_ENV=production npm run webpack"
   },
