@@ -17,7 +17,7 @@
     "tslint": "tslint ./typings/*.d.ts",
     "tslint:fix": "tslint ./typings/*.d.ts --fix",
     "webpack": "webpack",
-    "prepublishOnly": "npm run lint && NODE_ENV=production npm run webpack"
+    "prepublishOnly": "npm run lint && npm run tslint && NODE_ENV=production npm run webpack"
   },
   "unpkg": "./webpack/dbots.min.js",
   "jsdelivr": "./webpack/dbots.min.js",
