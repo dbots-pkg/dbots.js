@@ -11,13 +11,12 @@
   "scripts": {
     "docs": "docgen --source src --custom docs/index.yml --output docs/docs.json",
     "eslint": "eslint ./src",
+    "eslint:fix": "eslint ./src --fix",
     "gpr-setup": "node scripts/gpr.js",
-    "hint": "jshint ./src",
-    "lint": "npm run eslint && npm run hint",
     "tslint": "tslint ./typings/*.d.ts",
     "tslint:fix": "tslint ./typings/*.d.ts --fix",
     "webpack": "webpack",
-    "prepublishOnly": "npm run lint && npm run tslint && NODE_ENV=production npm run webpack"
+    "prepublishOnly": "npm run eslint:fix && npm run tslint:fix && NODE_ENV=production npm run webpack"
   },
   "unpkg": "./webpack/dbots.min.js",
   "jsdelivr": "./webpack/dbots.min.js",
@@ -42,7 +41,6 @@
     "discord.js-docgen": "github:discordjs/docgen",
     "dtslint": "^3.3.0",
     "eslint": "^6.5.1",
-    "jshint": "^2.10.2",
     "terser-webpack-plugin": "^2.3.5",
     "tslint": "^6.0.0",
     "typescript": "^3.8.3",

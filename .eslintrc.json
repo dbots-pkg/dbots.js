@@ -1,0 +1,53 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "globals": {},
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-cond-assign": [
+      2,
+      "except-parens"
+    ],
+    "no-use-before-define": [
+      2,
+      {
+        "functions": false,
+        "classes": false,
+        "variables": false
+      }
+    ],
+    "new-cap": 0,
+    "no-caller": 2,
+    "no-undef": 2,
+    "no-unused-vars": 1,
+    "no-empty": [
+      "error",
+      {
+        "allowEmptyCatch": true
+      }
+    ],
+    "no-console": "off",
+    "prefer-const": [
+      "warn",
+      {
+        "destructuring": "all"
+      }
+    ],
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "semi": [
+      "warn",
+      "always"
+    ],
+    "spaced-comment": "warn"
+  }
+}
