@@ -7,7 +7,7 @@
   <p>
     <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/v/dbots.svg?maxAge=3600" alt="NPM version" /></a>
     <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/dt/dbots.svg?maxAge=3600" alt="NPM downloads" /></a>
-    <a href="https://david-dm.org/snazzah/dbots.js"><img src="https://img.shields.io/david/snazzah/dbots.js.svg?maxAge=3600" alt="Dependencies" /></a>
+    <a href="https://david-dm.org/dbots-pkg/dbots.js"><img src="https://img.shields.io/david/dbots-pkg/dbots.js.svg?maxAge=3600" alt="Dependencies" /></a>
   </p>
   <p>
     <a href="https://nodei.co/npm/dbots/"><img src="https://nodei.co/npm/dbots.png" alt="NPM info" /></a>
