@@ -1,13 +1,13 @@
 <div align="center">
   <p>
-    <img src="/static/logo.png" alt="dbots logo" width="200" align="left" />
+    <img src="static/logo.png" alt="dbots logo" width="200" align="left" />
   </p>
   <h1>dbots</h1>
   <p>The universal count poster</p>
   <p>
     <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/v/dbots.svg?maxAge=3600" alt="NPM version" /></a>
     <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/dt/dbots.svg?maxAge=3600" alt="NPM downloads" /></a>
-    <a href="https://david-dm.org/snazzah/dbots.js"><img src="https://img.shields.io/david/snazzah/dbots.js.svg?maxAge=3600" alt="Dependencies" /></a>
+    <a href="https://david-dm.org/dbots-pkg/dbots.js"><img src="https://img.shields.io/david/dbots-pkg/dbots.js.svg?maxAge=3600" alt="Dependencies" /></a>
   </p>
   <p>
     <a href="https://nodei.co/npm/dbots/"><img src="https://nodei.co/npm/dbots.png" alt="NPM info" /></a>
@@ -51,10 +51,10 @@ poster.startInterval(); // starts an interval thats posts to all services every 
 ## Supporting Libraries
 Creator     | Name
 ----------- | -----
-hydrabolt   | [![npm](/static/npm.png)](https://npmjs.com/discord.js) [![GitHub](/static/github.png)](https://github.com/hydrabolt/discord.js) discord.js
-izy521      | [![npm](/static/npm.png)](https://npmjs.com/discord.io) [![GitHub](/static/github.png)](https://github.com/izy521/discord.io) discord.io
-qeled       | [![npm](/static/npm.png)](https://npmjs.com/discordie) [![GitHub](/static/github.png)](https://github.com/qeled/discordie) discordie
-abalabahaha | [![npm](/static/npm.png)](https://npmjs.com/eris) [![GitHub](/static/github.png)](https://github.com/abalabahaha/eris) eris
+hydrabolt   | [![npm](static/npm.png)](https://npmjs.com/discord.js) [![GitHub](static/github.png)](https://github.com/hydrabolt/discord.js) discord.js
+izy521      | [![npm](static/npm.png)](https://npmjs.com/discord.io) [![GitHub](static/github.png)](https://github.com/izy521/discord.io) discord.io
+qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](static/github.png)](https://github.com/qeled/discordie) discordie
+abalabahaha | [![npm](static/npm.png)](https://npmjs.com/eris) [![GitHub](static/github.png)](https://github.com/abalabahaha/eris) eris
 
 ## Supporting Services
  - [top.gg (formerly discordbots.org)  `topgg` or `discordbotsorg`](https://top.gg)*
