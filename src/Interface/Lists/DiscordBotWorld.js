@@ -4,6 +4,9 @@ const ServiceBase = require('../ServiceBase');
  * Represents the discordbot.world's service
  * @see https://discordbot.world/docs
  * @extends {ServiceBase}
+ *
+ * @constructor
+ * @param {string} token The token/key for the service
  */
 class DiscordBotWorld extends ServiceBase {
   /**

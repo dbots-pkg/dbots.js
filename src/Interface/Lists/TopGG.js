@@ -4,6 +4,9 @@ const ServiceBase = require('../ServiceBase');
  * Represents the top.gg (formerly discordbots.org) service
  * @see https://top.gg/api/docs
  * @extends {ServiceBase}
+ *
+ * @constructor
+ * @param {string} token The token/key for the service
  */
 class TopGG extends ServiceBase {
   /**

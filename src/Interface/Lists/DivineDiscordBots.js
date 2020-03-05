@@ -4,6 +4,9 @@ const ServiceBase = require('../ServiceBase');
  * Represents the divinediscordbots.com's service
  * @see https://divinediscordbots.com/api
  * @extends {ServiceBase}
+ *
+ * @constructor
+ * @param {string} token The token/key for the service
  */
 class DivineDiscordBots extends ServiceBase {
   /**

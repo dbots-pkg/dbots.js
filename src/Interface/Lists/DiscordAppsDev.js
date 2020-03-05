@@ -4,6 +4,9 @@ const ServiceBase = require('../ServiceBase');
  * Represents the discordapps.dev's service
  * @see https://discordapps.dev/en-GB/posts/docs/api-v2/
  * @extends {ServiceBase}
+ *
+ * @constructor
+ * @param {string} token The token/key for the service
  */
 class DiscordAppsDev extends ServiceBase {
   /**

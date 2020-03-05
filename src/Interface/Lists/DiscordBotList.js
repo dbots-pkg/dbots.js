@@ -4,6 +4,9 @@ const ServiceBase = require('../ServiceBase');
  * Represents the Discord Bot List service
  * @see https://discordbotlist.com/api-docs
  * @extends {ServiceBase}
+ *
+ * @constructor
+ * @param {string} token The token/key for the service
  */
 class DiscordBotList extends ServiceBase {
   /**

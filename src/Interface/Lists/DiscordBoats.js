@@ -4,6 +4,9 @@ const ServiceBase = require('../ServiceBase');
  * Represents the discord.boats's service
  * @see https://discord.boats/api/docs
  * @extends {ServiceBase}
+ *
+ * @constructor
+ * @param {string} token The token/key for the service
  */
 class DiscordBoats extends ServiceBase {
   /**
