@@ -17,7 +17,7 @@ class ServiceBase {
 
   /**
    * Sends a request for the service interface
-   * @param {object} form The request form
+   * @param {Object} form The request form
    * @param {boolean} [requiresToken] Whether the request requires a token
    * @private
    */

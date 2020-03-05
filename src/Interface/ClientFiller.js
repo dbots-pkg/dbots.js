@@ -1,13 +1,13 @@
 /**
  * A class that gets certain values from a client
  * @private
- * @param {object} client The client that will be used
+ * @param {Object} client The client that will be used
  */
 class ClientFiller {
   constructor(client) {
     /**
      * The client that will be used for the filler
-     * @type {object}
+     * @type {Object}
      */
     this.client = client;
   }
@@ -49,6 +49,7 @@ class ClientFiller {
   /**
    * Gets the amount of users the bot has cached
    * @type {number}
+   * @readonly
    */
   get userCount() {
     return 0;
@@ -57,6 +58,7 @@ class ClientFiller {
   /**
    * Gets the amount of servers the bot has cached
    * @type {number}
+   * @readonly
    */
   get serverCount() {
     return 0;
@@ -65,6 +67,7 @@ class ClientFiller {
   /**
    * Gets the amount of voice connectinos the bot is using
    * @type {number}
+   * @readonly
    */
   get voiceConnections() {
     return 0;
@@ -73,6 +76,7 @@ class ClientFiller {
   /**
    * Gets the client ID (technically the user ID) of the bot
    * @type {?string}
+   * @readonly
    */
   get clientID() {
     return null;
@@ -81,6 +85,7 @@ class ClientFiller {
   /**
    * Gets the shard of the bot
    * @type {?Shard}
+   * @readonly
    */
   get shard() {
     return null;

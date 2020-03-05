@@ -11,7 +11,7 @@ const axios = require('axios');
 
 /** 
  * Returns a request
- * @param {object} options An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
+ * @param {Object} options An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
  * @param {string} options.method The method to use
  * @param {string} options.url The URL for the request
  * @param {Object.<string, string>} options.headers The headers to append to the request
