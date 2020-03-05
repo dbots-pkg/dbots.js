@@ -4,6 +4,8 @@ const ServiceBase = require('../ServiceBase');
  * Represents the botlist.space's service
  * @see https://docs.botlist.space/
  * @extends {ServiceBase}
+ * @constructor
+ * @param {string} token The token/key for the service
  */
 class BotListSpace extends ServiceBase {
   /**
