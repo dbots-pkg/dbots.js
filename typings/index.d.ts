@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from 'axios';
+import { AxiosRequestConfig } from 'axios'
 
 type Library = 'discord.js' | 'discord.io' | 'discordie' | 'eris'
 type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats' | 'botlistspace' | 'discordbotworld' | 'glennbotlist'
