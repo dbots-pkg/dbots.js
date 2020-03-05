@@ -27,6 +27,7 @@
     "**/sample.ts",
     "start.js",
     "docs",
-    "scripts"
+    "scripts",
+    "webpack.config.js"
   ]
 }
