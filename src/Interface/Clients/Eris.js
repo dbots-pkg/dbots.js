@@ -6,6 +6,16 @@ const ClientFiller = require('../ClientFiller');
  * @extends {ClientFiller}
  */
 class Eris extends ClientFiller {
+  constructor(client) {
+    super(client);
+
+    /**
+     * @type {null}
+     * @readonly
+     */
+    this.shard = null;
+  }
+
   get userCount() {
     return this.client.users.size;
   }
