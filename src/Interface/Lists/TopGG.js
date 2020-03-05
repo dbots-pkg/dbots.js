@@ -18,7 +18,7 @@ class TopGG extends ServiceBase {
    * Gets the list of bots listed for this service
    */
   getBots() {
-    return this._request({ url: `https://top.gg/api/bots` });
+    return this._request({ url: 'https://top.gg/api/bots' });
   }
 
   /**

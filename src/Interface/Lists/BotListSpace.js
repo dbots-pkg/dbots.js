@@ -17,7 +17,7 @@ class BotListSpace extends ServiceBase {
    * Gets a list of bots on this service
    */
   getBots() {
-    return this._request({ url: `https://api.botlist.space/v1/bots` });
+    return this._request({ url: 'https://api.botlist.space/v1/bots' });
   }
 
   /**

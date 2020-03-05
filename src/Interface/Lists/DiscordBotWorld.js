@@ -10,7 +10,7 @@ class DiscordBotWorld extends ServiceBase {
    * Gets a list of bots on this service
    */
   getBots() {
-    return this._request({ url: `https://discordbot.world/api/bots` });
+    return this._request({ url: 'https://discordbot.world/api/bots' });
   }
 
   /**

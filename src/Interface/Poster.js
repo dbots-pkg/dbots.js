@@ -10,7 +10,7 @@ const ClientFiller = require('./ClientFiller');
  */
 class Poster {
   constructor(options) {
-    if (!options || typeof options !== 'object') throw new Error("An object is required a parameter to construct a poster.");
+    if (!options || typeof options !== 'object') throw new Error('An object is required a parameter to construct a poster.');
 
     /**
      * The client that will be used to fecth the stats.
@@ -27,7 +27,7 @@ class Poster {
     this.options = options;
 
     if (typeof options.useSharding !== 'boolean') options.useSharding = true;
-    if (!this.client && !options.clientID) throw new Error("clientID must be defined when client is non-existant.");
+    if (!this.client && !options.clientID) throw new Error('clientID must be defined when client is non-existant.');
     if (this.client && !options.clientID) Object.assign(options, {
       clientID: this.clientFiller.clientID,
       shard: this.clientFiller.shard,
@@ -39,7 +39,7 @@ class Poster {
      * @type {Object.<CustomEvent, Array<PromiseResolvable>>}
      */
     this.handlers = {};
-    for (let event of Constants.SupportedEvents) this.handlers[event] = [];
+    for (const event of Constants.SupportedEvents) this.handlers[event] = [];
   }
 
 
@@ -111,7 +111,7 @@ class Poster {
     * @see Poster#postManual
     */
   post(service) {
-    let _this = this;
+    const _this = this;
     return new Promise((resolve, reject) => {
       return Promise.all([_this.getServerCount(), _this.getUserCount(), _this.getVoiceConnections()])
         .then(([serverCount, userCount, voiceConnections]) => {
@@ -174,7 +174,7 @@ class Poster {
   removeHandler(event, handler) {
     if (!Constants.SupportedEvents.includes(event)) throw new Error('Can\'t remove handler for an unsupported event.');
     if (!(handler instanceof Function || handler instanceof Promise)) throw new Error('Given handler is not a PromiseResolvable.');
-    let index = this.handlers[event].indexOf(handler);
+    const index = this.handlers[event].indexOf(handler);
     if (index >= 0) this.handlers[event].splice(index, 1);
     return this.handlers[event];
   }
@@ -186,7 +186,7 @@ class Poster {
    */
   runHandlers(event, ...args) {
     if (!Constants.SupportedEvents.includes(event)) throw new Error('Can\'t remove handler for an unsupported event.');
-    for (let handler of this.handlers[event]) EnsurePromise(handler(...args));
+    for (const handler of this.handlers[event]) EnsurePromise(handler(...args));
   }
 }
 

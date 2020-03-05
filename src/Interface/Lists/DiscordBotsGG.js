@@ -23,7 +23,7 @@ class DiscordBotsGG extends ServiceBase {
    */
   getBots(query) {
     return this._request({
-      url: `https://discord.bots.gg/api/v1/bots`,
+      url: 'https://discord.bots.gg/api/v1/bots',
       headers: { Authorization: this.token },
       params: query
     }, true);

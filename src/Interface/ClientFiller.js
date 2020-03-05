@@ -95,7 +95,7 @@ class ClientFiller {
 module.exports = ClientFiller;
 
 // Circular import
-const Discordie = require("./Clients/Discordie");
-const DiscordIO = require("./Clients/DiscordIO");
-const DiscordJS = require("./Clients/DiscordJS");
-const Eris = require("./Clients/Eris");
+const Discordie = require('./Clients/Discordie');
+const DiscordIO = require('./Clients/DiscordIO');
+const DiscordJS = require('./Clients/DiscordJS');
+const Eris = require('./Clients/Eris');

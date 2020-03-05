@@ -7,13 +7,13 @@ const ClientFiller = require('../ClientFiller');
  */
 class DiscordJS extends ClientFiller {
   get userCount() {
-    if(this.client.users.constructor.name === "UserManager")
+    if(this.client.users.constructor.name === 'UserManager')
       return this.client.users.cache.size;
     else return this.client.users.size;
   }
 
   get serverCount() {
-    if(this.client.users.constructor.name === "GuildManager")
+    if(this.client.users.constructor.name === 'GuildManager')
       return this.client.guilds.cache.size;
     else return this.client.guilds.size;
   }

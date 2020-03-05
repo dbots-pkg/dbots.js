@@ -10,21 +10,21 @@ class DiscordAppsDev extends ServiceBase {
    * Gets a list of bots on this service
    */
   getBots() {
-    return this._request({ url: `https://api.discordapps.dev/api/v2/bots` });
+    return this._request({ url: 'https://api.discordapps.dev/api/v2/bots' });
   }
 
   /**
    * Gets a list of applications on this service
    */
   getApps() {
-    return this._request({ url: `https://api.discordapps.dev/api/v2/apps` });
+    return this._request({ url: 'https://api.discordapps.dev/api/v2/apps' });
   }
 
   /**
    * Gets a list of RPC applications on this service
    */
   getRPCApps() {
-    return this._request({ url: `https://api.discordapps.dev/api/v2/rpc` });
+    return this._request({ url: 'https://api.discordapps.dev/api/v2/rpc' });
   }
 
   /**
