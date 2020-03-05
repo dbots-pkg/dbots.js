@@ -13,36 +13,36 @@ class ClientFiller {
   }
 
   static get(libraryName, client) {
-    if(!client)
+    if (!client)
       throw new Error('No client was provided!');
     switch (libraryName) {
-      case 'discordie':
-      case 'die': {
-        return new Discordie(client);
-      }
-      case 'discord.io':
-      case 'discordio':
-      case 'd.io': 
-      case 'dio': {
-        return new DiscordIO(client);
-      }
-      case 'discord.js':
-      case 'discordjs':
-      case 'd.js':
-      case 'djs':
-      case 'discord.js-commando':
-      case 'discordjs-commando':
-      case 'd.js-commando':
-      case 'djs-commando':
-      case 'commando': {
-        return new DiscordJS(client);
-      }
-      case 'eris': {
-        return new Eris(client);
-      }
-      default: {
-        throw new Error(`Unknown client '${libraryName}'`);
-      }
+    case 'discordie':
+    case 'die': {
+      return new Discordie(client);
+    }
+    case 'discord.io':
+    case 'discordio':
+    case 'd.io': 
+    case 'dio': {
+      return new DiscordIO(client);
+    }
+    case 'discord.js':
+    case 'discordjs':
+    case 'd.js':
+    case 'djs':
+    case 'discord.js-commando':
+    case 'discordjs-commando':
+    case 'd.js-commando':
+    case 'djs-commando':
+    case 'commando': {
+      return new DiscordJS(client);
+    }
+    case 'eris': {
+      return new Eris(client);
+    }
+    default: {
+      throw new Error(`Unknown client '${libraryName}'`);
+    }
     }
   }
 
