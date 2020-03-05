@@ -1,10 +1,9 @@
-import { Shard, SupportedEvents } from '../src/Utils/Constants';
 import { AxiosRequestConfig } from 'axios'
 
 type Library = 'discord.js' | 'discord.io' | 'discordie' | 'eris'
 type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats' | 'botlistspace' | 'discordbotworld' | 'glennbotlist'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
-type AnyClient = Discordie | DiscordIO | DiscordJS | Eris;
+type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
 export class ServiceBase {
   constructor(token: string)
@@ -18,7 +17,7 @@ export class ClientFiller {
   voiceConnections: number
   clientID?: number
   shard?: number
-  static from(libraryName: string, client: object): AnyClient;
+  static from(libraryName: string, client: object): AnyClient
 }
 
 export class Discordie extends ClientFiller {}
@@ -41,15 +40,19 @@ type PartialRecord<K extends keyof any, T> = {
 type keyFormat = PartialRecord<Service, string>
 
 interface handlerCollector {
-  autopost: ((result: object | object[]) => void)[]
-  autopostfail: ((result: object | object[]) => void)[]
-  post: ((result: object) => void)[]
-  postfail: ((result: object) => void)[]
+  autopost: Array<(result: object | object[]) => void>
+  autopostfail: Array<(result: object | object[]) => void>
+  post: Array<(result: object) => void>
+  postfail: Array<(result: object) => void>}
+
+interface Shard {
+  count: number
+  id: number
 }
 
 declare module 'dbots' {
   /** Data that can be resolved to give a string. This can either be a Function or a Promise */
-  type PromiseResolvable = Function | Promise<string>
+  type PromiseResolvable = () => string | Promise<string>
 
   /** Options for a poster. */
   interface PosterOptions {
@@ -122,7 +125,7 @@ declare module 'dbots' {
     /** Destroys the current interval */
     stopInterval(): void
 
-    /** 
+    /**
      * Posts the current clients server count to a service
      * @param service The service to post to
      * @returns The result(s) of the post
@@ -158,26 +161,21 @@ declare module 'dbots' {
      * @param handler The function that is run with the event
      * @returns The array of handlers currently set for that event
      */
-    removeHandler(event: 'autopost', handler: (result: object | object[]) => void): PromiseResolvable[]
-    removeHandler(event: 'autopostfail', handler: (error: object | object[]) => void): PromiseResolvable[]
-    removeHandler(event: 'post', handler: (result: object) => void): PromiseResolvable[]
-    removeHandler(event: 'postfail', handler: (error: object) => void): PromiseResolvable[]
+    removeHandler(event: 'autopost' | 'autopostfail', handler: (result: object | object[]) => void): PromiseResolvable[]
+    removeHandler(event: 'post' | 'postfail', handler: (result: object) => void): PromiseResolvable[]
     removeHandler(event: CustomEvent, handler: PromiseResolvable): PromiseResolvable[]
 
     /**
-    * Manually triggers an event with custom arguments
-    * @param event The name of the event to run the handlers for
-    * @param args The arguments to pass to the handlers
-    */
-    runHandlers(event: 'autopost', result: object | object[]): void
-    runHandlers(event: 'autopostfail', error: object | object[]): void
-    runHandlers(event: 'post', result: object): void
-    runHandlers(event: 'postfail', error: object): void
+     * Manually triggers an event with custom arguments
+     * @param event The name of the event to run the handlers for
+     * @param args The arguments to pass to the handlers
+     */
+    runHandlers(event: 'autopost' | 'autopostfail', result: object | object[]): void
+    runHandlers(event: 'post' | 'postfail', result: object): void
     runHandlers(event: CustomEvent, ...args: any[]): void
-
   }
 
-  //#region services
+  // #region services
   /**
    * Represents the bots.discord.pw service
    * @see https://discord.bots.gg/docs
@@ -190,7 +188,7 @@ declare module 'dbots' {
     getBot(id: string, sanitized?: boolean): Promise<any>
 
     /** Gets a list of bots on this service */
-    getBots(query): Promise<any>
+    getBots(query: any): Promise<any>
   }
 
   /**
@@ -325,9 +323,9 @@ declare module 'dbots' {
   }
 
   /**
-  * Represents the divinediscordbots.com's service
-  * @see https://divinediscordbots.com/api
-  */
+   * Represents the divinediscordbots.com's service
+   * @see https://divinediscordbots.com/api
+   */
   class DivineDiscordBots extends ServiceBase {
     /**
      * Gets the bot stats for your bot
@@ -372,10 +370,10 @@ declare module 'dbots' {
    * @see https://docs.botlist.space/
    */
   class BotListSpace extends ServiceBase {
-    /** Gets the statistics of this service **/
+    /** Gets the statistics of this service */
     getStatistics(): Promise<any>
 
-    /**  Gets a list of bots on this service **/
+    /**  Gets a list of bots on this service */
     getBots(): Promise<any>
 
     /**
@@ -414,7 +412,7 @@ declare module 'dbots' {
    * @see https://discordbot.world/docs
    */
   class DiscordBotWorld extends ServiceBase {
-    /**  Gets a list of bots on this service **/
+    /**  Gets a list of bots on this service */
     getBots(): Promise<any>
 
     /**
@@ -447,7 +445,7 @@ declare module 'dbots' {
    * @see https://docs.glennbotlist.xyz/
    */
   class GlennBotList extends ServiceBase { }
-  //#endregion
+  // #endregion
 
   export interface PostFormat extends Record<Service, (token: string, clientID: string, serverCount: number) => RequestFormat> {
     discordbotsgg: (token: string, clientID: string, serverCount: number, shard?: Shard) => RequestFormat
@@ -473,7 +471,7 @@ declare module 'dbots' {
     }>
   }
 
-  export function EnsurePromise(func: Function, ...args: any[]): Promise<any>
+  export function EnsurePromise(func: () => any, ...args: any[]): Promise<any>
 
   export function FormatRequest(options: RequestFormat): Promise<any>
 }

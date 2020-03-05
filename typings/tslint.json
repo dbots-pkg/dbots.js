@@ -1,0 +1,14 @@
+{
+  "extends": "dtslint/dtslint.json",
+  "rules": {
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "strict-export-declare-modifiers": false
+  }
+}
