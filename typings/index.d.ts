@@ -4,10 +4,28 @@ import { AxiosRequestConfig } from 'axios'
 type Library = 'discord.js' | 'discord.io' | 'discordie' | 'eris'
 type Service = 'discordbotsgg' | 'discordbotsorg' | 'topgg' | 'botsfordiscord' | 'botsondiscord' | 'discordappsdev' | 'carbon' | 'discordbotlist' | 'divinediscordbots' | 'discordboats' | 'botlistspace' | 'discordbotworld' | 'glennbotlist'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
+type AnyClient = Discordie | DiscordIO | DiscordJS | Eris;
 
 export class ServiceBase {
   constructor(token: string)
   _request(form: object, requiresToken?: boolean): Promise<any>
+}
+
+export class ClientFiller {
+  constructor(client: object)
+  userCount: Number
+  serverCount: Number
+  voiceConnections: Number
+  clientID?: Number
+  shard?: Number
+  static from(libraryName: string, client: object): AnyClient;
+}
+
+export class Discordie extends ClientFiller {}
+export class DiscordIO extends ClientFiller {}
+export class DiscordJS extends ClientFiller {}
+export class Eris extends ClientFiller {
+  shard: null
 }
 
 interface RequestFormat extends AxiosRequestConfig {
@@ -55,6 +73,11 @@ declare module 'dbots' {
     voiceConnections?: PromiseResolvable
     /** Whether or not to use a `Service` sharding method when posting. */
     useSharding?: boolean
+    /**
+     * Internal client property filler.
+     * @private
+     */
+    clientFiller?: ClientFiller
   }
 
   /** A class that posts server count to listing site(s). */

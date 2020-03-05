@@ -1,6 +1,7 @@
 const Constants = require('../Utils/Constants');
 const EnsurePromise = require('../Utils/EnsurePromise');
 const FormatRequest = require('../Utils/FormatRequest');
+const ClientFiller = require('./ClientFiller');
 
 /**
  * A class that posts server count to listing site(s).
@@ -16,11 +17,7 @@ class Poster {
      * @type {Object}
      */
     this.client = options.client;
-
-    if (typeof options.useSharding !== 'boolean') options.useSharding = true;
-    if (!this.client && !options.clientID) throw new Error("clientID must be defined when client is non-existant.");
-    if (this.client && !options.clientID) Object.assign(options, Constants.AutoValueFunctions[options.clientLibrary](options.client));
-    if (!options.useSharding) options.shard = undefined;
+    this._clientFiller = null;
 
     /**
      * The options the poster was built with.
@@ -29,12 +26,30 @@ class Poster {
      */
     this.options = options;
 
+    if (typeof options.useSharding !== 'boolean') options.useSharding = true;
+    if (!this.client && !options.clientID) throw new Error("clientID must be defined when client is non-existant.");
+    if (this.client && !options.clientID) Object.assign(options, {
+      clientID: this.clientFiller.clientID,
+      shard: this.clientFiller.shard,
+    });
+    if (!options.useSharding) options.shard = undefined;
+
     /**
      * The list of event handlers for every custom event.
      * @type {Object.<CustomEvent, Array<PromiseResolvable>>}
      */
     this.handlers = {};
     for (let event of Constants.SupportedEvents) this.handlers[event] = [];
+  }
+
+
+  /**
+   * The client filler used in the poster
+   * @private
+   * @type {?ClientFiller}
+   */
+  get clientFiller() {
+    return this._clientFiller || (this._clientFiller = ClientFiller.get(this.options.clientLibrary, this.client));
   }
 
   /**
@@ -45,7 +60,7 @@ class Poster {
     if (!this.client) throw new Error('Cannot retrieve server count from non-existant client');
     if (this.options.serverCount) return EnsurePromise(this.options.serverCount);
     if (!this.options.serverCount && !this.options.clientLibrary) throw new Error('Cannot retrieve server count from unknown client');
-    return EnsurePromise(Constants.ServerCountFunctions[this.options.clientLibrary], this.client);
+    return Promise.resolve(this.clientFiller.serverCount);
   }
 
   /**
@@ -56,7 +71,7 @@ class Poster {
     if (!this.client) throw new Error('Cannot retrieve user count from non-existant client');
     if (this.options.userCount) return EnsurePromise(this.options.userCount);
     if (!this.options.userCount && !this.options.clientLibrary) throw new Error('Cannot retrieve user count from unknown client');
-    return EnsurePromise(Constants.UserCountFunctions[this.options.clientLibrary], this.client);
+    return Promise.resolve(this.clientFiller.userCount);
   }
 
   /**
@@ -67,7 +82,7 @@ class Poster {
     if (!this.client) throw new Error('Cannot retrieve voice connection count from non-existant client');
     if (this.options.voiceConnections) return EnsurePromise(this.options.voiceConnections);
     if (!this.options.voiceConnections && !this.options.clientLibrary) throw new Error('Cannot retrieve voice connection count from unknown client');
-    return EnsurePromise(Constants.VoiceConnectionsFunctions[this.options.clientLibrary], this.client);
+    return Promise.resolve(this.clientFiller.voiceConnections);
   }
 
   /**
@@ -93,7 +108,7 @@ class Poster {
 
   /**
     * Posts the current clients server count to a service
-    * @see DBotsPoster#postManual
+    * @see Poster#postManual
     */
   post(service) {
     let _this = this;

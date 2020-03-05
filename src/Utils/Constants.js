@@ -172,20 +172,6 @@ exports.AvailableServices = [
  * @typedef {string} Library
  */
 
-exports.SupportingLibraries = [
-  'discord.js',
-  'discord.io',
-  'discordie',
-  'eris'
-];
-
-exports.ServerCountFunctions = {
-  'discord.js': client => client.guilds.size,
-  'discord.io': client => Object.keys(client.servers).length,
-  'discordie': client => client.Guilds.size,
-  'eris': client => client.guilds.size
-};
-
 /**
  * An event that can be added an handler for. These are the available events:
  * * autopost
@@ -220,36 +206,3 @@ exports.SupportedEvents = [
   'post',
   'postfail'
 ];
-
-exports.UserCountFunctions = {
-  'discord.js': client => client.users.size,
-  'discord.io': client => Object.keys(client.users).length,
-  'discordie': client => client.Users.size,
-  'eris': client => client.users.size
-};
-
-exports.VoiceConnectionsFunctions = {
-  'discord.js': client => client.broadcasts.size,
-  'discord.io': client => Object.keys(client._vChannels).length,
-  'discordie': client => client.VoiceConnections.length,
-  'eris': client => Object.keys(client.voiceConnections.pendingGuilds).size
-};
-
-exports.AutoValueFunctions = {
-  'discord.js': client => ({
-    clientID: client.user.id,
-    shard: client.shard ? { id: client.shard.id, count: client.shard.count } : undefined
-  }),
-  'discord.io': client => ({
-    clientID: client.id,
-    shard: client._shard ? { id: client._shard[0], count: client._shard[1] } : undefined
-  }),
-  'discordie': client => ({
-    clientID: client.User.id,
-    shard: client.options.shardId && client.options.shardCount ? { id: client.options.shardId, count: client.options.shardCount } : undefined
-  }),
-  'eris': client => ({
-    clientID: client.user.id,
-    shard: undefined
-  })
-};
