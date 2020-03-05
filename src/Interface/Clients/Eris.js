@@ -10,6 +10,7 @@ class Eris extends ClientFiller {
     super(client);
 
     /**
+     * This client does not natively support sharding.
      * @type {null}
      * @readonly
      */
