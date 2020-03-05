@@ -9,7 +9,7 @@
     "url": "git+https://github.com/Snazzah/dbots.js.git"
   },
   "scripts": {
-    "docs": "docgen --source src --custom docs/index.yml --output docs/docs.json",
+    "docs": "node scripts/docs.js && docgen --source src --custom docs/index.yml --output docs/docs.json",
     "eslint": "eslint ./src",
     "eslint:fix": "eslint ./src --fix",
     "gpr-setup": "node scripts/gpr.js",
