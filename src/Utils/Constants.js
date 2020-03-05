@@ -31,7 +31,9 @@ exports.PostFormat = {
       method: 'post',
       url: `https://top.gg/api/bots/${clientID}/stats`,
       headers: { Authorization: token },
-      data: shard ? { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : { server_count: serverCount }
+      data: shard ? 
+        { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : 
+        { server_count: serverCount }
     };
   },
   discordbotsorg: (...a) => exports.PostFormat.topgg(...a), // deprecated
@@ -40,7 +42,9 @@ exports.PostFormat = {
       method: 'post',
       url: `https://discord.bots.gg/api/v1/bots/${clientID}/stats`,
       headers: { Authorization: token },
-      data: shard ? { guildCount: serverCount, shardId: shard.id, shardCount: shard.count } : { guildCount: serverCount }
+      data: shard ? 
+        { guildCount: serverCount, shardId: shard.id, shardCount: shard.count } : 
+        { guildCount: serverCount }
     };
   },
   discordappsdev: (token, clientID, serverCount) => {

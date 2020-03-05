@@ -10,7 +10,8 @@ const ClientFiller = require('./ClientFiller');
  */
 class Poster {
   constructor(options) {
-    if (!options || typeof options !== 'object') throw new Error('An object is required a parameter to construct a poster.');
+    if (!options || typeof options !== 'object') 
+      throw new Error('An object is required a parameter to construct a poster.');
 
     /**
      * The client that will be used to fecth the stats.
@@ -27,7 +28,8 @@ class Poster {
     this.options = options;
 
     if (typeof options.useSharding !== 'boolean') options.useSharding = true;
-    if (!this.client && !options.clientID) throw new Error('clientID must be defined when client is non-existant.');
+    if (!this.client && !options.clientID) 
+      throw new Error('clientID must be defined when client is non-existant.');
     if (this.client && !options.clientID) Object.assign(options, {
       clientID: this.clientFiller.clientID,
       shard: this.clientFiller.shard,
@@ -49,7 +51,8 @@ class Poster {
    * @type {?ClientFiller}
    */
   get clientFiller() {
-    return this._clientFiller || (this._clientFiller = ClientFiller.get(this.options.clientLibrary, this.client));
+    return this._clientFiller 
+    || (this._clientFiller = ClientFiller.get(this.options.clientLibrary, this.client));
   }
 
   /**
@@ -59,7 +62,8 @@ class Poster {
   getServerCount() {
     if (!this.client) throw new Error('Cannot retrieve server count from non-existant client');
     if (this.options.serverCount) return EnsurePromise(this.options.serverCount);
-    if (!this.options.serverCount && !this.options.clientLibrary) throw new Error('Cannot retrieve server count from unknown client');
+    if (!this.options.serverCount && !this.options.clientLibrary) 
+      throw new Error('Cannot retrieve server count from unknown client');
     return Promise.resolve(this.clientFiller.serverCount);
   }
 
@@ -70,7 +74,8 @@ class Poster {
   getUserCount() {
     if (!this.client) throw new Error('Cannot retrieve user count from non-existant client');
     if (this.options.userCount) return EnsurePromise(this.options.userCount);
-    if (!this.options.userCount && !this.options.clientLibrary) throw new Error('Cannot retrieve user count from unknown client');
+    if (!this.options.userCount && !this.options.clientLibrary) 
+      throw new Error('Cannot retrieve user count from unknown client');
     return Promise.resolve(this.clientFiller.userCount);
   }
 
@@ -81,7 +86,8 @@ class Poster {
   getVoiceConnections() {
     if (!this.client) throw new Error('Cannot retrieve voice connection count from non-existant client');
     if (this.options.voiceConnections) return EnsurePromise(this.options.voiceConnections);
-    if (!this.options.voiceConnections && !this.options.clientLibrary) throw new Error('Cannot retrieve voice connection count from unknown client');
+    if (!this.options.voiceConnections && !this.options.clientLibrary) 
+      throw new Error('Cannot retrieve voice connection count from unknown client');
     return Promise.resolve(this.clientFiller.voiceConnections);
   }
 
@@ -131,8 +137,10 @@ class Poster {
     */
   postManual(serverCount, service = 'all', userCount = undefined, voiceConnections = undefined) {
     if (!this.options.apiKeys && !this.options.post) throw new Error('NO_API_KEYS');
-    if (!this.options.apiKeys || service === 'custom') return EnsurePromise(this.options.post, this.options.clientID, serverCount, this.options.shard);
-    if (!service || service === 'all') return Promise.all(Object.keys(this.options.apiKeys).map(k => this.postManual(serverCount, k)));
+    if (!this.options.apiKeys || service === 'custom') 
+      return EnsurePromise(this.options.post, this.options.clientID, serverCount, this.options.shard);
+    if (!service || service === 'all') 
+      return Promise.all(Object.keys(this.options.apiKeys).map(k => this.postManual(serverCount, k)));
     if (!Constants.AvailableServices.includes(service)) throw new Error('INVALID_SERVICE', service);
     if (!Object.keys(this.options.apiKeys).includes(service)) throw new Error('SERVICE_WITH_NO_KEY', service);
     return new Promise((resolve, reject) => {
@@ -144,12 +152,12 @@ class Poster {
           userCount,
           voiceConnections
         )).then(result => {
-          this.runHandlers('post', result);
-          resolve(result);
-        }).catch(error => {
-          this.runHandlers('postfail', error);
-          reject(error);
-        });
+        this.runHandlers('post', result);
+        resolve(result);
+      }).catch(error => {
+        this.runHandlers('postfail', error);
+        reject(error);
+      });
     });
   }
 
@@ -160,8 +168,10 @@ class Poster {
    * @returns {Array<PromiseResolvable>} The array of handlers currently set for that event
    */
   addHandler(event, handler) {
-    if (!Constants.SupportedEvents.includes(event)) throw new Error('Can\'t add handler for an unsupported event.');
-    if (!(handler instanceof Function || handler instanceof Promise)) throw new Error('Given handler is not a PromiseResolvable.');
+    if (!Constants.SupportedEvents.includes(event)) 
+      throw new Error('Can\'t add handler for an unsupported event.');
+    if (!(handler instanceof Function || handler instanceof Promise)) 
+      throw new Error('Given handler is not a PromiseResolvable.');
     return this.handlers[event].push(handler);
   }
 
@@ -172,8 +182,10 @@ class Poster {
    * @returns {Array<PromiseResolvable>} The array of handlers currently set for that event
    */
   removeHandler(event, handler) {
-    if (!Constants.SupportedEvents.includes(event)) throw new Error('Can\'t remove handler for an unsupported event.');
-    if (!(handler instanceof Function || handler instanceof Promise)) throw new Error('Given handler is not a PromiseResolvable.');
+    if (!Constants.SupportedEvents.includes(event)) 
+      throw new Error('Can\'t remove handler for an unsupported event.');
+    if (!(handler instanceof Function || handler instanceof Promise)) 
+      throw new Error('Given handler is not a PromiseResolvable.');
     const index = this.handlers[event].indexOf(handler);
     if (index >= 0) this.handlers[event].splice(index, 1);
     return this.handlers[event];
@@ -185,7 +197,8 @@ class Poster {
    * @param  {...any} args The arguments to pass to the handlers
    */
   runHandlers(event, ...args) {
-    if (!Constants.SupportedEvents.includes(event)) throw new Error('Can\'t remove handler for an unsupported event.');
+    if (!Constants.SupportedEvents.includes(event)) 
+      throw new Error('Can\'t remove handler for an unsupported event.');
     for (const handler of this.handlers[event]) EnsurePromise(handler(...args));
   }
 }

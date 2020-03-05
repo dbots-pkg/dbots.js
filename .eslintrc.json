@@ -11,6 +11,26 @@
     "sourceType": "module"
   },
   "rules": {
+    "computed-property-spacing": "warn",
+    "indent": [
+      "warn",
+      2
+    ],
+    "keyword-spacing": [
+      "warn",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 110,
+        "ignoreComments": true,
+        "ignoreUrls": true
+      }
+    ],
     "no-cond-assign": [
       2,
       "except-parens"
@@ -34,6 +54,7 @@
       }
     ],
     "no-console": "off",
+    "no-multi-spaces": "warn",
     "prefer-const": [
       "warn",
       {
@@ -48,6 +69,7 @@
       "warn",
       "always"
     ],
-    "spaced-comment": "warn"
+    "spaced-comment": "warn",
+    "space-infix-ops": "warn"
   }
 }
