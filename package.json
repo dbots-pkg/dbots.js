@@ -13,8 +13,12 @@
     "eslint": "eslint ./src",
     "gpr-setup": "node scripts/gpr.js",
     "hint": "jshint ./src",
-    "lint": "npm run eslint && npm run hint"
+    "lint": "npm run eslint && npm run hint",
+    "webpack": "webpack",
+    "prepublishOnly": "npm run lint && NODE_ENV=production npm run webpack"
   },
+  "unpkg": "./webpack/dbots.min.js",
+  "jsdelivr": "./webpack/dbots.min.js",
   "keywords": [
     "api",
     "discord",
@@ -35,6 +39,9 @@
     "@types/node": "^13.1.8",
     "discord.js-docgen": "github:discordjs/docgen",
     "eslint": "^6.5.1",
-    "jshint": "^2.10.2"
+    "jshint": "^2.10.2",
+    "terser-webpack-plugin": "^2.3.5",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   }
 }

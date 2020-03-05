@@ -11,3 +11,4 @@ logs/
 .tmp/
 .vscode/
 docs/docs.json
+webpack/
