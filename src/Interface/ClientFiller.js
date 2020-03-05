@@ -48,7 +48,7 @@ class ClientFiller {
 
   /**
    * Gets the amount of users the bot has cached
-   * @returns {Number}
+   * @type {number}
    */
   get userCount() {
     return 0;
@@ -56,7 +56,7 @@ class ClientFiller {
 
   /**
    * Gets the amount of servers the bot has cached
-   * @returns {Number}
+   * @type {number}
    */
   get serverCount() {
     return 0;
@@ -64,7 +64,7 @@ class ClientFiller {
 
   /**
    * Gets the amount of voice connectinos the bot is using
-   * @returns {Number}
+   * @type {number}
    */
   get voiceConnections() {
     return 0;
@@ -72,7 +72,7 @@ class ClientFiller {
 
   /**
    * Gets the client ID (technically the user ID) of the bot
-   * @returns {?String}
+   * @type {?string}
    */
   get clientID() {
     return null;
@@ -80,7 +80,7 @@ class ClientFiller {
 
   /**
    * Gets the shard of the bot
-   * @returns {?Shard}
+   * @type {?Shard}
    */
   get shard() {
     return null;

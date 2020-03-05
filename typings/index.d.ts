@@ -13,11 +13,11 @@ export class ServiceBase {
 
 export class ClientFiller {
   constructor(client: object)
-  userCount: Number
-  serverCount: Number
-  voiceConnections: Number
-  clientID?: Number
-  shard?: Number
+  userCount: number
+  serverCount: number
+  voiceConnections: number
+  clientID?: number
+  shard?: number
   static from(libraryName: string, client: object): AnyClient;
 }
 

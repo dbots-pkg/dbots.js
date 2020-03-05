@@ -54,7 +54,7 @@ class Poster {
 
   /**
     * Retrieves the current server count of the client/shard
-    * @returns {Promise<Number>} Amount of servers the client/shard is in
+    * @returns {Promise<number>} Amount of servers the client/shard is in
     */
   getServerCount() {
     if (!this.client) throw new Error('Cannot retrieve server count from non-existant client');
@@ -65,7 +65,7 @@ class Poster {
 
   /**
     * Retrieves the current user count of the client/shard
-    * @returns {Promise<Number>} Amount of users the client/shard is connected with
+    * @returns {Promise<number>} Amount of users the client/shard is connected with
    */
   getUserCount() {
     if (!this.client) throw new Error('Cannot retrieve user count from non-existant client');
@@ -76,7 +76,7 @@ class Poster {
 
   /**
    * Retrieves the current voice connection count of the client/shard
-   * @returns {Promise<Number>} Number of active voice connections
+   * @returns {Promise<number>} Number of active voice connections
    */
   getVoiceConnections() {
     if (!this.client) throw new Error('Cannot retrieve voice connection count from non-existant client');
@@ -123,10 +123,10 @@ class Poster {
 
   /**
     * Manually posts a server count to a service
-    * @param {Number} serverCount The server count to post to the service
+    * @param {number} serverCount The server count to post to the service
     * @param {Service} service The service to post to
-    * @param {Number} [userCount] The server count to post to the service
-    * @param {Number} [voiceConnections] The voice connection count to post to the service
+    * @param {number} [userCount] The server count to post to the service
+    * @param {number} [voiceConnections] The voice connection count to post to the service
     * @returns {Promise<Object|Array<Object>>} The result(s) of the post
     */
   postManual(serverCount, service = 'all', userCount = undefined, voiceConnections = undefined) {
