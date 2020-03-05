@@ -7,15 +7,21 @@ const ClientFiller = require('../ClientFiller');
  */
 class DiscordJS extends ClientFiller {
   get userCount() {
-    return this.client.users.size;
+    if(this.client.users.constructor.name === "UserManager")
+      return this.client.users.cache.size;
+    else return this.client.users.size;
   }
 
   get serverCount() {
-    return this.client.guilds.size;
+    if(this.client.users.constructor.name === "GuildManager")
+      return this.client.guilds.cache.size;
+    else return this.client.guilds.size;
   }
 
   get voiceConnections() {
-    return this.client.broadcasts.size;
+    if(this.client.voice)
+      return this.client.voice ? this.client.voice.broadcasts.length : 0;
+    else return this.client.broadcasts.size;
   }
 
   get clientID() {
