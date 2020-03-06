@@ -27,7 +27,8 @@ class Poster {
      */
     this.options = options;
 
-    if (typeof options.useSharding !== 'boolean') options.useSharding = true;
+    if (typeof options.useSharding !== 'boolean')
+      options.useSharding = true;
     if (!this.client && !options.clientID) 
       throw new Error('clientID must be defined when client is non-existant.');
     if (this.client && !options.clientID) Object.assign(options, {
@@ -51,8 +52,8 @@ class Poster {
    * @type {?ClientFiller}
    */
   get clientFiller() {
-    return this._clientFiller 
-    || (this._clientFiller = ClientFiller.get(this.options.clientLibrary, this.client));
+    return this._clientFiller ||
+      (this._clientFiller = ClientFiller.get(this.options.clientLibrary, this.client));
   }
 
   /**
@@ -60,8 +61,10 @@ class Poster {
     * @returns {Promise<number>} Amount of servers the client/shard is in
     */
   getServerCount() {
-    if (!this.client) throw new Error('Cannot retrieve server count from non-existant client');
-    if (this.options.serverCount) return EnsurePromise(this.options.serverCount);
+    if (this.options.serverCount)
+      return EnsurePromise(this.options.serverCount);
+    if (!this.client)
+      throw new Error('Cannot retrieve server count from non-existant client');
     if (!this.options.serverCount && !this.options.clientLibrary) 
       throw new Error('Cannot retrieve server count from unknown client');
     return Promise.resolve(this.clientFiller.serverCount);
@@ -72,8 +75,10 @@ class Poster {
     * @returns {Promise<number>} Amount of users the client/shard is connected with
    */
   getUserCount() {
-    if (!this.client) throw new Error('Cannot retrieve user count from non-existant client');
-    if (this.options.userCount) return EnsurePromise(this.options.userCount);
+    if (this.options.userCount)
+      return EnsurePromise(this.options.userCount);
+    if (!this.client)
+      throw new Error('Cannot retrieve user count from non-existant client');
     if (!this.options.userCount && !this.options.clientLibrary) 
       throw new Error('Cannot retrieve user count from unknown client');
     return Promise.resolve(this.clientFiller.userCount);
@@ -84,8 +89,10 @@ class Poster {
    * @returns {Promise<number>} Number of active voice connections
    */
   getVoiceConnections() {
-    if (!this.client) throw new Error('Cannot retrieve voice connection count from non-existant client');
-    if (this.options.voiceConnections) return EnsurePromise(this.options.voiceConnections);
+    if (this.options.voiceConnections)
+      return EnsurePromise(this.options.voiceConnections);
+    if (!this.client)
+      throw new Error('Cannot retrieve voice connection count from non-existant client');
     if (!this.options.voiceConnections && !this.options.clientLibrary) 
       throw new Error('Cannot retrieve voice connection count from unknown client');
     return Promise.resolve(this.clientFiller.voiceConnections);
@@ -136,13 +143,19 @@ class Poster {
     * @returns {Promise<Object|Array<Object>>} The result(s) of the post
     */
   postManual(serverCount, service = 'all', userCount = undefined, voiceConnections = undefined) {
-    if (!this.options.apiKeys && !this.options.post) throw new Error('NO_API_KEYS');
-    if (!this.options.apiKeys || service === 'custom') 
+    if (!this.options.apiKeys && !this.options.post)
+      throw new Error('NO_API_KEYS');
+    if (service === 'custom') 
       return EnsurePromise(this.options.post, this.options.clientID, serverCount, this.options.shard);
-    if (!service || service === 'all') 
-      return Promise.all(Object.keys(this.options.apiKeys).map(k => this.postManual(serverCount, k)));
-    if (!Constants.AvailableServices.includes(service)) throw new Error('INVALID_SERVICE', service);
-    if (!Object.keys(this.options.apiKeys).includes(service)) throw new Error('SERVICE_WITH_NO_KEY', service);
+    if (!service || service === 'all') {
+      const services = Object.keys(this.options.apiKeys);
+      if (this.options.post) services.push('custom');
+      return Promise.all(services.map(k => this.postManual(serverCount, k)));
+    }
+    if (!Constants.AvailableServices.includes(service))
+      throw new Error('INVALID_SERVICE', service);
+    if (!Object.keys(this.options.apiKeys).includes(service))
+      throw new Error('SERVICE_WITH_NO_KEY', service);
     return new Promise((resolve, reject) => {
       FormatRequest(
         Constants.PostFormat[service](this.options.apiKeys[service],
