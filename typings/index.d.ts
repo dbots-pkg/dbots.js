@@ -461,14 +461,6 @@ declare module 'dbots' {
     AvailableServices: string[]
     SupportingLibraries: string[]
     SupportedEvents: string[]
-
-    ServerCountFunctions: Record<Library, (client: any) => number>
-    UserCountFunctions: Record<Library, (client: any) => number>
-    VoiceConnectionsFunctions: Record<Library, (client: any) => number>
-    AutoValueFunctions: Record<Library, (client: any) => {
-      clientID: string,
-      shard?: object
-    }>
   }
 
   export function EnsurePromise(func: () => any, ...args: any[]): Promise<any>

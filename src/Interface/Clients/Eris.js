@@ -1,7 +1,7 @@
 const ClientFiller = require('../ClientFiller');
 
 /**
- * Represents the client filter for Eris clients
+ * Represents the client filler for Eris clients
  * @private
  * @extends {ClientFiller}
  */
