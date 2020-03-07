@@ -3,7 +3,7 @@ const { join: path } = require('path');
 
 // Update docs/general/welcome.md to track README.md
 const README = fs.readFileSync(path(__dirname, '../README.md'), {encoding: 'utf8'})
-  .replace(/^https:\/\/dbots\.js\.org\/#([\w/]+)/, '#$1');
+  .replace(/https:\/\/dbots\.js\.org\/#([\w/]+)/, '#$1');
 fs.writeFileSync(path(__dirname, '../docs/general/welcome.md'), README);
 
 // Update docs/general/services.md to reflect source changes
