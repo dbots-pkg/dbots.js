@@ -95,6 +95,17 @@ class BotListSpace extends ServiceBase {
   getUserBots(id) {
     return this._request({ url: `/users/${id}/bots` });
   }
+
+  /**
+   * Gets the widget URL for this bot
+   * @param {string} id The bot's ID.
+   * @param {string} [style=1] The style of the widget
+   * @param {Object} [query] The querystring that will be used in the request
+   * @returns {string}
+   */
+  getBotWidget(id, style = 1, query = undefined) {
+    return this._appendQuery(`https://api.botlist.space/widget/${id}/${style}`, query, false);
+  }
 }
 
 module.exports = BotListSpace;

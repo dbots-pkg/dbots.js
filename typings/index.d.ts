@@ -9,6 +9,7 @@ export class ServiceBase {
   constructor(token: string)
   static get(name: Service): ServiceBase | void
   static _post(form: RequestFormat, appendBaseURL?: boolean): Promise<any>
+  _appendQuery(url: string, query: Object, appendBaseURL?: boolean): string
   _request(form: RequestFormat, options?: ServiceRequestOptions): Promise<any>
 }
 
@@ -246,6 +247,14 @@ declare module 'dbots' {
      * @param {string} id The user's ID.
      */
     getUserBots(id: string): Promise<any>
+
+    /**
+     * Gets the widget URL for this bot
+     * @param {string} id The bot's ID.
+     * @param {string} [style=1] The style of the widget
+     * @param {Object} [query] The querystring that will be used in the request
+     */
+    getBotWidget(id: string, style?: number, query?: Object): string
   }
 
   /**
@@ -269,13 +278,6 @@ declare module 'dbots' {
     getBot(id: string): Promise<any>
 
     /**
-     * Gets the widget for this bot
-     * @param id The bot's ID.
-     * @param query The querystring that will be used in the request
-     */
-    getBotWidget(id: string, query: object): Promise<any>
-
-    /**
      * Gets the votes for this bot
      * @param id The bot's ID.
      */
@@ -292,6 +294,13 @@ declare module 'dbots' {
      * @param id The user's ID.
      */
     getUserBots(id: string): Promise<any>
+
+    /**
+     * Gets the widget URL for this bot
+     * @param {string} id The bot's ID.
+     * @param {Object} [query] The querystring that will be used in the request
+     */
+    getBotWidget(id: string, query?: Object): string
   }
 
   /**
@@ -314,6 +323,13 @@ declare module 'dbots' {
      * @param {string} userId The user's ID.
      */
     checkReview(id: string, userId: string): Promise<any>
+
+    /**
+     * Gets the widget URL for this bot
+     * @param {string} id The bot's ID.
+     * @param {Object} [query] The querystring that will be used in the request
+     */
+    getBotWidget(id: string, query?: Object): string
   }
 
   /**
@@ -399,6 +415,13 @@ declare module 'dbots' {
      * @param userID The user's ID.
      */
     userVoted(id: string, userID: string): Promise<any>
+
+    /**
+     * Gets the widget URL for this bot
+     * @param {string} id The bot's ID.
+     * @param {Object} [query] The querystring that will be used in the request
+     */
+    getBotWidget(id: string, query?: Object): string
   }
 
   /**
@@ -419,10 +442,11 @@ declare module 'dbots' {
     static post(options: PostOptions): Promise<any>
 
     /**
-     * Gets the widget for this bot
-     * @param id The bot's ID.
+     * Gets the widget URL for this bot
+     * @param {string} id The bot's ID.
+     * @param {Object} [query] The querystring that will be used in the request
      */
-    getBotWidget(id: string): Promise<any>
+    getBotWidget(id: string, query?: Object): string
   }
 
   /**
@@ -517,6 +541,13 @@ declare module 'dbots' {
      * @param id The bot's ID.
      */
     getBotVotes(id: string): Promise<any>
+
+    /**
+     * Gets the widget URL for this bot
+     * @param {string} id The bot's ID.
+     * @param {Object} [query] The querystring that will be used in the request
+     */
+    getBotWidget(id: string, query?: Object): string
   }
 
   /**
@@ -552,6 +583,13 @@ declare module 'dbots' {
      * @returns {Promise}
      */
     getProfile(id: string): Promise<any>
+
+    /**
+     * Gets the widget URL for this bot
+     * @param {string} id The bot's ID.
+     * @param {Object} [query] The querystring that will be used in the request
+     */
+    getBotWidget(id: string, query?: Object): string
   }
 
   /**
@@ -598,11 +636,11 @@ declare module 'dbots' {
     getBotVotes(id: string, query: object): Promise<any>
 
     /**
-     * Gets the embed picture for this bot
-     * @param id The bot's ID.
-     * @param query The querystring that will be used in the request
+     * Gets the widget URL for this bot
+     * @param {string} id The bot's ID.
+     * @param {Object} [query] The querystring that will be used in the request
      */
-    getBotEmbed(id: string, query: object): Promise<any>
+    getBotWidget(id: string, query?: Object): string
   }
   // #endregion
 

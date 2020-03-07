@@ -79,13 +79,13 @@ class TopGG extends ServiceBase {
   }
 
   /**
-   * Gets the embed picture for this bot
+   * Gets the widget URL for this bot
    * @param {string} id The bot's ID.
-   * @param {Object} query The querystring that will be used in the request
-   * @returns {Promise}
+   * @param {Object} [query] The querystring that will be used in the request
+   * @returns {string}
    */
-  getBotEmbed(id, query) {
-    return this._request({ url: `/widget/${id}.png`, params: query });
+  getBotWidget(id, query) {
+    return this._appendQuery(`/widget/${id}.png`, query);
   }
 }
 

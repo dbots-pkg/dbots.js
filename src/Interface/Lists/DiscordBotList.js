@@ -42,14 +42,13 @@ class DiscordBotList extends ServiceBase {
   }
 
   /**
-   * Gets the widget for this bot
+   * Gets the widget URL for this bot
    * @param {string} id The bot's ID.
-   * @returns {Promise}
+   * @param {Object} [query] The querystring that will be used in the request
+   * @returns {string}
    */
-  getBotWidget(id) {
-    return this._request({ url: `https://discordbotlist.com/bots/${id}/widget` }, {
-      appendBaseURL: false
-    });
+  getBotWidget(id, query) {
+    return this._appendQuery(`https://discordbotlist.com/bots/${id}/widget`, query, false);
   }
 }
 

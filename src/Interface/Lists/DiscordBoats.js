@@ -60,6 +60,16 @@ class DiscordBoats extends ServiceBase {
       query: { id: userID }
     });
   }
+
+  /**
+   * Gets the widget URL for this bot
+   * @param {string} id The bot's ID.
+   * @param {Object} [query] The querystring that will be used in the request
+   * @returns {string}
+   */
+  getBotWidget(id, query) {
+    return this._appendQuery(`/widget/${id}`, query);
+  }
 }
 
 module.exports = DiscordBoats;

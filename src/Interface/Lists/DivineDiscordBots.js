@@ -47,6 +47,16 @@ class DivineDiscordBots extends ServiceBase {
   getBotVotes(id) {
     return this._request({ url: `/bot/${id}/votes` });
   }
+
+  /**
+   * Gets the widget URL for this bot
+   * @param {string} id The bot's ID.
+   * @param {Object} [query] The querystring that will be used in the request
+   * @returns {string}
+   */
+  getBotWidget(id, query) {
+    return this._appendQuery(`/api/widget/${id}.svg`, query, false);
+  }
 }
 
 module.exports = DivineDiscordBots;

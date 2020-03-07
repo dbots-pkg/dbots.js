@@ -58,6 +58,16 @@ class GlennBotList extends ServiceBase {
   getProfile(id) {
     return this._request({ url: `/profile/${id}` });
   }
+
+  /**
+   * Gets the widget URL for this bot
+   * @param {string} id The bot's ID.
+   * @param {Object} [query] The querystring that will be used in the request
+   * @returns {string}
+   */
+  getBotWidget(id, query) {
+    return this._appendQuery(`https://glennbotlist.xyz/bot/${id}/widget`, query, false);
+  }
 }
 
 module.exports = GlennBotList;

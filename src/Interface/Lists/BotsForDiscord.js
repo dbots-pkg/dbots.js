@@ -40,16 +40,6 @@ class BotsForDiscord extends ServiceBase {
   }
 
   /**
-   * Gets the widget for this bot
-   * @param {string} id The bot's ID.
-   * @param {Object} query The querystring that will be used in the request
-   * @returns {Promise}
-   */
-  getBotWidget(id, query) {
-    return this._request({ url: `/bots/${id}/widget`, params: query });
-  }
-
-  /**
    * Gets the votes for this bot
    * @param {string} id The bot's ID.
    * @returns {Promise}
@@ -74,6 +64,16 @@ class BotsForDiscord extends ServiceBase {
    */
   getUserBots(id) {
     return this._request({ url: `/user/${id}/bots` });
+  }
+
+  /**
+   * Gets the widget URL for this bot
+   * @param {string} id The bot's ID.
+   * @param {Object} [query] The querystring that will be used in the request
+   * @returns {string}
+   */
+  getBotWidget(id, query) {
+    return this._appendQuery(`/bot/${id}/widget`, query);
   }
 }
 

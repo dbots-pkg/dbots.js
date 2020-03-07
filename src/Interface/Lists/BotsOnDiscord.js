@@ -44,6 +44,16 @@ class BotsOnDiscord extends ServiceBase {
       requiresToken: true
     });
   }
+
+  /**
+   * Gets the widget URL for this bot
+   * @param {string} id The bot's ID.
+   * @param {Object} [query] The querystring that will be used in the request
+   * @returns {string}
+   */
+  getBotWidget(id, query) {
+    return this._appendQuery(`https://bots.ondiscord.xyz/bots/${id}/embed`, query, false);
+  }
 }
 
 module.exports = BotsOnDiscord;
