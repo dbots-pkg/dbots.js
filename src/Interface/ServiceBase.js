@@ -17,7 +17,8 @@ class ServiceBase {
   }
 
   /**
-   * @returns {string} The base URL of the service's API
+   * The base URL of the service's API
+   * @type {string}
    */
   static get baseURL() {
     return '';

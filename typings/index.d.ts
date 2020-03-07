@@ -7,6 +7,7 @@ type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
 export class ServiceBase {
   constructor(token: string)
+  baseURL: string
   static get(name: Service): ServiceBase | null
   static _post(form: RequestFormat, appendBaseURL?: boolean): Promise<any>
   _appendQuery(url: string, query: object, appendBaseURL?: boolean): string
