@@ -76,7 +76,7 @@ const poster = new dbots.Poster({
 poster.post('carbon') // if the service is undefined, it posts to all services provided with a key
 ```
 
-## Supporting Libraries
+## Supported Libraries
 Creator     | Name
 ----------- | -----
 discordjs (originally from hydrabolt)   | [![npm](static/npm.png)](https://npmjs.com/discord.js) [![GitHub](static/github.png)](https://github.com/discordjs/discord.js) discord.js
@@ -84,7 +84,7 @@ izy521      | [![npm](static/npm.png)](https://npmjs.com/discord.io) [![GitHub](
 qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](static/github.png)](https://github.com/qeled/discordie) discordie
 abalabahaha | [![npm](static/npm.png)](https://npmjs.com/eris) [![GitHub](static/github.png)](https://github.com/abalabahaha/eris) eris
 
-## Supporting Services
+## Supported Services
  - [botlist.space `botlistspace`](https://botlist.space)
  - [botsfordiscord.com `botsfordiscord`](http://botsfordiscord.com)
  - [bots.ondiscord.xyz `botsondiscord`](http://bots.ondiscord.xyz)
