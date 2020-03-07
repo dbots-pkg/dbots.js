@@ -1,4 +1,4 @@
-# Supported Services
+# Supported Services (12)
 
 <div align=center>
   <p>
