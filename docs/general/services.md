@@ -10,7 +10,7 @@
   <a href="https://botlist.space"><h1>botlist.space</h1></a>
 
 Keys: `botlistspace`, `botlist.space`, `bls`  
-Class: [dbots.BotListSpace](/#/docs/main/master/class/BotListSpace)
+Class: [dbots.BotListSpace](/#/docs/main/master/class/BotListSpace)  
 Website: https://botlist.space
 </div>
 
@@ -24,7 +24,7 @@ Website: https://botlist.space
   <a href="https://botsfordiscord.com"><h1>Bots For Discord</h1></a>
 
 Keys: `botsfordiscord`, `botsfordiscord.com`, `bfd`  
-Class: [dbots.BotsForDiscord](/#/docs/main/master/class/BotsForDiscord)
+Class: [dbots.BotsForDiscord](/#/docs/main/master/class/BotsForDiscord)  
 Website: https://botsfordiscord.com
 </div>
 
@@ -38,7 +38,7 @@ Website: https://botsfordiscord.com
   <a href="https://bots.ondiscord.xyz"><h1>Bots On Discord</h1></a>
 
 Keys: `botsondiscord`, `bots.ondiscord.xyz`, `bod`  
-Class: [dbots.BotsOnDiscord](/#/docs/main/master/class/BotsOnDiscord)
+Class: [dbots.BotsOnDiscord](/#/docs/main/master/class/BotsOnDiscord)  
 Website: https://bots.ondiscord.xyz
 </div>
 
@@ -52,7 +52,7 @@ Website: https://bots.ondiscord.xyz
   <a href="https://www.carbonitex.net"><h1>Carbonitex</h1></a>
 
 Keys: `carbonitex`, `carbonitex.net`, `carbon`  
-Class: [dbots.Carbon](/#/docs/main/master/class/Carbon)
+Class: [dbots.Carbon](/#/docs/main/master/class/Carbon)  
 Website: https://www.carbonitex.net
 </div>
 
@@ -67,7 +67,7 @@ Website: https://www.carbonitex.net
   <a href="https://discordapps.dev"><h1>Discord Apps</h1></a>
 
 Keys: `discordappsdev`, `discordapps.dev`, `discordapps`, `dapps`  
-Class: [dbots.DiscordAppsDev](/#/docs/main/master/class/DiscordAppsDev)
+Class: [dbots.DiscordAppsDev](/#/docs/main/master/class/DiscordAppsDev)  
 Website: https://discordapps.dev
 </div>
 
@@ -81,7 +81,7 @@ Website: https://discordapps.dev
   <a href="https://discord.boats"><h1>Discord Boats</h1></a>
 
 Keys: `discordboats`, `discord.boats`, `dboats`  
-Class: [dbots.DiscordBoats](/#/docs/main/master/class/DiscordBoats)
+Class: [dbots.DiscordBoats](/#/docs/main/master/class/DiscordBoats)  
 Website: https://discord.boats
 </div>
 
@@ -95,7 +95,7 @@ Website: https://discord.boats
   <a href="https://discordbotlist.com"><h1>Discord Bot List</h1></a>
 
 Keys: `discordbotlist`, `discordbotlist.com`, `dbotlist`  
-Class: [dbots.DiscordBotList](/#/docs/main/master/class/DiscordBotList)
+Class: [dbots.DiscordBotList](/#/docs/main/master/class/DiscordBotList)  
 Website: https://discordbotlist.com
 </div>
 
@@ -110,7 +110,7 @@ Website: https://discordbotlist.com
   <a href="https://discordbot.world"><h1>Discord Bot World</h1></a>
 
 Keys: `discordbotworld`, `discordbot.world`, `dbotworld`, `dbw`  
-Class: [dbots.DiscordBotWorld](/#/docs/main/master/class/DiscordBotWorld)
+Class: [dbots.DiscordBotWorld](/#/docs/main/master/class/DiscordBotWorld)  
 Website: https://discordbot.world
 </div>
 
@@ -126,7 +126,7 @@ Website: https://discordbot.world
   <a href="https://discord.bots.gg"><h1>Discord Bots</h1></a>
 
 Keys: `discordbotsgg`, `discord.bots.gg`, `botsgg`, `bots.gg`, `dbots`  
-Class: [dbots.DiscordBotsGG](/#/docs/main/master/class/DiscordBotsGG)
+Class: [dbots.DiscordBotsGG](/#/docs/main/master/class/DiscordBotsGG)  
 Website: https://discord.bots.gg
 </div>
 
@@ -142,7 +142,7 @@ Website: https://discord.bots.gg
   <a href="https://divinediscordbots.com"><h1>Divine Discord Bots</h1></a>
 
 Keys: `divinediscordbots`, `divinediscordbots.com`, `divinedbots`, `divine`, `ddb`  
-Class: [dbots.DivineDiscordBots](/#/docs/main/master/class/DivineDiscordBots)
+Class: [dbots.DivineDiscordBots](/#/docs/main/master/class/DivineDiscordBots)  
 Website: https://divinediscordbots.com
 </div>
 
@@ -157,7 +157,7 @@ Website: https://divinediscordbots.com
   <a href="https://glennbotlist.xyz"><h1>Glenn Bot List</h1></a>
 
 Keys: `glennbotlist`, `glennbotlist.xyz`, `glennbotlist.gg`, `glenn`  
-Class: [dbots.GlennBotList](/#/docs/main/master/class/GlennBotList)
+Class: [dbots.GlennBotList](/#/docs/main/master/class/GlennBotList)  
 Website: https://glennbotlist.xyz
 </div>
 
@@ -171,6 +171,6 @@ Website: https://glennbotlist.xyz
   <a href="https://top.gg"><h1>Top.gg</h1></a>
 
 Keys: `topgg`, `top.gg`, `top`  
-Class: [dbots.TopGG](/#/docs/main/master/class/TopGG)
+Class: [dbots.TopGG](/#/docs/main/master/class/TopGG)  
 Website: https://top.gg
 </div>
