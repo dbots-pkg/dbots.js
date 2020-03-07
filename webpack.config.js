@@ -25,12 +25,12 @@ module.exports = {
     rules: [
       { test: /\.md$/, loader: 'ignore-loader' },
       {
-        test: require.resolve('./package.json'),
+        test: /^package\.json$/,
         type: 'javascript/auto',
         use: {
           loader: 'json-filter-loader',
           options: {
-            used: ['version', 'homepage'],
+            used: ['version'],
           },
         },
       },
