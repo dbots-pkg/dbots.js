@@ -36,7 +36,6 @@ exports.PostFormat = {
         { server_count: serverCount }
     };
   },
-  discordbotsorg: (...a) => exports.PostFormat.topgg(...a), // deprecated
   discordbotsgg: (token, clientID, serverCount, shard) => {
     return {
       method: 'post',

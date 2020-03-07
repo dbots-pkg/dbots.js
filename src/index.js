@@ -9,7 +9,6 @@ module.exports = {
   DiscordBoats: require('./Interface/Lists/DiscordBoats'),
   DiscordBotList: require('./Interface/Lists/DiscordBotList'),
   DiscordBotsGG: require('./Interface/Lists/DiscordBotsGG'),
-  DiscordBotsOrg: require('./Interface/Lists/TopGG'), // deprecated
   DiscordBotWorld: require('./Interface/Lists/DiscordBotWorld'),
   DivineDiscordBots: require('./Interface/Lists/DivineDiscordBots'),
   GlennBotList: require('./Interface/Lists/GlennBotList'),

@@ -96,10 +96,7 @@ abalabahaha | [![npm](static/npm.png)](https://npmjs.com/eris) [![GitHub](static
  - [discordbot.world `discordbotworld`](https://discordbot.world)
  - [divinediscordbots.com `divinediscordbots`](https://divinediscordbots.com)
  - [glennbotlist.xyz `glennbotlist`](https://glennbotlist.xyz)
- - [top.gg (formerly discordbots.org)  `topgg` or `discordbotsorg`](https://top.gg)*
-
-\* discordbots.org is currently rebranding to top.gg: they will gradually make changes to add new functionalities, you can find more info [here](https://medium.com/discord-bots/announcing-top-gg-the-next-phase-of-discord-bots-2ac3eb3b81bd).  
-To ensure backwards compatibility we will keep the `discordbotsorg` service active, but only as a reference to `topgg`, keeping it in a "deprecated" state; when the rebranding will be completed, we'll publish a major version update deleting any remains of the old name. If you're reading this, please switch to the classes of the new service ;)
+ - [top.gg `topgg`](https://top.gg)
 
 ## Contribution
 Any contribution may be useful for the package! Make sure when making issues or PRs that the issue has not been addressed yet in a past issue/PR.
