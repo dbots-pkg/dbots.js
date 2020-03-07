@@ -34,7 +34,9 @@ class DiscordBotsGG extends ServiceBase {
       url: `/bots/${id}`,
       headers: { Authorization: this.token },
       query: { sanitized }
-    }, true);
+    }, {
+      requiresToken: true
+    });
   }
 
   /**
@@ -46,7 +48,9 @@ class DiscordBotsGG extends ServiceBase {
       url: '/bots',
       headers: { Authorization: this.token },
       params: query
-    }, true);
+    }, {
+      requiresToken: true
+    });
   }
 }
 

@@ -52,7 +52,9 @@ class BotListSpace extends ServiceBase {
     return this._request({
       url: `/bots/${id}/upvotes`,
       headers: { Authorization: this.token }
-    }, true);
+    }, {
+      requiresToken: true
+    });
   }
 
   /**

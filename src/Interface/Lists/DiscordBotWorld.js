@@ -53,7 +53,9 @@ class DiscordBotWorld extends ServiceBase {
     return this._request({
       url: `/bots/${id}/likes`,
       headers: { Authorization: this.token }
-    }, true);
+    }, {
+      requiresToken: true
+    });
   }
 
   /**

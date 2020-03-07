@@ -35,7 +35,9 @@ class GlennBotList extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBotVotes(id) {
-    return this._request({ url: `/bot/${id}/votes` }, true);
+    return this._request({ url: `/bot/${id}/votes` }, {
+      requiresToken: true
+    });
   }
 
   /**

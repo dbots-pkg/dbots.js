@@ -35,7 +35,9 @@ class DiscordBotList extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBotWidget(id) {
-    return this._request({ url: `https://discordbotlist.com/bots/${id}/widget` }, false, false);
+    return this._request({ url: `https://discordbotlist.com/bots/${id}/widget` }, {
+      appendBaseURL: false
+    });
   }
 }
 

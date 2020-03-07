@@ -31,7 +31,9 @@ class BotsOnDiscord extends ServiceBase {
     return this._request({
       url: `/bots/${id}/review`,
       params: { owner: userId }
-    }, true);
+    }, {
+      requiresToken: true
+    });
   }
 }
 

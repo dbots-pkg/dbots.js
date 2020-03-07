@@ -132,11 +132,12 @@ class ServiceBase {
   /**
    * Sends a request for the service interface
    * @param {Object} form The request form
-   * @param {boolean} [requiresToken] Whether the request requires a token
-   * @param {boolean} [appendBaseURL] Whether to append the service's base API url
+   * @param {Object} options The options of this request
+   * @param {boolean} [options.requiresToken] Whether the request requires a token
+   * @param {boolean} [options.appendBaseURL] Whether to prepend the service's base API url
    * @private
    */
-  _request(form, requiresToken = false, appendBaseURL = true) {
+  _request(form, { requiresToken = false, appendBaseURL = true } = {}) {
     if (requiresToken && !this.token)
       return Promise.reject(new Error('This function requires a token'));
     if (this.constructor.baseURL && appendBaseURL)

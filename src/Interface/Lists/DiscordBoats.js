@@ -44,7 +44,10 @@ class DiscordBoats extends ServiceBase {
    * @param {string} userID The user's ID.
    */
   userVoted(id, userID) {
-    return this._request({ url: `/bot/${id}/voted?id=${userID}` });
+    return this._request({
+      url: `/bot/${id}/voted`,
+      query: { id: userID }
+    });
   }
 }
 
