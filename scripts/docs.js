@@ -11,6 +11,12 @@ var interfaceFolder = path(__dirname, '../src/Interface/Lists');
 const listClasses = fs.readdirSync(interfaceFolder);
 for (const filename of listClasses) {
   const { aliases, logoURL, name, websiteURL } = require(path(interfaceFolder, filename));
+  const className = filename.replace(/.js/, '');
+  var ref;
+  if (process.env.GITHUB_REF) {
+    const arr = process.env.GITHUB_REF.split('/');
+    ref = arr[arr.length - 1];
+  }
   services += `
 
 <div align=center>
@@ -21,7 +27,7 @@ for (const filename of listClasses) {
   <a href="${websiteURL}"><h1>${name}</h1></a>
 
 Keys: ${aliases.map(key => `\`${key}\``).join(', ')}  
-Class: [dbots.${filename.replace(/.js/, '')}]()
+Class: [dbots.${className}](${ref ? `/#/docs/main/${ref}/class/${className}` : ''})
 </div>`;
 }
 fs.writeFileSync(path(__dirname, '../docs/general/services.md'), services);
