@@ -85,18 +85,8 @@ qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](s
 abalabahaha | [![npm](static/npm.png)](https://npmjs.com/eris) [![GitHub](static/github.png)](https://github.com/abalabahaha/eris) eris
 
 ## Supported Services
- - [botlist.space `botlistspace`](https://botlist.space)
- - [botsfordiscord.com `botsfordiscord`](http://botsfordiscord.com)
- - [bots.ondiscord.xyz `botsondiscord`](http://bots.ondiscord.xyz)
- - [carbonitex.net `carbon`](http://carbonitex.net/discord/bots)
- - [discordapps.dev `discordappsdev`](https://discordapps.dev)
- - [discord.boats `discordboats`](https://discord.boats)
- - [discordbotlist.com `discordbotlist`](https://discordbotlist.com)
- - [discord.bots.gg `discordbotsgg`](https://discord.bots.gg)
- - [discordbot.world `discordbotworld`](https://discordbot.world)
- - [divinediscordbots.com `divinediscordbots`](https://divinediscordbots.com)
- - [glennbotlist.xyz `glennbotlist`](https://glennbotlist.xyz)
- - [top.gg `topgg`](https://top.gg)
+The supported services list has been moved into the website.  
+You can see a full (and automatically updated) list of usables services [here](https://dbots.js.org/#/docs/main/master/general/services).
 
 ## Contribution
 Any contribution may be useful for the package! Make sure when making issues or PRs that the issue has not been addressed yet in a past issue/PR.

@@ -2,13 +2,14 @@ const fs = require('fs');
 const { join: path } = require('path');
 
 // Update docs/general/welcome.md to track README.md
-const README = fs.readFileSync(path(__dirname, '../README.md'), {encoding: 'utf8'});
+const README = fs.readFileSync(path(__dirname, '../README.md'), {encoding: 'utf8'})
+  .replace(/^https:\/\/dbots\.js\.org\/#([\w/]+)/, '#$1');
 fs.writeFileSync(path(__dirname, '../docs/general/welcome.md'), README);
 
 // Update docs/general/services.md to reflect source changes
-var services = '# Supported Services';
 var interfaceFolder = path(__dirname, '../src/Interface/Lists');
 const listClasses = fs.readdirSync(interfaceFolder);
+var services = `# Supported Services (${listClasses.length})`;
 for (const filename of listClasses) {
   const { aliases, logoURL, name, websiteURL } = require(path(interfaceFolder, filename));
   const className = filename.replace(/.js/, '');
