@@ -7,6 +7,7 @@ type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
 export class ServiceBase {
   constructor(token: string)
+  static get(name: Service): ServiceBase | void
   static _post(form: RequestFormat, appendBaseURL?: boolean): Promise<any>
   _request(form: RequestFormat, options?: ServiceRequestOptions): Promise<any>
 }
@@ -613,4 +614,6 @@ declare module 'dbots' {
   export function EnsurePromise(func: () => any, ...args: any[]): Promise<any>
 
   export function FormatRequest(options: RequestFormat): Promise<any>
+
+  export function getService(name: Service): ServiceBase | void
 }

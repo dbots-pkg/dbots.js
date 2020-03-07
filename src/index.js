@@ -16,5 +16,6 @@ module.exports = {
 
   Constants: require('./Utils/Constants'),
   EnsurePromise: require('./Utils/EnsurePromise'),
-  FormatRequest: require('./Utils/FormatRequest')
+  FormatRequest: require('./Utils/FormatRequest'),
+  getService: require('./Interface/ServiceBase').get
 };
