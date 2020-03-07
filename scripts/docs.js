@@ -28,6 +28,7 @@ for (const filename of listClasses) {
 
 Keys: ${aliases.map(key => `\`${key}\``).join(', ')}  
 Class: [dbots.${className}](${ref ? `/#/docs/main/${ref}/class/${className}` : ''})
+Website: ${websiteURL}
 </div>`;
 }
 fs.writeFileSync(path(__dirname, '../docs/general/services.md'), services);
