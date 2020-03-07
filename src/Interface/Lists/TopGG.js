@@ -18,7 +18,7 @@ class TopGG extends ServiceBase {
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
-   * @param {Number} options.serverCount The amount of servers that the client is in
+   * @param {number} options.serverCount The amount of servers that the client is in
    * @param {Shard} options.shard The shard the request is representing
    * @returns {Promise}
    */

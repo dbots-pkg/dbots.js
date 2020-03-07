@@ -16,7 +16,7 @@ class Carbon extends ServiceBase {
    * Posts statistics to this service
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request (this automatically determines what client its posting for)
-   * @param {Number} options.serverCount The amount of servers that the client is in
+   * @param {number} options.serverCount The amount of servers that the client is in
    * @returns {Promise}
    */
 

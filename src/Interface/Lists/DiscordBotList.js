@@ -18,9 +18,9 @@ class DiscordBotList extends ServiceBase {
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
-   * @param {Number} options.serverCount The amount of servers that the client is in
-   * @param {Number} options.userCount The amount of users that the client cached
-   * @param {Number} options.voiceConnections The amount of voice connections the client has
+   * @param {number} options.serverCount The amount of servers that the client is in
+   * @param {number} options.userCount The amount of users that the client cached
+   * @param {number} options.voiceConnections The amount of voice connections the client has
    * @param {Shard} options.shard The shard the request is representing
    * @returns {Promise}
    */
