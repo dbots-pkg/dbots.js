@@ -86,7 +86,7 @@ abalabahaha | [![npm](static/npm.png)](https://npmjs.com/eris) [![GitHub](static
 
 ## Supported Services
 The supported services list has been moved into the website.  
-You can see a full (and automatically updated) list of usables services [here](https://dbots.js.org/#/docs/main/master/general/services).
+You can see a full (and automatically updated) list of usables services [here](#/docs/main/master/general/services).
 
 ## Contribution
 Any contribution may be useful for the package! Make sure when making issues or PRs that the issue has not been addressed yet in a past issue/PR.
