@@ -9,6 +9,22 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class DiscordBotList extends ServiceBase {
+  static get aliases() {
+    return ['discordbotlist', 'discordbotlist.com', 'dbotlist'];
+  }
+
+  static get logoURL() {
+    return 'https://i.olsh.me/icon?size=1..100..500&url=discordbotlist.com';
+  }
+
+  static get name() {
+    return 'Discord Bot List';
+  }
+
+  static get websiteURL() {
+    return 'https://discordbotlist.com';
+  }
+
   static get baseURL() {
     return 'https://discordbotlist.com/api';
   }

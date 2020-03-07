@@ -8,6 +8,22 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class Carbon extends ServiceBase {
+  static get aliases() {
+    return ['carbonitex', 'carbonitex.net', 'carbon'];
+  }
+
+  static get logoURL() {
+    return 'https://get.snaz.in/7N8ywwr.png';
+  }
+  
+  static get name() {
+    return 'Carbonitex';
+  }
+
+  static get websiteURL() {
+    return 'https://www.carbonitex.net';
+  }
+
   static get baseURL() {
     return 'https://www.carbonitex.net/discord';
   }

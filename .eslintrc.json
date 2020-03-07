@@ -11,6 +11,10 @@
     "sourceType": "module"
   },
   "rules": {
+    "array-bracket-spacing": [
+      "warn",
+      "never"
+    ],
     "computed-property-spacing": "warn",
     "indent": [
       "warn",

@@ -9,6 +9,22 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class DivineDiscordBots extends ServiceBase {
+  static get aliases() {
+    return ['divinediscordbots', 'divinediscordbots.com', 'divinedbots', 'divine', 'ddb'];
+  }
+
+  static get logoURL() {
+    return 'https://i.olsh.me/icon?size=1..100..500&url=divinediscordbots.com';
+  }
+
+  static get name() {
+    return 'Divine Discord Bots';
+  }
+
+  static get websiteURL() {
+    return 'https://divinediscordbots.com';
+  }
+
   static get baseURL() {
     return 'https://divinediscordbots.com';
   }

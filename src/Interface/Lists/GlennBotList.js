@@ -9,6 +9,22 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class GlennBotList extends ServiceBase {
+  static get aliases() {
+    return ['glennbotlist', 'glennbotlist.xyz', 'glennbotlist.gg', 'glenn'];
+  }
+
+  static get logoURL() {
+    return 'https://get.snaz.in/8HphUE7.jpg';
+  }
+
+  static get name() {
+    return 'Glenn Bot List';
+  }
+
+  static get websiteURL() {
+    return 'https://glennbotlist.xyz';
+  }
+
   static get baseURL() {
     return 'https://glennbotlist.xyz/api/v2';
   }

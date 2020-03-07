@@ -9,6 +9,22 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class DiscordAppsDev extends ServiceBase {
+  static get aliases() {
+    return ['discordappsdev', 'discordapps.dev', 'discordapps', 'dapps'];
+  }
+
+  static get logoURL() {
+    return 'https://api.discordapps.dev/img/logo/logo128.png';
+  }
+
+  static get name() {
+    return 'Discord Apps';
+  }
+
+  static get websiteURL() {
+    return 'https://discordapps.dev';
+  }
+
   static get baseURL() {
     return 'https://api.discordapps.dev/api/v2';
   }

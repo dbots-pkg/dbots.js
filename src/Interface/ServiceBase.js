@@ -19,6 +19,7 @@ class ServiceBase {
   /**
    * The base URL of the service's API
    * @type {string}
+   * @readonly
    */
   static get baseURL() {
     return '';
@@ -159,6 +160,45 @@ class ServiceBase {
     if (this.constructor.baseURL && appendBaseURL)
       url = this.constructor.baseURL + url;
     return buildURL(url, query);
+  }
+
+  /**
+   * The values that can be used to select the service
+   * @type {Array<string>}
+   * @readonly
+   */
+  static get aliases() {
+    return [];
+  }
+
+  /**
+   * The logo URL, used only for docs
+   * @type {string}
+   * @private
+   * @readonly
+   */
+  static get logoURL() {
+    return '';
+  }
+
+  /**
+   * Service's name, used only for docs
+   * @type {string}
+   * @private
+   * @readonly
+   */
+  static get name() {
+    return '';
+  }
+
+  /**
+   * The website URL, used only for docs
+   * @type {string}
+   * @private
+   * @readonly
+   */
+  static get websiteURL() {
+    return '';
   }
 }
 

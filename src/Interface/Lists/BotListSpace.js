@@ -9,6 +9,22 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class BotListSpace extends ServiceBase {
+  static get aliases() {
+    return ['botlistspace', 'botlist.space', 'bls'];
+  }
+
+  static get logoURL() {
+    return 'https://i.olsh.me/icon?size=1..100..500&url=botlist.space';
+  }
+
+  static get name() {
+    return 'botlist.space';
+  }
+
+  static get websiteURL() {
+    return 'https://botlist.space';
+  }
+
   static get baseURL() {
     return 'https://api.botlist.space/v1';
   }

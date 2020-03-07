@@ -9,6 +9,22 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class TopGG extends ServiceBase {
+  static get aliases() {
+    return ['topgg', 'top.gg', 'top'];
+  }
+
+  static get logoURL() {
+    return 'https://top.gg/images/dblnew.png';
+  }
+
+  static get name() {
+    return 'Top.gg';
+  }
+
+  static get websiteURL() {
+    return 'https://top.gg';
+  }
+
   static get baseURL() {
     return 'https://top.gg/api';
   }
