@@ -7,9 +7,9 @@ type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
 export class ServiceBase {
   constructor(token: string)
-  static get(name: Service): ServiceBase | void
+  static get(name: Service): ServiceBase | null
   static _post(form: RequestFormat, appendBaseURL?: boolean): Promise<any>
-  _appendQuery(url: string, query: Object, appendBaseURL?: boolean): string
+  _appendQuery(url: string, query: object, appendBaseURL?: boolean): string
   _request(form: RequestFormat, options?: ServiceRequestOptions): Promise<any>
 }
 
@@ -254,7 +254,7 @@ declare module 'dbots' {
      * @param {string} [style=1] The style of the widget
      * @param {Object} [query] The querystring that will be used in the request
      */
-    getBotWidget(id: string, style?: number, query?: Object): string
+    getBotWidget(id: string, style?: number, query?: object): string
   }
 
   /**
@@ -300,7 +300,7 @@ declare module 'dbots' {
      * @param {string} id The bot's ID.
      * @param {Object} [query] The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: Object): string
+    getBotWidget(id: string, query?: object): string
   }
 
   /**
@@ -329,7 +329,7 @@ declare module 'dbots' {
      * @param {string} id The bot's ID.
      * @param {Object} [query] The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: Object): string
+    getBotWidget(id: string, query?: object): string
   }
 
   /**
@@ -421,7 +421,7 @@ declare module 'dbots' {
      * @param {string} id The bot's ID.
      * @param {Object} [query] The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: Object): string
+    getBotWidget(id: string, query?: object): string
   }
 
   /**
@@ -446,7 +446,7 @@ declare module 'dbots' {
      * @param {string} id The bot's ID.
      * @param {Object} [query] The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: Object): string
+    getBotWidget(id: string, query?: object): string
   }
 
   /**
@@ -547,7 +547,7 @@ declare module 'dbots' {
      * @param {string} id The bot's ID.
      * @param {Object} [query] The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: Object): string
+    getBotWidget(id: string, query?: object): string
   }
 
   /**
@@ -589,7 +589,7 @@ declare module 'dbots' {
      * @param {string} id The bot's ID.
      * @param {Object} [query] The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: Object): string
+    getBotWidget(id: string, query?: object): string
   }
 
   /**
@@ -640,12 +640,12 @@ declare module 'dbots' {
      * @param {string} id The bot's ID.
      * @param {Object} [query] The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: Object): string
+    getBotWidget(id: string, query?: object): string
   }
   // #endregion
 
   export interface Constants {
-    Package: Object
+    Package: object
     SupportedEvents: string[]
   }
 
@@ -653,5 +653,5 @@ declare module 'dbots' {
 
   export function FormatRequest(options: RequestFormat): Promise<any>
 
-  export function getService(name: Service): ServiceBase | void
+  export function getService(name: Service): ServiceBase | null
 }
