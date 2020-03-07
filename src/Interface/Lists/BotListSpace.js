@@ -9,18 +9,22 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class BotListSpace extends ServiceBase {
+  static get baseURL() {
+    return 'https://api.botlist.space/v1';
+  }
+
   /**
    * Gets the statistics of this service
    */
   getStatistics() {
-    return this._request({ url: 'https://api.botlist.space/v1/statistics' });
+    return this._request({ url: '/statistics' });
   }
 
   /**
    * Gets a list of bots on this service
    */
   getBots() {
-    return this._request({ url: 'https://api.botlist.space/v1/bots' });
+    return this._request({ url: '/bots' });
   }
 
   /**
@@ -28,7 +32,7 @@ class BotListSpace extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBot(id) {
-    return this._request({ url: `https://api.botlist.space/v1/bots/${id}` });
+    return this._request({ url: `/bots/${id}` });
   }
 
   /**
@@ -37,7 +41,7 @@ class BotListSpace extends ServiceBase {
    */
   getBotVotes(id) {
     return this._request({
-      url: `https://api.botlist.space/v1/bots/${id}/upvotes`,
+      url: `/bots/${id}/upvotes`,
       headers: { Authorization: this.token }
     }, true);
   }
@@ -47,7 +51,7 @@ class BotListSpace extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBotUptime(id) {
-    return this._request({ url: `https://api.botlist.space/v1/bots/${id}/uptime` });
+    return this._request({ url: `/bots/${id}/uptime` });
   }
 
   /**
@@ -55,7 +59,7 @@ class BotListSpace extends ServiceBase {
    * @param {string} id The user's ID.
    */
   getUser(id) {
-    return this._request({ url: `https://api.botlist.space/v1/users/${id}` });
+    return this._request({ url: `/users/${id}` });
   }
 
   /**
@@ -63,7 +67,7 @@ class BotListSpace extends ServiceBase {
    * @param {string} id The user's ID.
    */
   getUserBots(id) {
-    return this._request({ url: `https://api.botlist.space/v1/users/${id}/bots` });
+    return this._request({ url: `/users/${id}/bots` });
   }
 }
 

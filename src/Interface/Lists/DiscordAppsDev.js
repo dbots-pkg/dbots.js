@@ -9,25 +9,29 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class DiscordAppsDev extends ServiceBase {
+  static get baseURL() {
+    return 'https://api.discordapps.dev/api/v2';
+  }
+
   /**
    * Gets a list of bots on this service
    */
   getBots() {
-    return this._request({ url: 'https://api.discordapps.dev/api/v2/bots' });
+    return this._request({ url: '/bots' });
   }
 
   /**
    * Gets a list of applications on this service
    */
   getApps() {
-    return this._request({ url: 'https://api.discordapps.dev/api/v2/apps' });
+    return this._request({ url: '/apps' });
   }
 
   /**
    * Gets a list of RPC applications on this service
    */
   getRPCApps() {
-    return this._request({ url: 'https://api.discordapps.dev/api/v2/rpc' });
+    return this._request({ url: '/rpc' });
   }
 
   /**
@@ -35,7 +39,7 @@ class DiscordAppsDev extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBot(id) {
-    return this._request({ url: `https://api.discordapps.dev/api/v2/bots/${id}` });
+    return this._request({ url: `/bots/${id}` });
   }
 }
 

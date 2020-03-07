@@ -9,12 +9,16 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class DivineDiscordBots extends ServiceBase {
+  static get baseURL() {
+    return 'https://divinediscordbots.com';
+  }
+
   /**
    * Gets the bot stats for your bot
    * @param {string} id The bot's ID.
    */
   getBotStats(id) {
-    return this._request({ url: `https://divinediscordbots.com/bot/${id}/stats` });
+    return this._request({ url: `/bot/${id}/stats` });
   }
 
   /**
@@ -22,7 +26,7 @@ class DivineDiscordBots extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBotVotes(id) {
-    return this._request({ url: `https://divinediscordbots.com/bot/${id}/votes` });
+    return this._request({ url: `/bot/${id}/votes` });
   }
 }
 

@@ -9,12 +9,16 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class DiscordBotList extends ServiceBase {
+  static get baseURL() {
+    return 'https://discordbotlist.com';
+  }
+
   /**
    * Gets the widget for this bot
    * @param {string} id The bot's ID.
    */
   getBotWidget(id) {
-    return this._request({ url: `https://discordbotlist.com/bots/${id}/widget` });
+    return this._request({ url: `/bots/${id}/widget` });
   }
 }
 

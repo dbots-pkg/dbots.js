@@ -9,6 +9,10 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class BotsOnDiscord extends ServiceBase {
+  static get baseURL() {
+    return 'https://bots.ondiscord.xyz/bot-api';
+  }
+
   /**
    * Checks whether or not a user has reviewed a bot
    * @param {string} id The bot's ID.
@@ -16,7 +20,7 @@ class BotsOnDiscord extends ServiceBase {
    */
   checkReview(id, userId) {
     return this._request({
-      url: `https://bots.ondiscord.xyz/bot-api/bots/${id}/review`,
+      url: `/bots/${id}/review`,
       params: { owner: userId }
     }, true);
   }

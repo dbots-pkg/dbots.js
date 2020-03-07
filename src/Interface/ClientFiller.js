@@ -12,6 +12,12 @@ class ClientFiller {
     this.client = client;
   }
 
+  /**
+   * Gets a client filler from a library
+   * @param {string} libraryName - The name of the library to get
+   * @param {Object} client - The client that the library made
+   * @returns {ClientFiller}
+   */
   static get(libraryName, client) {
     if (!client)
       throw new Error('No client was provided!');
@@ -20,12 +26,14 @@ class ClientFiller {
     case 'die': {
       return new Discordie(client);
     }
+
     case 'discord.io':
     case 'discordio':
     case 'd.io': 
     case 'dio': {
       return new DiscordIO(client);
     }
+
     case 'discord.js':
     case 'discordjs':
     case 'd.js':
@@ -37,9 +45,11 @@ class ClientFiller {
     case 'commando': {
       return new DiscordJS(client);
     }
+
     case 'eris': {
       return new Eris(client);
     }
+
     default: {
       throw new Error(`Unknown client '${libraryName}'`);
     }

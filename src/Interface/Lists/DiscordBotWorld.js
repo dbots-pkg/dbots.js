@@ -9,11 +9,15 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class DiscordBotWorld extends ServiceBase {
+  static get baseURL() {
+    return 'https://discordbot.world/api';
+  }
+
   /**
    * Gets a list of bots on this service
    */
   getBots() {
-    return this._request({ url: 'https://discordbot.world/api/bots' });
+    return this._request({ url: '/bots' });
   }
 
   /**
@@ -21,7 +25,7 @@ class DiscordBotWorld extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBot(id) {
-    return this._request({ url: `https://discordbot.world/api/bots/${id}/info` });
+    return this._request({ url: `/bots/${id}/info` });
   }
 
   /**
@@ -29,7 +33,7 @@ class DiscordBotWorld extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBotStats(id) {
-    return this._request({ url: `https://discordbot.world/api/bots/${id}/stats` });
+    return this._request({ url: `/bots/${id}/stats` });
   }
 
   /**
@@ -38,7 +42,7 @@ class DiscordBotWorld extends ServiceBase {
    */
   getBotLikes(id) {
     return this._request({
-      url: `https://discordbot.world/api/bots/${id}/likes`,
+      url: `/bots/${id}/likes`,
       headers: { Authorization: this.token }
     }, true);
   }
@@ -48,7 +52,7 @@ class DiscordBotWorld extends ServiceBase {
    * @param {string} id The user's ID.
    */
   getUser(id) {
-    return this._request({ url: `https://discordbot.world/api/user/${id}` });
+    return this._request({ url: `/user/${id}` });
   }
 }
 

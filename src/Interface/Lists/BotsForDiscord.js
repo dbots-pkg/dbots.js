@@ -9,12 +9,16 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class BotsForDiscord extends ServiceBase {
+  static get baseURL() {
+    return 'https://botsfordiscord.com/api';
+  }
+
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
    */
   getBot(id) {
-    return this._request({ url: `https://botsfordiscord.com/api/bot/${id}` });
+    return this._request({ url: `/bot/${id}` });
   }
 
   /**
@@ -23,7 +27,7 @@ class BotsForDiscord extends ServiceBase {
    * @param {Object} query The querystring that will be used in the request
    */
   getBotWidget(id, query) {
-    return this._request({ url: `https://botsfordiscord.com/api/bots/${id}/widget`, params: query });
+    return this._request({ url: `/bots/${id}/widget`, params: query });
   }
 
   /**
@@ -31,7 +35,7 @@ class BotsForDiscord extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBotVotes(id) {
-    return this._request({ url: `https://botsfordiscord.com/api/bots/${id}/votes` });
+    return this._request({ url: `/bots/${id}/votes` });
   }
 
   /**
@@ -39,7 +43,7 @@ class BotsForDiscord extends ServiceBase {
    * @param {string} id The user's ID.
    */
   getUser(id) {
-    return this._request({ url: `https://botsfordiscord.com/api/user/${id}` });
+    return this._request({ url: `/user/${id}` });
   }
 
   /**
@@ -47,7 +51,7 @@ class BotsForDiscord extends ServiceBase {
    * @param {string} id The user's ID.
    */
   getUserBots(id) {
-    return this._request({ url: `https://botsfordiscord.com/api/user/${id}/bots` });
+    return this._request({ url: `/user/${id}/bots` });
   }
 }
 

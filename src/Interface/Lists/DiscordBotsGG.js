@@ -9,6 +9,10 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class DiscordBotsGG extends ServiceBase {
+  static get baseURL() {
+    return 'https://discord.bots.gg/api/v1';
+  }
+
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
@@ -16,7 +20,7 @@ class DiscordBotsGG extends ServiceBase {
    */
   getBot(id, sanitized = false) {
     return this._request({
-      url: `https://discord.bots.gg/api/v1/bots/${id}`,
+      url: `/bots/${id}`,
       headers: { Authorization: this.token },
       query: { sanitized }
     }, true);
@@ -28,7 +32,7 @@ class DiscordBotsGG extends ServiceBase {
    */
   getBots(query) {
     return this._request({
-      url: 'https://discord.bots.gg/api/v1/bots',
+      url: '/bots',
       headers: { Authorization: this.token },
       params: query
     }, true);

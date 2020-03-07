@@ -9,20 +9,24 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class GlennBotList extends ServiceBase {
+  static get baseURL() {
+    return 'https://glennbotlist.xyz/api/v2';
+  }
+
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
    */
   getBot(id) {
-    return this._request({ url: `https://glennbotlist.xyz/api/v2/bot/${id}` });
+    return this._request({ url: `/bot/${id}` });
   }
 
   /**
-   * Gets the bot's stats on this service
+   * Gets the bot's votes on this service
    * @param {string} id The bot's ID.
    */
-  getBotStats(id) {
-    return this._request({ url: `https://glennbotlist.xyz/api/v2/bot/${id}` }, true);
+  getBotVotes(id) {
+    return this._request({ url: `/bot/${id}/votes` }, true);
   }
 
   /**
@@ -30,7 +34,7 @@ class GlennBotList extends ServiceBase {
    * @param {string} id The user's ID.
    */
   getProfile(id) {
-    return this._request({ url: `https://glennbotlist.xyz/api/v2/profile/${id}` });
+    return this._request({ url: `/profile/${id}` });
   }
 }
 

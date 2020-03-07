@@ -9,12 +9,16 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class DiscordBoats extends ServiceBase {
+  static get baseURL() {
+    return 'https://discord.boats/api/v2';
+  }
+
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
    */
   getBot(id) {
-    return this._request({ url: `https://discord.boats/api/v2/bot/${id}` });
+    return this._request({ url: `/bot/${id}` });
   }
 
   /**
@@ -22,7 +26,7 @@ class DiscordBoats extends ServiceBase {
    * @param {string} id The user's ID.
    */
   getUser(id) {
-    return this._request({ url: `https://discord.boats/api/v2/user/${id}` });
+    return this._request({ url: `/user/${id}` });
   }
 
   /**
@@ -31,7 +35,7 @@ class DiscordBoats extends ServiceBase {
    * @param {string} userID The user's ID.
    */
   userVoted(id, userID) {
-    return this._request({ url: `https://discord.boats/api/v2/bot/${id}/voted?id=${userID}` });
+    return this._request({ url: `/bot/${id}/voted?id=${userID}` });
   }
 }
 

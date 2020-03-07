@@ -9,19 +9,23 @@ const ServiceBase = require('../ServiceBase');
  * @param {string} token The token/key for the service
  */
 class TopGG extends ServiceBase {
+  static get baseURL() {
+    return 'https://top.gg/api';
+  }
+
   /**
    * Gets the user listed for this service
    * @param {string} id The user's ID.
    */
   getUser(id) {
-    return this._request({ url: `https://top.gg/api/users/${id}` });
+    return this._request({ url: `/users/${id}` });
   }
 
   /**
    * Gets the list of bots listed for this service
    */
   getBots() {
-    return this._request({ url: 'https://top.gg/api/bots' });
+    return this._request({ url: '/bots' });
   }
 
   /**
@@ -29,7 +33,7 @@ class TopGG extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBot(id) {
-    return this._request({ url: `https://top.gg/api/bots/${id}` });
+    return this._request({ url: `/bots/${id}` });
   }
 
   /**
@@ -37,7 +41,7 @@ class TopGG extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBotStats(id) {
-    return this._request({ url: `https://top.gg/api/bots/${id}/stats` });
+    return this._request({ url: `/bots/${id}/stats` });
   }
 
   /**
@@ -46,7 +50,7 @@ class TopGG extends ServiceBase {
    * @param {Object} query The querystring that will be used in the request
    */
   getBotVotes(id, query) {
-    return this._request({ url: `https://top.gg/api/bots/${id}/votes`, params: query });
+    return this._request({ url: `/bots/${id}/votes`, params: query });
   }
 
   /**
@@ -55,7 +59,7 @@ class TopGG extends ServiceBase {
    * @param {Object} query The querystring that will be used in the request
    */
   getBotEmbed(id, query) {
-    return this._request({ url: `https://top.gg/api/widget/${id}.png`, params: query });
+    return this._request({ url: `/widget/${id}.png`, params: query });
   }
 }
 
