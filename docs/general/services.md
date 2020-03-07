@@ -46,7 +46,7 @@ Class: [dbots.BotsOnDiscord]()
   <i id="carbonitex"></i>
   <i id="carbonitex.net"></i>
   <i id="carbon"></i>
-  <a href="https://www.carbonitex.net/"><h1>Carbonitex</h1></a>
+  <a href="https://www.carbonitex.net"><h1>Carbonitex</h1></a>
 
 Keys: `carbonitex`, `carbonitex.net`, `carbon`  
 Class: [dbots.Carbon]()
@@ -94,6 +94,20 @@ Class: [dbots.DiscordBotList]()
 
 <div align=center>
   <p>
+    <img src="https://i.olsh.me/icon?size=1..100..500&url=discordbot.world" alt="discordbotworld logo" width="100" align="left" />
+  </p>
+  <i id="discordbotworld"></i>
+  <i id="discordbot.world"></i>
+  <i id="dbotworld"></i>
+  <i id="dbw"></i>
+  <a href="https://discordbot.world"><h1>Discord Bot World</h1></a>
+
+Keys: `discordbotworld`, `discordbot.world`, `dbotworld`, `dbw`  
+Class: [dbots.DiscordBotWorld]()
+</div>
+
+<div align=center>
+  <p>
     <img src="https://i.olsh.me/icon?size=1..100..500&url=discord.bots.gg" alt="discordbotsgg logo" width="100" align="left" />
   </p>
   <i id="discordbotsgg"></i>
@@ -105,20 +119,6 @@ Class: [dbots.DiscordBotList]()
 
 Keys: `discordbotsgg`, `discord.bots.gg`, `botsgg`, `bots.gg`, `dbots`  
 Class: [dbots.DiscordBotsGG]()
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://i.olsh.me/icon?size=1..100..500&url=discordbot.world" alt="discordbotworld logo" width="100" align="left" />
-  </p>
-  <i id="discordbotworld"></i>
-  <i id="discordbot.world"></i>
-  <i id="dbotworld"></i>
-  <i id="dbw"></i>
-  <a href="https://discordbot.world"><h1>Discord Bot World</h1></a>
-
-Keys: `discordbotworld`, `discordbot.world`, `dbotworld`, `dbw`  
-Class: [dbots.DiscordBotWorld]()
 </div>
 
 <div align=center>
