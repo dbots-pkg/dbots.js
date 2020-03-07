@@ -10,7 +10,7 @@
   <a href="https://botlist.space"><h1>botlist.space</h1></a>
 
 Keys: `botlistspace`, `botlist.space`, `bls`  
-Class: [dbots.BotListSpace]()
+Class: [dbots.BotListSpace](/#/docs/main/master/class/BotListSpace)
 </div>
 
 <div align=center>
@@ -23,7 +23,7 @@ Class: [dbots.BotListSpace]()
   <a href="https://botsfordiscord.com"><h1>Bots For Discord</h1></a>
 
 Keys: `botsfordiscord`, `botsfordiscord.com`, `bfd`  
-Class: [dbots.BotsForDiscord]()
+Class: [dbots.BotsForDiscord](/#/docs/main/master/class/BotsForDiscord)
 </div>
 
 <div align=center>
@@ -36,7 +36,7 @@ Class: [dbots.BotsForDiscord]()
   <a href="https://bots.ondiscord.xyz"><h1>Bots On Discord</h1></a>
 
 Keys: `botsondiscord`, `bots.ondiscord.xyz`, `bod`  
-Class: [dbots.BotsOnDiscord]()
+Class: [dbots.BotsOnDiscord](/#/docs/main/master/class/BotsOnDiscord)
 </div>
 
 <div align=center>
@@ -49,7 +49,7 @@ Class: [dbots.BotsOnDiscord]()
   <a href="https://www.carbonitex.net"><h1>Carbonitex</h1></a>
 
 Keys: `carbonitex`, `carbonitex.net`, `carbon`  
-Class: [dbots.Carbon]()
+Class: [dbots.Carbon](/#/docs/main/master/class/Carbon)
 </div>
 
 <div align=center>
@@ -63,7 +63,7 @@ Class: [dbots.Carbon]()
   <a href="https://discordapps.dev"><h1>Discord Apps</h1></a>
 
 Keys: `discordappsdev`, `discordapps.dev`, `discordapps`, `dapps`  
-Class: [dbots.DiscordAppsDev]()
+Class: [dbots.DiscordAppsDev](/#/docs/main/master/class/DiscordAppsDev)
 </div>
 
 <div align=center>
@@ -76,7 +76,7 @@ Class: [dbots.DiscordAppsDev]()
   <a href="https://discord.boats"><h1>Discord Boats</h1></a>
 
 Keys: `discordboats`, `discord.boats`, `dboats`  
-Class: [dbots.DiscordBoats]()
+Class: [dbots.DiscordBoats](/#/docs/main/master/class/DiscordBoats)
 </div>
 
 <div align=center>
@@ -89,7 +89,7 @@ Class: [dbots.DiscordBoats]()
   <a href="https://discordbotlist.com"><h1>Discord Bot List</h1></a>
 
 Keys: `discordbotlist`, `discordbotlist.com`, `dbotlist`  
-Class: [dbots.DiscordBotList]()
+Class: [dbots.DiscordBotList](/#/docs/main/master/class/DiscordBotList)
 </div>
 
 <div align=center>
@@ -103,7 +103,7 @@ Class: [dbots.DiscordBotList]()
   <a href="https://discordbot.world"><h1>Discord Bot World</h1></a>
 
 Keys: `discordbotworld`, `discordbot.world`, `dbotworld`, `dbw`  
-Class: [dbots.DiscordBotWorld]()
+Class: [dbots.DiscordBotWorld](/#/docs/main/master/class/DiscordBotWorld)
 </div>
 
 <div align=center>
@@ -118,7 +118,7 @@ Class: [dbots.DiscordBotWorld]()
   <a href="https://discord.bots.gg"><h1>Discord Bots</h1></a>
 
 Keys: `discordbotsgg`, `discord.bots.gg`, `botsgg`, `bots.gg`, `dbots`  
-Class: [dbots.DiscordBotsGG]()
+Class: [dbots.DiscordBotsGG](/#/docs/main/master/class/DiscordBotsGG)
 </div>
 
 <div align=center>
@@ -133,7 +133,7 @@ Class: [dbots.DiscordBotsGG]()
   <a href="https://divinediscordbots.com"><h1>Divine Discord Bots</h1></a>
 
 Keys: `divinediscordbots`, `divinediscordbots.com`, `divinedbots`, `divine`, `ddb`  
-Class: [dbots.DivineDiscordBots]()
+Class: [dbots.DivineDiscordBots](/#/docs/main/master/class/DivineDiscordBots)
 </div>
 
 <div align=center>
@@ -147,7 +147,7 @@ Class: [dbots.DivineDiscordBots]()
   <a href="https://glennbotlist.xyz"><h1>Glenn Bot List</h1></a>
 
 Keys: `glennbotlist`, `glennbotlist.xyz`, `glennbotlist.gg`, `glenn`  
-Class: [dbots.GlennBotList]()
+Class: [dbots.GlennBotList](/#/docs/main/master/class/GlennBotList)
 </div>
 
 <div align=center>
@@ -160,5 +160,5 @@ Class: [dbots.GlennBotList]()
   <a href="https://top.gg"><h1>Top.gg</h1></a>
 
 Keys: `topgg`, `top.gg`, `top`  
-Class: [dbots.TopGG]()
+Class: [dbots.TopGG](/#/docs/main/master/class/TopGG)
 </div>
