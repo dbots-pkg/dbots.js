@@ -5,9 +5,10 @@
   <h1>dbots<i>.js</i></h1>
   <p>A poster/wrapper for Discord bot lists</p>
   <p>
-    <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/v/dbots.svg?maxAge=3600&style=for-the-badge" alt="NPM version" /></a>
-    <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/dt/dbots.svg?maxAge=3600&style=for-the-badge" alt="NPM downloads" /></a>
-    <a href="https://david-dm.org/dbots-pkg/dbots.js"><img src="https://img.shields.io/david/dbots-pkg/dbots.js.svg?maxAge=3600&style=for-the-badge" alt="Dependencies" /></a>
+    <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/v/dbots.svg?maxAge=3600" alt="NPM version" /></a>
+    <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/dt/dbots.svg?maxAge=3600" alt="NPM downloads" /></a>
+    <a href="https://david-dm.org/dbots-pkg/dbots.js"><img src="https://img.shields.io/david/dbots-pkg/dbots.js.svg?maxAge=3600" alt="Dependencies" /></a>
+    <a href="https://github.com/dbots-pkg/dbots.js/actions"><img src="https://github.com/dbots-pkg/dbots.js/workflows/Lint%20source%20code/badge.svg?branch=master" alt="Linting state" /></a>
   </p>
   <p>
     <a href="https://nodei.co/npm/dbots/"><img src="https://nodei.co/npm/dbots.png" alt="NPM info" /></a>
@@ -84,18 +85,18 @@ qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](s
 abalabahaha | [![npm](static/npm.png)](https://npmjs.com/eris) [![GitHub](static/github.png)](https://github.com/abalabahaha/eris) eris
 
 ## Supporting Services
- - [top.gg (formerly discordbots.org)  `topgg` or `discordbotsorg`](https://top.gg)*
- - [discord.bots.gg `discordbotsgg`](https://discord.bots.gg)
- - [discordapps.dev `discordappsdev`](https://discordapps.dev)
- - [carbonitex.net `carbon`](http://carbonitex.net/discord/bots)
+ - [botlist.space `botlistspace`](https://botlist.space)
  - [botsfordiscord.com `botsfordiscord`](http://botsfordiscord.com)
  - [bots.ondiscord.xyz `botsondiscord`](http://bots.ondiscord.xyz)
- - [discordbotlist.com `discordbotlist`](https://discordbotlist.com)
- - [divinediscordbots.com `divinediscordbots`](https://divinediscordbots.com)
+ - [carbonitex.net `carbon`](http://carbonitex.net/discord/bots)
+ - [discordapps.dev `discordappsdev`](https://discordapps.dev)
  - [discord.boats `discordboats`](https://discord.boats)
- - [botlist.space `botlistspace`](https://botlist.space)
+ - [discordbotlist.com `discordbotlist`](https://discordbotlist.com)
+ - [discord.bots.gg `discordbotsgg`](https://discord.bots.gg)
  - [discordbot.world `discordbotworld`](https://discordbot.world)
+ - [divinediscordbots.com `divinediscordbots`](https://divinediscordbots.com)
  - [glennbotlist.xyz `glennbotlist`](https://glennbotlist.xyz)
+ - [top.gg (formerly discordbots.org)  `topgg` or `discordbotsorg`](https://top.gg)*
 
 \* discordbots.org is currently rebranding to top.gg: they will gradually make changes to add new functionalities, you can find more info [here](https://medium.com/discord-bots/announcing-top-gg-the-next-phase-of-discord-bots-2ac3eb3b81bd).  
 To ensure backwards compatibility we will keep the `discordbotsorg` service active, but only as a reference to `topgg`, keeping it in a "deprecated" state; when the rebranding will be completed, we'll publish a major version update deleting any remains of the old name. If you're reading this, please switch to the classes of the new service ;)
