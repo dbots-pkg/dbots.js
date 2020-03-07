@@ -61,7 +61,7 @@ class BotsForDiscord extends ServiceBase {
    * @returns {Promise}
    */
   getBotVotes(id) {
-    return this._request({ url: `/bots/${id}/votes` });
+    return this._request({ url: `/bot/${id}/votes` });
   }
 
   /**
