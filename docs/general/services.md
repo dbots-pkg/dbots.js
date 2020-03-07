@@ -46,7 +46,7 @@ Class: [dbots.BotsOnDiscord]()
   <i id="carbonitex"></i>
   <i id="carbonitex.net"></i>
   <i id="carbon"></i>
-  <a href="https://bots.ondiscord.xyz"><h1>Carbonitex</h1></a>
+  <a href="https://www.carbonitex.net/"><h1>Carbonitex</h1></a>
 
 Keys: `carbonitex`, `carbonitex.net`, `carbon`  
 Class: [dbots.Carbon]()
