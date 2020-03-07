@@ -40,6 +40,7 @@
  * * botlistspace
  * * discordbotworld
  * * glennbotlist
+ * @see {@link https://github.com/dbots-pkg/dbots.js/blob/master/src/Interface/ServiceBase.js#L30}
  * @typedef {string} Service
  */
 
