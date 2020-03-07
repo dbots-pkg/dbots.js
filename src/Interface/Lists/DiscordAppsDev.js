@@ -13,6 +13,14 @@ class DiscordAppsDev extends ServiceBase {
     return 'https://api.discordapps.dev/api/v2';
   }
 
+  /**
+   * Posts statistics to this service
+   * @param {Object} options The options of the request
+   * @param {string} options.token The Authorization token for the request
+   * @param {string} options.clientID The client ID that the request will post for
+   * @param {Number} options.serverCount The amount of servers that the client is in
+   * @returns {Promise}
+   */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
@@ -24,6 +32,7 @@ class DiscordAppsDev extends ServiceBase {
 
   /**
    * Gets a list of bots on this service
+   * @returns {Promise}
    */
   getBots() {
     return this._request({ url: '/bots' });
@@ -31,6 +40,7 @@ class DiscordAppsDev extends ServiceBase {
 
   /**
    * Gets a list of applications on this service
+   * @returns {Promise}
    */
   getApps() {
     return this._request({ url: '/apps' });
@@ -38,6 +48,7 @@ class DiscordAppsDev extends ServiceBase {
 
   /**
    * Gets a list of RPC applications on this service
+   * @returns {Promise}
    */
   getRPCApps() {
     return this._request({ url: '/rpc' });
@@ -46,6 +57,7 @@ class DiscordAppsDev extends ServiceBase {
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
+   * @returns {Promise}
    */
   getBot(id) {
     return this._request({ url: `/bots/${id}` });

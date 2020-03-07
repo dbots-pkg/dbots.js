@@ -13,6 +13,15 @@ class TopGG extends ServiceBase {
     return 'https://top.gg/api';
   }
 
+  /**
+   * Posts statistics to this service
+   * @param {Object} options The options of the request
+   * @param {string} options.token The Authorization token for the request
+   * @param {string} options.clientID The client ID that the request will post for
+   * @param {Number} options.serverCount The amount of servers that the client is in
+   * @param {Shard} options.shard The shard the request is representing
+   * @returns {Promise}
+   */
   static post({ token, clientID, serverCount, shard }) {
     return super._post({
       method: 'post',
@@ -27,6 +36,7 @@ class TopGG extends ServiceBase {
   /**
    * Gets the user listed for this service
    * @param {string} id The user's ID.
+   * @returns {Promise}
    */
   getUser(id) {
     return this._request({ url: `/users/${id}` });
@@ -34,6 +44,7 @@ class TopGG extends ServiceBase {
 
   /**
    * Gets the list of bots listed for this service
+   * @returns {Promise}
    */
   getBots() {
     return this._request({ url: '/bots' });
@@ -42,6 +53,7 @@ class TopGG extends ServiceBase {
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
+   * @returns {Promise}
    */
   getBot(id) {
     return this._request({ url: `/bots/${id}` });
@@ -50,6 +62,7 @@ class TopGG extends ServiceBase {
   /**
    * Gets the bot's stats listed on this service
    * @param {string} id The bot's ID.
+   * @returns {Promise}
    */
   getBotStats(id) {
     return this._request({ url: `/bots/${id}/stats` });
@@ -59,6 +72,7 @@ class TopGG extends ServiceBase {
    * Gets the data on the voters for this bot
    * @param {string} id The bot's ID.
    * @param {Object} query The querystring that will be used in the request
+   * @returns {Promise}
    */
   getBotVotes(id, query) {
     return this._request({ url: `/bots/${id}/votes`, params: query });
@@ -68,6 +82,7 @@ class TopGG extends ServiceBase {
    * Gets the embed picture for this bot
    * @param {string} id The bot's ID.
    * @param {Object} query The querystring that will be used in the request
+   * @returns {Promise}
    */
   getBotEmbed(id, query) {
     return this._request({ url: `/widget/${id}.png`, params: query });

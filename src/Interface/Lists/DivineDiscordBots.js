@@ -13,6 +13,14 @@ class DivineDiscordBots extends ServiceBase {
     return 'https://divinediscordbots.com';
   }
 
+  /**
+   * Posts statistics to this service
+   * @param {Object} options The options of the request
+   * @param {string} options.token The Authorization token for the request
+   * @param {string} options.clientID The client ID that the request will post for
+   * @param {string} options.serverCount The amount of servers that the client is in
+   * @returns {Promise}
+   */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
@@ -25,6 +33,7 @@ class DivineDiscordBots extends ServiceBase {
   /**
    * Gets the bot stats for your bot
    * @param {string} id The bot's ID.
+   * @returns {Promise}
    */
   getBotStats(id) {
     return this._request({ url: `/bot/${id}/stats` });
@@ -33,6 +42,7 @@ class DivineDiscordBots extends ServiceBase {
   /**
    * Gets the bot votes for your bot
    * @param {string} id The bot's ID.
+   * @returns {Promise}
    */
   getBotVotes(id) {
     return this._request({ url: `/bot/${id}/votes` });

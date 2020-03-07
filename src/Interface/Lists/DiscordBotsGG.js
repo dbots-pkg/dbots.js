@@ -13,6 +13,15 @@ class DiscordBotsGG extends ServiceBase {
     return 'https://discord.bots.gg/api/v1';
   }
 
+  /**
+   * Posts statistics to this service
+   * @param {Object} options The options of the request
+   * @param {string} options.token The Authorization token for the request
+   * @param {string} options.clientID The client ID that the request will post for
+   * @param {Number} options.serverCount The amount of servers that the client is in
+   * @param {Shard} options.shard The shard the request is representing
+   * @returns {Promise}
+   */
   static post({ token, clientID, serverCount, shard }) {
     return super._post({
       method: 'post',
@@ -28,6 +37,7 @@ class DiscordBotsGG extends ServiceBase {
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
    * @param {Boolean} [sanitized=false] Whether to sanitize descriptions
+   * @returns {Promise}
    */
   getBot(id, sanitized = false) {
     return this._request({
@@ -42,6 +52,7 @@ class DiscordBotsGG extends ServiceBase {
   /**
    * Gets a list of bots on this service
    * @param {?Object} query The query string object to append to the endpoint
+   * @returns {Promise}
    */
   getBots(query) {
     return this._request({

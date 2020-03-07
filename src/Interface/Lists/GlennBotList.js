@@ -13,6 +13,14 @@ class GlennBotList extends ServiceBase {
     return 'https://glennbotlist.xyz/api/v2';
   }
 
+  /**
+   * Posts statistics to this service
+   * @param {Object} options The options of the request
+   * @param {string} options.token The Authorization token for the request
+   * @param {string} options.clientID The client ID that the request will post for
+   * @param {string} options.serverCount The amount of servers that the client is in
+   * @returns {Promise}
+   */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
@@ -25,6 +33,7 @@ class GlennBotList extends ServiceBase {
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
+   * @returns {Promise}
    */
   getBot(id) {
     return this._request({ url: `/bot/${id}` });
@@ -33,6 +42,7 @@ class GlennBotList extends ServiceBase {
   /**
    * Gets the bot's votes on this service
    * @param {string} id The bot's ID.
+   * @returns {Promise}
    */
   getBotVotes(id) {
     return this._request({ url: `/bot/${id}/votes` }, {
@@ -43,6 +53,7 @@ class GlennBotList extends ServiceBase {
   /**
    * Get a user's profile listed on this service
    * @param {string} id The user's ID.
+   * @returns {Promise}
    */
   getProfile(id) {
     return this._request({ url: `/profile/${id}` });

@@ -12,6 +12,14 @@ class Carbon extends ServiceBase {
     return 'https://www.carbonitex.net/discord';
   }
 
+  /**
+   * Posts statistics to this service
+   * @param {Object} options The options of the request
+   * @param {string} options.token The Authorization token for the request (this automatically determines what client its posting for)
+   * @param {Number} options.serverCount The amount of servers that the client is in
+   * @returns {Promise}
+   */
+
   static post({ token, serverCount }) {
     return super._post({
       method: 'post',
@@ -22,6 +30,7 @@ class Carbon extends ServiceBase {
 
   /**
    * Gets a list of bots on this service
+   * @returns {Promise}
    */
   getBots() {
     return this._request({ url: '/api/listedbots' });

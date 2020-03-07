@@ -13,6 +13,14 @@ class BotsForDiscord extends ServiceBase {
     return 'https://botsfordiscord.com/api';
   }
 
+  /**
+   * Posts statistics to this service
+   * @param {Object} options The options of the request
+   * @param {string} options.token The Authorization token for the request
+   * @param {string} options.clientID The client ID that the request will post for
+   * @param {Number} options.serverCount The amount of servers that the client is in
+   * @returns {Promise}
+   */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
@@ -25,6 +33,7 @@ class BotsForDiscord extends ServiceBase {
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
+   * @returns {Promise}
    */
   getBot(id) {
     return this._request({ url: `/bot/${id}` });
@@ -34,6 +43,7 @@ class BotsForDiscord extends ServiceBase {
    * Gets the widget for this bot
    * @param {string} id The bot's ID.
    * @param {Object} query The querystring that will be used in the request
+   * @returns {Promise}
    */
   getBotWidget(id, query) {
     return this._request({ url: `/bots/${id}/widget`, params: query });
@@ -42,6 +52,7 @@ class BotsForDiscord extends ServiceBase {
   /**
    * Gets the votes for this bot
    * @param {string} id The bot's ID.
+   * @returns {Promise}
    */
   getBotVotes(id) {
     return this._request({ url: `/bots/${id}/votes` });
@@ -50,6 +61,7 @@ class BotsForDiscord extends ServiceBase {
   /**
    * Gets the user listed for this service
    * @param {string} id The user's ID.
+   * @returns {Promise}
    */
   getUser(id) {
     return this._request({ url: `/user/${id}` });
@@ -58,6 +70,7 @@ class BotsForDiscord extends ServiceBase {
   /**
    * Gets the user's list of managed bots
    * @param {string} id The user's ID.
+   * @returns {Promise}
    */
   getUserBots(id) {
     return this._request({ url: `/user/${id}/bots` });
