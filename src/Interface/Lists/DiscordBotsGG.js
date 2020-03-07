@@ -12,6 +12,7 @@ class DiscordBotsGG extends ServiceBase {
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.
+   * @param {Boolean} [sanitized=false] Whether to sanitize descriptions
    */
   getBot(id, sanitized = false) {
     return this._request({
@@ -23,6 +24,7 @@ class DiscordBotsGG extends ServiceBase {
 
   /**
    * Gets a list of bots on this service
+   * @param {?Object} query The query string object to append to the endpoint
    */
   getBots(query) {
     return this._request({

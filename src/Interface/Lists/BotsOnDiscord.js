@@ -10,8 +10,16 @@ const ServiceBase = require('../ServiceBase');
  */
 class BotsOnDiscord extends ServiceBase {
   /**
-   * API documentation is to be disclosed...
+   * Checks whether or not a user has reviewed a bot
+   * @param {string} id The bot's ID.
+   * @param {string} userId The user's ID.
    */
+  checkReview(id, userId) {
+    return this._request({
+      url: `https://bots.ondiscord.xyz/bot-api/bots/${id}/review`,
+      params: { owner: userId }
+    }, true);
+  }
 }
 
 module.exports = BotsOnDiscord;
