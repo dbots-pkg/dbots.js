@@ -8,6 +8,7 @@ on:
       - "src/**"
       - "docs/**"
       - ".github/workflows/deployment.yml"
+      - "scripts/docs.js"
 
 jobs:
   docs:
