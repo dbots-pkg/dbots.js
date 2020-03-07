@@ -1,7 +1,7 @@
 const Constants = require('../Utils/Constants');
 const EnsurePromise = require('../Utils/EnsurePromise');
-const FormatRequest = require('../Utils/FormatRequest');
 const ClientFiller = require('./ClientFiller');
+const Service = require('./ServiceBase');
 
 /**
  * A class that posts server count to listing site(s).
@@ -144,7 +144,7 @@ class Poster {
     */
   postManual(serverCount, service = 'all', userCount = undefined, voiceConnections = undefined) {
     if (!this.options.apiKeys && !this.options.post)
-      throw new Error('NO_API_KEYS');
+      return Promise.reject(new Error('NO_API_KEYS'));
     if (service === 'custom') 
       return EnsurePromise(this.options.post, this.options.clientID, serverCount, this.options.shard);
     if (!service || service === 'all') {
@@ -152,19 +152,20 @@ class Poster {
       if (this.options.post) services.push('custom');
       return Promise.all(services.map(k => this.postManual(serverCount, k)));
     }
-    if (!Constants.AvailableServices.includes(service))
-      throw new Error('INVALID_SERVICE', service);
     if (!Object.keys(this.options.apiKeys).includes(service))
-      throw new Error('SERVICE_WITH_NO_KEY', service);
+      return Promise.reject(new Error('SERVICE_WITH_NO_KEY', service));
+    const serviceClass = Service.get(service);
+    if (!serviceClass)
+      return Promise.reject(new Error('INVALID_SERVICE', service));
     return new Promise((resolve, reject) => {
-      FormatRequest(
-        Constants.PostFormat[service](this.options.apiKeys[service],
-          this.options.clientID,
-          serverCount,
-          this.options.shard,
-          userCount,
-          voiceConnections
-        )).then(result => {
+      serviceClass.post({
+        token: this.options.apiKeys[service],
+        clientID: this.options.clientID,
+        shard: this.options.shard,
+        serverCount,
+        userCount,
+        voiceConnections
+      }).then(result => {
         this.runHandlers('post', result);
         resolve(result);
       }).catch(error => {

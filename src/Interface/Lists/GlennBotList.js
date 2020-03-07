@@ -13,6 +13,15 @@ class GlennBotList extends ServiceBase {
     return 'https://glennbotlist.xyz/api/v2';
   }
 
+  static post({ token, clientID, serverCount }) {
+    return super._post({
+      method: 'post',
+      url: `/bot/${clientID}/stats`,
+      headers: { Authorization: token },
+      data: { serverCount }
+    });
+  }
+
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.

@@ -10,7 +10,24 @@ const ServiceBase = require('../ServiceBase');
  */
 class DiscordBotList extends ServiceBase {
   static get baseURL() {
-    return 'https://discordbotlist.com';
+    return 'https://discordbotlist.com/api';
+  }
+
+  static post({ token, clientID, serverCount, shard, userCount, voiceConnections }) {
+    const data = { guilds: serverCount };
+    if (shard)
+      data.shard_id = shard.id;
+    if (userCount)
+      data.users = userCount;
+    if (voiceConnections)
+      data.voice_connections = voiceConnections;
+
+    return super._post({
+      method: 'post',
+      url: `/bots/${clientID}/stats`,
+      headers: { Authorization: `Bot ${token}` },
+      data
+    });
   }
 
   /**
@@ -18,7 +35,7 @@ class DiscordBotList extends ServiceBase {
    * @param {string} id The bot's ID.
    */
   getBotWidget(id) {
-    return this._request({ url: `/bots/${id}/widget` });
+    return this._request({ url: `https://discordbotlist.com/bots/${id}/widget` }, false, false);
   }
 }
 

@@ -13,6 +13,17 @@ class DiscordBotsGG extends ServiceBase {
     return 'https://discord.bots.gg/api/v1';
   }
 
+  static post({ token, clientID, serverCount, shard }) {
+    return super._post({
+      method: 'post',
+      url: `/bots/${clientID}/stats`,
+      headers: { Authorization: token },
+      data: shard ? 
+        { guildCount: serverCount, shardId: shard.id, shardCount: shard.count } : 
+        { guildCount: serverCount }
+    });
+  }
+
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.

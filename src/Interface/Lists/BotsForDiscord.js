@@ -13,6 +13,15 @@ class BotsForDiscord extends ServiceBase {
     return 'https://botsfordiscord.com/api';
   }
 
+  static post({ token, clientID, serverCount }) {
+    return super._post({
+      method: 'post',
+      url: `/bot/${clientID}`,
+      headers: { Authorization: token },
+      data: { server_count: serverCount }
+    });
+  }
+
   /**
    * Gets the bot listed for this service
    * @param {string} id The bot's ID.

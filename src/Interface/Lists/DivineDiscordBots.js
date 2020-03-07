@@ -13,6 +13,15 @@ class DivineDiscordBots extends ServiceBase {
     return 'https://divinediscordbots.com';
   }
 
+  static post({ token, clientID, serverCount }) {
+    return super._post({
+      method: 'post',
+      url: `/bot/${clientID}/stats`,
+      headers: { Authorization: token },
+      data: { server_count: serverCount }
+    });
+  }
+
   /**
    * Gets the bot stats for your bot
    * @param {string} id The bot's ID.

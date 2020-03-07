@@ -13,6 +13,15 @@ class DiscordAppsDev extends ServiceBase {
     return 'https://api.discordapps.dev/api/v2';
   }
 
+  static post({ token, clientID, serverCount }) {
+    return super._post({
+      method: 'post',
+      url: `/bots/${clientID}`,
+      headers: { Authorization: token },
+      data: { bot: { count: serverCount } }
+    });
+  }
+
   /**
    * Gets a list of bots on this service
    */

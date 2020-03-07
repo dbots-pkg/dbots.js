@@ -13,6 +13,17 @@ class TopGG extends ServiceBase {
     return 'https://top.gg/api';
   }
 
+  static post({ token, clientID, serverCount, shard }) {
+    return super._post({
+      method: 'post',
+      url: `/bots/${clientID}/stats`,
+      headers: { Authorization: token },
+      data: shard ? 
+        { server_count: serverCount, shard_id: shard.id, shard_count: shard.count } : 
+        { server_count: serverCount }
+    });
+  }
+
   /**
    * Gets the user listed for this service
    * @param {string} id The user's ID.

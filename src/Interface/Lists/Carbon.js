@@ -12,6 +12,14 @@ class Carbon extends ServiceBase {
     return 'https://www.carbonitex.net/discord';
   }
 
+  static post({ token, serverCount }) {
+    return super._post({
+      method: 'post',
+      url: '/data/botdata.php',
+      data: { key: token, servercount: serverCount }
+    });
+  }
+
   /**
    * Gets a list of bots on this service
    */

@@ -13,6 +13,15 @@ class BotsOnDiscord extends ServiceBase {
     return 'https://bots.ondiscord.xyz/bot-api';
   }
 
+  static post({ token, clientID, serverCount }) {
+    return super._post({
+      method: 'post',
+      url: `/bots/${clientID}/guilds`,
+      headers: { Authorization: token },
+      data: { guildCount: serverCount }
+    });
+  }
+
   /**
    * Checks whether or not a user has reviewed a bot
    * @param {string} id The bot's ID.

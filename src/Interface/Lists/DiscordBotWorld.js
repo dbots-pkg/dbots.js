@@ -13,6 +13,15 @@ class DiscordBotWorld extends ServiceBase {
     return 'https://discordbot.world/api';
   }
 
+  static post({ token, clientID, serverCount }) {
+    return super._post({
+      method: 'post',
+      url: `/bot/${clientID}/stats`,
+      headers: { Authorization: token },
+      data: { guild_count: serverCount }
+    });
+  }
+
   /**
    * Gets a list of bots on this service
    */

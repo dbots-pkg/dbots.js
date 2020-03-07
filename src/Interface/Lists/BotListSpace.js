@@ -13,6 +13,15 @@ class BotListSpace extends ServiceBase {
     return 'https://api.botlist.space/v1';
   }
 
+  static post({ token, clientID, serverCount }) {
+    return super._post({
+      method: 'post',
+      url: `/bots/${clientID}`,
+      headers: { Authorization: token, 'Content-Type': 'application/json' },
+      data: { server_count: serverCount }
+    });
+  }
+
   /**
    * Gets the statistics of this service
    */
