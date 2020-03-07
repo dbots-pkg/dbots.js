@@ -209,3 +209,5 @@ exports.SupportedEvents = [
   'post',
   'postfail'
 ];
+
+exports.Package = require('../../package.json');

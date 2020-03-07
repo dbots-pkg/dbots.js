@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { Package } = require('./Constants');
 
 /*
 {
@@ -29,5 +30,12 @@ module.exports = function FormatRequest(options) {
     options.params = options.query;
     delete options.query;
   }
+  const userAgent = `dbots (https://github.com/dbots-pkg/dbots.js ${Package.version}) Node.js/${process.version}`
+  if (!options.headers)
+    options.headers = {
+      'User-Agent': userAgent
+    };
+  else
+    options.headers['User-Agent'] = userAgent;
   return axios(options);
 };
