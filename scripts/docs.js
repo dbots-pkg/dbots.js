@@ -27,7 +27,7 @@ for (const filename of listClasses) {
   <a href="${websiteURL}"><h1>${name}</h1></a>
 
 Keys: ${aliases.map(key => `\`${key}\``).join(', ')}  
-Class: [dbots.${className}](${ref ? `/#/docs/main/${ref}/class/${className}` : ''})
+Class: [dbots.${className}](${ref ? `/#/docs/main/${ref}/class/${className}` : ''})  
 Website: ${websiteURL}
 </div>`;
 }
