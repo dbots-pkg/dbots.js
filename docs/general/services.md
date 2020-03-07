@@ -11,6 +11,7 @@
 
 Keys: `botlistspace`, `botlist.space`, `bls`  
 Class: [dbots.BotListSpace](/#/docs/main/master/class/BotListSpace)
+Website: https://botlist.space
 </div>
 
 <div align=center>
@@ -24,6 +25,7 @@ Class: [dbots.BotListSpace](/#/docs/main/master/class/BotListSpace)
 
 Keys: `botsfordiscord`, `botsfordiscord.com`, `bfd`  
 Class: [dbots.BotsForDiscord](/#/docs/main/master/class/BotsForDiscord)
+Website: https://botsfordiscord.com
 </div>
 
 <div align=center>
@@ -37,6 +39,7 @@ Class: [dbots.BotsForDiscord](/#/docs/main/master/class/BotsForDiscord)
 
 Keys: `botsondiscord`, `bots.ondiscord.xyz`, `bod`  
 Class: [dbots.BotsOnDiscord](/#/docs/main/master/class/BotsOnDiscord)
+Website: https://bots.ondiscord.xyz
 </div>
 
 <div align=center>
@@ -50,6 +53,7 @@ Class: [dbots.BotsOnDiscord](/#/docs/main/master/class/BotsOnDiscord)
 
 Keys: `carbonitex`, `carbonitex.net`, `carbon`  
 Class: [dbots.Carbon](/#/docs/main/master/class/Carbon)
+Website: https://www.carbonitex.net
 </div>
 
 <div align=center>
@@ -64,6 +68,7 @@ Class: [dbots.Carbon](/#/docs/main/master/class/Carbon)
 
 Keys: `discordappsdev`, `discordapps.dev`, `discordapps`, `dapps`  
 Class: [dbots.DiscordAppsDev](/#/docs/main/master/class/DiscordAppsDev)
+Website: https://discordapps.dev
 </div>
 
 <div align=center>
@@ -77,6 +82,7 @@ Class: [dbots.DiscordAppsDev](/#/docs/main/master/class/DiscordAppsDev)
 
 Keys: `discordboats`, `discord.boats`, `dboats`  
 Class: [dbots.DiscordBoats](/#/docs/main/master/class/DiscordBoats)
+Website: https://discord.boats
 </div>
 
 <div align=center>
@@ -90,6 +96,7 @@ Class: [dbots.DiscordBoats](/#/docs/main/master/class/DiscordBoats)
 
 Keys: `discordbotlist`, `discordbotlist.com`, `dbotlist`  
 Class: [dbots.DiscordBotList](/#/docs/main/master/class/DiscordBotList)
+Website: https://discordbotlist.com
 </div>
 
 <div align=center>
@@ -104,6 +111,7 @@ Class: [dbots.DiscordBotList](/#/docs/main/master/class/DiscordBotList)
 
 Keys: `discordbotworld`, `discordbot.world`, `dbotworld`, `dbw`  
 Class: [dbots.DiscordBotWorld](/#/docs/main/master/class/DiscordBotWorld)
+Website: https://discordbot.world
 </div>
 
 <div align=center>
@@ -119,6 +127,7 @@ Class: [dbots.DiscordBotWorld](/#/docs/main/master/class/DiscordBotWorld)
 
 Keys: `discordbotsgg`, `discord.bots.gg`, `botsgg`, `bots.gg`, `dbots`  
 Class: [dbots.DiscordBotsGG](/#/docs/main/master/class/DiscordBotsGG)
+Website: https://discord.bots.gg
 </div>
 
 <div align=center>
@@ -134,6 +143,7 @@ Class: [dbots.DiscordBotsGG](/#/docs/main/master/class/DiscordBotsGG)
 
 Keys: `divinediscordbots`, `divinediscordbots.com`, `divinedbots`, `divine`, `ddb`  
 Class: [dbots.DivineDiscordBots](/#/docs/main/master/class/DivineDiscordBots)
+Website: https://divinediscordbots.com
 </div>
 
 <div align=center>
@@ -148,6 +158,7 @@ Class: [dbots.DivineDiscordBots](/#/docs/main/master/class/DivineDiscordBots)
 
 Keys: `glennbotlist`, `glennbotlist.xyz`, `glennbotlist.gg`, `glenn`  
 Class: [dbots.GlennBotList](/#/docs/main/master/class/GlennBotList)
+Website: https://glennbotlist.xyz
 </div>
 
 <div align=center>
@@ -161,4 +172,5 @@ Class: [dbots.GlennBotList](/#/docs/main/master/class/GlennBotList)
 
 Keys: `topgg`, `top.gg`, `top`  
 Class: [dbots.TopGG](/#/docs/main/master/class/TopGG)
+Website: https://top.gg
 </div>
