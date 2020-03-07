@@ -128,7 +128,7 @@ class Poster {
     return new Promise((resolve, reject) => {
       return Promise.all([_this.getServerCount(), _this.getUserCount(), _this.getVoiceConnections()])
         .then(([serverCount, userCount, voiceConnections]) => {
-          _this.postManual(serverCount, service, userCount, voiceConnections)
+          _this.postManual(service, { serverCount, userCount, voiceConnections })
             .then(resolve).catch(reject);
         }).catch(reject);
     });
@@ -136,13 +136,14 @@ class Poster {
 
   /**
     * Manually posts a server count to a service
-    * @param {number} serverCount The server count to post to the service
     * @param {Service} service The service to post to
-    * @param {number} [userCount] The server count to post to the service
-    * @param {number} [voiceConnections] The voice connection count to post to the service
+    * @param {Object} counts An object containing the tallies of servers, users and voice connections
+    * @param {number} counts.serverCount The server count to post to the service
+    * @param {number} [counts.userCount] The user count to post to the service
+    * @param {number} [counts.voiceConnections] The voice connection count to post to the service
     * @returns {Promise<Object|Array<Object>>} The result(s) of the post
     */
-  postManual(serverCount, service = 'all', userCount = undefined, voiceConnections = undefined) {
+  postManual(service = 'all', { serverCount, userCount, voiceConnections } = {}) {
     if (!this.options.apiKeys && !this.options.post)
       return Promise.reject(new Error('NO_API_KEYS'));
     if (service === 'custom') 
