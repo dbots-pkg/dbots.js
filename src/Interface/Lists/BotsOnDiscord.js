@@ -55,6 +55,7 @@ class BotsOnDiscord extends ServiceBase {
   checkReview(id, userId) {
     return this._request({
       url: `/bots/${id}/review`,
+      headers: { Authorization: this.token },
       params: { owner: userId }
     }, {
       requiresToken: true
