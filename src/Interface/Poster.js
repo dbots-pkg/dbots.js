@@ -160,7 +160,7 @@ class Poster {
 
   /**
     * Posts the current clients server count to a service.
-    * @param {Service | 'all'} [service] The service to post to
+    * @param {Service | "all"} [service] The service to post to
     * @see Poster#postManual
     */
   post(service) {
@@ -176,7 +176,7 @@ class Poster {
 
   /**
     * Manually posts a server count to a service.
-    * @param {Service | 'all'} [service] The service to post to
+    * @param {Service | "all"} [service] The service to post to
     * @param {Object} counts An object containing the tallies of servers, users and voice connections
     * @param {number} counts.serverCount The server count to post to the service
     * @param {number} [counts.userCount] The user count to post to the service
