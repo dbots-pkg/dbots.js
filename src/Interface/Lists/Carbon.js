@@ -21,7 +21,7 @@ class Carbon extends ServiceBase {
   }
 
   static get websiteURL() {
-    return 'https://www.carbonitex.net';
+    return 'https://www.carbonitex.net/Discord/bots';
   }
 
   static get baseURL() {
