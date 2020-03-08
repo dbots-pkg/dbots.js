@@ -1,4 +1,4 @@
-# Supported Services (12)
+# Supported Services (13)
 
 <div align=center>
   <p>
@@ -173,4 +173,18 @@ Website: https://glennbotlist.xyz
 Keys: `topgg`, `top.gg`, `top`  
 Class: [dbots.TopGG](/#/docs/main/master/class/TopGG)  
 Website: https://top.gg
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://i.imgur.com/OFiMern.png" alt="yabl logo" width="100" align="left" />
+  </p>
+  <i id="yabl"></i>
+  <i id="yablxyz"></i>
+  <i id="yabl.xyz"></i>
+  <a href="https://yabl.xyz/"><h1>Yet Another Bot List</h1></a>
+
+Keys: `yabl`, `yablxyz`, `yabl.xyz`  
+Class: [dbots.YABL](/#/docs/main/master/class/YABL)  
+Website: https://yabl.xyz/
 </div>
