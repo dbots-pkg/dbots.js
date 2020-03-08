@@ -1,7 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 type Library = 'discordie' | 'discord.io' | 'discord.js' | 'eris'
-type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'cloudbotList' | 'cloudlist' | 'dblista' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'discordextremelist' | 'divinediscordbots' | 'glennbotlist' | 'topgg' | 'yabl'
+type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'cloudbotList' | 'cloudlist' | 'dblista' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'discordextremelist' | 'divinediscordbots' | 'glennbotlist' | 'lbots' | 'topgg' | 'yabl'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
 type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
@@ -641,7 +641,7 @@ declare module 'dbots' {
   }
 
   /**
-   * Represents the discordbot.world's service.
+   * Represents the Discord Bot World service.
    * @see https://discordbot.world/docs
    */
   export class DiscordBotWorld extends ServiceBase {
@@ -720,7 +720,7 @@ declare module 'dbots' {
   }
 
   /**
-   * Represents the divinediscordbots.com's service
+   * Represents the Divine Discord Bots service.
    * @see https://divinediscordbots.com/api
    */
   export class DivineDiscordBots extends ServiceBase {
@@ -754,7 +754,7 @@ declare module 'dbots' {
   }
 
   /**
-   * Represents the Glenn Bot List service
+   * Represents the Glenn Bot List service.
    * @see https://docs.glennbotlist.xyz/
    */
   export class GlennBotList extends ServiceBase {
@@ -794,7 +794,57 @@ declare module 'dbots' {
   }
 
   /**
-   * Represents the top.gg service
+   * Represents the LBots service.
+   * @see https://lbots.org/api/docs
+   */
+  export class LBots extends ServiceBase {
+    /**
+     * Gets the list of people who favorited this bot on this service.
+     * @param id The bot's ID
+     */
+    getBotFavorites(id: string): Promise<AxiosResponse>
+
+    /**
+     * Gets a guilds settings from the bot's panel.
+     * @param id The bot's ID
+     * @param guildID The guild's ID
+     */
+    getPanelGuildSettings(id: string, guildID: string): Promise<AxiosResponse>
+
+    /**
+     * Invalidates the token being used in the request.
+     * @param id The bot's ID
+     */
+    invalidate(): Promise<AxiosResponse>
+
+    /**
+     * Posts statistics to this service.
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     * @param options.shard The shard the request is representing
+     */
+    static post(options: PostOptions): Promise<AxiosResponse>
+
+    /**
+     * Updates the guilds on the bot's panel.
+     * @param id The bot's ID
+     * @param data The data being posted
+     */
+    updatePanelGuilds(id: string, data: object): Promise<AxiosResponse>
+
+    /**
+     * Gets a guilds settings from the bot's panel.
+     * @param id The bot's ID
+     * @param guildID The guild's ID
+     * @param data The data being posted
+     */
+    updatePanelGuildSettings(id: string, guildID: string, data: object): Promise<AxiosResponse>
+  }
+
+  /**
+   * Represents the top.gg service.
    * @see https://top.gg/api/docs
    */
   export class TopGG extends ServiceBase {
@@ -879,11 +929,11 @@ declare module 'dbots' {
      */
     getUserBots(id: string): Promise<AxiosResponse>
 
-    /** Invalidates the token being used in the request */
+    /** Invalidates the token being used in the request. */
     invalidate(): Promise<AxiosResponse>
 
     /**
-     * Posts statistics to this service
+     * Posts statistics to this service.
      * @param options The options of the request
      * @param options.token The Authorization token for the request
      * @param options.clientID The client ID that the request will post for
