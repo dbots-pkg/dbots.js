@@ -78,6 +78,23 @@ class DiscordAppsDev extends ServiceBase {
   getBot(id) {
     return this._request({ url: `/bots/${id}` });
   }
+
+  /**
+   * Updates the bot with the data provided
+   * @param {string} id The bot's ID
+   * @param {Object} data The data being posted
+   * @returns {Promise}
+   */
+  updateBot(id, data) {
+    return this._request({
+      method: 'post',
+      url: `/bots/${id}`,
+      headers: { Authorization: this.token },
+      data
+    }, {
+      requiresToken: true
+    });
+  }
 }
 
 module.exports = DiscordAppsDev;
