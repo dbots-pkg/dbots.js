@@ -127,6 +127,7 @@ class Poster {
 
   /**
     * Posts the current clients server count to a service
+    * @param {Service} service The service to post to
     * @see Poster#postManual
     */
   post(service) {
@@ -157,7 +158,7 @@ class Poster {
     if (!service || service === 'all') {
       const services = Object.keys(this.options.apiKeys);
       if (this.options.post) services.push('custom');
-      return Promise.all(services.map(k => this.postManual(serverCount, k)));
+      return Promise.all(services.map(k => this.postManual(k, { serverCount, userCount, voiceConnections })));
     }
     if (!Object.keys(this.options.apiKeys).includes(service))
       return Promise.reject(new Error('SERVICE_WITH_NO_KEY', service));
