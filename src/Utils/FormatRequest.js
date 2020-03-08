@@ -18,7 +18,7 @@ const { Package } = require('./Constants');
  * @param {Object.<string, string>} options.headers The headers to append to the request
  * @param {Object.<string, string|number>} options.data The data to send with the request, if the method allows it
  * @param {Object.<string, string|number>} options.params The query parameters for the request
- * @returns {Promise<any>} The request
+ * @returns {Promise<AxiosResponse>} The request
  */
 module.exports = function FormatRequest(options) {
   if (!options.method) options.method = 'get';

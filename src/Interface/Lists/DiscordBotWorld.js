@@ -35,7 +35,7 @@ class DiscordBotWorld extends ServiceBase {
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
    * @param {number} options.serverCount The amount of servers that the client is in
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
@@ -48,7 +48,7 @@ class DiscordBotWorld extends ServiceBase {
 
   /**
    * Gets a list of bots on this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBots() {
     return this._request({ url: '/bots' });
@@ -57,7 +57,7 @@ class DiscordBotWorld extends ServiceBase {
   /**
    * Gets the bot listed on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
     return this._request({ url: `/bots/${id}/info` });
@@ -66,7 +66,7 @@ class DiscordBotWorld extends ServiceBase {
   /**
    * Gets the bot's stats on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBotStats(id) {
     return this._request({ url: `/bots/${id}/stats` });
@@ -75,7 +75,7 @@ class DiscordBotWorld extends ServiceBase {
   /**
    * Gets the list of people who liked this bot on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBotLikes(id) {
     return this._request({
@@ -89,7 +89,7 @@ class DiscordBotWorld extends ServiceBase {
   /**
    * Gets the user listed on this service.
    * @param {string} id The user's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getUser(id) {
     return this._request({ url: `/user/${id}` });

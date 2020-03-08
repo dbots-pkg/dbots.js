@@ -35,7 +35,7 @@ class BotsOnDiscord extends ServiceBase {
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
    * @param {number} options.serverCount The amount of servers that the client is in
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
@@ -50,7 +50,7 @@ class BotsOnDiscord extends ServiceBase {
    * Checks whether or not a user has reviewed a bot.
    * @param {string} id The bot's ID
    * @param {string} userId The user's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   checkReview(id, userId) {
     return this._request({

@@ -35,7 +35,7 @@ class DiscordAppsDev extends ServiceBase {
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
    * @param {number} options.serverCount The amount of servers that the client is in
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
@@ -48,7 +48,7 @@ class DiscordAppsDev extends ServiceBase {
 
   /**
    * Gets a list of bots on this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBots() {
     return this._request({ url: '/bots' });
@@ -56,7 +56,7 @@ class DiscordAppsDev extends ServiceBase {
 
   /**
    * Gets a list of applications on this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getApps() {
     return this._request({ url: '/apps' });
@@ -64,7 +64,7 @@ class DiscordAppsDev extends ServiceBase {
 
   /**
    * Gets a list of RPC applications on this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getRPCApps() {
     return this._request({ url: '/rpc' });
@@ -73,7 +73,7 @@ class DiscordAppsDev extends ServiceBase {
   /**
    * Gets the bot listed on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
     return this._request({ url: `/bots/${id}` });
@@ -83,7 +83,7 @@ class DiscordAppsDev extends ServiceBase {
    * Updates the bot with the data provided.
    * @param {string} id The bot's ID
    * @param {Object} data The data being posted
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   updateBot(id, data) {
     return this._request({

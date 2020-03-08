@@ -36,7 +36,7 @@ class DiscordBotsGG extends ServiceBase {
    * @param {string} options.clientID The client ID that the request will post for
    * @param {number} options.serverCount The amount of servers that the client is in
    * @param {Shard} options.shard The shard the request is representing
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount, shard }) {
     return super._post({
@@ -53,7 +53,7 @@ class DiscordBotsGG extends ServiceBase {
    * Gets the bot listed on this service.
    * @param {string} id The bot's ID
    * @param {Boolean} [sanitized=false] Whether to sanitize descriptions
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBot(id, sanitized = false) {
     return this._request({
@@ -68,7 +68,7 @@ class DiscordBotsGG extends ServiceBase {
   /**
    * Gets a list of bots on this service.
    * @param {Query} [query] The query string that will be used in the request
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBots(query) {
     return this._request({

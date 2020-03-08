@@ -36,7 +36,7 @@ class CloudBotList extends ServiceBase {
    * @param {string} options.clientID The client ID that the request will post for
    * @param {number} options.serverCount The amount of servers that the client is in
    * @param {number} options.userCount The amount of users that the client cached
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount, userCount }) {
     return super._post({
@@ -50,7 +50,7 @@ class CloudBotList extends ServiceBase {
   /**
    * Gets the bot listed on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
     return this._request({ url: `/bots/${id}` });

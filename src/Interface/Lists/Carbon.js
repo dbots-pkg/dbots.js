@@ -33,7 +33,7 @@ class Carbon extends ServiceBase {
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request (this automatically determines what client its posting for)
    * @param {number} options.serverCount The amount of servers that the client is in
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
 
   static post({ token, serverCount }) {
@@ -46,7 +46,7 @@ class Carbon extends ServiceBase {
 
   /**
    * Gets a list of bots on this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBots() {
     return this._request({ url: '/api/listedbots' });

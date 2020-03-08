@@ -35,7 +35,7 @@ class DiscordExtremeList extends ServiceBase {
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
    * @param {number} options.serverCount The amount of servers that the client is in
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
@@ -48,7 +48,7 @@ class DiscordExtremeList extends ServiceBase {
 
   /**
    * Gets the statistics of this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getStatistics() {
     return this._request({
@@ -62,7 +62,7 @@ class DiscordExtremeList extends ServiceBase {
   /**
    * Gets the bot listed on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
     return this._request({
@@ -76,7 +76,7 @@ class DiscordExtremeList extends ServiceBase {
   /**
    * Gets the user listed on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getUser(id) {
     return this._request({

@@ -35,7 +35,7 @@ class YABL extends ServiceBase {
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
    * @param {number} options.serverCount The amount of servers that the client is in
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
@@ -48,7 +48,7 @@ class YABL extends ServiceBase {
 
   /**
    * Invalidates the token being used in the request.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   invalidate() {
     return this._request({
@@ -62,7 +62,7 @@ class YABL extends ServiceBase {
   /**
    * Gets the bot listed on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
     return this._request({ url: `/bot/${id}` });
@@ -70,7 +70,7 @@ class YABL extends ServiceBase {
 
   /**
    * Gets 20 random bots from this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getRandomBots() {
     return this._request({ url: '/bots' });
@@ -79,7 +79,7 @@ class YABL extends ServiceBase {
   /**
    * Gets the user's bots listed for this service.
    * @param {string} id The user's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getUserBots(id) {
     return this._request({ url: `/bots/user/${id}` });
@@ -87,7 +87,7 @@ class YABL extends ServiceBase {
 
   /**
    * Gets a list of bots on this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBots() {
     return this._request({
@@ -101,7 +101,7 @@ class YABL extends ServiceBase {
   /**
    * Gets a page of bots on this service.
    * @param {Query} query The query string that will be used in the request
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBotsByPage(query) {
     return this._request({ url: '/bots/all', params: query });
@@ -109,7 +109,7 @@ class YABL extends ServiceBase {
 
   /**
    * Gets a list of unverified bots on this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getUnverifiedBots() {
     return this._request({

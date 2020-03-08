@@ -33,7 +33,7 @@ class DBLista extends ServiceBase {
   /**
    * This service does not support posting.
    * The promise returned will be rejected with an error.
-   * @returns {Promise}
+   * @returns {Promise<void>}
    */
   static post() {
     return Promise.reject(new Error('POSTING_UNSUPPORTED', this.name));
@@ -42,7 +42,7 @@ class DBLista extends ServiceBase {
   /**
    * Adds a bot to the service.
    * @param {Object} data The data being posted. This should include the ID of the bot
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   addBot(data) {
     return this._request({
@@ -58,7 +58,7 @@ class DBLista extends ServiceBase {
   /**
    * Updates the bot's listing with the data provided.
    * @param {Object} data The data being posted. This should include the ID of the bot
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   updateBot(data) {
     return this._request({
@@ -74,7 +74,7 @@ class DBLista extends ServiceBase {
   /**
    * Gets the bot listed on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
     return this._request({ url: `/bots/${id}` });
@@ -83,7 +83,7 @@ class DBLista extends ServiceBase {
   /**
    * Gets a list of bots on this service.
    * @param {Object} [page] The page you want to get
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBots(page = 0) {
     return this._request({ url: `/bots/list/${page}` });
@@ -91,7 +91,7 @@ class DBLista extends ServiceBase {
 
   /**
    * Gets a list of unverified bots on this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getUnverifiedBots() {
     return this._request({ url: '/bots/list/unverified' });
@@ -99,7 +99,7 @@ class DBLista extends ServiceBase {
 
   /**
    * Gets a list of rejected bots on this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getRejectedBots() {
     return this._request({ url: '/bots/list/rejected' });
@@ -109,7 +109,7 @@ class DBLista extends ServiceBase {
    * Adds a rating to a bot on the service.
    * @param {string} id The bot's ID
    * @param {Object} data The data being posted. This should include the ID of the bot
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   rateBot(id, data) {
     return this._request({
@@ -125,7 +125,7 @@ class DBLista extends ServiceBase {
   /**
    * Removes a rating from a bot on the service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   removeRating(id) {
     return this._request({
@@ -140,7 +140,7 @@ class DBLista extends ServiceBase {
   /**
    * Removes a bot from the service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   removeBot(id) {
     return this._request({
@@ -155,7 +155,7 @@ class DBLista extends ServiceBase {
   /**
    * Searches for bots on the service.
    * @param {string} query The query to search for
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   search(query) {
     return this._request({ url: `/bots/search/${encodeURIComponent(query)}` });

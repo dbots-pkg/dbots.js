@@ -35,7 +35,7 @@ class BotListSpace extends ServiceBase {
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
    * @param {number} options.serverCount The amount of servers that the client is in
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
@@ -48,7 +48,7 @@ class BotListSpace extends ServiceBase {
 
   /**
    * Gets the statistics of this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getStatistics() {
     return this._request({ url: '/statistics' });
@@ -56,7 +56,7 @@ class BotListSpace extends ServiceBase {
 
   /**
    * Gets a list of bots on this service.
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBots() {
     return this._request({ url: '/bots' });
@@ -65,7 +65,7 @@ class BotListSpace extends ServiceBase {
   /**
    * Gets the bot listed on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
     return this._request({ url: `/bots/${id}` });
@@ -74,7 +74,7 @@ class BotListSpace extends ServiceBase {
   /**
    * Gets the list of people who votes this bot on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBotVotes(id) {
     return this._request({
@@ -88,7 +88,7 @@ class BotListSpace extends ServiceBase {
   /**
    * Gets the uptime of a bot listed on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBotUptime(id) {
     return this._request({ url: `/bots/${id}/uptime` });
@@ -97,7 +97,7 @@ class BotListSpace extends ServiceBase {
   /**
    * Gets the user listed on this service.
    * @param {string} id The user's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getUser(id) {
     return this._request({ url: `/users/${id}` });
@@ -106,7 +106,7 @@ class BotListSpace extends ServiceBase {
   /**
    * Gets the user's bots listed for this service.
    * @param {string} id The user's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getUserBots(id) {
     return this._request({ url: `/users/${id}/bots` });

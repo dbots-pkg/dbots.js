@@ -36,7 +36,7 @@ class TopGG extends ServiceBase {
    * @param {string} options.clientID The client ID that the request will post for
    * @param {number} options.serverCount The amount of servers that the client is in
    * @param {Shard} options.shard The shard the request is representing
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount, shard }) {
     return super._post({
@@ -52,7 +52,7 @@ class TopGG extends ServiceBase {
   /**
    * Gets the user listed on this service.
    * @param {string} id The user's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getUser(id) {
     return this._request({ url: `/users/${id}` });
@@ -61,7 +61,7 @@ class TopGG extends ServiceBase {
   /**
    * Gets the list of bots on this service.
    * @param {Query} query The query string that will be used in the request
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBots(query) {
     return this._request({ url: '/bots', params: query });
@@ -70,7 +70,7 @@ class TopGG extends ServiceBase {
   /**
    * Gets the bot listed on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
     return this._request({ url: `/bots/${id}` });
@@ -79,7 +79,7 @@ class TopGG extends ServiceBase {
   /**
    * Gets the bot's stats listed on this service.
    * @param {string} id The bot's ID
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBotStats(id) {
     return this._request({ url: `/bots/${id}/stats` });
@@ -89,7 +89,7 @@ class TopGG extends ServiceBase {
    * Gets the list of people who votes this bot on this service.
    * @param {string} id The bot's ID
    * @param {Query} query The query string that will be used in the request
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   getBotVotes(id, query) {
     return this._request({ url: `/bots/${id}/votes`, params: query });

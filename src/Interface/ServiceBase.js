@@ -57,6 +57,7 @@ class ServiceBase {
    * @param {Object} form The request form
    * @param {boolean} [appendBaseURL] Whether to append the service's base API url
    * @private
+   * @returns {Promise<AxiosResponse>}
    */
   static _post(form, appendBaseURL = true) {
     if (this.name === 'ServiceBase')
@@ -73,6 +74,7 @@ class ServiceBase {
    * @param {boolean} [options.requiresToken] Whether the request requires a token
    * @param {boolean} [options.appendBaseURL] Whether to prepend the service's base API url
    * @private
+   * @returns {Promise<AxiosResponse>}
    */
   _request(form, { requiresToken = false, appendBaseURL = true } = {}) {
     if (requiresToken && !this.token)

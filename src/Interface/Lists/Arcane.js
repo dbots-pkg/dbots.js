@@ -37,7 +37,7 @@ class Arcane extends ServiceBase {
    * @param {number} options.serverCount The amount of servers that the client is in
    * @param {number} options.userCount The amount of users that the client cached
    * @param {Shard} options.shard The shard the request is representing
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount, userCount, shard }) {
     return super._post({

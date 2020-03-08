@@ -38,7 +38,7 @@ class DiscordBotList extends ServiceBase {
    * @param {number} options.userCount The amount of users that the client cached
    * @param {number} options.voiceConnections The amount of voice connections the client has
    * @param {Shard} options.shard The shard the request is representing
-   * @returns {Promise}
+   * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount, shard, userCount, voiceConnections }) {
     const data = { guilds: serverCount };
