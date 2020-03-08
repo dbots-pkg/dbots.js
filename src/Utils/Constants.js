@@ -37,7 +37,7 @@
 
 /**
  * An object with all query parameters
- * @typedef {Object<string, string|number>} Query
+ * @typedef {Object.<string, string|number>} Query
  */
 
 /**

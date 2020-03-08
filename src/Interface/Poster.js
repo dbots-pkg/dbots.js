@@ -15,26 +15,32 @@ class Poster {
       throw new Error('INVALID_POSTER_OPTIONS');
 
     /**
-     * The client that will be used to fetch the stats.
+     * The client that will be used to fetch the stats
      * @type {Object}
      */
     this.client = options.client;
+
+    /**
+     * The client filler used in the poster
+     * @type {ClientFiller | null}
+     * @private
+     */
     this._clientFiller = null;
 
     /**
-     * An array of custom services that the poster uses.
+     * An array of custom services that the poster uses
      * @type {Array<CustomService>}
      */
     this.customServices = options.customServices || [];
 
     /**
-     * The API keys that the poster is using.
-     * @type {Object}
+     * The API keys that the poster is using
+     * @type {Object.<Service, ?string>}
      */
     this.apiKeys = options.apiKeys || {};
 
     /**
-     * The options the poster was built with.
+     * The options the poster was built with
      * @type {PosterOptions}
      * @readonly
      */
@@ -51,7 +57,7 @@ class Poster {
     if (!options.useSharding) options.shard = undefined;
 
     /**
-     * The list of event handlers for every custom event.
+     * The list of event handlers for every custom event
      * @type {Object.<CustomEvent, Array<PromiseResolvable>>}
      */
     this.handlers = {};
@@ -59,7 +65,7 @@ class Poster {
   }
 
   /**
-   * The client filler used in the poster.
+   * The client filler used in the poster
    * @private
    * @type {?ClientFiller}
    */
@@ -117,6 +123,12 @@ class Poster {
     */
   startInterval(interval = 1800000) {
     clearTimeout(this._interval);
+
+    /**
+     * Interval that posts to all services
+     * @type {Timeout}
+     * @private
+     */
     this._interval = setInterval(() => this.post().then(result => {
       this.runHandlers('autopost', result);
       return result;
