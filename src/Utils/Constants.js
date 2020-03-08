@@ -43,7 +43,7 @@
  * @typedef {Object} CustomService
  * @property {Array<string>} aliases The keys that this service can get called from
  * @property {function} post The function that sends a request with the parameter being a {@link PostRequestData}.
- * Must return a {@link FormatRequest}.
+ * Must return an axios Response object (use `dbots.FormatRequest`: {@link https://github.com/dbots-pkg/dbots.js/blob/master/src/Utils/FormatRequest.js#L14}).
  */
 
 /**
