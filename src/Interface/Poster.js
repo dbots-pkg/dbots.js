@@ -27,6 +27,12 @@ class Poster {
     this.customServices = options.customServices || [];
 
     /**
+     * The API keys that the poster is using.
+     * @type {Object}
+     */
+    this.apiKeys = options.apiKeys || {};
+
+    /**
      * The options the poster was built with.
      * @type {PosterOptions}
      * @readonly
@@ -50,7 +56,6 @@ class Poster {
     this.handlers = {};
     for (const event of Constants.SupportedEvents) this.handlers[event] = [];
   }
-
 
   /**
    * The client filler used in the poster
@@ -126,6 +131,20 @@ class Poster {
   }
 
   /**
+    * Gets a service, autofilling its API key if the poster has it.
+    * @param {Service} service The service to get
+    * @returns {?ServiceBase|CustomService}
+    */
+  getService(service) {
+    const serviceClass = Service.get(service, this.customServices);
+    if (!serviceClass) return null;
+    if (!Object.prototype.isPrototypeOf.call(Service, serviceClass))
+      return serviceClass;
+    const keyName = serviceClass.aliases.find(key => Object.keys(this.apiKeys).includes(key));
+    return new serviceClass(keyName ? this.apiKeys[keyName] : null);
+  }
+
+  /**
     * Posts the current clients server count to a service
     * @param {Service} service The service to post to
     * @see Poster#postManual
@@ -151,23 +170,23 @@ class Poster {
     * @returns {Promise<Object|Array<Object>>} The result(s) of the post
     */
   postManual(service = 'all', { serverCount, userCount, voiceConnections } = {}) {
-    if (!this.options.apiKeys && !this.options.post)
+    if (!this.apiKeys && !this.options.post)
       return Promise.reject(new Error('NO_API_KEYS'));
     if (service === 'custom') 
       return EnsurePromise(this.options.post, this.options.clientID, serverCount, this.options.shard);
     if (!service || service === 'all') {
-      const services = Object.keys(this.options.apiKeys);
+      const services = Object.keys(this.apiKeys);
       if (this.options.post) services.push('custom');
       return Promise.all(services.map(k => this.postManual(k, { serverCount, userCount, voiceConnections })));
     }
-    if (!Object.keys(this.options.apiKeys).includes(service))
+    if (!Object.keys(this.apiKeys).includes(service))
       return Promise.reject(new Error('SERVICE_WITH_NO_KEY', service));
     const serviceClass = Service.get(service, this.customServices);
     if (!serviceClass)
       return Promise.reject(new Error('INVALID_SERVICE', service));
     return new Promise((resolve, reject) => {
       serviceClass.post({
-        token: this.options.apiKeys[service],
+        token: this.apiKeys[service],
         clientID: this.options.clientID,
         shard: this.options.shard,
         serverCount,
