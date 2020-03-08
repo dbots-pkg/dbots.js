@@ -35,7 +35,7 @@ class ServiceBase {
     if (!key || typeof key !== 'string')
       return null;
     const services = [
-      Arcane, BotListSpace, BotsForDiscord, BotsOnDiscord, Carbon, DiscordAppsDev,
+      Arcane, BotListSpace, BotsForDiscord, BotsOnDiscord, Carbon, CloudBotList, DiscordAppsDev,
       DiscordBoats, DiscordBotList, DiscordBotsGG, DiscordBotWorld, DivineDiscordBots,
       GlennBotList, TopGG, YABL,
       ...extras
@@ -143,6 +143,7 @@ const BotListSpace = require('./Lists/BotListSpace');
 const BotsForDiscord = require('./Lists/BotsForDiscord');
 const BotsOnDiscord = require('./Lists/BotsOnDiscord');
 const Carbon = require('./Lists/Carbon');
+const CloudBotList = require('./Lists/CloudBotList');
 const DiscordAppsDev = require('./Lists/DiscordAppsDev');
 const DiscordBoats = require('./Lists/DiscordBoats');
 const DiscordBotList = require('./Lists/DiscordBotList');

@@ -1,7 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 type Library = 'discordie' | 'discord.io' | 'discord.js' | 'eris'
-type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'divinediscordbots' | 'glennbotlist' | 'topgg' | 'yabl'
+type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'cloudbotList' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'divinediscordbots' | 'glennbotlist' | 'topgg' | 'yabl'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
 type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
@@ -368,6 +368,28 @@ declare module 'dbots' {
 
     /**  Gets a list of bots on this service */
     getBots(): Promise<AxiosResponse>
+  }
+
+  /**
+   * Represents the Cloud Botlist service
+   * @see https://apollos.gitbook.io/cloud-botlist/
+   */
+  export class CloudBotList extends ServiceBase {
+    /**
+     * Posts statistics to this service
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     * @param options.userCount The amount of users that the client cached
+     */
+    static post(options: PostOptions): Promise<AxiosResponse>
+
+    /**
+     * Gets the bot listed for this service
+     * @param id The bot's ID.
+     */
+    getBot(id: string): Promise<AxiosResponse>
   }
 
   /**
