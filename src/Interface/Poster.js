@@ -1,20 +1,21 @@
 const Constants = require('../Utils/Constants');
 const EnsurePromise = require('../Utils/EnsurePromise');
+const { Error, TypeError } = require('../Utils/DBotsError');
 const ClientFiller = require('./ClientFiller');
 const Service = require('./ServiceBase');
 
 /**
  * A class that posts server count to listing site(s).
  * @constructor
- * @param {PosterOptions} options The options needed to construct the poster.
+ * @param {PosterOptions} options The options needed to construct the poster
  */
 class Poster {
   constructor(options) {
     if (!options || typeof options !== 'object') 
-      throw new Error('An object is required a parameter to construct a poster.');
+      throw new Error('INVALID_POSTER_OPTIONS');
 
     /**
-     * The client that will be used to fecth the stats.
+     * The client that will be used to fetch the stats.
      * @type {Object}
      */
     this.client = options.client;
@@ -42,7 +43,7 @@ class Poster {
     if (typeof options.useSharding !== 'boolean')
       options.useSharding = true;
     if (!this.client && !options.clientID) 
-      throw new Error('clientID must be defined when client is non-existant.');
+      throw new Error('NO_CLIENT_OR_ID');
     if (this.client && !options.clientID) Object.assign(options, {
       clientID: this.clientFiller.clientID,
       shard: this.clientFiller.shard,
@@ -58,7 +59,7 @@ class Poster {
   }
 
   /**
-   * The client filler used in the poster
+   * The client filler used in the poster.
    * @private
    * @type {?ClientFiller}
    */
@@ -68,50 +69,50 @@ class Poster {
   }
 
   /**
-    * Retrieves the current server count of the client/shard
+    * Retrieves the current server count of the client/shard.
     * @returns {Promise<number>} Amount of servers the client/shard is in
     */
   getServerCount() {
     if (this.options.serverCount)
       return EnsurePromise(this.options.serverCount);
     if (!this.client)
-      throw new Error('Cannot retrieve server count from non-existant client');
-    if (!this.options.serverCount && !this.options.clientLibrary) 
-      throw new Error('Cannot retrieve server count from unknown client');
+      throw new Error('NO_CLIENT', 'server');
+    if (!this.options.serverCount && !this.options.clientLibrary)
+      throw new Error('UNKNOWN_CLIENT', 'server');
     return Promise.resolve(this.clientFiller.serverCount);
   }
 
   /**
-    * Retrieves the current user count of the client/shard
+    * Retrieves the current user count of the client/shard.
     * @returns {Promise<number>} Amount of users the client/shard is connected with
    */
   getUserCount() {
     if (this.options.userCount)
       return EnsurePromise(this.options.userCount);
     if (!this.client)
-      throw new Error('Cannot retrieve user count from non-existant client');
-    if (!this.options.userCount && !this.options.clientLibrary) 
-      throw new Error('Cannot retrieve user count from unknown client');
+      throw new Error('NO_CLIENT', 'user');
+    if (!this.options.userCount && !this.options.clientLibrary)
+      throw new Error('UNKNOWN_CLIENT', 'user');
     return Promise.resolve(this.clientFiller.userCount);
   }
 
   /**
-   * Retrieves the current voice connection count of the client/shard
+   * Retrieves the current voice connection count of the client/shard.
    * @returns {Promise<number>} Number of active voice connections
    */
   getVoiceConnections() {
     if (this.options.voiceConnections)
       return EnsurePromise(this.options.voiceConnections);
     if (!this.client)
-      throw new Error('Cannot retrieve voice connection count from non-existant client');
+      throw new Error('NO_CLIENT', 'voice connection');
     if (!this.options.voiceConnections && !this.options.clientLibrary) 
-      throw new Error('Cannot retrieve voice connection count from unknown client');
+      throw new Error('UNKNOWN_CLIENT', 'voice connection');
     return Promise.resolve(this.clientFiller.voiceConnections);
   }
 
   /**
-    * Creates an interval that posts to all services
-    * @param {number} interval The time (in ms) to reach to post to all {@link Service}s again.
+    * Creates an interval that posts to all services.
+    * @param {number} interval The time (in ms) to reach to post to all {@link Service}s again
     * @returns {Interval} The interval that is responsible for posting
     */
   startInterval(interval = 1800000) {
@@ -124,7 +125,7 @@ class Poster {
   }
 
   /**
-    * Destroys the current interval
+    * Destroys the current interval.
     */
   stopInterval() {
     if (this._interval) clearTimeout(this._interval);
@@ -145,7 +146,7 @@ class Poster {
   }
 
   /**
-    * Posts the current clients server count to a service
+    * Posts the current clients server count to a service.
     * @param {Service} service The service to post to
     * @see Poster#postManual
     */
@@ -161,7 +162,7 @@ class Poster {
   }
 
   /**
-    * Manually posts a server count to a service
+    * Manually posts a server count to a service.
     * @param {Service} service The service to post to
     * @param {Object} counts An object containing the tallies of servers, users and voice connections
     * @param {number} counts.serverCount The server count to post to the service
@@ -183,7 +184,7 @@ class Poster {
       return Promise.reject(new Error('SERVICE_WITH_NO_KEY', service));
     const serviceClass = Service.get(service, this.customServices);
     if (!serviceClass)
-      return Promise.reject(new Error('INVALID_SERVICE', service));
+      return Promise.reject(new TypeError('INVALID_SERVICE', service));
     return new Promise((resolve, reject) => {
       serviceClass.post({
         token: this.apiKeys[service],
@@ -203,43 +204,43 @@ class Poster {
   }
 
   /**
-   * Adds an handler for an event
+   * Adds an handler for an event.
    * @param {CustomEvent} event The name of the event to add the handler to
    * @param {PromiseResolvable} handler The function that is run with the event
    * @returns {Array<PromiseResolvable>} The array of handlers currently set for that event
    */
   addHandler(event, handler) {
     if (!Constants.SupportedEvents.includes(event)) 
-      throw new Error('Can\'t add handler for an unsupported event.');
+      throw new TypeError('UNSUPPORTED_EVENT', 'add');
     if (!(handler instanceof Function || handler instanceof Promise)) 
-      throw new Error('Given handler is not a PromiseResolvable.');
+      throw new Error('HANDLER_INVALID');
     return this.handlers[event].push(handler);
   }
 
   /**
-   * Removes an handler for an event
+   * Removes an handler for an event.
    * @param {CustomEvent} event The name of the event to remove the handler from
    * @param {PromiseResolvable} handler The function that is run with the event
    * @returns {Array<PromiseResolvable>} The array of handlers currently set for that event
    */
   removeHandler(event, handler) {
     if (!Constants.SupportedEvents.includes(event)) 
-      throw new Error('Can\'t remove handler for an unsupported event.');
+      throw new TypeError('UNSUPPORTED_EVENT', 'remove');
     if (!(handler instanceof Function || handler instanceof Promise)) 
-      throw new Error('Given handler is not a PromiseResolvable.');
+      throw new Error('HANDLER_INVALID');
     const index = this.handlers[event].indexOf(handler);
     if (index >= 0) this.handlers[event].splice(index, 1);
     return this.handlers[event];
   }
 
   /**
-   * Manually triggers an event with custom arguments
+   * Manually triggers an event with custom arguments.
    * @param {CustomEvent} event The name of the event to run the handlers for
    * @param  {...any} args The arguments to pass to the handlers
    */
   runHandlers(event, ...args) {
     if (!Constants.SupportedEvents.includes(event)) 
-      throw new Error('Can\'t remove handler for an unsupported event.');
+      throw new TypeError('UNSUPPORTED_EVENT', 'run');
     for (const handler of this.handlers[event]) EnsurePromise(handler(...args));
   }
 }

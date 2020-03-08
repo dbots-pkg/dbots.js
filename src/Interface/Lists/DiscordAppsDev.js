@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the discordapps.dev's service
+ * Represents the Discord Apps service.
  * @see https://discordapps.dev/en-GB/posts/docs/api-v2/
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class DiscordAppsDev extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -47,7 +47,7 @@ class DiscordAppsDev extends ServiceBase {
   }
 
   /**
-   * Gets a list of bots on this service
+   * Gets a list of bots on this service.
    * @returns {Promise}
    */
   getBots() {
@@ -55,7 +55,7 @@ class DiscordAppsDev extends ServiceBase {
   }
 
   /**
-   * Gets a list of applications on this service
+   * Gets a list of applications on this service.
    * @returns {Promise}
    */
   getApps() {
@@ -63,7 +63,7 @@ class DiscordAppsDev extends ServiceBase {
   }
 
   /**
-   * Gets a list of RPC applications on this service
+   * Gets a list of RPC applications on this service.
    * @returns {Promise}
    */
   getRPCApps() {
@@ -71,12 +71,29 @@ class DiscordAppsDev extends ServiceBase {
   }
 
   /**
-   * Gets the bot listed for this service
-   * @param {string} id The bot's ID.
+   * Gets the bot listed on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBot(id) {
     return this._request({ url: `/bots/${id}` });
+  }
+
+  /**
+   * Updates the bot with the data provided.
+   * @param {string} id The bot's ID
+   * @param {Object} data The data being posted
+   * @returns {Promise}
+   */
+  updateBot(id, data) {
+    return this._request({
+      method: 'post',
+      url: `/bots/${id}`,
+      headers: { Authorization: this.token },
+      data
+    }, {
+      requiresToken: true
+    });
   }
 }
 

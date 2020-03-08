@@ -1,32 +1,32 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the Arcane Bot Center service.
- * @see https://arcane-botcenter.xyz/documentation
+ * Represents the Cloud Botlist service.
+ * @see https://apollos.gitbook.io/cloud-botlist/
  * @extends {ServiceBase}
  *
  * @constructor
  * @param {string} token The token/key for the service
  */
-class Arcane extends ServiceBase {
+class CloudBotList extends ServiceBase {
   static get aliases() {
-    return ['arcanebotcenter', 'arcane-botcenter.xyz', 'arcanebotcenter.xyz', 'arcane', 'abc'];
+    return ['cloudbotList', 'cloud-botlist.xyz', 'cloudbotList.xyz', 'cloudbl', 'cbl'];
   }
 
   static get logoURL() {
-    return 'https://i.olsh.me/icon?size=1..100..500&url=arcane-botcenter.xyz';
+    return 'https://get.snaz.in/7ya5MCW.png';
   }
 
   static get name() {
-    return 'Arcane Bot List';
+    return 'Cloud Botlist';
   }
 
   static get websiteURL() {
-    return 'https://arcane-botcenter.xyz';
+    return 'https://cloud-botlist.xyz';
   }
 
   static get baseURL() {
-    return 'https://arcane-botcenter.xyz/api';
+    return 'https://cloud-botlist.xyz/api';
   }
 
   /**
@@ -36,19 +36,25 @@ class Arcane extends ServiceBase {
    * @param {string} options.clientID The client ID that the request will post for
    * @param {number} options.serverCount The amount of servers that the client is in
    * @param {number} options.userCount The amount of users that the client cached
-   * @param {Shard} options.shard The shard the request is representing
    * @returns {Promise}
    */
-  static post({ token, clientID, serverCount, userCount, shard }) {
+  static post({ token, clientID, serverCount, userCount }) {
     return super._post({
       method: 'post',
-      url: `/${clientID}/stats`,
+      url: `/bots/${clientID}`,
       headers: { Authorization: token },
-      data: shard ? 
-        { server_count: serverCount, member_count: userCount, shard_count: shard.count } : 
-        { server_count: serverCount, member_count: userCount }
+      data: { guilds: serverCount, users: userCount }
     });
+  }
+
+  /**
+   * Gets the bot listed on this service.
+   * @param {string} id The bot's ID
+   * @returns {Promise}
+   */
+  getBot(id) {
+    return this._request({ url: `/bots/${id}` });
   }
 }
 
-module.exports = Arcane;
+module.exports = CloudBotList;

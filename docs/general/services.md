@@ -1,4 +1,4 @@
-# Supported Services (14)
+# Supported Services (17)
 
 <div align=center>
   <p>
@@ -65,11 +65,55 @@ Website: https://bots.ondiscord.xyz
   <i id="carbonitex"></i>
   <i id="carbonitex.net"></i>
   <i id="carbon"></i>
-  <a href="https://www.carbonitex.net"><h1>Carbonitex</h1></a>
+  <a href="https://www.carbonitex.net/Discord/bots"><h1>Carbonitex</h1></a>
 
 Keys: `carbonitex`, `carbonitex.net`, `carbon`  
 Class: [dbots.Carbon](/#/docs/main/master/class/Carbon)  
-Website: https://www.carbonitex.net
+Website: https://www.carbonitex.net/Discord/bots
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://get.snaz.in/7ya5MCW.png" alt="cloudbotList logo" width="100" align="left" />
+  </p>
+  <i id="cloudbotList"></i>
+  <i id="cloud-botlist.xyz"></i>
+  <i id="cloudbotList.xyz"></i>
+  <i id="cloudbl"></i>
+  <i id="cbl"></i>
+  <a href="https://cloud-botlist.xyz"><h1>Cloud Botlist</h1></a>
+
+Keys: `cloudbotList`, `cloud-botlist.xyz`, `cloudbotList.xyz`, `cloudbl`, `cbl`  
+Class: [dbots.CloudBotList](/#/docs/main/master/class/CloudBotList)  
+Website: https://cloud-botlist.xyz
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://i.olsh.me/icon?size=1..100..500&url=www.cloudlist.xyz" alt="cloudlist logo" width="100" align="left" />
+  </p>
+  <i id="cloudlist"></i>
+  <i id="cloudlistxyz"></i>
+  <i id="cloudlist.xyz"></i>
+  <a href="https://www.cloudlist.xyz/"><h1>Cloud List</h1></a>
+
+Keys: `cloudlist`, `cloudlistxyz`, `cloudlist.xyz`  
+Class: [dbots.CloudList](/#/docs/main/master/class/CloudList)  
+Website: https://www.cloudlist.xyz/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://i.olsh.me/icon?size=1..100..500&url=dblista.pl" alt="dblistapl logo" width="100" align="left" />
+  </p>
+  <i id="dblistapl"></i>
+  <i id="dblista.pl"></i>
+  <i id="dblista"></i>
+  <a href="https://dblista.pl"><h1>DBLista</h1></a>
+
+Keys: `dblistapl`, `dblista.pl`, `dblista`  
+Class: [dbots.DBLista](/#/docs/main/master/class/DBLista)  
+Website: https://dblista.pl
 </div>
 
 <div align=center>

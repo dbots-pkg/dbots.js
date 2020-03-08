@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the top.gg (formerly discordbots.org) service
+ * Represents the Top.gg service.
  * @see https://top.gg/api/docs
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class TopGG extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -50,8 +50,8 @@ class TopGG extends ServiceBase {
   }
 
   /**
-   * Gets the user listed for this service
-   * @param {string} id The user's ID.
+   * Gets the user listed on this service.
+   * @param {string} id The user's ID
    * @returns {Promise}
    */
   getUser(id) {
@@ -59,16 +59,17 @@ class TopGG extends ServiceBase {
   }
 
   /**
-   * Gets the list of bots listed for this service
+   * Gets the list of bots on this service.
+   * @param {Object} query The query string that will be used in the request
    * @returns {Promise}
    */
-  getBots() {
-    return this._request({ url: '/bots' });
+  getBots(query) {
+    return this._request({ url: '/bots', params: query });
   }
 
   /**
-   * Gets the bot listed for this service
-   * @param {string} id The bot's ID.
+   * Gets the bot listed on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBot(id) {
@@ -76,8 +77,8 @@ class TopGG extends ServiceBase {
   }
 
   /**
-   * Gets the bot's stats listed on this service
-   * @param {string} id The bot's ID.
+   * Gets the bot's stats listed on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBotStats(id) {
@@ -85,9 +86,9 @@ class TopGG extends ServiceBase {
   }
 
   /**
-   * Gets the data on the voters for this bot
-   * @param {string} id The bot's ID.
-   * @param {Object} query The querystring that will be used in the request
+   * Gets the list of people who votes this bot on this service.
+   * @param {string} id The bot's ID
+   * @param {Object} query The query string that will be used in the request
    * @returns {Promise}
    */
   getBotVotes(id, query) {
@@ -95,9 +96,9 @@ class TopGG extends ServiceBase {
   }
 
   /**
-   * Gets the widget URL for this bot
-   * @param {string} id The bot's ID.
-   * @param {Object} [query] The querystring that will be used in the request
+   * Gets the widget URL for this bot.
+   * @param {string} id The bot's ID
+   * @param {Object} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {

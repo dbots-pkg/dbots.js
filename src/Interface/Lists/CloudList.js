@@ -1,32 +1,32 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the Discord Bots service.
- * @see https://discord.bots.gg/docs
+ * Represents the Cloud List service.
+ * @see https://www.cloudlist.xyz/apidocs
  * @extends {ServiceBase}
  *
  * @constructor
  * @param {string} token The token/key for the service
  */
-class DiscordBotsGG extends ServiceBase {
+class CloudList extends ServiceBase {
   static get aliases() {
-    return ['discordbotsgg', 'discord.bots.gg', 'botsgg', 'bots.gg', 'dbots'];
+    return ['cloudlist', 'cloudlistxyz', 'cloudlist.xyz'];
   }
 
   static get logoURL() {
-    return 'https://i.olsh.me/icon?size=1..100..500&url=discord.bots.gg';
+    return 'https://i.olsh.me/icon?size=1..100..500&url=www.cloudlist.xyz';
   }
 
   static get name() {
-    return 'Discord Bots';
+    return 'Cloud List';
   }
 
   static get websiteURL() {
-    return 'https://discord.bots.gg';
+    return 'https://www.cloudlist.xyz/';
   }
 
   static get baseURL() {
-    return 'https://discord.bots.gg/api/v1';
+    return 'https://www.cloudlist.xyz/api';
   }
 
   /**
@@ -35,50 +35,44 @@ class DiscordBotsGG extends ServiceBase {
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
    * @param {number} options.serverCount The amount of servers that the client is in
-   * @param {Shard} options.shard The shard the request is representing
    * @returns {Promise}
    */
-  static post({ token, clientID, serverCount, shard }) {
+  static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
-      url: `/bots/${clientID}/stats`,
+      url: `/stats/${clientID}`,
       headers: { Authorization: token },
-      data: shard ? 
-        { guildCount: serverCount, shardId: shard.id, shardCount: shard.count } : 
-        { guildCount: serverCount }
+      data: { count: serverCount }
     });
   }
 
   /**
    * Gets the bot listed on this service.
    * @param {string} id The bot's ID
-   * @param {Boolean} [sanitized=false] Whether to sanitize descriptions
    * @returns {Promise}
    */
-  getBot(id, sanitized = false) {
+  getBot(id) {
     return this._request({
-      url: `/bots/${id}`,
+      url: `/bot/${id}`,
       headers: { Authorization: this.token },
-      query: { sanitized }
     }, {
       requiresToken: true
     });
   }
 
   /**
-   * Gets a list of bots on this service.
-   * @param {?Object} query The query string that will be used in the request
+   * Gets the votes on your bot from this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
-  getBots(query) {
+  getBotVotes(id) {
     return this._request({
-      url: '/bots',
+      url: `/bot/vote/${id}`,
       headers: { Authorization: this.token },
-      params: query
     }, {
       requiresToken: true
     });
   }
 }
 
-module.exports = DiscordBotsGG;
+module.exports = CloudList;

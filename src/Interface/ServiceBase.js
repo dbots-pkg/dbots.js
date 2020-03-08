@@ -2,14 +2,14 @@ const FormatRequest = require('../Utils/FormatRequest');
 const buildURL = require('axios/lib/helpers/buildURL');
 
 /**
- * Represents a service
+ * Represents a basic service.
  * @constructor
  * @param {string} token The token/key for the service
  */
 class ServiceBase {
   constructor(token) {
     /**
-     * The token that will be used for the service
+     * The token that will be used for the service.
      * @type {string}
      * @private
      */
@@ -17,7 +17,7 @@ class ServiceBase {
   }
 
   /**
-   * The base URL of the service's API
+   * The base URL of the service's API.
    * @type {string}
    * @readonly
    */
@@ -26,18 +26,18 @@ class ServiceBase {
   }
 
   /**
-   * Gets a service from a key
-   * @param {string} key - The name of the service to get
-   * @param {Array<CustomService>} extras - An array of {@link CustomService}s to include
+   * Gets a service from a key.
+   * @param {string} key The name of the service to get
+   * @param {Array<CustomService>} extras An array of {@link CustomService}s to include
    * @returns {?ServiceBase}
    */
   static get(key, extras = []) {
     if (!key || typeof key !== 'string')
       return null;
     const services = [
-      Arcane, BotListSpace, BotsForDiscord, BotsOnDiscord, Carbon, DiscordAppsDev,
-      DiscordBoats, DiscordBotList, DiscordBotsGG, DiscordBotWorld, DivineDiscordBots,
-      GlennBotList, TopGG, YABL,
+      Arcane, BotListSpace, BotsForDiscord, BotsOnDiscord, Carbon, CloudBotList, CloudList,
+      DBLista, DiscordAppsDev, DiscordBoats, DiscordBotList, DiscordBotsGG, DiscordBotWorld,
+      DivineDiscordBots, GlennBotList, TopGG, YABL,
       ...extras
     ];
     for (let i = 0, len = services.length; i < len; i++) {
@@ -51,8 +51,8 @@ class ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
-   * Internally, this is supposed to be overridden in extended classes
+   * Posts statistics to this service.
+   * Internally, this is supposed to be used in extended classes.
    * @param {Object} form The request form
    * @param {boolean} [appendBaseURL] Whether to append the service's base API url
    * @private
@@ -66,7 +66,7 @@ class ServiceBase {
   }
 
   /**
-   * Sends a request for the service interface
+   * Sends a request for the service interface.
    * @param {Object} form The request form
    * @param {Object} options The options of this request
    * @param {boolean} [options.requiresToken] Whether the request requires a token
@@ -82,7 +82,7 @@ class ServiceBase {
   }
 
   /**
-   * Appends query string to a URL
+   * Appends query string to a URL.
    * @param {string} url The URL to modify
    * @param {Object} query The query to append
    * @param {boolean} appendBaseURL Whether to prepend the service's base API url
@@ -96,7 +96,7 @@ class ServiceBase {
   }
 
   /**
-   * The values that can be used to select the service
+   * The values that can be used to select the service.
    * @type {Array<string>}
    * @readonly
    */
@@ -105,7 +105,7 @@ class ServiceBase {
   }
 
   /**
-   * The logo URL, used only for docs
+   * The logo URL, used only for documentation.
    * @type {string}
    * @private
    * @readonly
@@ -115,7 +115,7 @@ class ServiceBase {
   }
 
   /**
-   * Service's name, used only for docs
+   * Service's name, used only for documentation.
    * @type {string}
    * @private
    * @readonly
@@ -125,7 +125,7 @@ class ServiceBase {
   }
 
   /**
-   * The website URL, used only for docs
+   * The website URL, used only for documentation.
    * @type {string}
    * @private
    * @readonly
@@ -143,6 +143,9 @@ const BotListSpace = require('./Lists/BotListSpace');
 const BotsForDiscord = require('./Lists/BotsForDiscord');
 const BotsOnDiscord = require('./Lists/BotsOnDiscord');
 const Carbon = require('./Lists/Carbon');
+const CloudBotList = require('./Lists/CloudBotList');
+const CloudList = require('./Lists/CloudList');
+const DBLista = require('./Lists/DBLista');
 const DiscordAppsDev = require('./Lists/DiscordAppsDev');
 const DiscordBoats = require('./Lists/DiscordBoats');
 const DiscordBotList = require('./Lists/DiscordBotList');

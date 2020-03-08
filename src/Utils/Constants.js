@@ -1,23 +1,20 @@
 /**
  * Options for a poster.
  * @typedef {Object} PosterOptions
- * @property {Object} [apiKeys] An object that pairs a {@link Service} with their token.
+ * @property {Object} [apiKeys] An object that pairs a {@link Service} with their token
  * @property {Object} [client] The client that a supported {@link Library} uses to manage the Discord application.
- * Requires {@link #clientLibrary} to be present.
+ * Requires {@link #clientLibrary} to be present
  * @property {string} [clientID] The client ID used for posting to a {@link Service}.
- * Automatically filled in when {@link #client} is present.
- * @property {Library} [clientLibrary] The library that the client is based on.
+ * Automatically filled in when {@link #client} is present
+ * @property {Library} [clientLibrary] The library that the client is based on
  * @property {PromiseResolvable} [post] The function to use when posting to a server that uses the client ID,
- * the amount of servers, and a {@link Shard}. This will be used when the {@link Service} is `custom`.
- * @property {Shard} [shard] The shard data for using different methods of posting to services.
- * @property {PromiseResolvable} [serverCount] The function to use when retrieving the amount of servers a client/shard is in.
- ^ Uses the client as a parameter.
- * @property {PromiseResolvable} [userCount] The function to use when retrieving the amount of users a client/shard is connected with.
- ^ Uses the client as a parameter.
- * @property {PromiseResolvable} [voiceConnections] The function to use when retrieving the number of active voice connections.
- ^ Uses the client as a parameter.
- * @property {Array<CustomService>} [customServices] The custom services that the poster will use.
- * @property {number} [useSharding=true] Whether or not to use a {@link ServiceBase}s sharding method when posting.
+ * the amount of servers, and a {@link Shard}. This will be used when the {@link Service} is `custom`
+ * @property {Shard} [shard] The shard data for using different methods of posting to services
+ * @property {PromiseResolvable} [serverCount] The function to use when retrieving the amount of servers a client/shard is in, using the client as a parameter
+ * @property {PromiseResolvable} [userCount] The function to use when retrieving the amount of users a client/shard is connected with, using the client as a parameter
+ * @property {PromiseResolvable} [voiceConnections] The function to use when retrieving the number of active voice connections, using the client as a parameter
+ * @property {Array<CustomService>} [customServices] The custom services that the poster will use
+ * @property {number} [useSharding=true] Whether or not to use a {@link ServiceBase}s sharding method when posting
  */
 
 /**

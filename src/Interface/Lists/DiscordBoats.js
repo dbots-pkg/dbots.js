@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the discord.boats's service
+ * Represents the Discord Boats service.
  * @see https://discord.boats/api/docs
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class DiscordBoats extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -47,8 +47,8 @@ class DiscordBoats extends ServiceBase {
   }
 
   /**
-   * Gets the bot listed for this service
-   * @param {string} id The bot's ID.
+   * Gets the bot listed on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBot(id) {
@@ -56,8 +56,8 @@ class DiscordBoats extends ServiceBase {
   }
 
   /**
-   * Gets the user listed for this service
-   * @param {string} id The user's ID.
+   * Gets the user listed on this service.
+   * @param {string} id The user's ID
    * @returns {Promise}
    */
   getUser(id) {
@@ -65,9 +65,9 @@ class DiscordBoats extends ServiceBase {
   }
 
   /**
-   * Whether or not a user has voted for a bot
-   * @param {string} id The bot's ID.
-   * @param {string} userID The user's ID.
+   * Checks whether or not a user has voted for a bot on this service.
+   * @param {string} id The bot's ID
+   * @param {string} userID The user's ID
    * @returns {Promise}
    */
   userVoted(id, userID) {
@@ -78,9 +78,9 @@ class DiscordBoats extends ServiceBase {
   }
 
   /**
-   * Gets the widget URL for this bot
-   * @param {string} id The bot's ID.
-   * @param {Object} [query] The querystring that will be used in the request
+   * Gets the widget URL for this bot.
+   * @param {string} id The bot's ID
+   * @param {Object} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {

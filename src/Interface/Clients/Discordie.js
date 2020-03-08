@@ -1,7 +1,7 @@
 const ClientFiller = require('../ClientFiller');
 
 /**
- * Represents the client filler for discordie clients
+ * Represents the client filler for discordie clients.
  * @private
  * @extends {ClientFiller}
  */

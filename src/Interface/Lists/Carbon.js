@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the Carbonitex service
+ * Represents the Carbonitex service.
  * @extends {ServiceBase}
  *
  * @constructor
@@ -21,7 +21,7 @@ class Carbon extends ServiceBase {
   }
 
   static get websiteURL() {
-    return 'https://www.carbonitex.net';
+    return 'https://www.carbonitex.net/Discord/bots';
   }
 
   static get baseURL() {
@@ -29,7 +29,7 @@ class Carbon extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request (this automatically determines what client its posting for)
    * @param {number} options.serverCount The amount of servers that the client is in
@@ -45,7 +45,7 @@ class Carbon extends ServiceBase {
   }
 
   /**
-   * Gets a list of bots on this service
+   * Gets a list of bots on this service.
    * @returns {Promise}
    */
   getBots() {
