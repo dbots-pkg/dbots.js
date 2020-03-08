@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the bots.discord.pw service
+ * Represents the Discord Bots service
  * @see https://discord.bots.gg/docs
  * @extends {ServiceBase}
  *
