@@ -448,7 +448,7 @@ declare module 'dbots' {
     getBot(id: string): Promise<AxiosResponse>
 
     /**
-     * Updates the bot with the data provided
+     * Updates the bot with the data provided.
      * @param id The bot's ID
      * @param data The data being posted
      */

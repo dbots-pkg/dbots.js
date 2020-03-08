@@ -80,7 +80,7 @@ class DiscordAppsDev extends ServiceBase {
   }
 
   /**
-   * Updates the bot with the data provided
+   * Updates the bot with the data provided.
    * @param {string} id The bot's ID
    * @param {Object} data The data being posted
    * @returns {Promise}
