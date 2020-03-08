@@ -116,7 +116,7 @@ class BotListSpace extends ServiceBase {
    * Gets the widget URL for this bot.
    * @param {string} id The bot's ID
    * @param {string} [style=1] The style of the widget
-   * @param {Object} [query] The query string that will be used in the request
+   * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, style = 1, query = undefined) {

@@ -65,7 +65,7 @@ class BotsOnDiscord extends ServiceBase {
   /**
    * Gets the widget URL for this bot.
    * @param {string} id The bot's ID
-   * @param {Object} [query] The query string that will be used in the request
+   * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {

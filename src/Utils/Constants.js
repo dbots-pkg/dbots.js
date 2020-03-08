@@ -36,6 +36,11 @@
  */
 
 /**
+ * An object with all query parameters
+ * @typedef {Object<string, string|number>} Query
+ */
+
+/**
  * A mock of a {@link Service} that only consists of the nessessities for a poster to use it.
  * @typedef {Object} CustomService
  * @property {Array<string>} aliases The keys that this service can get called from

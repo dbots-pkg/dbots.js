@@ -67,7 +67,7 @@ class DiscordBotsGG extends ServiceBase {
 
   /**
    * Gets a list of bots on this service.
-   * @param {?Object} query The query string that will be used in the request
+   * @param {Query} [query] The query string that will be used in the request
    * @returns {Promise}
    */
   getBots(query) {

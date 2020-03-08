@@ -85,7 +85,7 @@ class ServiceBase {
   /**
    * Appends query string to a URL.
    * @param {string} url The URL to modify
-   * @param {Object} query The query to append
+   * @param {Query} query The query to append
    * @param {boolean} appendBaseURL Whether to prepend the service's base API url
    * @returns {string} The modified URL
    * @private
