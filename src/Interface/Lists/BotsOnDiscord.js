@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the Bots On Discord service
+ * Represents the Bots On Discord service.
  * @see https://bots.ondiscord.xyz/info/api
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class BotsOnDiscord extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -47,9 +47,9 @@ class BotsOnDiscord extends ServiceBase {
   }
 
   /**
-   * Checks whether or not a user has reviewed a bot
-   * @param {string} id The bot's ID.
-   * @param {string} userId The user's ID.
+   * Checks whether or not a user has reviewed a bot.
+   * @param {string} id The bot's ID
+   * @param {string} userId The user's ID
    * @returns {Promise}
    */
   checkReview(id, userId) {
@@ -63,9 +63,9 @@ class BotsOnDiscord extends ServiceBase {
   }
 
   /**
-   * Gets the widget URL for this bot
-   * @param {string} id The bot's ID.
-   * @param {Object} [query] The querystring that will be used in the request
+   * Gets the widget URL for this bot.
+   * @param {string} id The bot's ID
+   * @param {Object} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {

@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the Discord Bots service
+ * Represents the Discord Bots service.
  * @see https://discord.bots.gg/docs
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class DiscordBotsGG extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -50,8 +50,8 @@ class DiscordBotsGG extends ServiceBase {
   }
 
   /**
-   * Gets the bot listed for this service
-   * @param {string} id The bot's ID.
+   * Gets the bot listed on this service.
+   * @param {string} id The bot's ID
    * @param {Boolean} [sanitized=false] Whether to sanitize descriptions
    * @returns {Promise}
    */
@@ -66,8 +66,8 @@ class DiscordBotsGG extends ServiceBase {
   }
 
   /**
-   * Gets a list of bots on this service
-   * @param {?Object} query The query string object to append to the endpoint
+   * Gets a list of bots on this service.
+   * @param {?Object} query The query string that will be used in the request
    * @returns {Promise}
    */
   getBots(query) {

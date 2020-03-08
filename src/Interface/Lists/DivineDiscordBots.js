@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the divinediscordbots.com's service
+ * Represents the Divine Discord Bots service.
  * @see https://divinediscordbots.com/api
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class DivineDiscordBots extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -47,8 +47,8 @@ class DivineDiscordBots extends ServiceBase {
   }
 
   /**
-   * Gets the bot stats for your bot
-   * @param {string} id The bot's ID.
+   * Gets the statistics of your bot on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBotStats(id) {
@@ -56,8 +56,8 @@ class DivineDiscordBots extends ServiceBase {
   }
 
   /**
-   * Gets the bot votes for your bot
-   * @param {string} id The bot's ID.
+   * Gets the list of people who votes this bot on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBotVotes(id) {
@@ -65,9 +65,9 @@ class DivineDiscordBots extends ServiceBase {
   }
 
   /**
-   * Gets the widget URL for this bot
-   * @param {string} id The bot's ID.
-   * @param {Object} [query] The querystring that will be used in the request
+   * Gets the widget URL for this bot.
+   * @param {string} id The bot's ID
+   * @param {Object} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {

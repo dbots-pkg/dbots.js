@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the discordbot.world's service
+ * Represents the Discord Bot World service.
  * @see https://discordbot.world/docs
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class DiscordBotWorld extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -47,7 +47,7 @@ class DiscordBotWorld extends ServiceBase {
   }
 
   /**
-   * Gets a list of bots on this service
+   * Gets a list of bots on this service.
    * @returns {Promise}
    */
   getBots() {
@@ -55,8 +55,8 @@ class DiscordBotWorld extends ServiceBase {
   }
 
   /**
-   * Gets the bot listed for this service
-   * @param {string} id The bot's ID.
+   * Gets the bot listed on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBot(id) {
@@ -64,8 +64,8 @@ class DiscordBotWorld extends ServiceBase {
   }
 
   /**
-   * Gets the bot's stats on this service
-   * @param {string} id The bot's ID.
+   * Gets the bot's stats on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBotStats(id) {
@@ -73,8 +73,8 @@ class DiscordBotWorld extends ServiceBase {
   }
 
   /**
-   * Gets the list of people who liked this bot
-   * @param {string} id The bot's ID.
+   * Gets the list of people who liked this bot on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBotLikes(id) {
@@ -87,8 +87,8 @@ class DiscordBotWorld extends ServiceBase {
   }
 
   /**
-   * Gets the user listed for this service
-   * @param {string} id The user's ID.
+   * Gets the user listed on this service.
+   * @param {string} id The user's ID
    * @returns {Promise}
    */
   getUser(id) {

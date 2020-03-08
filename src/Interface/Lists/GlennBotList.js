@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the Glenn Bot List service
+ * Represents the Glenn Bot List service.
  * @see https://docs.glennbotlist.xyz/
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class GlennBotList extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -47,8 +47,8 @@ class GlennBotList extends ServiceBase {
   }
 
   /**
-   * Gets the bot listed for this service
-   * @param {string} id The bot's ID.
+   * Gets the bot listed on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBot(id) {
@@ -56,8 +56,8 @@ class GlennBotList extends ServiceBase {
   }
 
   /**
-   * Gets the bot's votes on this service
-   * @param {string} id The bot's ID.
+   * Gets the list of people who votes this bot on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBotVotes(id) {
@@ -67,8 +67,8 @@ class GlennBotList extends ServiceBase {
   }
 
   /**
-   * Get a user's profile listed on this service
-   * @param {string} id The user's ID.
+   * Get a user's profile listed on this service.
+   * @param {string} id The user's ID
    * @returns {Promise}
    */
   getProfile(id) {
@@ -76,9 +76,9 @@ class GlennBotList extends ServiceBase {
   }
 
   /**
-   * Gets the widget URL for this bot
-   * @param {string} id The bot's ID.
-   * @param {Object} [query] The querystring that will be used in the request
+   * Gets the widget URL for this bot.
+   * @param {string} id The bot's ID
+   * @param {Object} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {

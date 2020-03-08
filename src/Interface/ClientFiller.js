@@ -1,21 +1,21 @@
 /**
- * A class that gets certain values from a client
+ * A class that gets certain values from a client.
  * @private
  * @param {Object} client The client that will be used
  */
 class ClientFiller {
   constructor(client) {
     /**
-     * The client that will be used for the filler
+     * The client that will be used for the filler.
      * @type {Object}
      */
     this.client = client;
   }
 
   /**
-   * Gets a client filler from a library
-   * @param {string} libraryName - The name of the library to get
-   * @param {Object} client - The client that the library made
+   * Gets a client filler from a library.
+   * @param {string} libraryName The name of the library to get
+   * @param {Object} client The client that the library made
    * @returns {ClientFiller}
    */
   static get(libraryName, client) {
@@ -57,7 +57,7 @@ class ClientFiller {
   }
 
   /**
-   * Gets the amount of users the bot has cached
+   * Gets the amount of users the bot has cached.
    * @type {number}
    * @readonly
    */
@@ -66,7 +66,7 @@ class ClientFiller {
   }
 
   /**
-   * Gets the amount of servers the bot has cached
+   * Gets the amount of servers the bot has cached.
    * @type {number}
    * @readonly
    */
@@ -75,7 +75,7 @@ class ClientFiller {
   }
 
   /**
-   * Gets the amount of voice connectinos the bot is using
+   * Gets the amount of voice connectinos the bot is using.
    * @type {number}
    * @readonly
    */
@@ -84,7 +84,7 @@ class ClientFiller {
   }
 
   /**
-   * Gets the client ID (technically the user ID) of the bot
+   * Gets the client ID (technically the user ID) of the bot.
    * @type {?string}
    * @readonly
    */
@@ -93,7 +93,7 @@ class ClientFiller {
   }
 
   /**
-   * Gets the shard of the bot
+   * Gets the shard of the bot.
    * @type {?Shard}
    * @readonly
    */

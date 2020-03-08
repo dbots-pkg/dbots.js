@@ -6,7 +6,7 @@ const Service = require('./ServiceBase');
 /**
  * A class that posts server count to listing site(s).
  * @constructor
- * @param {PosterOptions} options The options needed to construct the poster.
+ * @param {PosterOptions} options The options needed to construct the poster
  */
 class Poster {
   constructor(options) {
@@ -14,7 +14,7 @@ class Poster {
       throw new Error('An object is required a parameter to construct a poster.');
 
     /**
-     * The client that will be used to fecth the stats.
+     * The client that will be used to fetch the stats.
      * @type {Object}
      */
     this.client = options.client;
@@ -58,7 +58,7 @@ class Poster {
   }
 
   /**
-   * The client filler used in the poster
+   * The client filler used in the poster.
    * @private
    * @type {?ClientFiller}
    */
@@ -68,7 +68,7 @@ class Poster {
   }
 
   /**
-    * Retrieves the current server count of the client/shard
+    * Retrieves the current server count of the client/shard.
     * @returns {Promise<number>} Amount of servers the client/shard is in
     */
   getServerCount() {
@@ -82,7 +82,7 @@ class Poster {
   }
 
   /**
-    * Retrieves the current user count of the client/shard
+    * Retrieves the current user count of the client/shard.
     * @returns {Promise<number>} Amount of users the client/shard is connected with
    */
   getUserCount() {
@@ -96,7 +96,7 @@ class Poster {
   }
 
   /**
-   * Retrieves the current voice connection count of the client/shard
+   * Retrieves the current voice connection count of the client/shard.
    * @returns {Promise<number>} Number of active voice connections
    */
   getVoiceConnections() {
@@ -110,8 +110,8 @@ class Poster {
   }
 
   /**
-    * Creates an interval that posts to all services
-    * @param {number} interval The time (in ms) to reach to post to all {@link Service}s again.
+    * Creates an interval that posts to all services.
+    * @param {number} interval The time (in ms) to reach to post to all {@link Service}s again
     * @returns {Interval} The interval that is responsible for posting
     */
   startInterval(interval = 1800000) {
@@ -124,7 +124,7 @@ class Poster {
   }
 
   /**
-    * Destroys the current interval
+    * Destroys the current interval.
     */
   stopInterval() {
     if (this._interval) clearTimeout(this._interval);
@@ -145,7 +145,7 @@ class Poster {
   }
 
   /**
-    * Posts the current clients server count to a service
+    * Posts the current clients server count to a service.
     * @param {Service} service The service to post to
     * @see Poster#postManual
     */
@@ -161,7 +161,7 @@ class Poster {
   }
 
   /**
-    * Manually posts a server count to a service
+    * Manually posts a server count to a service.
     * @param {Service} service The service to post to
     * @param {Object} counts An object containing the tallies of servers, users and voice connections
     * @param {number} counts.serverCount The server count to post to the service
@@ -203,7 +203,7 @@ class Poster {
   }
 
   /**
-   * Adds an handler for an event
+   * Adds an handler for an event.
    * @param {CustomEvent} event The name of the event to add the handler to
    * @param {PromiseResolvable} handler The function that is run with the event
    * @returns {Array<PromiseResolvable>} The array of handlers currently set for that event
@@ -217,7 +217,7 @@ class Poster {
   }
 
   /**
-   * Removes an handler for an event
+   * Removes an handler for an event.
    * @param {CustomEvent} event The name of the event to remove the handler from
    * @param {PromiseResolvable} handler The function that is run with the event
    * @returns {Array<PromiseResolvable>} The array of handlers currently set for that event
@@ -233,7 +233,7 @@ class Poster {
   }
 
   /**
-   * Manually triggers an event with custom arguments
+   * Manually triggers an event with custom arguments.
    * @param {CustomEvent} event The name of the event to run the handlers for
    * @param  {...any} args The arguments to pass to the handlers
    */

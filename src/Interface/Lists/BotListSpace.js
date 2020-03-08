@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the botlist.space's service
+ * Represents the botlist.space service.
  * @see https://docs.botlist.space/
  * @extends {ServiceBase}
  * 
@@ -30,7 +30,7 @@ class BotListSpace extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -47,7 +47,7 @@ class BotListSpace extends ServiceBase {
   }
 
   /**
-   * Gets the statistics of this service
+   * Gets the statistics of this service.
    * @returns {Promise}
    */
   getStatistics() {
@@ -55,7 +55,7 @@ class BotListSpace extends ServiceBase {
   }
 
   /**
-   * Gets a list of bots on this service
+   * Gets a list of bots on this service.
    * @returns {Promise}
    */
   getBots() {
@@ -63,8 +63,8 @@ class BotListSpace extends ServiceBase {
   }
 
   /**
-   * Gets the bot listed for this service
-   * @param {string} id The bot's ID.
+   * Gets the bot listed on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBot(id) {
@@ -72,8 +72,8 @@ class BotListSpace extends ServiceBase {
   }
 
   /**
-   * Gets the data on the voters for this bot
-   * @param {string} id The bot's ID.
+   * Gets the list of people who votes this bot on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBotVotes(id) {
@@ -86,8 +86,8 @@ class BotListSpace extends ServiceBase {
   }
 
   /**
-   * Gets the uptime of a bot listed for this service
-   * @param {string} id The bot's ID.
+   * Gets the uptime of a bot listed on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBotUptime(id) {
@@ -95,8 +95,8 @@ class BotListSpace extends ServiceBase {
   }
 
   /**
-   * Gets the user listed for this service
-   * @param {string} id The user's ID.
+   * Gets the user listed on this service.
+   * @param {string} id The user's ID
    * @returns {Promise}
    */
   getUser(id) {
@@ -104,8 +104,8 @@ class BotListSpace extends ServiceBase {
   }
 
   /**
-   * Gets the user's bots listed for this service
-   * @param {string} id The user's ID.
+   * Gets the user's bots listed for this service.
+   * @param {string} id The user's ID
    * @returns {Promise}
    */
   getUserBots(id) {
@@ -113,10 +113,10 @@ class BotListSpace extends ServiceBase {
   }
 
   /**
-   * Gets the widget URL for this bot
-   * @param {string} id The bot's ID.
+   * Gets the widget URL for this bot.
+   * @param {string} id The bot's ID
    * @param {string} [style=1] The style of the widget
-   * @param {Object} [query] The querystring that will be used in the request
+   * @param {Object} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, style = 1, query = undefined) {

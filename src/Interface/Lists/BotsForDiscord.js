@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the Bots For Discord service
+ * Represents the Bots For Discord service.
  * @see https://docs.botsfordiscord.com/
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class BotsForDiscord extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -47,8 +47,8 @@ class BotsForDiscord extends ServiceBase {
   }
 
   /**
-   * Gets the bot listed for this service
-   * @param {string} id The bot's ID.
+   * Gets the bot listed on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBot(id) {
@@ -56,8 +56,8 @@ class BotsForDiscord extends ServiceBase {
   }
 
   /**
-   * Gets the votes for this bot
-   * @param {string} id The bot's ID.
+   * Gets the list of people who votes this bot on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBotVotes(id) {
@@ -65,8 +65,8 @@ class BotsForDiscord extends ServiceBase {
   }
 
   /**
-   * Gets the user listed for this service
-   * @param {string} id The user's ID.
+   * Gets the user listed on this service.
+   * @param {string} id The user's ID
    * @returns {Promise}
    */
   getUser(id) {
@@ -74,8 +74,8 @@ class BotsForDiscord extends ServiceBase {
   }
 
   /**
-   * Gets the user's list of managed bots
-   * @param {string} id The user's ID.
+   * Gets the user's bots listed for this service.
+   * @param {string} id The user's ID
    * @returns {Promise}
    */
   getUserBots(id) {
@@ -83,9 +83,9 @@ class BotsForDiscord extends ServiceBase {
   }
 
   /**
-   * Gets the widget URL for this bot
-   * @param {string} id The bot's ID.
-   * @param {Object} [query] The querystring that will be used in the request
+   * Gets the widget URL for this bot.
+   * @param {string} id The bot's ID
+   * @param {Object} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {

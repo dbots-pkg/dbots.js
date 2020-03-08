@@ -11,7 +11,7 @@ const { Package } = require('./Constants');
 */
 
 /** 
- * Returns a request
+ * Returns a request.
  * @param {Object} options An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
  * @param {string} options.method The method to use
  * @param {string} options.url The URL for the request

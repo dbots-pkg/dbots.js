@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the Cloud List service
+ * Represents the Cloud List service.
  * @see https://www.cloudlist.xyz/apidocs
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class CloudList extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -47,8 +47,8 @@ class CloudList extends ServiceBase {
   }
 
   /**
-   * Gets the bot listed for this service
-   * @param {string} id The bot's ID.
+   * Gets the bot listed on this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBot(id) {
@@ -61,8 +61,8 @@ class CloudList extends ServiceBase {
   }
 
   /**
-   * Gets the bot votes for your bot
-   * @param {string} id The bot's ID.
+   * Gets the votes on your bot from this service.
+   * @param {string} id The bot's ID
    * @returns {Promise}
    */
   getBotVotes(id) {

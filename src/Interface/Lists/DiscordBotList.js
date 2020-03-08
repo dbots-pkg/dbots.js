@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the Discord Bot List service
+ * Represents the Discord Bot List service.
  * @see https://discordbotlist.com/api-docs
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class DiscordBotList extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
@@ -58,9 +58,9 @@ class DiscordBotList extends ServiceBase {
   }
 
   /**
-   * Gets the widget URL for this bot
-   * @param {string} id The bot's ID.
-   * @param {Object} [query] The querystring that will be used in the request
+   * Gets the widget URL for this bot.
+   * @param {string} id The bot's ID
+   * @param {Object} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {

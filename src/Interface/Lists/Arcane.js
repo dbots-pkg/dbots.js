@@ -1,7 +1,7 @@
 const ServiceBase = require('../ServiceBase');
 
 /**
- * Represents the Arcane Bot Center service
+ * Represents the Arcane Bot Center service.
  * @see https://arcane-botcenter.xyz/documentation
  * @extends {ServiceBase}
  *
@@ -30,7 +30,7 @@ class Arcane extends ServiceBase {
   }
 
   /**
-   * Posts statistics to this service
+   * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {string} options.clientID The client ID that the request will post for
