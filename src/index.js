@@ -22,9 +22,10 @@ module.exports = {
   YABL: require('./Interface/Lists/YABL'),
 
   Constants: require('./Utils/Constants'),
+  DBotsError: require('./Utils/DBotsError'),
   EnsurePromise: require('./Utils/EnsurePromise'),
   FormatRequest: require('./Utils/FormatRequest'),
-  DBotsError: require('./Utils/DBotsError'),
+  Util: require('./Utils/Util'),
 
   ServiceBase: require('./Interface/ServiceBase'),
   getService: require('./Interface/ServiceBase').get

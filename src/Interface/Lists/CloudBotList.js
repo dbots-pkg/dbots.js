@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the Cloud Botlist service.
@@ -33,27 +34,28 @@ class CloudBotList extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
-   * @param {number} options.userCount The amount of users that the client cached
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
+   * @param {CountResolvable} options.userCount The amount of users that the client cached
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount, userCount }) {
     return super._post({
       method: 'post',
-      url: `/bots/${clientID}`,
+      url: `/bots/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { guilds: serverCount, users: userCount }
+      data: { guilds: Util.resolveCount(serverCount),
+        users: Util.resolveCount(userCount) }
     });
   }
 
   /**
    * Gets the bot listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
-    return this._request({ url: `/bots/${id}` });
+    return this._request({ url: `/bots/${Util.resolveID(id)}` });
   }
 }
 

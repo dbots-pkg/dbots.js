@@ -1,5 +1,6 @@
 const ServiceBase = require('../ServiceBase');
 const { Error } = require('../../Utils/DBotsError');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the DBLista service.
@@ -73,20 +74,20 @@ class DBLista extends ServiceBase {
 
   /**
    * Gets the bot listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
-    return this._request({ url: `/bots/${id}` });
+    return this._request({ url: `/bots/${Util.resolveID(id)}` });
   }
 
   /**
    * Gets a list of bots on this service.
-   * @param {Object} [page] The page you want to get
+   * @param {CountResolvable} [page] The page you want to get
    * @returns {Promise<AxiosResponse>}
    */
   getBots(page = 0) {
-    return this._request({ url: `/bots/list/${page}` });
+    return this._request({ url: `/bots/list/${Util.resolveCount(page)}` });
   }
 
   /**
@@ -107,14 +108,14 @@ class DBLista extends ServiceBase {
 
   /**
    * Adds a rating to a bot on the service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @param {Object} data The data being posted. This should include the ID of the bot
    * @returns {Promise<AxiosResponse>}
    */
   rateBot(id, data) {
     return this._request({
       method: 'post',
-      url: `/bots/${id}/rate`,
+      url: `/bots/${Util.resolveID(id)}/rate`,
       headers: { Authorization: this.token },
       data
     }, {
@@ -124,13 +125,13 @@ class DBLista extends ServiceBase {
 
   /**
    * Removes a rating from a bot on the service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   removeRating(id) {
     return this._request({
       method: 'delete',
-      url: `/bots/${id}/rate`,
+      url: `/bots/${Util.resolveID(id)}/rate`,
       headers: { Authorization: this.token }
     }, {
       requiresToken: true
@@ -139,13 +140,13 @@ class DBLista extends ServiceBase {
 
   /**
    * Removes a bot from the service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   removeBot(id) {
     return this._request({
       method: 'delete',
-      url: `/bots/${id}`,
+      url: `/bots/${Util.resolveID(id)}`,
       headers: { Authorization: this.token }
     }, {
       requiresToken: true

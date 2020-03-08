@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the LBots service.
@@ -33,30 +34,32 @@ class LBots extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @param {Shard} options.shard The shard the request is representing
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount, shard }) {
     return super._post({
       method: 'post',
-      url: `/bots/${clientID}/stats`,
+      url: `/bots/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
       data: shard ?
-        { guild_count: serverCount, shard_id: shard.id, shard_count: shard.count } :
-        { guild_count: serverCount }
+        { guild_count: Util.resolveCount(serverCount),
+          shard_id: shard.id,
+          shard_count: shard.count } :
+        { guild_count: Util.resolveCount(serverCount) }
     });
   }
 
   /**
    * Invalidates the token being used in the request.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   invalidate(id) {
     return this._request({
-      url: `/bots/${id}/invalidate`,
+      url: `/bots/${Util.resolveID(id)}/invalidate`,
       headers: { Authorization: this.token }
     }, {
       requiresToken: true
@@ -65,12 +68,12 @@ class LBots extends ServiceBase {
 
   /**
    * Gets the list of people who favorited this bot on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBotFavorites(id) {
     return this._request({
-      url: `/bot/${id}/favorites`,
+      url: `/bot/${Util.resolveID(id)}/favorites`,
       headers: { Authorization: this.token },
     }, {
       requiresToken: true
@@ -79,13 +82,13 @@ class LBots extends ServiceBase {
 
   /**
    * Checks whether or not a user has favorited a bot on this service.
-   * @param {string} id The bot's ID
-   * @param {string} userID The user's ID
+   * @param {IDResolvable} id The bot's ID
+   * @param {IDResolvable} userID The user's ID
    * @returns {Promise<AxiosResponse>}
    */
   userFavorited(id, userID) {
     return this._request({
-      url: `/bots/${id}/favorites/user/${userID}`,
+      url: `/bots/${Util.resolveID(id)}/favorites/user/${Util.resolveID(userID)}`,
       headers: { Authorization: this.token },
     }, {
       requiresToken: true
@@ -94,14 +97,14 @@ class LBots extends ServiceBase {
 
   /**
    * Updates the guilds on the bot's panel.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @param {Object} data The data being posted
    * @returns {Promise<AxiosResponse>}
    */
   updatePanelGuilds(id, data) {
     return this._request({
       method: 'post',
-      url: `/panel/${id}/guilds`,
+      url: `/panel/${Util.resolveID(id)}/guilds`,
       headers: { Authorization: this.token },
       data
     }, {
@@ -111,13 +114,13 @@ class LBots extends ServiceBase {
 
   /**
    * Gets a guilds settings from the bot's panel.
-   * @param {string} id The bot's ID
-   * @param {Object} guildID The guild's ID
+   * @param {IDResolvable} id The bot's ID
+   * @param {IDResolvable} guildID The guild's ID
    * @returns {Promise<AxiosResponse>}
    */
   getPanelGuildSettings(id, guildID) {
     return this._request({
-      url: `/panel/${id}/guild/${guildID}`,
+      url: `/panel/${Util.resolveID(id)}/guild/${Util.resolveID(guildID)}`,
       headers: { Authorization: this.token }
     }, {
       requiresToken: true
@@ -126,14 +129,14 @@ class LBots extends ServiceBase {
 
   /**
    * Gets a guilds settings from the bot's panel.
-   * @param {string} id The bot's ID
-   * @param {Object} guildID The guild's ID
+   * @param {IDResolvable} id The bot's ID
+   * @param {IDResolvable} guildID The guild's ID
    * @param {Object} data The data being posted
    * @returns {Promise<AxiosResponse>}
    */
   updatePanelGuildSettings(id, guildID, data) {
     return this._request({
-      url: `/panel/${id}/guild/${guildID}/update`,
+      url: `/panel/${Util.resolveID(id)}/guild/${Util.resolveID(guildID)}/update`,
       headers: { Authorization: this.token },
       data
     }, {

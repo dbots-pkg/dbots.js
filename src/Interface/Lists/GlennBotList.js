@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the Glenn Bot List service.
@@ -33,56 +34,56 @@ class GlennBotList extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {string} options.serverCount The amount of servers that the client is in
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
-      url: `/bot/${clientID}/stats`,
+      url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
-      data: { serverCount }
+      data: { serverCount: Util.resolveCount(serverCount) }
     });
   }
 
   /**
    * Gets the bot listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
-    return this._request({ url: `/bot/${id}` });
+    return this._request({ url: `/bot/${Util.resolveID(id)}` });
   }
 
   /**
    * Gets the list of people who voted this bot on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBotVotes(id) {
-    return this._request({ url: `/bot/${id}/votes` }, {
+    return this._request({ url: `/bot/${Util.resolveID(id)}/votes` }, {
       requiresToken: true
     });
   }
 
   /**
    * Get a user's profile listed on this service.
-   * @param {string} id The user's ID
+   * @param {IDResolvable} id The user's ID
    * @returns {Promise<AxiosResponse>}
    */
   getProfile(id) {
-    return this._request({ url: `/profile/${id}` });
+    return this._request({ url: `/profile/${Util.resolveID(id)}` });
   }
 
   /**
    * Gets the widget URL for this bot.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {
-    return this._appendQuery(`https://glennbotlist.xyz/bot/${id}/widget`, query, false);
+    return this._appendQuery(`https://glennbotlist.xyz/bot/${Util.resolveID(id)}/widget`, query, false);
   }
 }
 

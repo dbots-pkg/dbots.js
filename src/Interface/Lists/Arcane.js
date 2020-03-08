@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the Arcane Bot Center service.
@@ -33,20 +34,23 @@ class Arcane extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
-   * @param {number} options.userCount The amount of users that the client cached
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
+   * @param {CountResolvable} options.userCount The amount of users that the client cached
    * @param {Shard} options.shard The shard the request is representing
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount, userCount, shard }) {
     return super._post({
       method: 'post',
-      url: `/${clientID}/stats`,
+      url: `/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
       data: shard ? 
-        { server_count: serverCount, member_count: userCount, shard_count: shard.count } : 
-        { server_count: serverCount, member_count: userCount }
+        { server_count: Util.resolveCount(serverCount),
+          member_count: Util.resolveCount(userCount),
+          shard_count: shard.count } : 
+        { server_count: Util.resolveCount(serverCount),
+          member_count: Util.resolveCount(userCount) }
     });
   }
 }

@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the Carbonitex service.
@@ -32,7 +33,7 @@ class Carbon extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request (this automatically determines what client its posting for)
-   * @param {number} options.serverCount The amount of servers that the client is in
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
 
@@ -40,7 +41,7 @@ class Carbon extends ServiceBase {
     return super._post({
       method: 'post',
       url: '/data/botdata.php',
-      data: { key: token, servercount: serverCount }
+      data: { key: token, servercount: Util.resolveCount(serverCount) }
     });
   }
 

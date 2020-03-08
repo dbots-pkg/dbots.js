@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the YABL service.
@@ -33,16 +34,16 @@ class YABL extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
-      url: `/bot/${clientID}/stats`,
+      url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
-      data: { guildCount: serverCount }
+      data: { guildCount: Util.resolveCount(serverCount) }
     });
   }
 
@@ -61,11 +62,11 @@ class YABL extends ServiceBase {
 
   /**
    * Gets the bot listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
-    return this._request({ url: `/bot/${id}` });
+    return this._request({ url: `/bot/${Util.resolveID(id)}` });
   }
 
   /**
@@ -78,11 +79,11 @@ class YABL extends ServiceBase {
 
   /**
    * Gets the user's bots listed for this service.
-   * @param {string} id The user's ID
+   * @param {IDResolvable} id The user's ID
    * @returns {Promise<AxiosResponse>}
    */
   getUserBots(id) {
-    return this._request({ url: `/bots/user/${id}` });
+    return this._request({ url: `/bots/user/${Util.resolveID(id)}` });
   }
 
   /**

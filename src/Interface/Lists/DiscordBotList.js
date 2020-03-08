@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the Discord Bot List service.
@@ -33,25 +34,25 @@ class DiscordBotList extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
-   * @param {number} options.userCount The amount of users that the client cached
-   * @param {number} options.voiceConnections The amount of voice connections the client has
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
+   * @param {CountResolvable} options.userCount The amount of users that the client cached
+   * @param {CountResolvable} options.voiceConnections The amount of voice connections the client has
    * @param {Shard} options.shard The shard the request is representing
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount, shard, userCount, voiceConnections }) {
-    const data = { guilds: serverCount };
+    const data = { guilds: Util.resolveCount(serverCount) };
     if (shard)
       data.shard_id = shard.id;
     if (userCount)
-      data.users = userCount;
+      data.users = Util.resolveCount(userCount);
     if (voiceConnections)
-      data.voice_connections = voiceConnections;
+      data.voice_connections = Util.resolveCount(voiceConnections);
 
     return super._post({
       method: 'post',
-      url: `/bots/${clientID}/stats`,
+      url: `/bots/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: `Bot ${token}` },
       data
     });
@@ -59,12 +60,12 @@ class DiscordBotList extends ServiceBase {
 
   /**
    * Gets the widget URL for this bot.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {
-    return this._appendQuery(`https://discordbotlist.com/bots/${id}/widget`, query, false);
+    return this._appendQuery(`https://discordbotlist.com/bots/${Util.resolveID(id)}/widget`, query, false);
   }
 }
 

@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the Bots On Discord service.
@@ -33,30 +34,30 @@ class BotsOnDiscord extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
-      url: `/bots/${clientID}/guilds`,
+      url: `/bots/${Util.resolveID(clientID)}/guilds`,
       headers: { Authorization: token },
-      data: { guildCount: serverCount }
+      data: { guildCount: Util.resolveCount(serverCount) }
     });
   }
 
   /**
    * Checks whether or not a user has reviewed a bot.
-   * @param {string} id The bot's ID
-   * @param {string} userId The user's ID
+   * @param {IDResolvable} id The bot's ID
+   * @param {IDResolvable} userId The user's ID
    * @returns {Promise<AxiosResponse>}
    */
   checkReview(id, userId) {
     return this._request({
-      url: `/bots/${id}/review`,
+      url: `/bots/${Util.resolveID(id)}/review`,
       headers: { Authorization: this.token },
-      params: { owner: userId }
+      params: { owner: Util.resolveID(userId) }
     }, {
       requiresToken: true
     });
@@ -64,12 +65,12 @@ class BotsOnDiscord extends ServiceBase {
 
   /**
    * Gets the widget URL for this bot.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {
-    return this._appendQuery(`https://bots.ondiscord.xyz/bots/${id}/embed`, query, false);
+    return this._appendQuery(`https://bots.ondiscord.xyz/bots/${Util.resolveID(id)}/embed`, query, false);
   }
 }
 

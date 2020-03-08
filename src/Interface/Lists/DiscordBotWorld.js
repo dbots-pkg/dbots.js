@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the Discord Bot World service.
@@ -33,14 +34,14 @@ class DiscordBotWorld extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
-      url: `/bot/${clientID}/stats`,
+      url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
       data: { guild_count: serverCount }
     });
@@ -56,30 +57,30 @@ class DiscordBotWorld extends ServiceBase {
 
   /**
    * Gets the bot listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
-    return this._request({ url: `/bots/${id}/info` });
+    return this._request({ url: `/bots/${Util.resolveID(id)}/info` });
   }
 
   /**
    * Gets the bot's stats on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBotStats(id) {
-    return this._request({ url: `/bots/${id}/stats` });
+    return this._request({ url: `/bots/${Util.resolveID(id)}/stats` });
   }
 
   /**
    * Gets the list of people who liked this bot on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBotLikes(id) {
     return this._request({
-      url: `/bots/${id}/likes`,
+      url: `/bots/${Util.resolveID(id)}/likes`,
       headers: { Authorization: this.token }
     }, {
       requiresToken: true
@@ -88,11 +89,11 @@ class DiscordBotWorld extends ServiceBase {
 
   /**
    * Gets the user listed on this service.
-   * @param {string} id The user's ID
+   * @param {IDResolvable} id The user's ID
    * @returns {Promise<AxiosResponse>}
    */
   getUser(id) {
-    return this._request({ url: `/user/${id}` });
+    return this._request({ url: `/user/${Util.resolveID(id)}` });
   }
 }
 

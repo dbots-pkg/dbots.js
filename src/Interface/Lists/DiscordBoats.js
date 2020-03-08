@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the Discord Boats service.
@@ -33,58 +34,58 @@ class DiscordBoats extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
-      url: `/bot/${clientID}`,
+      url: `/bot/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { server_count: serverCount }
+      data: { server_count: Util.resolveCount(serverCount) }
     });
   }
 
   /**
    * Gets the bot listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
-    return this._request({ url: `/bot/${id}` });
+    return this._request({ url: `/bot/${Util.resolveID(id)}` });
   }
 
   /**
    * Gets the user listed on this service.
-   * @param {string} id The user's ID
+   * @param {IDResolvable} id The user's ID
    * @returns {Promise<AxiosResponse>}
    */
   getUser(id) {
-    return this._request({ url: `/user/${id}` });
+    return this._request({ url: `/user/${Util.resolveID(id)}` });
   }
 
   /**
    * Checks whether or not a user has voted for a bot on this service.
-   * @param {string} id The bot's ID
-   * @param {string} userID The user's ID
+   * @param {IDResolvable} id The bot's ID
+   * @param {IDResolvable} userID The user's ID
    * @returns {Promise<AxiosResponse>}
    */
   userVoted(id, userID) {
     return this._request({
-      url: `/bot/${id}/voted`,
-      query: { id: userID }
+      url: `/bot/${Util.resolveID(id)}/voted`,
+      query: { id: Util.resolveID(userID) }
     });
   }
 
   /**
    * Gets the widget URL for this bot.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {
-    return this._appendQuery(`/widget/${id}`, query);
+    return this._appendQuery(`/widget/${Util.resolveID(id)}`, query);
   }
 }
 

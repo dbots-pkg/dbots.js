@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the Discord Apps service.
@@ -33,16 +34,16 @@ class DiscordAppsDev extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
-      url: `/bots/${clientID}`,
+      url: `/bots/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { bot: { count: serverCount } }
+      data: { bot: { count: Util.resolveCount(serverCount) } }
     });
   }
 
@@ -72,23 +73,23 @@ class DiscordAppsDev extends ServiceBase {
 
   /**
    * Gets the bot listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
-    return this._request({ url: `/bots/${id}` });
+    return this._request({ url: `/bots/${Util.resolveID(id)}` });
   }
 
   /**
    * Updates the bot with the data provided.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @param {Object} data The data being posted
    * @returns {Promise<AxiosResponse>}
    */
   updateBot(id, data) {
     return this._request({
       method: 'post',
-      url: `/bots/${id}`,
+      url: `/bots/${Util.resolveID(id)}`,
       headers: { Authorization: this.token },
       data
     }, {

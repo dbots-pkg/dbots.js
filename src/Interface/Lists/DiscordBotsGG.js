@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the Discord Bots service.
@@ -33,31 +34,33 @@ class DiscordBotsGG extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @param {Shard} options.shard The shard the request is representing
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount, shard }) {
     return super._post({
       method: 'post',
-      url: `/bots/${clientID}/stats`,
+      url: `/bots/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
       data: shard ? 
-        { guildCount: serverCount, shardId: shard.id, shardCount: shard.count } : 
-        { guildCount: serverCount }
+        { guildCount: Util.resolveCount(serverCount),
+          shardId: shard.id,
+          shardCount: shard.count } : 
+        { guildCount: Util.resolveCount(serverCount) }
     });
   }
 
   /**
    * Gets the bot listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @param {Boolean} [sanitized=false] Whether to sanitize descriptions
    * @returns {Promise<AxiosResponse>}
    */
   getBot(id, sanitized = false) {
     return this._request({
-      url: `/bots/${id}`,
+      url: `/bots/${Util.resolveID(id)}`,
       headers: { Authorization: this.token },
       query: { sanitized }
     }, {

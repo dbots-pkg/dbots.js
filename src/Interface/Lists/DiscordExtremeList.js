@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the Discord Extreme List service.
@@ -33,16 +34,16 @@ class DiscordExtremeList extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
-      url: `/bot/${clientID}`,
+      url: `/bot/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { guildCount: serverCount }
+      data: { guildCount: Util.resolveCount(serverCount) }
     });
   }
 
@@ -61,12 +62,12 @@ class DiscordExtremeList extends ServiceBase {
 
   /**
    * Gets the bot listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
     return this._request({
-      url: `/bot/${id}`,
+      url: `/bot/${Util.resolveID(id)}`,
       headers: { Authorization: this.token }
     }, {
       requiresToken: true
@@ -75,12 +76,12 @@ class DiscordExtremeList extends ServiceBase {
 
   /**
    * Gets the user listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getUser(id) {
     return this._request({
-      url: `/user/${id}`,
+      url: `/user/${Util.resolveID(id)}`,
       headers: { Authorization: this.token }
     }, {
       requiresToken: true
@@ -89,12 +90,12 @@ class DiscordExtremeList extends ServiceBase {
 
   /**
    * Gets the widget URL for this bot.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, query) {
-    return this._appendQuery(`/bot/${id}/widget`, query);
+    return this._appendQuery(`/bot/${Util.resolveID(id)}/widget`, query);
   }
 }
 

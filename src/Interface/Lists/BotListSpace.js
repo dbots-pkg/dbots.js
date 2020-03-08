@@ -1,4 +1,5 @@
 const ServiceBase = require('../ServiceBase');
+const Util = require('../../Utils/Util');
 
 /**
  * Represents the botlist.space service.
@@ -33,16 +34,16 @@ class BotListSpace extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
-   * @param {string} options.clientID The client ID that the request will post for
-   * @param {number} options.serverCount The amount of servers that the client is in
+   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
-      url: `/bots/${clientID}`,
-      headers: { Authorization: token, 'Content-Type': 'application/json' },
-      data: { server_count: serverCount }
+      url: `/bots/${Util.resolveID(clientID)}`,
+      headers: { Authorization: token },
+      data: { server_count: Util.resolveCount(serverCount) }
     });
   }
 
@@ -64,21 +65,21 @@ class BotListSpace extends ServiceBase {
 
   /**
    * Gets the bot listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
-    return this._request({ url: `/bots/${id}` });
+    return this._request({ url: `/bots/${Util.resolveID(id)}` });
   }
 
   /**
    * Gets the list of people who voted this bot on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBotVotes(id) {
     return this._request({
-      url: `/bots/${id}/upvotes`,
+      url: `/bots/${Util.resolveID(id)}/upvotes`,
       headers: { Authorization: this.token }
     }, {
       requiresToken: true
@@ -87,40 +88,40 @@ class BotListSpace extends ServiceBase {
 
   /**
    * Gets the uptime of a bot listed on this service.
-   * @param {string} id The bot's ID
+   * @param {IDResolvable} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */
   getBotUptime(id) {
-    return this._request({ url: `/bots/${id}/uptime` });
+    return this._request({ url: `/bots/${Util.resolveID(id)}/uptime` });
   }
 
   /**
    * Gets the user listed on this service.
-   * @param {string} id The user's ID
+   * @param {IDResolvable} id The user's ID
    * @returns {Promise<AxiosResponse>}
    */
   getUser(id) {
-    return this._request({ url: `/users/${id}` });
+    return this._request({ url: `/users/${Util.resolveID(id)}` });
   }
 
   /**
    * Gets the user's bots listed for this service.
-   * @param {string} id The user's ID
+   * @param {IDResolvable} id The user's ID
    * @returns {Promise<AxiosResponse>}
    */
   getUserBots(id) {
-    return this._request({ url: `/users/${id}/bots` });
+    return this._request({ url: `/users/${Util.resolveID(id)}/bots` });
   }
 
   /**
    * Gets the widget URL for this bot.
-   * @param {string} id The bot's ID
-   * @param {string} [style=1] The style of the widget
+   * @param {IDResolvable} id The bot's ID
+   * @param {CountResolvable} [style=1] The style of the widget, cannot be zero
    * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
   getBotWidget(id, style = 1, query = undefined) {
-    return this._appendQuery(`https://api.botlist.space/widget/${id}/${style}`, query, false);
+    return this._appendQuery(`https://api.botlist.space/widget/${Util.resolveID(id)}/${style}`, query, false);
   }
 }
 

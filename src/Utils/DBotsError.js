@@ -71,6 +71,10 @@ const messageObject = {
   CALLED_FROM_BASE: 'This function needs to be called by an extended class.',
   REQUIRES_TOKEN: 'This endpoint requires a token.',
   POSTING_UNSUPPORTED: service => `The service ${service} does not support posting.`,
+
+  INVALID_ID: 'An invalid ID was given.',
+  INVALID_COUNT: 'An invalid countable number was given.',
+  COUNT_NEGATIVE: 'A countable number cannot be negative.',
 };
 
 for (const [name, message] of Object.entries(messageObject)) register(name, message);
@@ -79,4 +83,5 @@ module.exports = {
   register, messages, codeSymbol,
   Error: makeDbotsError(Error),
   TypeError: makeDbotsError(TypeError),
+  RangeError: makeDbotsError(RangeError),
 };
