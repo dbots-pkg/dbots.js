@@ -13,6 +13,7 @@ module.exports = {
   DivineDiscordBots: require('./Interface/Lists/DivineDiscordBots'),
   GlennBotList: require('./Interface/Lists/GlennBotList'),
   TopGG: require('./Interface/Lists/TopGG'),
+  YABL: require('./Interface/Lists/YABL'),
 
   Constants: require('./Utils/Constants'),
   EnsurePromise: require('./Utils/EnsurePromise'),

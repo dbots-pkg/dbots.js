@@ -37,7 +37,7 @@ class ServiceBase {
     const services = [
       BotListSpace, BotsForDiscord, BotsOnDiscord, Carbon, DiscordAppsDev,
       DiscordBoats, DiscordBotList, DiscordBotsGG, DiscordBotWorld, DivineDiscordBots,
-      GlennBotList, TopGG,
+      GlennBotList, TopGG, YABL,
       ...extras
     ];
     for (let i = 0, len = services.length; i < len; i++) {
@@ -150,3 +150,4 @@ const DiscordBotWorld = require('./Lists/DiscordBotWorld');
 const DivineDiscordBots = require('./Lists/DivineDiscordBots');
 const GlennBotList = require('./Lists/GlennBotList');
 const TopGG = require('./Lists/TopGG');
+const YABL = require('./Lists/YABL');
