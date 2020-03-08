@@ -1,7 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 type Library = 'discordie' | 'discord.io' | 'discord.js' | 'eris'
-type Service = 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'divinediscordbots' | 'glennbotlist' | 'topgg' | 'yabl'
+type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'divinediscordbots' | 'glennbotlist' | 'topgg' | 'yabl'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
 type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
@@ -203,6 +203,23 @@ declare module 'dbots' {
   }
 
   // #region services
+  /**
+   * Represents the Arcane Bot Center service
+   * @see https://arcane-botcenter.xyz/documentation
+   */
+  export class Arcane extends ServiceBase {
+    /**
+     * Posts statistics to this service
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     * @param options.userCount The amount of users that the client cached
+     * @param options.shard The shard the request is representing
+     */
+    static post(options: PostOptions): Promise<AxiosResponse>
+  }
+
   /**
    * Represents the botlist.space's service
    * @see https://docs.botlist.space/

@@ -1,6 +1,7 @@
 module.exports = {
   Poster: require('./Interface/Poster'),
 
+  Arcane: require('./Interface/Lists/Arcane'),
   BotListSpace: require('./Interface/Lists/BotListSpace'),
   BotsForDiscord: require('./Interface/Lists/BotsForDiscord'),
   BotsOnDiscord: require('./Interface/Lists/BotsOnDiscord'),

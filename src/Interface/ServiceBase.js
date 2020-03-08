@@ -35,7 +35,7 @@ class ServiceBase {
     if (!key || typeof key !== 'string')
       return null;
     const services = [
-      BotListSpace, BotsForDiscord, BotsOnDiscord, Carbon, DiscordAppsDev,
+      Arcane, BotListSpace, BotsForDiscord, BotsOnDiscord, Carbon, DiscordAppsDev,
       DiscordBoats, DiscordBotList, DiscordBotsGG, DiscordBotWorld, DivineDiscordBots,
       GlennBotList, TopGG, YABL,
       ...extras
@@ -138,6 +138,7 @@ class ServiceBase {
 module.exports = ServiceBase;
 
 // Circular import
+const Arcane = require('./Lists/Arcane');
 const BotListSpace = require('./Lists/BotListSpace');
 const BotsForDiscord = require('./Lists/BotsForDiscord');
 const BotsOnDiscord = require('./Lists/BotsOnDiscord');
