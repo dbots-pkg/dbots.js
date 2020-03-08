@@ -3,22 +3,7 @@
 // Taken from Discord.JS's way of making errors
 
 const codeSymbol = Symbol('code');
-const messages = new Map({
-  INVALID_POSTER_OPTIONS: 'An object is required a parameter to construct a poster.',
-  NO_CLIENT_OR_ID: 'clientID must be defined when client is non-existant.',
-
-  UNKNOWN_CLIENT: count_name => `Can't retrieve ${count_name} count from non-existant client.`,
-  NO_CLIENT: count_name => `Can't retrieve ${count_name} count from unknown client.`,
-
-  NO_API_KEYS: 'Can\'t post with a poster that has no API keys.',
-  SERVICE_NO_KEY: service => `Can't post to "${service}" without an API key.`,
-  INVALID_SERVICE: service => `"${service}" is an invalid service.`,
-
-  HANDLER_INVALID: 'Given handler is not a PromiseResolvable.',
-  UNSUPPORTED_EVENT: action => `Can't ${action} handler for an unsupported event.`,
-
-  POSTING_UNSUPPORTED: service => `The service ${service} does not support posting.`,
-});
+const messages = new Map();
 
 /**
  * Extend an error of some sort into a DiscordjsError.
@@ -68,6 +53,25 @@ function message(key, args) {
 function register(sym, val) {
   messages.set(sym, typeof val === 'function' ? val : String(val));
 }
+
+const messageObject = {
+  INVALID_POSTER_OPTIONS: 'An object is required a parameter to construct a poster.',
+  NO_CLIENT_OR_ID: 'clientID must be defined when client is non-existant.',
+
+  UNKNOWN_CLIENT: count_name => `Can't retrieve ${count_name} count from non-existant client.`,
+  NO_CLIENT: count_name => `Can't retrieve ${count_name} count from unknown client.`,
+
+  NO_API_KEYS: 'Can\'t post with a poster that has no API keys.',
+  SERVICE_NO_KEY: service => `Can't post to "${service}" without an API key.`,
+  INVALID_SERVICE: service => `"${service}" is an invalid service.`,
+
+  HANDLER_INVALID: 'Given handler is not a PromiseResolvable.',
+  UNSUPPORTED_EVENT: action => `Can't ${action} handler for an unsupported event.`,
+
+  POSTING_UNSUPPORTED: service => `The service ${service} does not support posting.`,
+};
+
+for (const [name, message] of Object.entries(messageObject)) register(name, message);
 
 module.exports = {
   register, messages, codeSymbol,

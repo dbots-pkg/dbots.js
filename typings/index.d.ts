@@ -480,7 +480,7 @@ declare module 'dbots' {
     removeBot(id: string): Promise<AxiosResponse>
 
     /**
-     *Searches for bots on the service.
+     * Searches for bots on the service.
      * @param query The query to search for
      */
     search(query: string): Promise<AxiosResponse>
