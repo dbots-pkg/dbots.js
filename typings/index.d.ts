@@ -133,7 +133,6 @@ declare module 'dbots' {
     /** The options the poster was built with */
     readonly options: PosterOptions
 
-
     /**
      * A class that posts server count to listing site(s).
      * @param options The options needed to construct the poster
@@ -198,10 +197,9 @@ declare module 'dbots' {
      * @param handler The function that is run with the event
      * @returns The array of handlers currently set for that event
      */
-    addHandler(event: 'autopost', handler: (result: AxiosResponse | AxiosResponse[]) => void): PromiseResolvable[]
-    addHandler(event: 'autopostfail', handler: (error: AxiosResponse | AxiosResponse[]) => void): PromiseResolvable[]
-    addHandler(event: 'post', handler: (result: AxiosResponse) => void): PromiseResolvable[]
-    addHandler(event: 'postfail', handler: (error: AxiosResponse) => void): PromiseResolvable[]
+    // tslint:disable-next-line
+    addHandler(event: 'autopost'|'autopostfail', handler: (error: AxiosResponse | AxiosResponse[]) => void): PromiseResolvable[]
+    addHandler(event: 'post'|'postfail', handler: (error: AxiosResponse) => void): PromiseResolvable[]
     addHandler(event: CustomEvent, handler: PromiseResolvable): PromiseResolvable[]
 
     /**
