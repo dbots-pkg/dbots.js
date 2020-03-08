@@ -1,4 +1,20 @@
-# Supported Services (13)
+# Supported Services (14)
+
+<div align=center>
+  <p>
+    <img src="https://i.olsh.me/icon?size=1..100..500&url=arcane-botcenter.xyz" alt="arcanebotcenter logo" width="100" align="left" />
+  </p>
+  <i id="arcanebotcenter"></i>
+  <i id="arcane-botcenter.xyz"></i>
+  <i id="arcanebotcenter.xyz"></i>
+  <i id="arcane"></i>
+  <i id="abc"></i>
+  <a href="https://arcane-botcenter.xyz"><h1>Arcane Bot List</h1></a>
+
+Keys: `arcanebotcenter`, `arcane-botcenter.xyz`, `arcanebotcenter.xyz`, `arcane`, `abc`  
+Class: [dbots.Arcane](/#/docs/main/master/class/Arcane)  
+Website: https://arcane-botcenter.xyz
+</div>
 
 <div align=center>
   <p>
