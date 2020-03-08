@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from 'axios'
 
 type Library = 'discordie' | 'discord.io' | 'discord.js' | 'eris'
-type Service = 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'divinediscordbots' | 'glennbotlist' | 'topgg'
+type Service = 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'divinediscordbots' | 'glennbotlist' | 'topgg' | 'yabl'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
 type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
@@ -72,6 +72,11 @@ interface Shard {
   id: number
 }
 
+interface CustomService {
+  aliases: string[]
+  post: (options: PostOptions) => Promise<any>
+}
+
 declare module 'dbots' {
   /** Data that can be resolved to give a string. This can either be a Function or a Promise */
   type PromiseResolvable = () => string | Promise<string>
@@ -107,11 +112,10 @@ declare module 'dbots' {
     handlers: handlerCollector
     options: PosterOptions
     _interval?: NodeJS.Timeout
+    customServices: CustomService[]
+    apiKeys: keyFormat
 
-    /**
-     * Internal client property filler.
-     * @private
-     */
+    /** Internal client property filler. */
     clientFiller?: ClientFiller
 
     /**
@@ -157,11 +161,11 @@ declare module 'dbots' {
 
     /**
      * Manually posts a server count to a service
-     * @param {Service} service The service to post to
-     * @param {Object} counts An object containing the tallies of servers, users and voice connections
-     * @param {number} counts.serverCount The server count to post to the service
-     * @param {number} [counts.userCount] The user count to post to the service
-     * @param {number} [counts.voiceConnections] The voice connection count to post to the service
+     * @param service The service to post to
+     * @param counts An object containing the tallies of servers, users and voice connections
+     * @param counts.serverCount The server count to post to the service
+     * @param counts.userCount The user count to post to the service
+     * @param counts.voiceConnections The voice connection count to post to the service
      * @returns The result(s) of the post
      */
     postManual(service?: Service, counts?: PostCounts): Promise<object | object[]>
@@ -206,10 +210,10 @@ declare module 'dbots' {
   export class BotListSpace extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request
-     * @param {string} options.clientID The client ID that the request will post for
-     * @param {number} options.serverCount The amount of servers that the client is in
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<any>
 
@@ -221,39 +225,39 @@ declare module 'dbots' {
 
     /**
      * Gets the bot listed for this service
-     * @param {string} id The bot's ID.
+     * @param id The bot's ID.
      */
     getBot(id: string): Promise<any>
 
     /**
      * Gets the data on the voters for this bot
-     * @param {string} id The bot's ID.
+     * @param id The bot's ID.
      */
     getBotVotes(id: string): Promise<any>
 
     /**
      * Gets the uptime of a bot listed for this service
-     * @param {string} id The bot's ID.
+     * @param id The bot's ID.
      */
     getBotUptime(id: string): Promise<any>
 
     /**
      * Gets the user listed for this service
-     * @param {string} id The user's ID.
+     * @param id The user's ID.
      */
     getUser(id: string): Promise<any>
 
     /**
      * Gets the user's bots listed for this service
-     * @param {string} id The user's ID.
+     * @param id The user's ID.
      */
     getUserBots(id: string): Promise<any>
 
     /**
      * Gets the widget URL for this bot
-     * @param {string} id The bot's ID.
-     * @param {string} [style=1] The style of the widget
-     * @param {Object} [query] The querystring that will be used in the request
+     * @param id The bot's ID.
+     * @param style The style of the widget
+     * @param query The querystring that will be used in the request
      */
     getBotWidget(id: string, style?: number, query?: object): string
   }
@@ -265,10 +269,10 @@ declare module 'dbots' {
   export class BotsForDiscord extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request
-     * @param {string} options.clientID The client ID that the request will post for
-     * @param {number} options.serverCount The amount of servers that the client is in
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<any>
 
@@ -298,8 +302,8 @@ declare module 'dbots' {
 
     /**
      * Gets the widget URL for this bot
-     * @param {string} id The bot's ID.
-     * @param {Object} [query] The querystring that will be used in the request
+     * @param id The bot's ID.
+     * @param query The querystring that will be used in the request
      */
     getBotWidget(id: string, query?: object): string
   }
@@ -311,24 +315,24 @@ declare module 'dbots' {
   export class BotsOnDiscord extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request
-     * @param {string} options.clientID The client ID that the request will post for
-     * @param {number} options.serverCount The amount of servers that the client is in
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<any>
 
     /**
      * Checks whether or not a user has reviewed a bot
-     * @param {string} id The bot's ID.
-     * @param {string} userId The user's ID.
+     * @param id The bot's ID.
+     * @param userId The user's ID.
      */
     checkReview(id: string, userId: string): Promise<any>
 
     /**
      * Gets the widget URL for this bot
-     * @param {string} id The bot's ID.
-     * @param {Object} [query] The querystring that will be used in the request
+     * @param id The bot's ID.
+     * @param query The querystring that will be used in the request
      */
     getBotWidget(id: string, query?: object): string
   }
@@ -339,9 +343,9 @@ declare module 'dbots' {
   export class Carbon extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request (this automatically determines what client its posting for)
-     * @param {number} options.serverCount The amount of servers that the client is in
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request (this automatically determines what client its posting for)
+     * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<any>
 
@@ -356,9 +360,9 @@ declare module 'dbots' {
   export class DiscordAppsDev extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request (this automatically determines what client its posting for)
-     * @param {number} options.serverCount The amount of servers that the client is in
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request (this automatically determines what client its posting for)
+     * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<any>
 
@@ -392,9 +396,9 @@ declare module 'dbots' {
   export class DiscordBoats extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request (this automatically determines what client its posting for)
-     * @param {number} options.serverCount The amount of servers that the client is in
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request (this automatically determines what client its posting for)
+     * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<any>
 
@@ -419,8 +423,8 @@ declare module 'dbots' {
 
     /**
      * Gets the widget URL for this bot
-     * @param {string} id The bot's ID.
-     * @param {Object} [query] The querystring that will be used in the request
+     * @param id The bot's ID.
+     * @param query The querystring that will be used in the request
      */
     getBotWidget(id: string, query?: object): string
   }
@@ -432,36 +436,36 @@ declare module 'dbots' {
   export class DiscordBotList extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request
-     * @param {string} options.clientID The client ID that the request will post for
-     * @param {number} options.serverCount The amount of servers that the client is in
-     * @param {number} options.userCount The amount of users that the client cached
-     * @param {number} options.voiceConnections The amount of voice connections the client has
-     * @param {Shard} options.shard The shard the request is representing
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     * @param options.userCount The amount of users that the client cached
+     * @param options.voiceConnections The amount of voice connections the client has
+     * @param options.shard The shard the request is representing
      */
     static post(options: PostOptions): Promise<any>
 
     /**
      * Gets the widget URL for this bot
-     * @param {string} id The bot's ID.
-     * @param {Object} [query] The querystring that will be used in the request
+     * @param id The bot's ID.
+     * @param query The querystring that will be used in the request
      */
     getBotWidget(id: string, query?: object): string
   }
 
   /**
-   * Represents the bots.discord.pw service
+   * Represents the Discord Bots service
    * @see https://discord.bots.gg/docs
    */
   export class DiscordBotsGG extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request
-     * @param {string} options.clientID The client ID that the request will post for
-     * @param {number} options.serverCount The amount of servers that the client is in
-     * @param {Shard} options.shard The shard the request is representing
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     * @param options.shard The shard the request is representing
      */
     static post(options: PostOptions): Promise<any>
 
@@ -482,10 +486,10 @@ declare module 'dbots' {
   export class DiscordBotWorld extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request
-     * @param {string} options.clientID The client ID that the request will post for
-     * @param {number} options.serverCount The amount of servers that the client is in
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<any>
 
@@ -494,25 +498,25 @@ declare module 'dbots' {
 
     /**
      * Gets the bot listed for this service
-     * @param {string} id The bot's ID.
+     * @param id The bot's ID.
      */
     getBot(id: string): Promise<any>
 
     /**
      * Gets the bot's stats on this service
-     * @param {string} id The bot's ID.
+     * @param id The bot's ID.
      */
     getBotStats(id: string): Promise<any>
 
     /**
      * Gets the list of people who liked this bot
-     * @param {string} id The bot's ID.
+     * @param id The bot's ID.
      */
     getBotLikes(id: string): Promise<any>
 
     /**
      * Gets the user listed for this service
-     * @param {string} id The user's ID.
+     * @param id The user's ID.
      */
     getUser(id: string): Promise<any>
   }
@@ -524,10 +528,10 @@ declare module 'dbots' {
   export class DivineDiscordBots extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request
-     * @param {string} options.clientID The client ID that the request will post for
-     * @param {number} options.serverCount The amount of servers that the client is in
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<any>
 
@@ -545,8 +549,8 @@ declare module 'dbots' {
 
     /**
      * Gets the widget URL for this bot
-     * @param {string} id The bot's ID.
-     * @param {Object} [query] The querystring that will be used in the request
+     * @param id The bot's ID.
+     * @param query The querystring that will be used in the request
      */
     getBotWidget(id: string, query?: object): string
   }
@@ -558,37 +562,35 @@ declare module 'dbots' {
   export class GlennBotList extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request
-     * @param {string} options.clientID The client ID that the request will post for
-     * @param {number} options.serverCount The amount of servers that the client is in
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<any>
 
     /**
      * Gets the bot listed for this service
-     * @param {string} id The bot's ID.
+     * @param id The bot's ID.
      */
     getBot(id: string): Promise<any>
 
     /**
      * Gets the bot's votes on this service
-     * @param {string} id The bot's ID.
-     * @returns {Promise}
+     * @param id The bot's ID.
      */
     getBotVotes(id: string): Promise<any>
 
     /**
      * Get a user's profile listed on this service
-     * @param {string} id The user's ID.
-     * @returns {Promise}
+     * @param id The user's ID.
      */
     getProfile(id: string): Promise<any>
 
     /**
      * Gets the widget URL for this bot
-     * @param {string} id The bot's ID.
-     * @param {Object} [query] The querystring that will be used in the request
+     * @param id The bot's ID.
+     * @param query The querystring that will be used in the request
      */
     getBotWidget(id: string, query?: object): string
   }
@@ -600,11 +602,11 @@ declare module 'dbots' {
   export class TopGG extends ServiceBase {
     /**
      * Posts statistics to this service
-     * @param {Object} options The options of the request
-     * @param {string} options.token The Authorization token for the request
-     * @param {string} options.clientID The client ID that the request will post for
-     * @param {number} options.serverCount The amount of servers that the client is in
-     * @param {Shard} options.shard The shard the request is representing
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     * @param options.shard The shard the request is representing
      */
     static post(options: PostOptions): Promise<any>
 
@@ -638,10 +640,55 @@ declare module 'dbots' {
 
     /**
      * Gets the widget URL for this bot
-     * @param {string} id The bot's ID.
-     * @param {Object} [query] The querystring that will be used in the request
+     * @param id The bot's ID.
+     * @param query The querystring that will be used in the request
      */
     getBotWidget(id: string, query?: object): string
+  }
+
+  /**
+   * Represents the YABL service
+   * @see https://yabl.xyz/api
+   */
+  export class YABL extends ServiceBase {
+    /**
+     * Posts statistics to this service
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     */
+    static post(options: PostOptions): Promise<any>
+
+    /** Invalidates the token being used in the request */
+    invalidate(): Promise<any>
+
+    /**
+     * Gets the bot listed for this service
+     * @param id The bot's ID.
+     */
+    getBot(id: string): Promise<any>
+
+    /** Gets 20 random bots on this service */
+    getRandomBots(): Promise<any>
+
+    /**
+     * Gets the user's bots listed for this service
+     * @param id The user's ID.
+     */
+    getUserBots(id: string): Promise<any>
+
+    /** Gets a list of bots on this service */
+    getBots(): Promise<any>
+
+    /**
+     * Gets a page of bots on this service
+     * @param query The querystring that will be used in the request
+     */
+    getBotsByPage(query: object): Promise<any>
+
+    /** Gets a list of unverified bots on this service */
+    getUnverifiedBots(): Promise<any>
   }
   // #endregion
 

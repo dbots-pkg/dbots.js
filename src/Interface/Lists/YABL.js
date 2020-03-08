@@ -99,9 +99,9 @@ class YABL extends ServiceBase {
   }
 
   /**
-   * Gets a list of bots on this service by page query
-   * @returns {Promise}
+   * Gets a page of bots on this service
    * @param {Object} query The querystring that will be used in the request
+   * @returns {Promise}
    */
   getBotsByPage(query) {
     return this._request({ url: '/bots/all', params: query });
