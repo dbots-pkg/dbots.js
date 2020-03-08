@@ -1,4 +1,5 @@
 const FormatRequest = require('../Utils/FormatRequest');
+const { Error } = require('../Utils/DBotsError');
 const buildURL = require('axios/lib/helpers/buildURL');
 
 /**
@@ -59,7 +60,7 @@ class ServiceBase {
    */
   static _post(form, appendBaseURL = true) {
     if (this.name === 'ServiceBase')
-      return Promise.reject(new Error('This function needs to be called by an extended class'));
+      return Promise.reject(new Error('CALLED_FROM_BASE'));
     if (this.baseURL && appendBaseURL)
       form.url = this.baseURL + form.url;
     return FormatRequest(form);
@@ -75,7 +76,7 @@ class ServiceBase {
    */
   _request(form, { requiresToken = false, appendBaseURL = true } = {}) {
     if (requiresToken && !this.token)
-      return Promise.reject(new Error('This function requires a token'));
+      return Promise.reject(new Error('REQUIRES_TOKEN'));
     if (this.constructor.baseURL && appendBaseURL)
       form.url = this.constructor.baseURL + form.url;
     return FormatRequest(form);

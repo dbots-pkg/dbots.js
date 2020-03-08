@@ -68,6 +68,8 @@ const messageObject = {
   HANDLER_INVALID: 'Given handler is not a PromiseResolvable.',
   UNSUPPORTED_EVENT: action => `Can't ${action} handler for an unsupported event.`,
 
+  CALLED_FROM_BASE: 'This function needs to be called by an extended class.',
+  REQUIRES_TOKEN: 'This endpoint requires a token.',
   POSTING_UNSUPPORTED: service => `The service ${service} does not support posting.`,
 };
 
