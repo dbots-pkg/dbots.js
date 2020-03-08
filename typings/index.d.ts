@@ -656,6 +656,43 @@ declare module 'dbots' {
   }
 
   /**
+   * Represents the Discord Extreme List service.
+   * @see https://docs.discordextremelist.xyz/
+   */
+  export class DiscordExtremeList extends ServiceBase {
+    /**
+     * Posts statistics to this service.
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     */
+    static post(options: PostOptions): Promise<AxiosResponse>
+
+    /** Gets the statistics of this service. */
+    getStatistics(): Promise<AxiosResponse>
+
+    /**
+     * Gets the bot listed on this service.
+     * @param id The bot's ID
+     */
+    getBot(id: string): Promise<AxiosResponse>
+
+    /**
+     * Gets the user listed on this service.
+     * @param id The user's ID
+     */
+    getUser(id: string): Promise<AxiosResponse>
+
+    /**
+     * Gets the widget URL for this bot.
+     * @param id The bot's ID
+     * @param query The query string that will be used in the request
+     */
+    getBotWidget(id: string, query?: object): string
+  }
+
+  /**
    * Represents the Divine Discord Bots service.
    * @see https://divinediscordbots.com/api
    */
