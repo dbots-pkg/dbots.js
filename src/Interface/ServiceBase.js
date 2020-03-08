@@ -28,93 +28,26 @@ class ServiceBase {
   /**
    * Gets a service from a key
    * @param {string} key - The name of the service to get
+   * @param {Array<CustomService>} extras - An array of {@link CustomService}s to include
    * @returns {?ServiceBase}
    */
-  static get(key) {
-    switch (key) {
-    case 'botlistspace':
-    case 'botlist.space':
-    case 'bls': {
-      return BotListSpace;
-    }
-
-    case 'botsfordiscord':
-    case 'botsfordiscord.com':
-    case 'bfd': {
-      return BotsForDiscord;
-    }
-
-    case 'botsondiscord':
-    case 'bots.ondiscord.xyz':
-    case 'bod': {
-      return BotsOnDiscord;
-    }
-
-    case 'carbonitex':
-    case 'carbonitex.net':
-    case 'carbon': {
-      return Carbon;
-    }
-
-    case 'discordappsdev':
-    case 'discordapps.dev':
-    case 'discordapps':
-    case 'dapps': {
-      return DiscordAppsDev;
-    }
-
-    case 'discordboats':
-    case 'discord.boats':
-    case 'dboats': {
-      return DiscordBoats;
-    }
-
-    case 'discordbotlist':
-    case 'discordbotlist.com':
-    case 'dbotlist': {
-      return DiscordBotList;
-    }
-
-    case 'discordbotsgg':
-    case 'discord.bots.gg':
-    case 'botsgg':
-    case 'bots.gg':
-    case 'dbots': {
-      return DiscordBotsGG;
-    }
-
-    case 'discordbotworld':
-    case 'discordbot.world':
-    case 'dbotworld':
-    case 'dbw': {
-      return DiscordBotWorld;
-    }
-
-    case 'divinediscordbots':
-    case 'divinediscordbots.com':
-    case 'divinedbots':
-    case 'divine':
-    case 'ddb': {
-      return DivineDiscordBots;
-    }
-
-    case 'glennbotlist':
-    case 'glennbotlist.xyz':
-    case 'glennbotlist.gg':
-    case 'glenn': {
-      return GlennBotList;
-    }
-
-    case 'topgg':
-    case 'top.gg':
-    case 'top': {
-      return TopGG;
-    }
-
-    default: {
+  static get(key, extras = []) {
+    if (!key || typeof key !== 'string')
       return null;
+    const services = [
+      BotListSpace, BotsForDiscord, BotsOnDiscord, Carbon, DiscordAppsDev,
+      DiscordBoats, DiscordBotList, DiscordBotsGG, DiscordBotWorld, DivineDiscordBots,
+      GlennBotList, TopGG,
+      ...extras
+    ];
+    for (let i = 0, len = services.length; i < len; i++) {
+      const service = services[i];
+      if (!service || !service.aliases || !service.post)
+        continue;
+      if (service.aliases.includes(key.toLowerCase()))
+        return service;
     }
-    }
+    return null;
   }
 
   /**

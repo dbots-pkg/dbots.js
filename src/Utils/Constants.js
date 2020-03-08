@@ -16,7 +16,8 @@
  ^ Uses the client as a parameter.
  * @property {PromiseResolvable} [voiceConnections] The function to use when retrieving the number of active voice connections.
  ^ Uses the client as a parameter.
- * @property {number} [useSharding=true] Whether or not to use a {@link Service}s sharding method when posting.
+ * @property {Array<CustomService>} [customServices] The custom services that the poster will use.
+ * @property {number} [useSharding=true] Whether or not to use a {@link ServiceBase}s sharding method when posting.
  */
 
 /**
@@ -27,20 +28,28 @@
  */
 
 /**
- * A service supported by the package. Here are the available services:
- * * discordbotsgg
- * * topgg
- * * botsfordiscord
- * * botsondiscord
- * * discordappsdev
- * * carbon
- * * discordbotlist
- * * divinediscordbots
- * * discordboats
- * * botlistspace
- * * discordbotworld
- * * glennbotlist
- * @see {@link https://github.com/dbots-pkg/dbots.js/blob/master/src/Interface/ServiceBase.js#L30}
+ * The object that is given to {@link ServiceBase}s and {@link CustomService}s in order to send requests to them.
+ * @typedef {Object} PostRequestData
+ * @param {string} token The Authorization token for the request
+ * @param {string} clientID The client ID that the request will post for
+ * @param {number} serverCount The amount of servers that the client is in
+ * @param {number} userCount The amount of users that the client cached
+ * @param {number} voiceConnections The amount of voice connections the client has
+ * @param {Shard} shard The shard the request is representing
+ */
+
+/**
+ * A mock of a {@link Service} that only consists of the nessessities for a poster to use it.
+ * @typedef {Object} CustomService
+ * @property {Array<string>} aliases The keys that this service can get called from
+ * @property {function} post The function that sends a request with the parameter being a {@link PostRequestData}.
+ * Must return a {@link FormatRequest}.
+ */
+
+/**
+ * A {@link ServiceBase} key supported by the package.
+ * This can also includes keys from {@link CustomService}s and can be `custom` if a {@link Poster} has a custom post function.
+ * @see {@link https://dbots.js.org/#/docs/main/master/general/services}
  * @typedef {string} Service
  */
 

@@ -21,6 +21,12 @@ class Poster {
     this._clientFiller = null;
 
     /**
+     * An array of custom services that the poster uses.
+     * @type {Array<CustomService>}
+     */
+    this.customServices = options.customServices || [];
+
+    /**
      * The options the poster was built with.
      * @type {PosterOptions}
      * @readonly
@@ -155,7 +161,7 @@ class Poster {
     }
     if (!Object.keys(this.options.apiKeys).includes(service))
       return Promise.reject(new Error('SERVICE_WITH_NO_KEY', service));
-    const serviceClass = Service.get(service);
+    const serviceClass = Service.get(service, this.customServices);
     if (!serviceClass)
       return Promise.reject(new Error('INVALID_SERVICE', service));
     return new Promise((resolve, reject) => {
