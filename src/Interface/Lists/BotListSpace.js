@@ -72,7 +72,7 @@ class BotListSpace extends ServiceBase {
   }
 
   /**
-   * Gets the list of people who votes this bot on this service.
+   * Gets the list of people who voted this bot on this service.
    * @param {string} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */

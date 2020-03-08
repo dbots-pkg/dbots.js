@@ -61,7 +61,7 @@ class CloudList extends ServiceBase {
   }
 
   /**
-   * Gets the votes on your bot from this service.
+   * Gets the list of people who voted this bot on this service.
    * @param {string} id The bot's ID
    * @returns {Promise<AxiosResponse>}
    */

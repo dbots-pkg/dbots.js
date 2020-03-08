@@ -265,7 +265,7 @@ declare module 'dbots' {
     getBot(id: string): Promise<AxiosResponse>
 
     /**
-     * Gets the list of people who votes this bot on this service.
+     * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      */
     getBotVotes(id: string): Promise<AxiosResponse>
@@ -321,7 +321,7 @@ declare module 'dbots' {
     getBot(id: string): Promise<AxiosResponse>
 
     /**
-     * Gets the list of people who votes this bot on this service.
+     * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      */
     getBotVotes(id: string): Promise<AxiosResponse>
@@ -443,7 +443,7 @@ declare module 'dbots' {
     getBot(id: string): Promise<AxiosResponse>
 
     /**
-     * Gets the votes on your bot from this service.
+     * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      */
     getBotVotes(id: string): Promise<AxiosResponse>
@@ -731,7 +731,7 @@ declare module 'dbots' {
     getBotStats(id: string): Promise<AxiosResponse>
 
     /**
-     * Gets the list of people who votes this bot on this service.
+     * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      */
     getBotVotes(id: string): Promise<AxiosResponse>
@@ -765,7 +765,7 @@ declare module 'dbots' {
     getBot(id: string): Promise<AxiosResponse>
 
     /**
-     * Gets the list of people who votes this bot on this service.
+     * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      */
     getBotVotes(id: string): Promise<AxiosResponse>
@@ -817,7 +817,7 @@ declare module 'dbots' {
     getBotStats(id: string): Promise<AxiosResponse>
 
     /**
-     * Gets the list of people who votes this bot on this service.
+     * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
