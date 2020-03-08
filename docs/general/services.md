@@ -1,4 +1,4 @@
-# Supported Services (18)
+# Supported Services (19)
 
 <div align=center>
   <p>
@@ -234,6 +234,20 @@ Website: https://divinediscordbots.com
 Keys: `glennbotlist`, `glennbotlist.xyz`, `glennbotlist.gg`, `glenn`  
 Class: [dbots.GlennBotList](/#/docs/main/master/class/GlennBotList)  
 Website: https://glennbotlist.xyz
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://i.olsh.me/icon?size=1..100..500&url=lbots.org" alt="lbots logo" width="100" align="left" />
+  </p>
+  <i id="lbots"></i>
+  <i id="lbotsorg"></i>
+  <i id="lbots.org"></i>
+  <a href="https://lbots.org/"><h1>LBots</h1></a>
+
+Keys: `lbots`, `lbotsorg`, `lbots.org`  
+Class: [dbots.LBots](/#/docs/main/master/class/LBots)  
+Website: https://lbots.org/
 </div>
 
 <div align=center>
