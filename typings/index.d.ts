@@ -393,6 +393,33 @@ declare module 'dbots' {
   }
 
   /**
+   * Represents the Cloud List service
+   * @see https://www.cloudlist.xyz/apidocs
+   */
+  export class CloudList extends ServiceBase {
+    /**
+     * Posts statistics to this service
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     */
+    static post(options: PostOptions): Promise<AxiosResponse>
+
+    /**
+     * Gets the bot listed for this service
+     * @param id The bot's ID.
+     */
+    getBot(id: string): Promise<AxiosResponse>
+
+    /**
+     * Gets the bot votes for your bot
+     * @param id The bot's ID.
+     */
+    getBotVotes(id: string): Promise<AxiosResponse>
+  }
+
+  /**
    * Represents the discordapps.dev's service
    * @see https://discordapps.dev/en-GB/posts/docs/api-v2/
    */

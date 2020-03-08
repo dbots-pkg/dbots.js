@@ -7,6 +7,7 @@ module.exports = {
   BotsOnDiscord: require('./Interface/Lists/BotsOnDiscord'),
   Carbon: require('./Interface/Lists/Carbon'),
   CloudBotList: require('./Interface/Lists/CloudBotList'),
+  CloudList: require('./Interface/Lists/CloudList'),
   DiscordAppsDev: require('./Interface/Lists/DiscordAppsDev'),
   DiscordBoats: require('./Interface/Lists/DiscordBoats'),
   DiscordBotList: require('./Interface/Lists/DiscordBotList'),
