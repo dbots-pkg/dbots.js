@@ -1,4 +1,4 @@
-# Supported Services (16)
+# Supported Services (17)
 
 <div align=center>
   <p>
@@ -100,6 +100,20 @@ Website: https://cloud-botlist.xyz
 Keys: `cloudlist`, `cloudlistxyz`, `cloudlist.xyz`  
 Class: [dbots.CloudList](/#/docs/main/master/class/CloudList)  
 Website: https://www.cloudlist.xyz/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://i.olsh.me/icon?size=1..100..500&url=dblista.pl" alt="dblistapl logo" width="100" align="left" />
+  </p>
+  <i id="dblistapl"></i>
+  <i id="dblista.pl"></i>
+  <i id="dblista"></i>
+  <a href="https://dblista.pl"><h1>DBLista</h1></a>
+
+Keys: `dblistapl`, `dblista.pl`, `dblista`  
+Class: [dbots.DBLista](/#/docs/main/master/class/DBLista)  
+Website: https://dblista.pl
 </div>
 
 <div align=center>
