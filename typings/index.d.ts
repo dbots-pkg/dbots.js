@@ -676,8 +676,11 @@ declare module 'dbots' {
      */
     getUser(id: string): Promise<AxiosResponse>
 
-    /** Gets the list of bots on this service. */
-    getBots(): Promise<AxiosResponse>
+    /**
+     * Gets the list of bots on this service.
+     * @param query The query string that will be used in the request
+     */
+    getBots(query: object): Promise<AxiosResponse>
 
     /**
      * Gets the bot listed on this service.

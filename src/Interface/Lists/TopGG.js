@@ -60,10 +60,11 @@ class TopGG extends ServiceBase {
 
   /**
    * Gets the list of bots on this service.
+   * @param {Object} query The query string that will be used in the request
    * @returns {Promise}
    */
-  getBots() {
-    return this._request({ url: '/bots' });
+  getBots(query) {
+    return this._request({ url: '/bots', params: query });
   }
 
   /**
