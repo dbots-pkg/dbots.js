@@ -1,7 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 type Library = 'discordie' | 'discord.io' | 'discord.js' | 'eris'
-type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'cloudbotList' | 'cloudlist' | 'dblista' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'discordextremelist' | 'divinediscordbots' | 'glennbotlist' | 'lbots' | 'topgg' | 'yabl'
+type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'cloudbotList' | 'cloudlist' | 'dblista' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'discordextremelist' | 'divinediscordbots' | 'glennbotlist' | 'lbots' | 'mythicalbots' | 'topgg' | 'yabl'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
 type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
@@ -893,6 +893,33 @@ declare module 'dbots' {
      * @param options.clientID The client ID that the request will post for
      * @param options.serverCount The amount of servers that the client is in
      * @param options.shard The shard the request is representing
+     */
+    static post(options: PostOptions): Promise<AxiosResponse>
+  }
+
+  /**
+   * Represents the Mythical Bots service.
+   * @see https://docs.mythicalbots.xyz/
+   */
+  export class MythicalBots extends ServiceBase {
+    /**
+     * Gets the bot listed on this service.
+     * @param id The bot's ID
+     */
+    getBot(id: string): Promise<AxiosResponse>
+
+    /**
+     * Gets the user listed on this service.
+     * @param id The user's ID
+     */
+    getUser(id: string): Promise<AxiosResponse>
+
+    /**
+     * Posts statistics to this service.
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<AxiosResponse>
   }
