@@ -68,6 +68,7 @@ class Poster {
    * The client filler used in the poster
    * @private
    * @type {?ClientFiller}
+   * @readonly
    */
   get clientFiller() {
     return this._clientFiller ||
