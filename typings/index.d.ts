@@ -7,21 +7,28 @@ type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
 export class ServiceBase {
   constructor(token: string)
-  baseURL: string
-  static get(name: Service): ServiceBase | null
-  static _post(form: RequestFormat, appendBaseURL?: boolean): Promise<AxiosResponse>
-  _appendQuery(url: string, query: object, appendBaseURL?: boolean): string
+  token: string
+  static readonly aliases: string[]
+  static readonly baseURL: string
+  static readonly logoURL: string
+  static readonly name: string
+  static readonly websiteURL: string
+
+  _appendQuery(url: string, query: query, appendBaseURL?: boolean): string
   _request(form: RequestFormat, options?: ServiceRequestOptions): Promise<AxiosResponse>
+  static _post(form: RequestFormat, appendBaseURL?: boolean): Promise<AxiosResponse>
+  static get(name: Service): ServiceBase | null
 }
 
 export class ClientFiller {
   constructor(client: object)
-  userCount: number
-  serverCount: number
-  voiceConnections: number
-  clientID?: number
-  shard?: number
-  static from(libraryName: string, client: object): AnyClient
+  client: object
+  readonly clientID?: number
+  readonly serverCount: number
+  readonly shard?: number
+  readonly userCount: number
+  readonly voiceConnections: number
+  static get(libraryName: string, client: object): AnyClient
 }
 
 export class Discordie extends ClientFiller {}
@@ -35,7 +42,7 @@ interface RequestFormat extends AxiosRequestConfig {
   url: string
   headers?: object
   data?: object
-  params?: object
+  params?: query
 }
 
 interface ServiceRequestOptions {
@@ -47,6 +54,8 @@ type PartialRecord<K extends keyof any, T> = {
   [P in K]?: T
 }
 type keyFormat = PartialRecord<Service, string>
+
+type query = Record<string, string | number>
 
 interface handlerCollector {
   autopost: Array<(result: object | object[]) => void>
@@ -107,16 +116,23 @@ declare module 'dbots' {
 
   /** A class that posts server count to listing site(s). */
   export class Poster {
-    client?: object
-    clientID: string
-    handlers: handlerCollector
-    options: PosterOptions
+    /** The client filler used in the poster */
+    _clientFiller: ClientFiller | null
+    /** Interval that posts to all services */
     _interval?: NodeJS.Timeout
-    customServices: CustomService[]
+    /** The API keys that the poster is using */
     apiKeys: keyFormat
+    /** The client that will be used to fecth the stats */
+    client?: object
+    /** The client filler used in the poster */
+    readonly clientFiller?: ClientFiller
+    /** An array of custom services that the poster uses */
+    customServices: CustomService[]
+    /** The list of event handlers for every custom event */
+    handlers: handlerCollector
+    /** The options the poster was built with */
+    readonly options: PosterOptions
 
-    /** Internal client property filler. */
-    clientFiller?: ClientFiller
 
     /**
      * A class that posts server count to listing site(s).
@@ -125,10 +141,26 @@ declare module 'dbots' {
     constructor(options: PosterOptions)
 
     /**
+     * Adds an handler for an event
+     * @param event The name of the event to add the handler to
+     * @param handler The function that is run with the event
+     * @returns The array of handlers currently set for that event
+     */
+    addHandler(event: 'autopost' | 'autopostfail', handler: (result: AxiosResponse | AxiosResponse[]) => void): PromiseResolvable[]
+    addHandler(event: 'post' | 'postfail', handler: (result: AxiosResponse) => void): PromiseResolvable[]
+    addHandler(event: CustomEvent, handler: PromiseResolvable): PromiseResolvable[]
+
+    /**
      * Retrieves the current server count of the client/shard
      * @returns Amount of servers the client/shard is in
      */
     getServerCount(): Promise<number>
+
+    /**
+     * Gets a service, autofilling its API key if the poster has it.
+     * @param service The service to get
+     */
+    getService(service: Service): ServiceBase | CustomService
 
     /**
      * Retrieves the current user count of the client/shard
@@ -141,16 +173,6 @@ declare module 'dbots' {
      * @returns Number of active voice connections
      */
     getVoiceConnections(): Promise<number>
-
-    /**
-     * Creates an interval that posts to all services
-     * @param interval The time (in ms) to reach to post to all {link  Service}s again.
-     * @returns The interval that is responsible for posting
-     */
-    startInterval(interval?: number): NodeJS.Timeout
-
-    /** Destroys the current interval */
-    stopInterval(): void
 
     /**
      * Posts the current clients server count to a service
@@ -171,18 +193,6 @@ declare module 'dbots' {
     postManual(service?: Service, counts?: PostCounts): Promise<AxiosResponse | AxiosResponse[]>
 
     /**
-     * Adds an handler for an event
-     * @param event The name of the event to add the handler to
-     * @param handler The function that is run with the event
-     * @returns The array of handlers currently set for that event
-     */
-    addHandler(event: 'autopost', handler: (result: AxiosResponse | AxiosResponse[]) => void): PromiseResolvable[]
-    addHandler(event: 'autopostfail', handler: (error: AxiosResponse | AxiosResponse[]) => void): PromiseResolvable[]
-    addHandler(event: 'post', handler: (result: AxiosResponse) => void): PromiseResolvable[]
-    addHandler(event: 'postfail', handler: (error: AxiosResponse) => void): PromiseResolvable[]
-    addHandler(event: CustomEvent, handler: PromiseResolvable): PromiseResolvable[]
-
-    /**
      * Removes an handler for an event
      * @param event The name of the event to remove the handler from
      * @param handler The function that is run with the event
@@ -200,6 +210,16 @@ declare module 'dbots' {
     runHandlers(event: 'autopost' | 'autopostfail', result: AxiosResponse | AxiosResponse[]): void
     runHandlers(event: 'post' | 'postfail', result: AxiosResponse): void
     runHandlers(event: CustomEvent, ...args: any[]): void
+
+    /**
+     * Creates an interval that posts to all services
+     * @param interval The time (in ms) to reach to post to all {link  Service}s again.
+     * @returns The interval that is responsible for posting
+     */
+    startInterval(interval?: number): NodeJS.Timeout
+
+    /** Destroys the current interval */
+    stopInterval(): void
   }
 
   // #region services
@@ -225,18 +245,6 @@ declare module 'dbots' {
    * @see https://docs.botlist.space/
    */
   export class BotListSpace extends ServiceBase {
-    /**
-     * Posts statistics to this service
-     * @param options The options of the request
-     * @param options.token The Authorization token for the request
-     * @param options.clientID The client ID that the request will post for
-     * @param options.serverCount The amount of servers that the client is in
-     */
-    static post(options: PostOptions): Promise<AxiosResponse>
-
-    /** Gets the statistics of this service */
-    getStatistics(): Promise<AxiosResponse>
-
     /**  Gets a list of bots on this service */
     getBots(): Promise<AxiosResponse>
 
@@ -259,6 +267,17 @@ declare module 'dbots' {
     getBotUptime(id: string): Promise<AxiosResponse>
 
     /**
+     * Gets the widget URL for this bot
+     * @param id The bot's ID.
+     * @param style The style of the widget
+     * @param query The querystring that will be used in the request
+     */
+    getBotWidget(id: string, style?: number, query?: query): string
+
+    /** Gets the statistics of this service */
+    getStatistics(): Promise<AxiosResponse>
+
+    /**
      * Gets the user listed for this service
      * @param id The user's ID.
      */
@@ -271,20 +290,6 @@ declare module 'dbots' {
     getUserBots(id: string): Promise<AxiosResponse>
 
     /**
-     * Gets the widget URL for this bot
-     * @param id The bot's ID.
-     * @param style The style of the widget
-     * @param query The querystring that will be used in the request
-     */
-    getBotWidget(id: string, style?: number, query?: object): string
-  }
-
-  /**
-   * Represents the Bots For Discord service
-   * @see https://docs.botsfordiscord.com/
-   */
-  export class BotsForDiscord extends ServiceBase {
-    /**
      * Posts statistics to this service
      * @param options The options of the request
      * @param options.token The Authorization token for the request
@@ -292,7 +297,13 @@ declare module 'dbots' {
      * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<AxiosResponse>
+  }
 
+  /**
+   * Represents the Bots For Discord service
+   * @see https://docs.botsfordiscord.com/
+   */
+  export class BotsForDiscord extends ServiceBase {
     /**
      * Gets the bot listed for this service
      * @param id The bot's ID.
@@ -304,6 +315,13 @@ declare module 'dbots' {
      * @param id The bot's ID.
      */
     getBotVotes(id: string): Promise<AxiosResponse>
+
+    /**
+     * Gets the widget URL for this bot
+     * @param id The bot's ID.
+     * @param query The querystring that will be used in the request
+     */
+    getBotWidget(id: string, query?: query): string
 
     /**
      * Gets the user listed for this service
@@ -318,19 +336,6 @@ declare module 'dbots' {
     getUserBots(id: string): Promise<AxiosResponse>
 
     /**
-     * Gets the widget URL for this bot
-     * @param id The bot's ID.
-     * @param query The querystring that will be used in the request
-     */
-    getBotWidget(id: string, query?: object): string
-  }
-
-  /**
-   * Represents the Bots On Discord service
-   * @see https://bots.ondiscord.xyz/info/api
-   */
-  export class BotsOnDiscord extends ServiceBase {
-    /**
      * Posts statistics to this service
      * @param options The options of the request
      * @param options.token The Authorization token for the request
@@ -338,7 +343,13 @@ declare module 'dbots' {
      * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<AxiosResponse>
+  }
 
+  /**
+   * Represents the Bots On Discord service
+   * @see https://bots.ondiscord.xyz/info/api
+   */
+  export class BotsOnDiscord extends ServiceBase {
     /**
      * Checks whether or not a user has reviewed a bot
      * @param id The bot's ID.
@@ -351,13 +362,25 @@ declare module 'dbots' {
      * @param id The bot's ID.
      * @param query The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: object): string
+    getBotWidget(id: string, query?: query): string
+
+    /**
+     * Posts statistics to this service
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     */
+    static post(options: PostOptions): Promise<AxiosResponse>
   }
 
   /**
    * Represents the Carbonitex service
    */
   export class Carbon extends ServiceBase {
+    /**  Gets a list of bots on this service */
+    getBots(): Promise<AxiosResponse>
+
     /**
      * Posts statistics to this service
      * @param options The options of the request
@@ -365,9 +388,6 @@ declare module 'dbots' {
      * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<AxiosResponse>
-
-    /**  Gets a list of bots on this service */
-    getBots(): Promise<AxiosResponse>
   }
 
   /**
@@ -375,22 +395,8 @@ declare module 'dbots' {
    * @see https://discordapps.dev/en-GB/posts/docs/api-v2/
    */
   export class DiscordAppsDev extends ServiceBase {
-    /**
-     * Posts statistics to this service
-     * @param options The options of the request
-     * @param options.token The Authorization token for the request (this automatically determines what client its posting for)
-     * @param options.serverCount The amount of servers that the client is in
-     */
-    static post(options: PostOptions): Promise<AxiosResponse>
-
-    /**
-     * Tests the initialized token
-     * @param id The ID of a bot that the token is in control of.
-     */
-    test(id: string): Promise<AxiosResponse>
-
-    /** Gets a list of bots on this service */
-    getBots(): Promise<AxiosResponse>
+    /** Gets a list of applications on this service */
+    getApps(): Promise<AxiosResponse>
 
     /**
      * Gets the bot listed for this service
@@ -398,12 +404,19 @@ declare module 'dbots' {
      */
     getBot(id: string): Promise<AxiosResponse>
 
+    /** Gets a list of bots on this service */
+    getBots(): Promise<AxiosResponse>
+
+    /** Gets a list of RPC applications on this service */
+    getRPCApps(): Promise<AxiosResponse>
+
     /**
-     * Gets the embed picture for this bot
-     * @param id The bot's ID.
-     * @param query The querystring that will be used in the request
+     * Posts statistics to this service
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request (this automatically determines what client its posting for)
+     * @param options.serverCount The amount of servers that the client is in
      */
-    getBotEmbed(id: string, query: object): Promise<AxiosResponse>
+    static post(options: PostOptions): Promise<AxiosResponse>
   }
 
   /**
@@ -412,18 +425,17 @@ declare module 'dbots' {
    */
   export class DiscordBoats extends ServiceBase {
     /**
-     * Posts statistics to this service
-     * @param options The options of the request
-     * @param options.token The Authorization token for the request (this automatically determines what client its posting for)
-     * @param options.serverCount The amount of servers that the client is in
-     */
-    static post(options: PostOptions): Promise<AxiosResponse>
-
-    /**
      * Gets the bot listed for this service
      * @param id The bot's ID.
      */
     getBot(id: string): Promise<AxiosResponse>
+
+    /**
+     * Gets the widget URL for this bot
+     * @param id The bot's ID.
+     * @param query The querystring that will be used in the request
+     */
+    getBotWidget(id: string, query?: query): string
 
     /**
      * Gets the user listed for this service
@@ -439,11 +451,12 @@ declare module 'dbots' {
     userVoted(id: string, userID: string): Promise<AxiosResponse>
 
     /**
-     * Gets the widget URL for this bot
-     * @param id The bot's ID.
-     * @param query The querystring that will be used in the request
+     * Posts statistics to this service
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request (this automatically determines what client its posting for)
+     * @param options.serverCount The amount of servers that the client is in
      */
-    getBotWidget(id: string, query?: object): string
+    static post(options: PostOptions): Promise<AxiosResponse>
   }
 
   /**
@@ -451,6 +464,13 @@ declare module 'dbots' {
    * @see https://discordbotlist.com/api-docs
    */
   export class DiscordBotList extends ServiceBase {
+    /**
+     * Gets the widget URL for this bot
+     * @param id The bot's ID.
+     * @param query The querystring that will be used in the request
+     */
+    getBotWidget(id: string, query?: query): string
+
     /**
      * Posts statistics to this service
      * @param options The options of the request
@@ -462,13 +482,6 @@ declare module 'dbots' {
      * @param options.shard The shard the request is representing
      */
     static post(options: PostOptions): Promise<AxiosResponse>
-
-    /**
-     * Gets the widget URL for this bot
-     * @param id The bot's ID.
-     * @param query The querystring that will be used in the request
-     */
-    getBotWidget(id: string, query?: object): string
   }
 
   /**
@@ -476,6 +489,15 @@ declare module 'dbots' {
    * @see https://discord.bots.gg/docs
    */
   export class DiscordBotsGG extends ServiceBase {
+    /**
+     * Gets the bot listed for this service
+     * @param id The bot's ID.
+     */
+    getBot(id: string, sanitized?: boolean): Promise<AxiosResponse>
+
+    /** Gets a list of bots on this service */
+    getBots(query: any): Promise<AxiosResponse>
+
     /**
      * Posts statistics to this service
      * @param options The options of the request
@@ -485,15 +507,6 @@ declare module 'dbots' {
      * @param options.shard The shard the request is representing
      */
     static post(options: PostOptions): Promise<AxiosResponse>
-
-    /**
-     * Gets the bot listed for this service
-     * @param id The bot's ID.
-     */
-    getBot(id: string, sanitized?: boolean): Promise<AxiosResponse>
-
-    /** Gets a list of bots on this service */
-    getBots(query: any): Promise<AxiosResponse>
   }
 
   /**
@@ -502,22 +515,19 @@ declare module 'dbots' {
    */
   export class DiscordBotWorld extends ServiceBase {
     /**
-     * Posts statistics to this service
-     * @param options The options of the request
-     * @param options.token The Authorization token for the request
-     * @param options.clientID The client ID that the request will post for
-     * @param options.serverCount The amount of servers that the client is in
-     */
-    static post(options: PostOptions): Promise<AxiosResponse>
-
-    /**  Gets a list of bots on this service */
-    getBots(): Promise<AxiosResponse>
-
-    /**
      * Gets the bot listed for this service
      * @param id The bot's ID.
      */
     getBot(id: string): Promise<AxiosResponse>
+
+    /**
+     * Gets the list of people who liked this bot
+     * @param id The bot's ID.
+     */
+    getBotLikes(id: string): Promise<AxiosResponse>
+
+    /**  Gets a list of bots on this service */
+    getBots(): Promise<AxiosResponse>
 
     /**
      * Gets the bot's stats on this service
@@ -526,23 +536,11 @@ declare module 'dbots' {
     getBotStats(id: string): Promise<AxiosResponse>
 
     /**
-     * Gets the list of people who liked this bot
-     * @param id The bot's ID.
-     */
-    getBotLikes(id: string): Promise<AxiosResponse>
-
-    /**
      * Gets the user listed for this service
      * @param id The user's ID.
      */
     getUser(id: string): Promise<AxiosResponse>
-  }
 
-  /**
-   * Represents the divinediscordbots.com's service
-   * @see https://divinediscordbots.com/api
-   */
-  export class DivineDiscordBots extends ServiceBase {
     /**
      * Posts statistics to this service
      * @param options The options of the request
@@ -551,7 +549,13 @@ declare module 'dbots' {
      * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<AxiosResponse>
+  }
 
+  /**
+   * Represents the divinediscordbots.com's service
+   * @see https://divinediscordbots.com/api
+   */
+  export class DivineDiscordBots extends ServiceBase {
     /**
      * Gets the bot stats for your bot
      * @param id The bot's ID.
@@ -569,14 +573,8 @@ declare module 'dbots' {
      * @param id The bot's ID.
      * @param query The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: object): string
-  }
+    getBotWidget(id: string, query?: query): string
 
-  /**
-   * Represents the Glenn Bot List service
-   * @see https://docs.glennbotlist.xyz/
-   */
-  export class GlennBotList extends ServiceBase {
     /**
      * Posts statistics to this service
      * @param options The options of the request
@@ -585,7 +583,13 @@ declare module 'dbots' {
      * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<AxiosResponse>
+  }
 
+  /**
+   * Represents the Glenn Bot List service
+   * @see https://docs.glennbotlist.xyz/
+   */
+  export class GlennBotList extends ServiceBase {
     /**
      * Gets the bot listed for this service
      * @param id The bot's ID.
@@ -599,17 +603,26 @@ declare module 'dbots' {
     getBotVotes(id: string): Promise<AxiosResponse>
 
     /**
+     * Gets the widget URL for this bot
+     * @param id The bot's ID.
+     * @param query The querystring that will be used in the request
+     */
+    getBotWidget(id: string, query?: query): string
+
+    /**
      * Get a user's profile listed on this service
      * @param id The user's ID.
      */
     getProfile(id: string): Promise<AxiosResponse>
 
     /**
-     * Gets the widget URL for this bot
-     * @param id The bot's ID.
-     * @param query The querystring that will be used in the request
+     * Posts statistics to this service
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
      */
-    getBotWidget(id: string, query?: object): string
+    static post(options: PostOptions): Promise<AxiosResponse>
   }
 
   /**
@@ -618,29 +631,13 @@ declare module 'dbots' {
    */
   export class TopGG extends ServiceBase {
     /**
-     * Posts statistics to this service
-     * @param options The options of the request
-     * @param options.token The Authorization token for the request
-     * @param options.clientID The client ID that the request will post for
-     * @param options.serverCount The amount of servers that the client is in
-     * @param options.shard The shard the request is representing
-     */
-    static post(options: PostOptions): Promise<AxiosResponse>
-
-    /**
-     * Gets the user listed for this service
-     * @param id The user's ID.
-     */
-    getUser(id: string): Promise<AxiosResponse>
-
-    /** Gets the list of bots listed for this service */
-    getBots(): Promise<AxiosResponse>
-
-    /**
      * Gets the bot listed for this service
      * @param id The bot's ID.
      */
     getBot(id: string): Promise<AxiosResponse>
+
+    /** Gets the list of bots listed for this service */
+    getBots(): Promise<AxiosResponse>
 
     /**
      * Gets the bot's stats listed on this service
@@ -653,14 +650,30 @@ declare module 'dbots' {
      * @param id The bot's ID.
      * @param query The querystring that will be used in the request
      */
-    getBotVotes(id: string, query: object): Promise<AxiosResponse>
+    getBotVotes(id: string, query: query): Promise<AxiosResponse>
 
     /**
      * Gets the widget URL for this bot
      * @param id The bot's ID.
      * @param query The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: object): string
+    getBotWidget(id: string, query?: query): string
+
+    /**
+     * Gets the user listed for this service
+     * @param id The user's ID.
+     */
+    getUser(id: string): Promise<AxiosResponse>
+
+    /**
+     * Posts statistics to this service
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     * @param options.shard The shard the request is representing
+     */
+    static post(options: PostOptions): Promise<AxiosResponse>
   }
 
   /**
@@ -669,31 +682,10 @@ declare module 'dbots' {
    */
   export class YABL extends ServiceBase {
     /**
-     * Posts statistics to this service
-     * @param options The options of the request
-     * @param options.token The Authorization token for the request
-     * @param options.clientID The client ID that the request will post for
-     * @param options.serverCount The amount of servers that the client is in
-     */
-    static post(options: PostOptions): Promise<AxiosResponse>
-
-    /** Invalidates the token being used in the request */
-    invalidate(): Promise<AxiosResponse>
-
-    /**
      * Gets the bot listed for this service
      * @param id The bot's ID.
      */
     getBot(id: string): Promise<AxiosResponse>
-
-    /** Gets 20 random bots on this service */
-    getRandomBots(): Promise<AxiosResponse>
-
-    /**
-     * Gets the user's bots listed for this service
-     * @param id The user's ID.
-     */
-    getUserBots(id: string): Promise<AxiosResponse>
 
     /** Gets a list of bots on this service */
     getBots(): Promise<AxiosResponse>
@@ -702,10 +694,31 @@ declare module 'dbots' {
      * Gets a page of bots on this service
      * @param query The querystring that will be used in the request
      */
-    getBotsByPage(query: object): Promise<AxiosResponse>
+    getBotsByPage(query: query): Promise<AxiosResponse>
+
+    /** Gets 20 random bots on this service */
+    getRandomBots(): Promise<AxiosResponse>
 
     /** Gets a list of unverified bots on this service */
     getUnverifiedBots(): Promise<AxiosResponse>
+
+    /**
+     * Gets the user's bots listed for this service
+     * @param id The user's ID.
+     */
+    getUserBots(id: string): Promise<AxiosResponse>
+
+    /** Invalidates the token being used in the request */
+    invalidate(): Promise<AxiosResponse>
+
+    /**
+     * Posts statistics to this service
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     */
+    static post(options: PostOptions): Promise<AxiosResponse>
   }
   // #endregion
 
