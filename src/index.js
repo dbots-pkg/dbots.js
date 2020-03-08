@@ -14,6 +14,7 @@ module.exports = {
   DiscordBotList: require('./Interface/Lists/DiscordBotList'),
   DiscordBotsGG: require('./Interface/Lists/DiscordBotsGG'),
   DiscordBotWorld: require('./Interface/Lists/DiscordBotWorld'),
+  DiscordExtremeList: require('./Interface/Lists/DiscordExtremeList'),
   DivineDiscordBots: require('./Interface/Lists/DivineDiscordBots'),
   GlennBotList: require('./Interface/Lists/GlennBotList'),
   TopGG: require('./Interface/Lists/TopGG'),

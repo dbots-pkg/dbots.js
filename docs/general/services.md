@@ -1,4 +1,4 @@
-# Supported Services (17)
+# Supported Services (18)
 
 <div align=center>
   <p>
@@ -188,6 +188,21 @@ Website: https://discordbot.world
 Keys: `discordbotsgg`, `discord.bots.gg`, `botsgg`, `bots.gg`, `dbots`  
 Class: [dbots.DiscordBotsGG](/#/docs/main/master/class/DiscordBotsGG)  
 Website: https://discord.bots.gg
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://get.snaz.in/4KjWg91.png" alt="discordextremelist logo" width="100" align="left" />
+  </p>
+  <i id="discordextremelist"></i>
+  <i id="discordextremelist.xyz"></i>
+  <i id="discordextremelistxyz"></i>
+  <i id="del"></i>
+  <a href="https://discordextremelist.xyz/"><h1>Discord Extreme List</h1></a>
+
+Keys: `discordextremelist`, `discordextremelist.xyz`, `discordextremelistxyz`, `del`  
+Class: [dbots.DiscordExtremeList](/#/docs/main/master/class/DiscordExtremeList)  
+Website: https://discordextremelist.xyz/
 </div>
 
 <div align=center>
