@@ -22,5 +22,8 @@ module.exports = {
   Constants: require('./Utils/Constants'),
   EnsurePromise: require('./Utils/EnsurePromise'),
   FormatRequest: require('./Utils/FormatRequest'),
+  DBotsError: require('./Utils/DBotsError'),
+
+  ServiceBase: require('./Interface/ServiceBase'),
   getService: require('./Interface/ServiceBase').get
 };
