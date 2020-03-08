@@ -1,7 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 type Library = 'discordie' | 'discord.io' | 'discord.js' | 'eris'
-type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'cloudbotList' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'divinediscordbots' | 'glennbotlist' | 'topgg' | 'yabl'
+type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'cloudbotList' | 'cloudlist' | 'dblista' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'divinediscordbots' | 'glennbotlist' | 'topgg' | 'yabl'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
 type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
@@ -417,6 +417,73 @@ declare module 'dbots' {
      * @param id The bot's ID
      */
     getBotVotes(id: string): Promise<AxiosResponse>
+  }
+
+  /**
+   * Represents the DBLista service.
+   * @see https://docs.dblista.pl/
+   */
+  export class DBLista extends ServiceBase {
+    /**
+     * This service does not support posting.
+     * The promise returned will be rejected with an error.
+     */
+    static post(): Promise<Error>
+
+    /**
+     * Adds a bot to the service.
+     * @param data The data being posted. This should include the ID of the bot
+     */
+    addBot(data: object): Promise<AxiosResponse>
+
+    /**
+     * Updates the bot's listing with the data provided.
+     * @param data The data being posted. This should include the ID of the bot
+     */
+    updateBot(data: object): Promise<AxiosResponse>
+
+    /**
+     * Gets the bot listed on this service.
+     * @param id The bot's ID
+     */
+    getBot(id: string): Promise<AxiosResponse>
+
+    /**
+     * Gets a list of bots on this service.
+     * @param page The page you want to get
+     */
+    getBots(page?: number): Promise<AxiosResponse>
+
+    /** Gets a list of unverified bots on this service. */
+    getUnverifiedBots(): Promise<AxiosResponse>
+
+    /** Gets a list of rejected bots on this service. */
+    getRejectedBots(): Promise<AxiosResponse>
+
+    /**
+     * Adds a rating to a bot on the service.
+     * @param id The bot's ID
+     * @param data The data being posted. This should include the ID of the bot
+     */
+    rateBot(id: string, data: object): Promise<AxiosResponse>
+
+    /**
+     * Removes a rating from a bot on the service.
+     * @param id The bot's ID
+     */
+    removeRating(id: string): Promise<AxiosResponse>
+
+    /**
+     * Removes a bot from the service.
+     * @param id The bot's ID
+     */
+    removeBot(id: string): Promise<AxiosResponse>
+
+    /**
+     *Searches for bots on the service.
+     * @param query The query to search for
+     */
+    search(query: string): Promise<AxiosResponse>
   }
 
   /**

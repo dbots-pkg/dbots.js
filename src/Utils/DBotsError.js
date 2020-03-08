@@ -16,6 +16,8 @@ const messages = new Map({
 
   HANDLER_INVALID: 'Given handler is not a PromiseResolvable.',
   UNSUPPORTED_EVENT: action => `Can't ${action} handler for an unsupported event.`,
+
+  POSTING_UNSUPPORTED: service => `The service ${service} does not support posting.`,
 });
 
 /**
