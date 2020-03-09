@@ -19,6 +19,7 @@ module.exports = {
   GlennBotList: require('./Interface/Lists/GlennBotList'),
   LBots: require('./Interface/Lists/LBots'),
   MythicalBots: require('./Interface/Lists/MythicalBots'),
+  SpaceBotsList: require('./Interface/Lists/SpaceBotsList'),
   TopGG: require('./Interface/Lists/TopGG'),
   WonderBotList: require('./Interface/Lists/WonderBotList'),
   YABL: require('./Interface/Lists/YABL'),

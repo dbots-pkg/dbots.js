@@ -1,7 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 type Library = 'discordie' | 'discord.io' | 'discord.js' | 'eris'
-type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'cloudbotList' | 'cloudlist' | 'dblista' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'discordextremelist' | 'divinediscordbots' | 'glennbotlist' | 'lbots' | 'mythicalbots' | 'topgg' | 'wonderbotlist' | 'yabl'
+type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'cloudbotList' | 'cloudlist' | 'dblista' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'discordextremelist' | 'divinediscordbots' | 'glennbotlist' | 'lbots' | 'mythicalbots' | 'spacebotslist' | 'topgg' | 'wonderbotlist' | 'yabl'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
 type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 
@@ -922,6 +922,28 @@ declare module 'dbots' {
      * @param options.serverCount The amount of servers that the client is in
      */
     static post(options: PostOptions): Promise<AxiosResponse>
+  }
+
+  /**
+   * Represents the Space Bots List service.
+   * @see https://spacebots.gitbook.io/tutorial-en/
+   */
+  export class SpaceBotsList extends ServiceBase {
+    /**
+     * Posts statistics to this service.
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request
+     * @param options.clientID The client ID that the request will post for
+     * @param options.serverCount The amount of servers that the client is in
+     * @param options.userCount The amount of users that the client cached
+     */
+    static post(options: PostOptions): Promise<AxiosResponse>
+
+    /**
+     * Gets the bot listed on this service.
+     * @param id The bot's ID
+     */
+    getBot(id: string): Promise<AxiosResponse>
   }
 
   /**
