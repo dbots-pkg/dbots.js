@@ -20,6 +20,7 @@ module.exports = {
   LBots: require('./Interface/Lists/LBots'),
   MythicalBots: require('./Interface/Lists/MythicalBots'),
   TopGG: require('./Interface/Lists/TopGG'),
+  WonderBotList: require('./Interface/Lists/WonderBotList'),
   YABL: require('./Interface/Lists/YABL'),
 
   Constants: require('./Utils/Constants'),
