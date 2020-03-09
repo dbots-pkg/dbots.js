@@ -1,4 +1,4 @@
-# Supported Services (19)
+# Supported Services (22)
 
 <div align=center>
   <p>
@@ -252,6 +252,38 @@ Website: https://lbots.org/
 
 <div align=center>
   <p>
+    <img src="https://get.snaz.in/2PGqLVM.png" alt="mythicalbots logo" width="100" align="left" />
+  </p>
+  <i id="mythicalbots"></i>
+  <i id="mythicalbots.xyz"></i>
+  <i id="mythicalbotsxyz"></i>
+  <i id="mythical"></i>
+  <a href="https://mythicalbots.xyz/"><h1>Mythical Bots</h1></a>
+
+Keys: `mythicalbots`, `mythicalbots.xyz`, `mythicalbotsxyz`, `mythical`  
+Class: [dbots.MythicalBots](/#/docs/main/master/class/MythicalBots)  
+Website: https://mythicalbots.xyz/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://get.snaz.in/334CtqK.jpg" alt="spacebotslist logo" width="100" align="left" />
+  </p>
+  <i id="spacebotslist"></i>
+  <i id="spacebotlist"></i>
+  <i id="spacebots"></i>
+  <i id="space-bot-list.org"></i>
+  <i id="space"></i>
+  <i id="sbl"></i>
+  <a href="https://space-bot-list.org/"><h1>Space Bots List</h1></a>
+
+Keys: `spacebotslist`, `spacebotlist`, `spacebots`, `space-bot-list.org`, `space`, `sbl`  
+Class: [dbots.SpaceBotsList](/#/docs/main/master/class/SpaceBotsList)  
+Website: https://space-bot-list.org/
+</div>
+
+<div align=center>
+  <p>
     <img src="https://top.gg/images/dblnew.png" alt="topgg logo" width="100" align="left" />
   </p>
   <i id="topgg"></i>
@@ -262,6 +294,22 @@ Website: https://lbots.org/
 Keys: `topgg`, `top.gg`, `top`  
 Class: [dbots.TopGG](/#/docs/main/master/class/TopGG)  
 Website: https://top.gg
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://get.snaz.in/8Jk3EJg.png" alt="wonderbotlist logo" width="100" align="left" />
+  </p>
+  <i id="wonderbotlist"></i>
+  <i id="wonderbotlist.com"></i>
+  <i id="wonderbotlistcom"></i>
+  <i id="wonder"></i>
+  <i id="wbl"></i>
+  <a href="https://wonderbotlist.com/en"><h1>Wonder Bot List</h1></a>
+
+Keys: `wonderbotlist`, `wonderbotlist.com`, `wonderbotlistcom`, `wonder`, `wbl`  
+Class: [dbots.WonderBotList](/#/docs/main/master/class/WonderBotList)  
+Website: https://wonderbotlist.com/en
 </div>
 
 <div align=center>
