@@ -1,7 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 type Library = 'discordie' | 'discord.io' | 'discord.js' | 'eris'
-type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'cloudbotList' | 'cloudlist' | 'dblista' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'discordextremelist' | 'divinediscordbots' | 'glennbotlist' | 'lbots' | 'mythicalbots' | 'spacebotslist' | 'topgg' | 'wonderbotlist' | 'yabl'
+type Service = 'arcane' | 'botlistspace' | 'botsfordiscord' | 'botsondiscord' | 'carbon' | 'cloudbotList' | 'cloudlist' | 'dblista' | 'discordappsdev' | 'discordboats' | 'discordbotlist' | 'discordbotsgg' | 'discordbotworld' | 'discordextremelist' | 'divinediscordbots' | 'glennbotlist' | 'lbots' | 'listmybots' | 'mythicalbots' | 'spacebotslist' | 'topgg' | 'wonderbotlist' | 'yabl'
 type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
 type AnyClient = Discordie | DiscordIO | DiscordJS | Eris
 type IDResolvable = string | number | object
@@ -844,6 +844,44 @@ declare module 'dbots' {
      * @param data The data being posted
      */
     updatePanelGuildSettings(id: IDResolvable, guildID: IDResolvable, data: object): Promise<AxiosResponse>
+  }
+
+  /**
+   * Represents the List My Bots service.
+   */
+  export class ListMyBots extends ServiceBase {
+    /**
+     * Gets the bot listed on this service.
+     * @param id The bot's ID.
+     */
+    getBot(id: IDResolvable): Promise<AxiosResponse>
+
+    /** Gets the bot's info based on the token. */
+    getCurrentBot(): Promise<AxiosResponse>
+
+    /**
+     * Gets the user listed on this service.
+     * @param id The user's ID
+     */
+    getUser(id: IDResolvable): Promise<AxiosResponse>
+
+    /** Gets the statistics of this service. */
+    getStatistics(): Promise<AxiosResponse>
+
+    /**
+     * Checks whether or not a user has voted for a bot on this service.
+     * @param id The bot's ID
+     * @param userID The user's ID
+     */
+    userVoted(id: IDResolvable, userID: IDResolvable): Promise<AxiosResponse>
+
+    /**
+     * Posts statistics to this service.
+     * @param options The options of the request
+     * @param options.token The Authorization token for the request (this automatically determines what client its posting for)
+     * @param options.serverCount The amount of servers that the client is in
+     */
+    static post(options: PostOptions): Promise<AxiosResponse>
   }
 
   /**
