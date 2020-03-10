@@ -11,7 +11,7 @@ const { Package } = require('./Constants');
 */
 
 /**
- * @typedef {Object} AxiosResponse
+ * @typedef {Object.<string, any>} AxiosResponse
  * @see {@link https://github.com/axios/axios#response-schema}
  */
 

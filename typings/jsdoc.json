@@ -1,0 +1,8 @@
+{
+  "opts": {
+    "template": "./node_modules/tsd-jsdoc/dist"
+  },
+  "plugins": [
+    "node_modules/jsdoc-typeof-plugin"
+  ]
+}

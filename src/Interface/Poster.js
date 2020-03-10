@@ -58,7 +58,7 @@ class Poster {
 
     /**
      * The list of event handlers for every custom event
-     * @type {Object.<CustomEvent, Array<PromiseResolvable>>}
+     * @type {Record<CustomEvent, Array<PromiseResolvable>>}
      */
     this.handlers = {};
     for (const event of Constants.SupportedEvents) this.handlers[event] = [];
@@ -120,7 +120,7 @@ class Poster {
   /**
     * Creates an interval that posts to all services.
     * @param {number} interval The time (in ms) to reach to post to all {@link Service}s again
-    * @returns {Interval} The interval that is responsible for posting
+    * @returns {NodeJS.Timeout} The interval that is responsible for posting
     */
   startInterval(interval = 1800000) {
     clearTimeout(this._interval);
@@ -183,7 +183,8 @@ class Poster {
     * @param {number} [counts.voiceConnections] The voice connection count to post to the service
     * @returns {Promise<Object|Array<Object>>} The result(s) of the post
     */
-  postManual(service = 'all', { serverCount, userCount, voiceConnections } = {}) {
+  postManual(service, { serverCount, userCount, voiceConnections } = {}) {
+    if (!service) service = 'all';
     if (!this.apiKeys && !this.options.post)
       return Promise.reject(new Error('NO_API_KEYS'));
     if (service === 'custom') 

@@ -1,7 +1,7 @@
 /**
  * Options for a poster.
  * @typedef {Object} PosterOptions
- * @property {Object.<Service, string>} [apiKeys] An object that pairs a {@link Service} with their token
+ * @property {Record<Service, string>} [apiKeys] An object that pairs a {@link Service} with their token
  * @property {Object} [client] The client that a supported {@link Library} uses to manage the Discord application.
  * Requires {@link #clientLibrary} to be present
  * @property {string} [clientID] The client ID used for posting to a {@link Service}.

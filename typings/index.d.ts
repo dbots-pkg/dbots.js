@@ -884,9 +884,7 @@ declare class Poster {
     /**
      * The list of event handlers for every custom event
      */
-    handlers: {
-        [key: CustomEvent]: PromiseResolvable[];
-    }
+    handlers: Record<CustomEvent, PromiseResolvable[]>
     /**
      * Retrieves the current server count of the client/shard.
      * @returns Amount of servers the client/shard is in
@@ -907,7 +905,7 @@ declare class Poster {
      * @param interval - The time (in ms) to reach to post to all {@link Service}s again
      * @returns The interval that is responsible for posting
      */
-    startInterval(interval?: number): Interval
+    startInterval(interval?: number): NodeJS.Timeout
     /**
      * Destroys the current interval.
      */
@@ -931,7 +929,7 @@ declare class Poster {
      * @param [counts.voiceConnections] - The voice connection count to post to the service
      * @returns The result(s) of the post
      */
-    postManual(service?: Service | "all", counts: {
+    postManual(service: Service | "all", counts: {
         serverCount: number;
         userCount?: number;
         voiceConnections?: number;
@@ -998,9 +996,7 @@ declare class ServiceBase {
  * @property [useSharding = true] - Whether or not to use a {@link ServiceBase}s sharding method when posting
  */
 declare interface PosterOptions {
-    apiKeys?: {
-        [key: Service]: string;
-    }
+    apiKeys?: Record<Service, string>
     client?: any
     clientID?: string
     clientLibrary?: Library
@@ -1076,11 +1072,18 @@ declare type Library = string
  */
 declare type CustomEvent = string
 
+declare class DBotsError extends Error {
+    constructor(key: string, args: any[]);
+    name: string
+    code: string
+}
+
 /**
  * Extend an error of some sort into a DiscordjsError.
  * @param Base - Base error to extend
+ * @returns The resulting class (as a class, not an instance)
  */
-declare function makeDbotsError(Base: Error): DBotsError
+declare function makeDbotsError(Base: typeof Error): typeof DBotsError
 
 /**
  * Format the message for an error.
@@ -1102,7 +1105,9 @@ declare function register(sym: string, val: any): void
  */
 declare type PromiseResolvable = (() => void) | Promise<string>
 
-declare type AxiosResponse = any
+declare interface AxiosResponse {
+    [key: string]: any
+}
 
 /**
  * Returns a request.
@@ -1147,7 +1152,7 @@ declare class Util {
  * * A number
  * * Any value with an `id` key
  */
-declare type IDResolvable = string | number | any
+declare type IDResolvable = string | number | Record<"id", string>
 
 /**
  * Data that can be resolved to give a finite and positive integer.
