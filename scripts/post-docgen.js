@@ -7,7 +7,7 @@ const replaceMap = {
 };
 
 const docsPath = path(__dirname, '../docs/docs.json');
-const originalDocs = fs.readFileSync(docsPath, { encoding: 'utf8 '});
+const originalDocs = fs.readFileSync(docsPath, { encoding: 'utf8' });
 
 var docs = originalDocs;
 
