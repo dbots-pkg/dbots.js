@@ -9,6 +9,7 @@ on:
       - "docs/**"
       - ".github/workflows/deployment.yml"
       - "scripts/docs.js"
+      - "package.json"
 
 jobs:
   docs:
