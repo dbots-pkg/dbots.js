@@ -419,39 +419,6 @@ export class DiscordBotList extends ServiceBase {
 }
 
 /**
- * Represents the Discord Bots service.
- * @param token - The token/key for the service
- */
-export class DiscordBotsGG extends ServiceBase {
-    constructor(token: string);
-    /**
-     * Posts statistics to this service.
-     * @param options - The options of the request
-     * @param options.token - The Authorization token for the request
-     * @param options.clientID - The client ID that the request will post for
-     * @param options.serverCount - The amount of servers that the client is in
-     * @param options.shard - The shard the request is representing
-     */
-    static post(options: {
-        token: string;
-        clientID: IDResolvable;
-        serverCount: CountResolvable;
-        shard: Shard;
-    }): Promise<AxiosResponse>
-    /**
-     * Gets the bot listed on this service.
-     * @param id - The bot's ID
-     * @param [sanitized = false] - Whether to sanitize descriptions
-     */
-    getBot(id: IDResolvable, sanitized?: boolean): Promise<AxiosResponse>
-    /**
-     * Gets a list of bots on this service.
-     * @param [query] - The query string that will be used in the request
-     */
-    getBots(query?: Query): Promise<AxiosResponse>
-}
-
-/**
  * Represents the Discord Bot World service.
  * @param token - The token/key for the service
  */
@@ -493,6 +460,39 @@ export class DiscordBotWorld extends ServiceBase {
      * @param id - The user's ID
      */
     getUser(id: IDResolvable): Promise<AxiosResponse>
+}
+
+/**
+ * Represents the Discord Bots service.
+ * @param token - The token/key for the service
+ */
+export class DiscordBotsGG extends ServiceBase {
+    constructor(token: string);
+    /**
+     * Posts statistics to this service.
+     * @param options - The options of the request
+     * @param options.token - The Authorization token for the request
+     * @param options.clientID - The client ID that the request will post for
+     * @param options.serverCount - The amount of servers that the client is in
+     * @param options.shard - The shard the request is representing
+     */
+    static post(options: {
+        token: string;
+        clientID: IDResolvable;
+        serverCount: CountResolvable;
+        shard: Shard;
+    }): Promise<AxiosResponse>
+    /**
+     * Gets the bot listed on this service.
+     * @param id - The bot's ID
+     * @param [sanitized = false] - Whether to sanitize descriptions
+     */
+    getBot(id: IDResolvable, sanitized?: boolean): Promise<AxiosResponse>
+    /**
+     * Gets a list of bots on this service.
+     * @param [query] - The query string that will be used in the request
+     */
+    getBots(query?: Query): Promise<AxiosResponse>
 }
 
 /**
