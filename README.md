@@ -8,6 +8,7 @@
     <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/v/dbots.svg?maxAge=3600" alt="NPM version" /></a>
     <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/dt/dbots.svg?maxAge=3600" alt="NPM downloads" /></a>
     <a href="https://david-dm.org/dbots-pkg/dbots.js"><img src="https://img.shields.io/david/dbots-pkg/dbots.js.svg?maxAge=3600" alt="Dependencies" /></a>
+    <br/>
     <a href="https://github.com/dbots-pkg/dbots.js/actions?query=workflow%3A%22Source+code+linting%22"><img src="https://github.com/dbots-pkg/dbots.js/workflows/Source%20code%20linting/badge.svg" alt="Linting state" /></a>
     <a href="https://github.com/dbots-pkg/dbots.js/actions?query=workflow%3A%22TS+definitions%22"><img src="https://github.com/dbots-pkg/dbots.js/workflows/TS%20definitions/badge.svg" alt="Typings state" /></a>
   </p>
