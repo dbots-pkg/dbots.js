@@ -1,4 +1,4 @@
-name: Update TS definitions
+name: TS definitions
 on:
   push:
     branches:
