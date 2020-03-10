@@ -858,6 +858,13 @@ declare module 'dbots' {
     getBot(id: string): Promise<AxiosResponse>
 
     /**
+     * Gets the widget URL for this bot.
+     * @param id The bot's ID
+     * @param query The query string that will be used in the request
+     */
+    getBotWidget(id: string, query?: query): string
+
+    /**
      * Gets the user listed on this service.
      * @param id The user's ID
      */
