@@ -13,7 +13,7 @@ class Util {
    * * A string
    * * A number
    * * Any value with an `id` key
-   * @typedef {string|number|Object} IDResolvable
+   * @typedef {string|number|object} IDResolvable
    */
 
   /**

@@ -10,6 +10,11 @@ const { Package } = require('./Constants');
 }
 */
 
+/**
+ * @typedef {Object} AxiosResponse
+ * @see {@link https://github.com/axios/axios#response-schema}
+ */
+
 /** 
  * Returns a request.
  * @param {Object} options An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
@@ -20,7 +25,7 @@ const { Package } = require('./Constants');
  * @param {Object.<string, string|number>} options.params The query parameters for the request
  * @returns {Promise<AxiosResponse>} The request
  */
-module.exports = function FormatRequest(options) {
+function FormatRequest(options) {
   if (!options.method) options.method = 'get';
   if (options.body) {
     options.data = options.body;
@@ -38,4 +43,6 @@ module.exports = function FormatRequest(options) {
   else
     options.headers['User-Agent'] = userAgent;
   return axios(options);
-};
+}
+
+module.exports = FormatRequest;

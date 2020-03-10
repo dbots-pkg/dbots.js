@@ -13,8 +13,10 @@
     "eslint": "eslint ./src",
     "eslint:fix": "eslint ./src --fix",
     "gpr-setup": "node scripts/gpr.js",
+    "tsd-jsdoc": "jsdoc -t node_modules/tsd-jsdoc/dist -r src",
     "tslint": "tslint ./typings/*.d.ts",
     "tslint:fix": "tslint ./typings/*.d.ts --fix",
+    "types": "npm run tsd-jsdoc && mv out/types.d.ts typings/index.d.ts && rm out --dir && npm run tslint:fix",
     "webpack": "webpack",
     "prepublishOnly": "npm run eslint:fix && npm run tslint:fix && NODE_ENV=production npm run webpack"
   },
@@ -42,6 +44,7 @@
     "dtslint": "^3.3.0",
     "eslint": "^6.5.1",
     "terser-webpack-plugin": "^2.3.5",
+    "tsd-jsdoc": "github:EndBug/tsd-jsdoc",
     "tslint": "^6.0.0",
     "typescript": "^3.8.3",
     "webpack": "^4.42.0",

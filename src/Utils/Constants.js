@@ -1,7 +1,7 @@
 /**
  * Options for a poster.
  * @typedef {Object} PosterOptions
- * @property {Object} [apiKeys] An object that pairs a {@link Service} with their token
+ * @property {Object.<Service, string>} [apiKeys] An object that pairs a {@link Service} with their token
  * @property {Object} [client] The client that a supported {@link Library} uses to manage the Discord application.
  * Requires {@link #clientLibrary} to be present
  * @property {string} [clientID] The client ID used for posting to a {@link Service}.
@@ -53,6 +53,10 @@
  * This can also includes keys from {@link CustomService}s and can be `custom` if a {@link Poster} has a custom post function.
  * @see {@link https://dbots.js.org/#/docs/main/master/general/services}
  * @typedef {string} Service
+ */
+
+/**
+ * @typedef
  */
 
 /**

@@ -9,6 +9,8 @@
       true,
       "spaces"
     ],
+    "no-redundant-jsdoc": false,
+    "no-unnecessary-class": false,
     "strict-export-declare-modifiers": false
   }
 }
