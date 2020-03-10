@@ -68,13 +68,13 @@ interface handlerCollector {
 }
 
 interface PostCounts {
-  serverCount: number
-  userCount?: number
-  voiceConnections?: number
+  serverCount: CountResolvable
+  userCount?: CountResolvable
+  voiceConnections?: CountResolvable
 }
 
 interface PostOptions extends PostCounts {
-  clientID: string
+  clientID: IDResolvable
   token: string
   shard?: Shard
 }
@@ -265,19 +265,19 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the uptime of a bot listed on this service.
      * @param id The bot's ID
      */
-    getBotUptime(id: string): Promise<AxiosResponse>
+    getBotUptime(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      */
-    getBotVotes(id: string): Promise<AxiosResponse>
+    getBotVotes(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the widget URL for this bot
@@ -285,7 +285,7 @@ declare module 'dbots' {
      * @param style The style of the widget
      * @param query The querystring that will be used in the request
      */
-    getBotWidget(id: string, style?: number, query?: query): string
+    getBotWidget(id: IDResolvable, style?: CountResolvable, query?: query): string
 
     /** Gets the statistics of this service. */
     getStatistics(): Promise<AxiosResponse>
@@ -294,13 +294,13 @@ declare module 'dbots' {
      * Gets the user listed on this service.
      * @param id The user's ID
      */
-    getUser(id: string): Promise<AxiosResponse>
+    getUser(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the user's bots listed for this service.
      * @param id The user's ID
      */
-    getUserBots(id: string): Promise<AxiosResponse>
+    getUserBots(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -321,32 +321,32 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      */
-    getBotVotes(id: string): Promise<AxiosResponse>
+    getBotVotes(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the widget URL for this bot
      * @param id The bot's ID.
      * @param query The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: query): string
+    getBotWidget(id: IDResolvable, query?: query): string
 
     /**
      * Gets the user listed on this service.
      * @param id The user's ID
      */
-    getUser(id: string): Promise<AxiosResponse>
+    getUser(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the user's bots listed for this service.
      * @param id The user's ID
      */
-    getUserBots(id: string): Promise<AxiosResponse>
+    getUserBots(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -368,14 +368,14 @@ declare module 'dbots' {
      * @param id The bot's ID
      * @param userId The user's ID
      */
-    checkReview(id: string, userId: string): Promise<AxiosResponse>
+    checkReview(id: IDResolvable, userId: string): Promise<AxiosResponse>
 
     /**
      * Gets the widget URL for this bot.
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotWidget(id: string, query?: query): string
+    getBotWidget(id: IDResolvable, query?: query): string
 
     /**
      * Posts statistics to this service
@@ -412,7 +412,7 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -434,13 +434,13 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      */
-    getBotVotes(id: string): Promise<AxiosResponse>
+    getBotVotes(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -467,13 +467,13 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets a list of bots on this service.
      * @param page The page you want to get
      */
-    getBots(page?: number): Promise<AxiosResponse>
+    getBots(page?: CountResolvable): Promise<AxiosResponse>
 
     /** Gets a list of rejected bots on this service. */
     getRejectedBots(): Promise<AxiosResponse>
@@ -486,19 +486,19 @@ declare module 'dbots' {
      * @param id The bot's ID
      * @param data The data being posted. This should include the ID of the bot
      */
-    rateBot(id: string, data: object): Promise<AxiosResponse>
+    rateBot(id: IDResolvable, data: object): Promise<AxiosResponse>
 
     /**
      * Removes a bot from the service.
      * @param id The bot's ID
      */
-    removeBot(id: string): Promise<AxiosResponse>
+    removeBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Removes a rating from a bot on the service.
      * @param id The bot's ID
      */
-    removeRating(id: string): Promise<AxiosResponse>
+    removeRating(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Searches for bots on the service.
@@ -531,7 +531,7 @@ declare module 'dbots' {
      * Gets the bot listed for this service
      * @param id The bot's ID.
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /** Gets a list of RPC applications on this service. */
     getRPCApps(): Promise<AxiosResponse>
@@ -541,7 +541,7 @@ declare module 'dbots' {
      * @param id The bot's ID
      * @param data The data being posted
      */
-    updateBot(id: string, data: object): Promise<AxiosResponse>
+    updateBot(id: IDResolvable, data: object): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service
@@ -561,27 +561,27 @@ declare module 'dbots' {
      * Gets the bot listed for this service
      * @param id The bot's ID.
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the widget URL for this bot
      * @param id The bot's ID.
      * @param query The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: query): string
+    getBotWidget(id: IDResolvable, query?: query): string
 
     /**
      * Gets the user listed on this service.
      * @param id The user's ID
      */
-    getUser(id: string): Promise<AxiosResponse>
+    getUser(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Checks whether or not a user has voted for a bot on this service.
      * @param id The bot's ID
      * @param userID The user's ID
      */
-    userVoted(id: string, userID: string): Promise<AxiosResponse>
+    userVoted(id: IDResolvable, userID: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -602,7 +602,7 @@ declare module 'dbots' {
      * @param id The bot's ID.
      * @param query The querystring that will be used in the request
      */
-    getBotWidget(id: string, query?: query): string
+    getBotWidget(id: IDResolvable, query?: query): string
 
     /**
      * Posts statistics to this service.
@@ -627,7 +627,7 @@ declare module 'dbots' {
      * @param id The bot's ID
      * @param sanitized Whether to sanitize descriptions
      */
-    getBot(id: string, sanitized?: boolean): Promise<AxiosResponse>
+    getBot(id: IDResolvable, sanitized?: boolean): Promise<AxiosResponse>
 
     /** Gets a list of bots on this service. */
     getBots(query: any): Promise<AxiosResponse>
@@ -652,13 +652,13 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the list of people who liked this bot on this service.
      * @param id The bot's ID
      */
-    getBotLikes(id: string): Promise<AxiosResponse>
+    getBotLikes(id: IDResolvable): Promise<AxiosResponse>
 
     /**  Gets a list of bots on this service */
     getBots(): Promise<AxiosResponse>
@@ -667,13 +667,13 @@ declare module 'dbots' {
      * Gets the bot's stats on this service.
      * @param id The bot's ID
      */
-    getBotStats(id: string): Promise<AxiosResponse>
+    getBotStats(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the user listed on this service.
      * @param id The user's ID
      */
-    getUser(id: string): Promise<AxiosResponse>
+    getUser(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -694,14 +694,14 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the widget URL for this bot.
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotWidget(id: string, query?: object): string
+    getBotWidget(id: IDResolvable, query?: object): string
 
     /** Gets the statistics of this service. */
     getStatistics(): Promise<AxiosResponse>
@@ -710,7 +710,7 @@ declare module 'dbots' {
      * Gets the user listed on this service.
      * @param id The user's ID
      */
-    getUser(id: string): Promise<AxiosResponse>
+    getUser(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -731,20 +731,20 @@ declare module 'dbots' {
      * Gets the statistics of your bot on this service.
      * @param id The bot's ID
      */
-    getBotStats(id: string): Promise<AxiosResponse>
+    getBotStats(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      */
-    getBotVotes(id: string): Promise<AxiosResponse>
+    getBotVotes(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the widget URL for this bot.
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotWidget(id: string, query?: query): string
+    getBotWidget(id: IDResolvable, query?: query): string
 
     /**
      * Posts statistics to this service.
@@ -765,26 +765,26 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      */
-    getBotVotes(id: string): Promise<AxiosResponse>
+    getBotVotes(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the widget URL for this bot.
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotWidget(id: string, query?: query): string
+    getBotWidget(id: IDResolvable, query?: query): string
 
     /**
      * Get a user's profile listed on this service
      * @param id The user's ID.
      */
-    getProfile(id: string): Promise<AxiosResponse>
+    getProfile(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -805,20 +805,20 @@ declare module 'dbots' {
      * Gets the list of people who favorited this bot on this service.
      * @param id The bot's ID
      */
-    getBotFavorites(id: string): Promise<AxiosResponse>
+    getBotFavorites(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets a guilds settings from the bot's panel.
      * @param id The bot's ID
      * @param guildID The guild's ID
      */
-    getPanelGuildSettings(id: string, guildID: string): Promise<AxiosResponse>
+    getPanelGuildSettings(id: IDResolvable, guildID: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Invalidates the token being used in the request.
      * @param id The bot's ID
      */
-    invalidate(id: string): Promise<AxiosResponse>
+    invalidate(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -835,7 +835,7 @@ declare module 'dbots' {
      * @param id The bot's ID
      * @param data The data being posted
      */
-    updatePanelGuilds(id: string, data: object): Promise<AxiosResponse>
+    updatePanelGuilds(id: IDResolvable, data: object): Promise<AxiosResponse>
 
     /**
      * Gets a guilds settings from the bot's panel.
@@ -843,7 +843,7 @@ declare module 'dbots' {
      * @param guildID The guild's ID
      * @param data The data being posted
      */
-    updatePanelGuildSettings(id: string, guildID: string, data: object): Promise<AxiosResponse>
+    updatePanelGuildSettings(id: IDResolvable, guildID: IDResolvable, data: object): Promise<AxiosResponse>
   }
 
   /**
@@ -855,20 +855,20 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the widget URL for this bot.
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotWidget(id: string, query?: query): string
+    getBotWidget(id: IDResolvable, query?: query): string
 
     /**
      * Gets the user listed on this service.
      * @param id The user's ID
      */
-    getUser(id: string): Promise<AxiosResponse>
+    getUser(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -889,7 +889,7 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -911,7 +911,7 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the list of bots on this service.
@@ -923,27 +923,27 @@ declare module 'dbots' {
      * Gets the bot's stats listed on this service.
      * @param id The bot's ID
      */
-    getBotStats(id: string): Promise<AxiosResponse>
+    getBotStats(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotVotes(id: string, query: query): Promise<AxiosResponse>
+    getBotVotes(id: IDResolvable, query: query): Promise<AxiosResponse>
 
     /**
      * Gets the widget URL for this bot.
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotWidget(id: string, query?: query): string
+    getBotWidget(id: IDResolvable, query?: query): string
 
     /**
      * Gets the user listed for this service
      * @param id The user's ID.
      */
-    getUser(id: string): Promise<AxiosResponse>
+    getUser(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -965,13 +965,13 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Gets the user listed on this service.
      * @param id The user's ID
      */
-    getUser(id: string): Promise<AxiosResponse>
+    getUser(id: IDResolvable): Promise<AxiosResponse>
 
     /**
      * Posts statistics to this service.
@@ -993,7 +993,7 @@ declare module 'dbots' {
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
-    getBot(id: string): Promise<AxiosResponse>
+    getBot(id: IDResolvable): Promise<AxiosResponse>
 
     /** Gets a list of bots on this service. */
     getBots(): Promise<AxiosResponse>
@@ -1014,7 +1014,7 @@ declare module 'dbots' {
      * Gets the user's bots listed for this service.
      * @param id The user's ID
      */
-    getUserBots(id: string): Promise<AxiosResponse>
+    getUserBots(id: IDResolvable): Promise<AxiosResponse>
 
     /** Invalidates the token being used in the request. */
     invalidate(): Promise<AxiosResponse>
