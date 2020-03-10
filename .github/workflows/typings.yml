@@ -8,7 +8,7 @@ on:
       - "typings/**"
       - package.json
       - scripts/post-types.js
-      - ".github/workflows/tslint.yml"
+      - ".github/workflows/typings.yml"
 
 jobs:
   tslint:
