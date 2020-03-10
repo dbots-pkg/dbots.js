@@ -16,7 +16,7 @@
     "tsd-jsdoc": "jsdoc -c ./typings/jsdoc.json -r src",
     "tslint": "tslint ./typings/*.d.ts",
     "tslint:fix": "tslint ./typings/*.d.ts --fix",
-    "types": "npm run tsd-jsdoc && mv out/types.d.ts typings/index.d.ts && rm out --dir && npm run tslint:fix",
+    "types": "npm run tsd-jsdoc && mv out/types.d.ts typings/index.d.ts && rm out --dir && node scripts/post-types.js && npm run tslint:fix",
     "webpack": "webpack",
     "prepublishOnly": "npm run eslint:fix && npm run tslint:fix && NODE_ENV=production npm run webpack"
   },

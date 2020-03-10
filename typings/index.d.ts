@@ -2,7 +2,7 @@
  * Represents the Arcane Bot Center service.
  * @param token - The token/key for the service
  */
-declare class Arcane extends ServiceBase {
+export class Arcane extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -26,7 +26,7 @@ declare class Arcane extends ServiceBase {
  * Represents the botlist.space service.
  * @param token - The token/key for the service
  */
-declare class BotListSpace extends ServiceBase {
+export class BotListSpace extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -86,7 +86,7 @@ declare class BotListSpace extends ServiceBase {
  * Represents the Bots For Discord service.
  * @param token - The token/key for the service
  */
-declare class BotsForDiscord extends ServiceBase {
+export class BotsForDiscord extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -132,7 +132,7 @@ declare class BotsForDiscord extends ServiceBase {
  * Represents the Bots On Discord service.
  * @param token - The token/key for the service
  */
-declare class BotsOnDiscord extends ServiceBase {
+export class BotsOnDiscord extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -164,7 +164,7 @@ declare class BotsOnDiscord extends ServiceBase {
  * Represents the Carbonitex service.
  * @param token - The token/key for the service
  */
-declare class Carbon extends ServiceBase {
+export class Carbon extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -186,7 +186,7 @@ declare class Carbon extends ServiceBase {
  * Represents the Cloud Botlist service.
  * @param token - The token/key for the service
  */
-declare class CloudBotList extends ServiceBase {
+export class CloudBotList extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -213,7 +213,7 @@ declare class CloudBotList extends ServiceBase {
  * Represents the Cloud List service.
  * @param token - The token/key for the service
  */
-declare class CloudList extends ServiceBase {
+export class CloudList extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -243,7 +243,7 @@ declare class CloudList extends ServiceBase {
  * Represents the DBLista service.
  * @param token - The token/key for the service
  */
-declare class DBLista extends ServiceBase {
+export class DBLista extends ServiceBase {
     constructor(token: string);
     /**
      * This service does not support posting.
@@ -305,7 +305,7 @@ declare class DBLista extends ServiceBase {
  * Represents the Discord Apps service.
  * @param token - The token/key for the service
  */
-declare class DiscordAppsDev extends ServiceBase {
+export class DiscordAppsDev extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -348,7 +348,7 @@ declare class DiscordAppsDev extends ServiceBase {
  * Represents the Discord Boats service.
  * @param token - The token/key for the service
  */
-declare class DiscordBoats extends ServiceBase {
+export class DiscordBoats extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -390,7 +390,7 @@ declare class DiscordBoats extends ServiceBase {
  * Represents the Discord Bot List service.
  * @param token - The token/key for the service
  */
-declare class DiscordBotList extends ServiceBase {
+export class DiscordBotList extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -422,7 +422,7 @@ declare class DiscordBotList extends ServiceBase {
  * Represents the Discord Bots service.
  * @param token - The token/key for the service
  */
-declare class DiscordBotsGG extends ServiceBase {
+export class DiscordBotsGG extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -455,7 +455,7 @@ declare class DiscordBotsGG extends ServiceBase {
  * Represents the Discord Bot World service.
  * @param token - The token/key for the service
  */
-declare class DiscordBotWorld extends ServiceBase {
+export class DiscordBotWorld extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -499,7 +499,7 @@ declare class DiscordBotWorld extends ServiceBase {
  * Represents the Discord Extreme List service.
  * @param token - The token/key for the service
  */
-declare class DiscordExtremeList extends ServiceBase {
+export class DiscordExtremeList extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -539,7 +539,7 @@ declare class DiscordExtremeList extends ServiceBase {
  * Represents the Divine Discord Bots service.
  * @param token - The token/key for the service
  */
-declare class DivineDiscordBots extends ServiceBase {
+export class DivineDiscordBots extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -575,7 +575,7 @@ declare class DivineDiscordBots extends ServiceBase {
  * Represents the Glenn Bot List service.
  * @param token - The token/key for the service
  */
-declare class GlennBotList extends ServiceBase {
+export class GlennBotList extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -616,7 +616,7 @@ declare class GlennBotList extends ServiceBase {
  * Represents the LBots service.
  * @param token - The token/key for the service
  */
-declare class LBots extends ServiceBase {
+export class LBots extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -673,7 +673,7 @@ declare class LBots extends ServiceBase {
  * Represents the Mythical Bots service.
  * @param token - The token/key for the service
  */
-declare class MythicalBots extends ServiceBase {
+export class MythicalBots extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -703,7 +703,7 @@ declare class MythicalBots extends ServiceBase {
  * Represents the Space Bots List service.
  * @param token - The token/key for the service
  */
-declare class SpaceBotsList extends ServiceBase {
+export class SpaceBotsList extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -730,7 +730,7 @@ declare class SpaceBotsList extends ServiceBase {
  * Represents the Top.gg service.
  * @param token - The token/key for the service
  */
-declare class TopGG extends ServiceBase {
+export class TopGG extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -784,7 +784,7 @@ declare class TopGG extends ServiceBase {
  * Represents the Wonder Bot List service.
  * @param token - The token/key for the service
  */
-declare class WonderBotList extends ServiceBase {
+export class WonderBotList extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -816,7 +816,7 @@ declare class WonderBotList extends ServiceBase {
  * Represents the YABL service.
  * @param token - The token/key for the service
  */
-declare class YABL extends ServiceBase {
+export class YABL extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
@@ -863,7 +863,7 @@ declare class YABL extends ServiceBase {
     getUnverifiedBots(): Promise<AxiosResponse>
 }
 
-declare class Poster {
+export class Poster {
     constructor(options: PosterOptions);
     /**
      * The client that will be used to fetch the stats
@@ -960,7 +960,7 @@ declare class Poster {
  * Represents a basic service.
  * @param token - The token/key for the service
  */
-declare class ServiceBase {
+export class ServiceBase {
     constructor(token: string);
     /**
      * The base URL of the service's API.
@@ -995,7 +995,7 @@ declare class ServiceBase {
  * @property [customServices] - The custom services that the poster will use
  * @property [useSharding = true] - Whether or not to use a {@link ServiceBase}s sharding method when posting
  */
-declare interface PosterOptions {
+export interface PosterOptions {
     apiKeys?: Record<Service, string>
     client?: any
     clientID?: string
@@ -1014,7 +1014,7 @@ declare interface PosterOptions {
  * @property [count] - The amount of shards the client uses
  * @property [id] - The shard ID that is being used by the poster
  */
-declare interface Shard {
+export interface Shard {
     count?: number
     id?: number
 }
@@ -1028,12 +1028,12 @@ declare interface Shard {
  * @param voiceConnections - The amount of voice connections the client has
  * @param shard - The shard the request is representing
  */
-declare type PostRequestData = any
+export type PostRequestData = any
 
 /**
  * An object with all query parameters
  */
-declare interface Query {
+export interface Query {
     [key: string]: string | number
 }
 
@@ -1043,7 +1043,7 @@ declare interface Query {
  * @property post - The function that sends a request with the parameter being a {@link PostRequestData}.
  * Must return an axios Response object (use [`dbots.FormatRequest`](https://github.com/dbots-pkg/dbots.js/blob/master/src/Utils/FormatRequest.js#L14)).
  */
-declare interface CustomService {
+export interface CustomService {
     aliases: string[]
     post: (...params: any[]) => any
 }
@@ -1052,7 +1052,7 @@ declare interface CustomService {
  * A {@link ServiceBase} key supported by the package.
  * This can also includes keys from {@link CustomService}s and can be `custom` if a {@link Poster} has a custom post function.
  */
-declare type Service = string
+export type Service = string
 
 /**
  * A library supported by the package. Here are the available libraries:
@@ -1061,7 +1061,7 @@ declare type Service = string
  * * discordie
  * * eris
  */
-declare type Library = string
+export type Library = string
 
 /**
  * An event that can be added an handler for. These are the available events:
@@ -1070,9 +1070,9 @@ declare type Library = string
  * * post
  * * postfail
  */
-declare type CustomEvent = string
+export type CustomEvent = string
 
-declare class DBotsError extends Error {
+export class DBotsError extends Error {
     constructor(key: string, args: any[]);
     name: string
     code: string
@@ -1083,7 +1083,7 @@ declare class DBotsError extends Error {
  * @param Base - Base error to extend
  * @returns The resulting class (as a class, not an instance)
  */
-declare function makeDbotsError(Base: typeof Error): typeof DBotsError
+export function makeDbotsError(Base: typeof Error): typeof DBotsError
 
 /**
  * Format the message for an error.
@@ -1091,21 +1091,21 @@ declare function makeDbotsError(Base: typeof Error): typeof DBotsError
  * @param args - Arguments to pass for util format or as function args
  * @returns Formatted string
  */
-declare function message(key: string, args: any[]): string
+export function message(key: string, args: any[]): string
 
 /**
  * Register an error code and message.
  * @param sym - Unique name for the error
  * @param val - Value of the error
  */
-declare function register(sym: string, val: any): void
+export function register(sym: string, val: any): void
 
 /**
  * Data that can be resolved to give a string. This can either be a Function or a Promise.
  */
-declare type PromiseResolvable = (() => void) | Promise<string>
+export type PromiseResolvable = (() => void) | Promise<string>
 
-declare interface AxiosResponse {
+export interface AxiosResponse {
     [key: string]: any
 }
 
@@ -1119,7 +1119,7 @@ declare interface AxiosResponse {
  * @param options.params - The query parameters for the request
  * @returns The request
  */
-declare function FormatRequest(options: {
+export function FormatRequest(options: {
     method: string;
     url: string;
     headers: {
@@ -1133,7 +1133,7 @@ declare function FormatRequest(options: {
     };
 }): Promise<AxiosResponse>
 
-declare class Util {
+export class Util {
     /**
      * Resolves data into a Discord ID.
      * @param data - The data to resolve
@@ -1152,10 +1152,10 @@ declare class Util {
  * * A number
  * * Any value with an `id` key
  */
-declare type IDResolvable = string | number | Record<"id", string>
+export type IDResolvable = string | number | Record<"id", string>
 
 /**
  * Data that can be resolved to give a finite and positive integer.
  * This can include any value that can be parsed into an integer.
  */
-declare type CountResolvable = any
+export type CountResolvable = any
