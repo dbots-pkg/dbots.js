@@ -1,4 +1,4 @@
-name: Lint TS definitions
+name: Update TS definitions
 on:
   push:
     branches:
@@ -6,11 +6,13 @@ on:
       - "!docs"
     paths:
       - "typings/**"
+      - package.json
+      - scripts/post-types.js
       - ".github/workflows/tslint.yml"
 
 jobs:
   tslint:
-    name: Lint TS definitions
+    name: Update TS definitions
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -24,13 +26,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run TSLint
-        run: npm run tslint:fix
+      - name: Generate typings
+        run: npm run types
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v4
         with:
           add: typings
-          message: "[auto] Lint ts definitions"
+          message: "[auto] Update typings"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
