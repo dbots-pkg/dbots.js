@@ -3,7 +3,7 @@ const { join: path } = require('path');
 
 const replaceMap = {
   // Replace TS Record<> type with regular Object.<>
-  'Record': 'Object.'
+  'Record': 'Object'
 };
 
 const docsPath = path(__dirname, '../docs/docs.json');
