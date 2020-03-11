@@ -99,6 +99,19 @@ class TopGG extends ServiceBase {
   }
 
   /**
+   * Checks whether or not a user has voted for a bot on this service.
+   * @param {IDResolvable} id The bot's ID
+   * @param {IDResolvable} userID The user's ID
+   * @returns {Promise<AxiosResponse>}
+   */
+  userVoted(id, userID) {
+    return this._request({
+      url: `/bots/${Util.resolveID(id)}/check`,
+      params: { userId: userID }
+    });
+  }
+
+  /**
    * Gets the widget URL for this bot.
    * @param {IDResolvable} id The bot's ID
    * @param {Query} [query] The query string that will be used in the request

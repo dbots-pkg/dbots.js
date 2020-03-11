@@ -993,6 +993,13 @@ declare module 'dbots' {
      * @param options.shard The shard the request is representing
      */
     static post(options: PostOptions): Promise<AxiosResponse>
+
+    /**
+     * Checks whether or not a user has voted for a bot on this service.
+     * @param id The bot's ID
+     * @param userID The user's ID
+     */
+    userVoted(id: IDResolvable, userID: IDResolvable): Promise<AxiosResponse>
   }
 
   /**
