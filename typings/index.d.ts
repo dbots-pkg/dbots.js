@@ -974,8 +974,9 @@ declare module 'dbots' {
      * Gets the widget URL for this bot.
      * @param id The bot's ID
      * @param query The query string that will be used in the request
+     * @param smallWidget The sub-path name to turn the widget into a badge (i.e. owner)
      */
-    getBotWidget(id: IDResolvable, query?: query): string
+    getBotWidget(id: IDResolvable, query?: query, smallWidget?: string): string
 
     /**
      * Gets the user listed for this service

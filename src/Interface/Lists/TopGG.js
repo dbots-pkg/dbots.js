@@ -102,10 +102,12 @@ class TopGG extends ServiceBase {
    * Gets the widget URL for this bot.
    * @param {IDResolvable} id The bot's ID
    * @param {Query} [query] The query string that will be used in the request
+   * @param {string} smallWidget The sub-path name to turn the widget into a badge (i.e. owner)
    * @returns {string}
    */
-  getBotWidget(id, query) {
-    return this._appendQuery(`/widget/${Util.resolveID(id)}.png`, query);
+  getBotWidget(id, query, smallWidget = null) {
+    const subPath = smallWidget ? `${smallWidget}/` : '';
+    return this._appendQuery(`/widget/${subPath}${Util.resolveID(id)}.svg`, query);
   }
 }
 
