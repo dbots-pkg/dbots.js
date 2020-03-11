@@ -71,7 +71,7 @@ class MythicalBots extends ServiceBase {
    * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
-  getBotWidget(id, query) {
+  getWidgetURL(id, query) {
     return this._appendQuery(`https://mythicalbots.xyz/bot/${Util.resolveID(id)}/embed`, query, false);
   }
 }

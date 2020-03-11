@@ -69,7 +69,7 @@ class BotsOnDiscord extends ServiceBase {
    * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
-  getBotWidget(id, query) {
+  getWidgetURL(id, query) {
     return this._appendQuery(`https://bots.ondiscord.xyz/bots/${Util.resolveID(id)}/embed`, query, false);
   }
 }

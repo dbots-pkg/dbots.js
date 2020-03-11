@@ -285,7 +285,7 @@ declare module 'dbots' {
      * @param style The style of the widget
      * @param query The querystring that will be used in the request
      */
-    getBotWidget(id: IDResolvable, style?: CountResolvable, query?: query): string
+    getWidgetURL(id: IDResolvable, style?: CountResolvable, query?: query): string
 
     /** Gets the statistics of this service. */
     getStatistics(): Promise<AxiosResponse>
@@ -334,7 +334,7 @@ declare module 'dbots' {
      * @param id The bot's ID.
      * @param query The querystring that will be used in the request
      */
-    getBotWidget(id: IDResolvable, query?: query): string
+    getWidgetURL(id: IDResolvable, query?: query): string
 
     /**
      * Gets the user listed on this service.
@@ -375,7 +375,7 @@ declare module 'dbots' {
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotWidget(id: IDResolvable, query?: query): string
+    getWidgetURL(id: IDResolvable, query?: query): string
 
     /**
      * Posts statistics to this service
@@ -568,7 +568,7 @@ declare module 'dbots' {
      * @param id The bot's ID.
      * @param query The querystring that will be used in the request
      */
-    getBotWidget(id: IDResolvable, query?: query): string
+    getWidgetURL(id: IDResolvable, query?: query): string
 
     /**
      * Gets the user listed on this service.
@@ -602,7 +602,7 @@ declare module 'dbots' {
      * @param id The bot's ID.
      * @param query The querystring that will be used in the request
      */
-    getBotWidget(id: IDResolvable, query?: query): string
+    getWidgetURL(id: IDResolvable, query?: query): string
 
     /**
      * Posts statistics to this service.
@@ -701,7 +701,7 @@ declare module 'dbots' {
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotWidget(id: IDResolvable, query?: object): string
+    getWidgetURL(id: IDResolvable, query?: object): string
 
     /** Gets the statistics of this service. */
     getStatistics(): Promise<AxiosResponse>
@@ -744,7 +744,7 @@ declare module 'dbots' {
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotWidget(id: IDResolvable, query?: query): string
+    getWidgetURL(id: IDResolvable, query?: query): string
 
     /**
      * Posts statistics to this service.
@@ -778,7 +778,7 @@ declare module 'dbots' {
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotWidget(id: IDResolvable, query?: query): string
+    getWidgetURL(id: IDResolvable, query?: query): string
 
     /**
      * Get a user's profile listed on this service
@@ -900,7 +900,7 @@ declare module 'dbots' {
      * @param id The bot's ID
      * @param query The query string that will be used in the request
      */
-    getBotWidget(id: IDResolvable, query?: query): string
+    getWidgetURL(id: IDResolvable, query?: query): string
 
     /**
      * Gets the user listed on this service.
@@ -976,7 +976,7 @@ declare module 'dbots' {
      * @param query The query string that will be used in the request
      * @param smallWidget The sub-path name to turn the widget into a badge (i.e. owner)
      */
-    getBotWidget(id: IDResolvable, query?: query, smallWidget?: string): string
+    getWidgetURL(id: IDResolvable, query?: query, smallWidget?: string): string
 
     /**
      * Gets the user listed for this service

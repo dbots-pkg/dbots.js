@@ -118,7 +118,7 @@ class TopGG extends ServiceBase {
    * @param {string} smallWidget The sub-path name to turn the widget into a badge (i.e. owner)
    * @returns {string}
    */
-  getBotWidget(id, query, smallWidget = null) {
+  getWidgetURL(id, query, smallWidget = null) {
     const subPath = smallWidget ? `${smallWidget}/` : '';
     return this._appendQuery(`/widget/${subPath}${Util.resolveID(id)}.svg`, query);
   }
