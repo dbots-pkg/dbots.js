@@ -13,6 +13,7 @@
     "eslint": "eslint ./src",
     "eslint:fix": "eslint ./src --fix",
     "gpr-setup": "node scripts/gpr.js",
+    "gpr-publish": "npm run gpr-setup && npm login --registry=https://npm.pkg.github.com --scope=@dbots-pkg && npm publish",
     "tslint": "tslint ./typings/*.d.ts",
     "tslint:fix": "tslint ./typings/*.d.ts --fix",
     "webpack": "webpack",
