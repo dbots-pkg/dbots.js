@@ -71,7 +71,7 @@ class DivineDiscordBots extends ServiceBase {
    * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
-  getBotWidget(id, query) {
+  getWidgetURL(id, query) {
     return this._appendQuery(`/api/widget/${Util.resolveID(id)}.svg`, query, false);
   }
 }

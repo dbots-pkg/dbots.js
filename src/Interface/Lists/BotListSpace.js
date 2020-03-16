@@ -120,7 +120,7 @@ class BotListSpace extends ServiceBase {
    * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
-  getBotWidget(id, style = 1, query = undefined) {
+  getWidgetURL(id, style = 1, query = undefined) {
     return this._appendQuery(`https://api.botlist.space/widget/${Util.resolveID(id)}/${style}`, query, false);
   }
 }

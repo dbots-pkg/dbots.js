@@ -99,13 +99,28 @@ class TopGG extends ServiceBase {
   }
 
   /**
+   * Checks whether or not a user has voted for a bot on this service.
+   * @param {IDResolvable} id The bot's ID
+   * @param {IDResolvable} userID The user's ID
+   * @returns {Promise<AxiosResponse>}
+   */
+  userVoted(id, userID) {
+    return this._request({
+      url: `/bots/${Util.resolveID(id)}/check`,
+      params: { userId: userID }
+    });
+  }
+
+  /**
    * Gets the widget URL for this bot.
    * @param {IDResolvable} id The bot's ID
    * @param {Query} [query] The query string that will be used in the request
+   * @param {string} smallWidget The sub-path name to turn the widget into a badge (i.e. owner)
    * @returns {string}
    */
-  getBotWidget(id, query) {
-    return this._appendQuery(`/widget/${Util.resolveID(id)}.png`, query);
+  getWidgetURL(id, query, smallWidget = null) {
+    const subPath = smallWidget ? `${smallWidget}/` : '';
+    return this._appendQuery(`/widget/${subPath}${Util.resolveID(id)}.svg`, query);
   }
 }
 

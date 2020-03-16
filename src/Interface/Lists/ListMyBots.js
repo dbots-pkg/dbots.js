@@ -2,48 +2,46 @@ const ServiceBase = require('../ServiceBase');
 const Util = require('../../Utils/Util');
 
 /**
- * Represents the Discord Extreme List service.
- * @see https://docs.discordextremelist.xyz/
+ * Represents the List My Bots service.
  * @extends {ServiceBase}
  *
  * @constructor
  * @param {string} token The token/key for the service
  */
-class DiscordExtremeList extends ServiceBase {
+class ListMyBots extends ServiceBase {
   static get aliases() {
-    return ['discordextremelist', 'discordextremelist.xyz', 'discordextremelistxyz', 'del'];
+    return ['listmybots', 'listmybots.com', 'listmybotscom', 'lmb'];
   }
 
   static get logoURL() {
-    return 'https://get.snaz.in/4KjWg91.png';
+    return 'https://get.snaz.in/5Vm5J7i.png';
   }
 
   static get name() {
-    return 'Discord Extreme List';
+    return 'List My Bots';
   }
 
   static get websiteURL() {
-    return 'https://discordextremelist.xyz/';
+    return 'https://listmybots.com/';
   }
 
   static get baseURL() {
-    return 'https://api.discordextremelist.xyz/v1';
+    return 'https://listmybots.com/api/public';
   }
 
   /**
    * Posts statistics to this service.
    * @param {Object} options The options of the request
-   * @param {string} options.token The Authorization token for the request
-   * @param {IDResolvable} options.clientID The client ID that the request will post for
+   * @param {string} options.token The Authorization token for the request (this automatically determines what client its posting for)
    * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
-  static post({ token, clientID, serverCount }) {
+  static post({ token, serverCount }) {
     return super._post({
       method: 'post',
-      url: `/bot/${Util.resolveID(clientID)}`,
+      url: '/bot/stats',
       headers: { Authorization: token },
-      data: { guildCount: Util.resolveCount(serverCount) }
+      data: { server_count: Util.resolveCount(serverCount) }
     });
   }
 
@@ -54,7 +52,20 @@ class DiscordExtremeList extends ServiceBase {
   getStatistics() {
     return this._request({
       url: '/stats',
-      headers: { Authorization: this.token }
+      headers: { Authorization: this.token },
+    }, {
+      requiresToken: true
+    });
+  }
+
+  /**
+   * Gets the bot's info based on the token.
+   * @returns {Promise<AxiosResponse>}
+   */
+  getCurrentBot() {
+    return this._request({
+      url: '/bot/me',
+      headers: { Authorization: this.token },
     }, {
       requiresToken: true
     });
@@ -68,7 +79,7 @@ class DiscordExtremeList extends ServiceBase {
   getBot(id) {
     return this._request({
       url: `/bot/${Util.resolveID(id)}`,
-      headers: { Authorization: this.token }
+      headers: { Authorization: this.token },
     }, {
       requiresToken: true
     });
@@ -76,27 +87,29 @@ class DiscordExtremeList extends ServiceBase {
 
   /**
    * Gets the user listed on this service.
-   * @param {IDResolvable} id The bot's ID
+   * @param {IDResolvable} id The user's ID
    * @returns {Promise<AxiosResponse>}
    */
   getUser(id) {
     return this._request({
       url: `/user/${Util.resolveID(id)}`,
-      headers: { Authorization: this.token }
+      headers: { Authorization: this.token },
     }, {
       requiresToken: true
     });
   }
 
   /**
-   * Gets the widget URL for this bot.
-   * @param {IDResolvable} id The bot's ID
-   * @param {Query} [query] The query string that will be used in the request
-   * @returns {string}
+   * Checks whether or not a user has liked the current bot based on your token on this service.
+   * @param {IDResolvable} userID The user's ID
+   * @returns {Promise<AxiosResponse>}
    */
-  getWidgetURL(id, query) {
-    return this._appendQuery(`/bot/${Util.resolveID(id)}/widget`, query);
+  userVoted(userID) {
+    return this._request({
+      url: `/bot/me/liked/${Util.resolveID(userID)}`,
+      query: { id: Util.resolveID(userID) }
+    });
   }
 }
 
-module.exports = DiscordExtremeList;
+module.exports = ListMyBots;

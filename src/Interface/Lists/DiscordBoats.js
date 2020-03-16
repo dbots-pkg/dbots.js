@@ -84,7 +84,7 @@ class DiscordBoats extends ServiceBase {
    * @param {Query} [query] The query string that will be used in the request
    * @returns {string}
    */
-  getBotWidget(id, query) {
+  getWidgetURL(id, query) {
     return this._appendQuery(`/widget/${Util.resolveID(id)}`, query);
   }
 }

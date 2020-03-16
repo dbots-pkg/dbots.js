@@ -1,4 +1,4 @@
-# Supported Services (22)
+# Supported Services (23)
 
 <div align=center>
   <p>
@@ -248,6 +248,21 @@ Website: https://glennbotlist.xyz
 Keys: `lbots`, `lbotsorg`, `lbots.org`  
 Class: [dbots.LBots](/#/docs/main/tsd-jsdoc-test/class/LBots)  
 Website: https://lbots.org/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://get.snaz.in/5Vm5J7i.png" alt="listmybots logo" width="100" align="left" />
+  </p>
+  <i id="listmybots"></i>
+  <i id="listmybots.com"></i>
+  <i id="listmybotscom"></i>
+  <i id="lmb"></i>
+  <a href="https://listmybots.com/"><h1>List My Bots</h1></a>
+
+Keys: `listmybots`, `listmybots.com`, `listmybotscom`, `lmb`  
+Class: [dbots.ListMyBots](/#/docs/main/master/class/ListMyBots)  
+Website: https://listmybots.com/
 </div>
 
 <div align=center>

@@ -64,6 +64,16 @@ class MythicalBots extends ServiceBase {
   getUser(id) {
     return this._request({ url: `/user/${Util.resolveID(id)}/info` });
   }
+
+  /**
+   * Gets the widget URL for this bot.
+   * @param {IDResolvable} id The bot's ID
+   * @param {Query} [query] The query string that will be used in the request
+   * @returns {string}
+   */
+  getWidgetURL(id, query) {
+    return this._appendQuery(`https://mythicalbots.xyz/bot/${Util.resolveID(id)}/embed`, query, false);
+  }
 }
 
 module.exports = MythicalBots;
