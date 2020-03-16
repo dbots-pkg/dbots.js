@@ -261,7 +261,7 @@ Website: https://lbots.org/
   <a href="https://listmybots.com/"><h1>List My Bots</h1></a>
 
 Keys: `listmybots`, `listmybots.com`, `listmybotscom`, `lmb`  
-Class: [dbots.ListMyBots](/#/docs/main/master/class/ListMyBots)  
+Class: [dbots.ListMyBots](/#/docs/main/tsd-jsdoc-test/class/ListMyBots)  
 Website: https://listmybots.com/
 </div>
 
