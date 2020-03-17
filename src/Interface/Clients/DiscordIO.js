@@ -2,6 +2,7 @@ const ClientFiller = require('../ClientFiller');
 
 /**
  * Represents the client filler for discord.io clients.
+ * @constructor
  * @private
  * @extends {ClientFiller}
  */

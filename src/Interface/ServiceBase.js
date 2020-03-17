@@ -4,10 +4,11 @@ const buildURL = require('axios/lib/helpers/buildURL');
 
 /**
  * Represents a basic service.
- * @constructor
- * @param {string} token The token/key for the service
  */
 class ServiceBase {
+  /**
+   * @param {string} token The token/key for the service
+   */
   constructor(token) {
     /**
      * The token that will be used for the service.

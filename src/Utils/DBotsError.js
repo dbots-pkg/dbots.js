@@ -5,10 +5,31 @@
 const codeSymbol = Symbol('code');
 const messages = new Map();
 
+// This is just a mock class to make docs work
 /**
  * Extend an error of some sort into a DiscordjsError.
- * @param {Error} Base Base error to extend
- * @returns {DBotsError}
+  * @param {string} key Error key
+  * @param {any[]} args Arguments to pass for util format or as function args
+  * @extends Error
+  */
+class DBotsError extends Error { // eslint-disable-line
+  constructor() {
+    super();
+    /**
+     * @type {string}
+     */
+    this.name = '';
+    /**
+     * @type {string}
+     */
+    this.code = '';
+  }
+}
+
+/**
+ * Extend an error of some sort into a DiscordjsError.
+ * @param {typeof Error} Base Base error to extend
+ * @returns {typeof DBotsError} The resulting class (as a class, not an instance)
  */
 function makeDbotsError(Base) {
   return class DBotsError extends Base {

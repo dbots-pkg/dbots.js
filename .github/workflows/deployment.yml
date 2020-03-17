@@ -9,6 +9,9 @@ on:
       - "docs/**"
       - ".github/workflows/deployment.yml"
       - "scripts/docs.js"
+      - "scripts/post-docgen.js"
+      - "package.json"
+      - "README.md"
 
 jobs:
   docs:

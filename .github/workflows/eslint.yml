@@ -1,4 +1,4 @@
-name: Lint source code
+name: Source code linting
 on:
   push:
     branches:
