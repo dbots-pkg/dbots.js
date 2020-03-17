@@ -829,9 +829,9 @@ export class TopGG extends ServiceBase {
      * Gets the widget URL for this bot.
      * @param id - The bot's ID
      * @param [query] - The query string that will be used in the request
-     * @param smallWidget - The sub-path name to turn the widget into a badge (i.e. owner)
+     * @param [smallWidget = null] - The sub-path name to turn the widget into a badge (i.e. owner)
      */
-    getWidgetURL(id: IDResolvable, query?: Query, smallWidget: string): string
+    getWidgetURL(id: IDResolvable, query?: Query, smallWidget?: string): string
 }
 
 /**
@@ -1154,10 +1154,12 @@ export function message(key: string, args: any[]): string
  */
 export function register(sym: string, val: any): void
 
+export type stringCallback = () => string
+
 /**
  * Data that can be resolved to give a string. This can either be a Function or a Promise.
  */
-export type PromiseResolvable = (() => void) | Promise<string>
+export type PromiseResolvable = stringCallback | Promise<string>
 
 export interface AxiosResponse {
     [key: string]: any
