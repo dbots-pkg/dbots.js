@@ -938,7 +938,7 @@ export class Poster {
     /**
      * The list of event handlers for every custom event
      */
-    handlers: Record<CustomEvent, PromiseResolvable[]>
+    handlers: Record<CustomEvent, eventHandler[]>
     /**
      * Retrieves the current server count of the client/shard.
      * @returns Amount of servers the client/shard is in
@@ -994,14 +994,14 @@ export class Poster {
      * @param handler - The function that is run with the event
      * @returns The array of handlers currently set for that event
      */
-    addHandler(event: CustomEvent, handler: PromiseResolvable): PromiseResolvable[]
+    addHandler(event: CustomEvent, handler: eventHandler): eventHandler[]
     /**
      * Removes an handler for an event.
      * @param event - The name of the event to remove the handler from
      * @param handler - The function that is run with the event
      * @returns The array of handlers currently set for that event
      */
-    removeHandler(event: CustomEvent, handler: PromiseResolvable): PromiseResolvable[]
+    removeHandler(event: CustomEvent, handler: eventHandler): eventHandler[]
     /**
      * Manually triggers an event with custom arguments.
      * @param event - The name of the event to run the handlers for
@@ -1118,6 +1118,12 @@ export type Service = string
 export type Library = string
 
 /**
+ * Type of function to set for handlers
+ * @param result - The result(s) of the post
+ */
+export type eventHandler = (result: object | object[]) => void
+
+/**
  * An event that can be added an handler for. These are the available events:
  * * autopost
  * * autopostfail
@@ -1159,7 +1165,7 @@ export type stringCallback = () => string
 /**
  * Data that can be resolved to give a string. This can either be a Function or a Promise.
  */
-export type PromiseResolvable = stringCallback | Promise<string>
+export type PromiseResolvable = stringCallback | eventHandler | Promise<string>
 
 export interface AxiosResponse {
     [key: string]: any
