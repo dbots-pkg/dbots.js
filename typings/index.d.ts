@@ -972,8 +972,9 @@ export class Poster {
     /**
      * Posts the current clients server count to a service.
      * @param [service] - The service to post to
+     * @returns The result(s) of the post
      */
-    post(service?: Service | "all"): void
+    post(service?: Service | "all"): Promise<object | object[]>
     /**
      * Manually posts a server count to a service.
      * @param service - The service to post to
