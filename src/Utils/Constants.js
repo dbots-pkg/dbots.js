@@ -69,6 +69,12 @@
  */
 
 /**
+ * Type of function to set for handlers
+ * @typedef {Function} eventHandler
+ * @param {Object|Array<Object>} result The result(s) of the post
+ */
+
+/**
  * An event that can be added an handler for. These are the available events:
  * * autopost
  * * autopostfail

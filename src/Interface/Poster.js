@@ -58,7 +58,7 @@ class Poster {
 
     /**
      * The list of event handlers for every custom event
-     * @type {Record<CustomEvent, Array<PromiseResolvable>>}
+     * @type {Record<CustomEvent, Array<eventHandler>>}
      */
     this.handlers = {};
     for (const event of Constants.SupportedEvents) this.handlers[event] = [];
@@ -220,8 +220,8 @@ class Poster {
   /**
    * Adds an handler for an event.
    * @param {CustomEvent} event The name of the event to add the handler to
-   * @param {PromiseResolvable} handler The function that is run with the event
-   * @returns {Array<PromiseResolvable>} The array of handlers currently set for that event
+   * @param {eventHandler} handler The function that is run with the event
+   * @returns {Array<eventHandler>} The array of handlers currently set for that event
    */
   addHandler(event, handler) {
     if (!Constants.SupportedEvents.includes(event)) 
@@ -234,8 +234,8 @@ class Poster {
   /**
    * Removes an handler for an event.
    * @param {CustomEvent} event The name of the event to remove the handler from
-   * @param {PromiseResolvable} handler The function that is run with the event
-   * @returns {Array<PromiseResolvable>} The array of handlers currently set for that event
+   * @param {eventHandler} handler The function that is run with the event
+   * @returns {Array<eventHandler>} The array of handlers currently set for that event
    */
   removeHandler(event, handler) {
     if (!Constants.SupportedEvents.includes(event)) 

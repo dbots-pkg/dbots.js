@@ -2,7 +2,9 @@ const fs = require('fs');
 const { join: path } = require('path');
 
 const replaceMap = {
-  'declare': 'export'
+  'declare': 'export',
+  'eventHandler = \\(result: any \\| object\\[\\]\\) => void': 
+    'eventHandler = (result: object | object[]) => void'
 };
 
 const typesPath = path(__dirname, '../typings/index.d.ts');

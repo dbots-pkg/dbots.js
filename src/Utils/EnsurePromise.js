@@ -5,7 +5,7 @@
 
 /**
  * Data that can be resolved to give a string. This can either be a Function or a Promise.
- * @typedef {stringCallback|Promise<string>} PromiseResolvable
+ * @typedef {stringCallback|eventHandler|Promise<string>} PromiseResolvable
  */
 
 module.exports = function EnsurePromise(func, ...args) {
