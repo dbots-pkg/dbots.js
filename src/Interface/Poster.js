@@ -162,6 +162,7 @@ class Poster {
     * Posts the current clients server count to a service.
     * @param {Service|"all"} [service] The service to post to
     * @see Poster#postManual
+    * @returns {Promise<Object|Array<Object>>} The result(s) of the post
     */
   post(service) {
     const _this = this;
