@@ -5,13 +5,14 @@ on:
       - "*"
       - "!docs"
     paths:
+      - "src/**"
       - "typings/**"
       - package.json
       - scripts/post-types.js
       - ".github/workflows/typings.yml"
 
 jobs:
-  tslint:
+  types:
     name: Update TS definitions
     runs-on: ubuntu-latest
     steps:
