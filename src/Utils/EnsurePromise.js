@@ -1,7 +1,12 @@
 /**
-   * Data that can be resolved to give a string. This can either be a Function or a Promise.
-   * @typedef {Function|Promise<string>} PromiseResolvable
-   */
+ * @callback stringCallback
+ * @returns {string}
+ */
+
+/**
+ * Data that can be resolved to give a string. This can either be a Function or a Promise.
+ * @typedef {stringCallback|Promise<string>} PromiseResolvable
+ */
 
 module.exports = function EnsurePromise(func, ...args) {
   if (typeof func === 'function')
