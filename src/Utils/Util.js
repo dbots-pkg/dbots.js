@@ -21,6 +21,9 @@ class Util {
    * @param {IDResolvable} data The data to resolve
    */
   static resolveID(data) {
+    if (typeof data === 'undefined' || data === null) 
+      throw new DBotsError('INVALID_ID');
+
     let id = null;
     if (typeof data === 'string')
       id = data;
