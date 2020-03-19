@@ -14,7 +14,7 @@ class DiscordJS extends ClientFiller {
   }
 
   get serverCount() {
-    if (this.client.users.constructor.name === 'GuildManager')
+    if (this.client.guilds.constructor.name === 'GuildManager')
       return this.client.guilds.cache.size;
     else return this.client.guilds.size;
   }
