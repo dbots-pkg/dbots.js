@@ -129,6 +129,40 @@ export class BotsForDiscord extends ServiceBase {
 }
 
 /**
+ * Represents the Bots Of Discord service.
+ * @param token - The token/key for the service
+ */
+export class BotsOfDiscord extends ServiceBase {
+    constructor(token: string);
+    /**
+     * Posts statistics to this service.
+     * @param options - The options of the request
+     * @param options.token - The Authorization token for the request (this automatically determines what client its posting for)
+     * @param options.serverCount - The amount of servers that the client is in
+     * @param options.shard - The shard the request is representing
+     */
+    static post(options: {
+        token: string;
+        serverCount: CountResolvable;
+        shard: Shard;
+    }): Promise<AxiosResponse>
+    /**
+     * Gets the bot's stats on this service.
+     * @param id - The bot's ID
+     */
+    getBotStats(id: IDResolvable): Promise<AxiosResponse>
+    /**
+     * Gets the user listed on this service.
+     * @param id - The user's ID
+     */
+    getUser(id: IDResolvable): Promise<AxiosResponse>
+    /**
+     * Gets the list of people who voted this bot on this service.
+     */
+    getBotVotes(): Promise<AxiosResponse>
+}
+
+/**
  * Represents the Bots On Discord service.
  * @param token - The token/key for the service
  */
