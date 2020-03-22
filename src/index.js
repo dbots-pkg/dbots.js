@@ -4,6 +4,7 @@ module.exports = {
   Arcane: require('./Interface/Lists/Arcane'),
   BotListSpace: require('./Interface/Lists/BotListSpace'),
   BotsForDiscord: require('./Interface/Lists/BotsForDiscord'),
+  BotsOfDiscord: require('./Interface/Lists/BotsOfDiscord'),
   BotsOnDiscord: require('./Interface/Lists/BotsOnDiscord'),
   Carbon: require('./Interface/Lists/Carbon'),
   CloudBotList: require('./Interface/Lists/CloudBotList'),

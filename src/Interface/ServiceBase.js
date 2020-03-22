@@ -37,10 +37,10 @@ class ServiceBase {
     if (!key || typeof key !== 'string')
       return null;
     const services = [
-      Arcane, BotListSpace, BotsForDiscord, BotsOnDiscord, Carbon, CloudBotList, CloudList,
-      DBLista, DiscordAppsDev, DiscordBoats, DiscordBotList, DiscordBotsGG, DiscordBotWorld,
-      DiscordExtremeList, DivineDiscordBots, GlennBotList, LBots, ListMyBots, MythicalBots,
-      SpaceBotsList, TopGG, WonderBotList, YABL,
+      Arcane, BotListSpace, BotsForDiscord, BotsOfDiscord, BotsOnDiscord, Carbon, CloudBotList,
+      CloudList, DBLista, DiscordAppsDev, DiscordBoats, DiscordBotList, DiscordBotsGG,
+      DiscordBotWorld, DiscordExtremeList, DivineDiscordBots, GlennBotList, LBots, ListMyBots,
+      MythicalBots, SpaceBotsList, TopGG, WonderBotList, YABL,
       ...extras
     ];
     for (let i = 0, len = services.length; i < len; i++) {
@@ -146,6 +146,7 @@ module.exports = ServiceBase;
 const Arcane = require('./Lists/Arcane');
 const BotListSpace = require('./Lists/BotListSpace');
 const BotsForDiscord = require('./Lists/BotsForDiscord');
+const BotsOfDiscord = require('./Lists/BotsOfDiscord');
 const BotsOnDiscord = require('./Lists/BotsOnDiscord');
 const Carbon = require('./Lists/Carbon');
 const CloudBotList = require('./Lists/CloudBotList');
