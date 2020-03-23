@@ -221,7 +221,7 @@ Website: https://discordextremelist.xyz/
 
 <div align=center>
   <p>
-    <img src="https://i.olsh.me/icon?size=1..100..500&url=divinediscordbots.com" alt="divinediscordbots logo" width="100" align="left" />
+    <img src="https://i.imgur.com/WhvKku7.png" alt="divinediscordbots logo" width="100" align="left" />
   </p>
   <i id="divinediscordbots"></i>
   <i id="divinediscordbots.com"></i>
