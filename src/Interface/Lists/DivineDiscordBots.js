@@ -15,7 +15,7 @@ class DivineDiscordBots extends ServiceBase {
   }
 
   static get logoURL() {
-    return 'https://i.olsh.me/icon?size=1..100..500&url=divinediscordbots.com';
+    return 'https://i.imgur.com/WhvKku7.png';
   }
 
   static get name() {
