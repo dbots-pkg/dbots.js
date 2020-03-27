@@ -1,11 +1,11 @@
 <div align="center">
   <p>
-    <img src="static/logo.png" alt="dbots logo" width="200" align="left" />
+    <img src="static/logo.png" alt="dbots.js logo" width="200" />
   </p>
-  <h1>dbots<i>.js</i></h1>
-  <p>A poster/wrapper for Discord bot lists</p>
+  <p>A stats poster and API wrapper for all botlists.</p>
   <p>
     <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/v/dbots.svg?maxAge=3600" alt="NPM version" /></a>
+    <a href="https://github.com/dbots-pkg/dbots.js/network/dependents?package_id=UGFja2FnZS0zNzA1MzQ1MA%3D%3D"><img src="https://api.snaz.in/badges/v1/github/used-by/dbots-pkg/dbots.js" alt="GitHUb repos used by" /></a>
     <a href="https://www.npmjs.com/package/dbots"><img src="https://img.shields.io/npm/dt/dbots.svg?maxAge=3600" alt="NPM downloads" /></a>
     <a href="https://david-dm.org/dbots-pkg/dbots.js"><img src="https://img.shields.io/david/dbots-pkg/dbots.js.svg?maxAge=3600" alt="Dependencies" /></a>
     <br/>
@@ -17,6 +17,7 @@
   </p>
 </div>
 
+<!-- omit in toc -->
 # Table of Contents
 - [About](#about)
 - [Installing](#installing)
@@ -25,6 +26,7 @@
   - [Example without client](#example-without-client)
 - [Supported Libraries](#supported-libraries)
 - [Supported Services](#supported-services)
+- [Contribution](#contribution)
 - [Other Links](#other-links)
 
 ## About
@@ -44,7 +46,7 @@ yarn add ssh://github.com/dbots-pkg/dbots.js#master
 
 ## Examples
 
-## Example with client
+### Example with client
 ```js
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -63,7 +65,7 @@ const poster = new dbots.Poster({
 poster.startInterval(); // starts an interval thats posts to all services every 30 minutes
 ```
 
-## Example without client
+### Example without client
 ```js
 const dbots = require('dbots');
 const poster = new dbots.Poster({
