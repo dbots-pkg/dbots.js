@@ -105,7 +105,7 @@ class YABL extends ServiceBase {
    * @returns {Promise<AxiosResponse>}
    */
   getBotsByPage(query) {
-    return this._request({ url: '/bots/all', params: query });
+    return this._request({ url: '/bots/page', params: query });
   }
 
   /**
