@@ -315,7 +315,7 @@ export class DBLista extends ServiceBase {
     /**
      * Adds a rating to a bot on the service.
      * @param id - The bot's ID
-     * @param data - The data being posted. This should include the ID of the bot
+     * @param data - The data being posted
      */
     rateBot(id: IDResolvable, data: any): Promise<AxiosResponse>
     /**
@@ -1168,7 +1168,7 @@ export type eventHandler = (result: object | object[]) => void
 export type CustomEvent = string
 
 /**
- * Extend an error of some sort into a DiscordjsError.
+ * Extend an error of some sort into a DBotsError.
  * @param Base - Base error to extend
  * @returns The resulting class (as a class, not an instance)
  */
