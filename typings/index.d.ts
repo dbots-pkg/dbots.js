@@ -1167,12 +1167,6 @@ export type eventHandler = (result: object | object[]) => void
  */
 export type CustomEvent = string
 
-export class DBotsError extends Error {
-    constructor(key: string, args: any[]);
-    name: string
-    code: string
-}
-
 /**
  * Extend an error of some sort into a DiscordjsError.
  * @param Base - Base error to extend
