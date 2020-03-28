@@ -7,10 +7,11 @@ const messages = new Map();
 
 // This is just a mock class to make docs work
 /**
- * Extend an error of some sort into a DiscordjsError.
+ * Extend an error of some sort into a DBotsError.
   * @param {string} key Error key
   * @param {any[]} args Arguments to pass for util format or as function args
   * @extends Error
+  * @private
   */
 class DBotsError extends Error { // eslint-disable-line
   constructor() {
