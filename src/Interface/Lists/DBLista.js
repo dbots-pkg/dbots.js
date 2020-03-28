@@ -109,7 +109,7 @@ class DBLista extends ServiceBase {
   /**
    * Adds a rating to a bot on the service.
    * @param {IDResolvable} id The bot's ID
-   * @param {Object} data The data being posted. This should include the ID of the bot
+   * @param {Object} data The data being posted
    * @returns {Promise<AxiosResponse>}
    */
   rateBot(id, data) {
