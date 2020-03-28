@@ -28,7 +28,7 @@ class DBotsError extends Error { // eslint-disable-line
 }
 
 /**
- * Extend an error of some sort into a DiscordjsError.
+ * Extend an error of some sort into a DBotsError.
  * @param {typeof Error} Base Base error to extend
  * @returns {typeof DBotsError} The resulting class (as a class, not an instance)
  */
