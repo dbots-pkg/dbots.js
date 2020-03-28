@@ -62,7 +62,10 @@ class GlennBotList extends ServiceBase {
    * @returns {Promise<AxiosResponse>}
    */
   getBotVotes(id) {
-    return this._request({ url: `/bot/${Util.resolveID(id)}/votes` }, {
+    return this._request({
+      url: `/bot/${Util.resolveID(id)}/votes`,
+      headers: { Authorization: this.token }
+    }, {
       requiresToken: true
     });
   }
