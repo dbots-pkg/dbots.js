@@ -8,14 +8,6 @@ const ClientFiller = require('../ClientFiller');
 class Eris extends ClientFiller {
   constructor(client) {
     super(client);
-
-    /**
-     * This client does not natively support sharding.
-     * @type {null}
-     * @readonly
-     * @private
-     */
-    this.shard = null;
   }
 
   get userCount() {
@@ -34,6 +26,16 @@ class Eris extends ClientFiller {
 
   get clientID() {
     return this.client.user ? this.client.user.id : null;
+  }
+
+  /**
+   * This client does not natively support sharding.
+   * @type {null}
+   * @readonly
+   * @private
+   */
+  get shard() {
+    return null;
   }
 }
 
