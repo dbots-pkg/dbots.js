@@ -34,6 +34,6 @@ jobs:
         run: npm install
 
       - name: Build and deploy documentation
-        uses: discordjs/action-docs@v1
+        uses: dbots-pkg/action-docs@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
