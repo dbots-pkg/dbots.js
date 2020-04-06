@@ -16,15 +16,10 @@ on:
 jobs:
   docs:
     name: Documentation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      # - name: Install Node v12
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: 12.x
 
       - name: Install dependencies
         run: npm install
