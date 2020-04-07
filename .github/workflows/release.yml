@@ -38,6 +38,6 @@ jobs:
         run: npm run docs
 
       - name: Deploy documentation
-        uses: dbots-pkg/action-docs@master
+        uses: dbots-pkg/action-docs@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
