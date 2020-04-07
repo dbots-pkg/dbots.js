@@ -43,9 +43,3 @@ jobs:
         uses: dbots-pkg/action-docs@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Update docs in repo
-        uses: EndBug/add-and-commit@v4
-        with:
-          add: docs/*.md
-          message: "[auto] Update docs"
