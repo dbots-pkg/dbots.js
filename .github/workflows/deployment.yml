@@ -30,7 +30,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build and deploy documentation
+      - name: Build documentation
+        run: npm run docs
+
+      - name: Deploy documentation
         uses: dbots-pkg/action-docs@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
