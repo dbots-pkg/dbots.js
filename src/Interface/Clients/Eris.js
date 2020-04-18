@@ -21,7 +21,7 @@ class Eris extends ClientFiller {
   get voiceConnections() {
     if (this.client.voiceConnections.constructor.name === 'VoiceConnectionManager')
       return this.client.voiceConnections.size;
-    else return Object.keys(this.client.voiceConnections.pendingGuilds).size;
+    else return Object.keys(this.client.voiceConnections.pendingGuilds).length;
   }
 
   get clientID() {
