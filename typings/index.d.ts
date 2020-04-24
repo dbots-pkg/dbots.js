@@ -217,63 +217,6 @@ export class Carbon extends ServiceBase {
 }
 
 /**
- * Represents the Cloud Botlist service.
- * @param token - The token/key for the service
- */
-export class CloudBotList extends ServiceBase {
-    constructor(token: string);
-    /**
-     * Posts statistics to this service.
-     * @param options - The options of the request
-     * @param options.token - The Authorization token for the request
-     * @param options.clientID - The client ID that the request will post for
-     * @param options.serverCount - The amount of servers that the client is in
-     * @param options.userCount - The amount of users that the client cached
-     */
-    static post(options: {
-        token: string;
-        clientID: IDResolvable;
-        serverCount: CountResolvable;
-        userCount: CountResolvable;
-    }): Promise<AxiosResponse>
-    /**
-     * Gets the bot listed on this service.
-     * @param id - The bot's ID
-     */
-    getBot(id: IDResolvable): Promise<AxiosResponse>
-}
-
-/**
- * Represents the Cloud List service.
- * @param token - The token/key for the service
- */
-export class CloudList extends ServiceBase {
-    constructor(token: string);
-    /**
-     * Posts statistics to this service.
-     * @param options - The options of the request
-     * @param options.token - The Authorization token for the request
-     * @param options.clientID - The client ID that the request will post for
-     * @param options.serverCount - The amount of servers that the client is in
-     */
-    static post(options: {
-        token: string;
-        clientID: IDResolvable;
-        serverCount: CountResolvable;
-    }): Promise<AxiosResponse>
-    /**
-     * Gets the bot listed on this service.
-     * @param id - The bot's ID
-     */
-    getBot(id: IDResolvable): Promise<AxiosResponse>
-    /**
-     * Gets the list of people who voted this bot on this service.
-     * @param id - The bot's ID
-     */
-    getBotVotes(id: IDResolvable): Promise<AxiosResponse>
-}
-
-/**
  * Represents the DBLista service.
  * @param token - The token/key for the service
  */
@@ -561,42 +504,6 @@ export class DiscordExtremeList extends ServiceBase {
      * @param id - The bot's ID
      */
     getUser(id: IDResolvable): Promise<AxiosResponse>
-    /**
-     * Gets the widget URL for this bot.
-     * @param id - The bot's ID
-     * @param [query] - The query string that will be used in the request
-     */
-    getWidgetURL(id: IDResolvable, query?: Query): string
-}
-
-/**
- * Represents the Divine Discord Bots service.
- * @param token - The token/key for the service
- */
-export class DivineDiscordBots extends ServiceBase {
-    constructor(token: string);
-    /**
-     * Posts statistics to this service.
-     * @param options - The options of the request
-     * @param options.token - The Authorization token for the request
-     * @param options.clientID - The client ID that the request will post for
-     * @param options.serverCount - The amount of servers that the client is in
-     */
-    static post(options: {
-        token: string;
-        clientID: IDResolvable;
-        serverCount: CountResolvable;
-    }): Promise<AxiosResponse>
-    /**
-     * Gets the statistics of your bot on this service.
-     * @param id - The bot's ID
-     */
-    getBotStats(id: IDResolvable): Promise<AxiosResponse>
-    /**
-     * Gets the list of people who voted this bot on this service.
-     * @param id - The bot's ID
-     */
-    getBotVotes(id: IDResolvable): Promise<AxiosResponse>
     /**
      * Gets the widget URL for this bot.
      * @param id - The bot's ID
