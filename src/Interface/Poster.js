@@ -213,7 +213,7 @@ class Poster {
             msg += 'Please check the error from the following responses.\n';
             msg += rejected.map(o => JSON.stringify(o.reason, null, 2)).join('\n');
             throw new Error(msg);
-          } else return requests;
+          } else return requests.map(r => r.value);
         });
     }
     if (!Object.keys(this.apiKeys).includes(service))
