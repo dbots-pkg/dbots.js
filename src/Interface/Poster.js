@@ -3,6 +3,7 @@ const EnsurePromise = require('../Utils/EnsurePromise');
 const { Error, TypeError } = require('../Utils/DBotsError');
 const ClientFiller = require('./ClientFiller');
 const Service = require('./ServiceBase');
+const allSettled = require('promise.allsettled');
 
 /**
  * A class that posts server count to listing site(s).
@@ -11,7 +12,7 @@ const Service = require('./ServiceBase');
  */
 class Poster {
   constructor(options) {
-    if (!options || typeof options !== 'object') 
+    if (!options || typeof options !== 'object')
       throw new Error('INVALID_POSTER_OPTIONS');
 
     /**
@@ -48,7 +49,7 @@ class Poster {
 
     if (typeof options.useSharding !== 'boolean')
       options.useSharding = true;
-    if (!this.client && !options.clientID) 
+    if (!this.client && !options.clientID)
       throw new Error('NO_CLIENT_OR_ID');
     if (this.client && !options.clientID) Object.assign(options, {
       clientID: this.clientFiller.clientID,
@@ -112,7 +113,7 @@ class Poster {
       return EnsurePromise(this.options.voiceConnections);
     if (!this.client)
       throw new Error('NO_CLIENT', 'voice connection');
-    if (!this.options.voiceConnections && !this.options.clientLibrary) 
+    if (!this.options.voiceConnections && !this.options.clientLibrary)
       throw new Error('UNKNOWN_CLIENT', 'voice connection');
     return Promise.resolve(this.clientFiller.voiceConnections);
   }
@@ -188,12 +189,32 @@ class Poster {
     if (!service) service = 'all';
     if (!this.apiKeys && !this.options.post)
       return Promise.reject(new Error('NO_API_KEYS'));
-    if (service === 'custom') 
+    if (service === 'custom')
       return EnsurePromise(this.options.post, this.options.clientID, serverCount, this.options.shard);
     if (!service || service === 'all') {
       const services = Object.keys(this.apiKeys);
       if (this.options.post) services.push('custom');
-      return Promise.all(services.map(k => this.postManual(k, { serverCount, userCount, voiceConnections })));
+      return allSettled(services.map(k => this.postManual(k, { serverCount, userCount, voiceConnections })))
+        .then(requests => {
+          const rejected = [],
+            hostnames = [];
+
+          for (const r of requests) {
+            if (r.status == 'rejected') {
+              rejected.push(r);
+              if (r.reason.hostname && !hostnames.includes(r.reason.hostname))
+                hostnames.push(r.reason.hostname);
+            }
+          }
+
+          if (rejected.length > 0) {
+            let msg = `${rejected.length} request${rejected.length == 1 ? '' : 's'} have been rejected.\n`;
+            if (hostnames.length > 0) msg += `Failing hostnames: ${hostnames.join(', ')}\n`;
+            msg += 'Please check the error from the following responses.\n';
+            msg += rejected.map(o => JSON.stringify(o.reason, null, 2)).join('\n');
+            throw new Error(msg);
+          } else return requests;
+        });
     }
     if (!Object.keys(this.apiKeys).includes(service))
       return Promise.reject(new Error('SERVICE_WITH_NO_KEY', service));
@@ -225,9 +246,9 @@ class Poster {
    * @returns {Array<eventHandler>} The array of handlers currently set for that event
    */
   addHandler(event, handler) {
-    if (!Constants.SupportedEvents.includes(event)) 
+    if (!Constants.SupportedEvents.includes(event))
       throw new TypeError('UNSUPPORTED_EVENT', 'add');
-    if (!(handler instanceof Function || handler instanceof Promise)) 
+    if (!(handler instanceof Function || handler instanceof Promise))
       throw new Error('HANDLER_INVALID');
     return this.handlers[event].push(handler);
   }
@@ -239,9 +260,9 @@ class Poster {
    * @returns {Array<eventHandler>} The array of handlers currently set for that event
    */
   removeHandler(event, handler) {
-    if (!Constants.SupportedEvents.includes(event)) 
+    if (!Constants.SupportedEvents.includes(event))
       throw new TypeError('UNSUPPORTED_EVENT', 'remove');
-    if (!(handler instanceof Function || handler instanceof Promise)) 
+    if (!(handler instanceof Function || handler instanceof Promise))
       throw new Error('HANDLER_INVALID');
     const index = this.handlers[event].indexOf(handler);
     if (index >= 0) this.handlers[event].splice(index, 1);
@@ -254,7 +275,7 @@ class Poster {
    * @param  {...any} args The arguments to pass to the handlers
    */
   runHandlers(event, ...args) {
-    if (!Constants.SupportedEvents.includes(event)) 
+    if (!Constants.SupportedEvents.includes(event))
       throw new TypeError('UNSUPPORTED_EVENT', 'run');
     for (const handler of this.handlers[event]) EnsurePromise(handler(...args));
   }
