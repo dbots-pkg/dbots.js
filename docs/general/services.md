@@ -1,4 +1,4 @@
-# Supported Services (24)
+# Supported Services (21)
 
 <div align=center>
   <p>
@@ -84,36 +84,6 @@ Website: https://bots.ondiscord.xyz
 Keys: `carbonitex`, `carbonitex.net`, `carbon`  
 Class: [dbots.Carbon](/#/docs/main/master/class/Carbon)  
 Website: https://www.carbonitex.net/Discord/bots
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://get.snaz.in/7ya5MCW.png" alt="cloudbotList logo" width="100" align="left" />
-  </p>
-  <i id="cloudbotList"></i>
-  <i id="cloud-botlist.xyz"></i>
-  <i id="cloudbotList.xyz"></i>
-  <i id="cloudbl"></i>
-  <i id="cbl"></i>
-  <a href="https://cloud-botlist.xyz"><h1>Cloud Botlist</h1></a>
-
-Keys: `cloudbotList`, `cloud-botlist.xyz`, `cloudbotList.xyz`, `cloudbl`, `cbl`  
-Class: [dbots.CloudBotList](/#/docs/main/master/class/CloudBotList)  
-Website: https://cloud-botlist.xyz
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://i.olsh.me/icon?size=1..100..500&url=www.cloudlist.xyz" alt="cloudlist logo" width="100" align="left" />
-  </p>
-  <i id="cloudlist"></i>
-  <i id="cloudlistxyz"></i>
-  <i id="cloudlist.xyz"></i>
-  <a href="https://www.cloudlist.xyz/"><h1>Cloud List</h1></a>
-
-Keys: `cloudlist`, `cloudlistxyz`, `cloudlist.xyz`  
-Class: [dbots.CloudList](/#/docs/main/master/class/CloudList)  
-Website: https://www.cloudlist.xyz/
 </div>
 
 <div align=center>
@@ -217,22 +187,6 @@ Website: https://discord.bots.gg
 Keys: `discordextremelist`, `discordextremelist.xyz`, `discordextremelistxyz`, `del`  
 Class: [dbots.DiscordExtremeList](/#/docs/main/master/class/DiscordExtremeList)  
 Website: https://discordextremelist.xyz/
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://i.imgur.com/WhvKku7.png" alt="divinediscordbots logo" width="100" align="left" />
-  </p>
-  <i id="divinediscordbots"></i>
-  <i id="divinediscordbots.com"></i>
-  <i id="divinedbots"></i>
-  <i id="divine"></i>
-  <i id="ddb"></i>
-  <a href="https://divinediscordbots.com"><h1>Divine Discord Bots</h1></a>
-
-Keys: `divinediscordbots`, `divinediscordbots.com`, `divinedbots`, `divine`, `ddb`  
-Class: [dbots.DivineDiscordBots](/#/docs/main/master/class/DivineDiscordBots)  
-Website: https://divinediscordbots.com
 </div>
 
 <div align=center>
