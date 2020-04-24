@@ -202,8 +202,9 @@ class Poster {
           for (const r of requests) {
             if (r.status == 'rejected') {
               rejected.push(r);
-              if (r.reason.hostname && !hostnames.includes(r.reason.hostname))
-                hostnames.push(r.reason.hostname);
+              const hostname = new URL(r.reason.config.url).hostname;
+              if (hostname && !hostnames.includes(hostname))
+                hostnames.push(hostname);
             }
           }
 
