@@ -47,7 +47,7 @@
     "dtslint": "^3.3.0",
     "eslint": "^6.5.1",
     "jsdoc-typeof-plugin": "^1.0.0",
-    "terser-webpack-plugin": "^2.3.5",
+    "terser-webpack-plugin": "^3.0.0",
     "tsd-jsdoc": "github:EndBug/tsd-jsdoc",
     "tslint": "^6.0.0",
     "typescript": "^3.8.3",
