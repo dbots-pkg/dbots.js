@@ -620,35 +620,41 @@ export class ListMyBots extends ServiceBase {
      * Posts statistics to this service.
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request (this automatically determines what client its posting for)
+     * @param options.clientID - The client ID that the request will post for
      * @param options.serverCount - The amount of servers that the client is in
      */
     static post(options: {
         token: string;
+        clientID: string;
         serverCount: CountResolvable;
     }): Promise<AxiosResponse>
-    /**
-     * Gets the statistics of this service.
-     */
-    getStatistics(): Promise<AxiosResponse>
-    /**
-     * Gets the bot's info based on the token.
-     */
-    getCurrentBot(): Promise<AxiosResponse>
     /**
      * Gets the bot listed on this service.
      * @param id - The bot's ID
      */
     getBot(id: IDResolvable): Promise<AxiosResponse>
     /**
+     * Gets the status widget URL for this bot.
+     * @param id - The bot's ID
+     * @param [query] - The query string that will be used in the request
+     */
+    getStatusWidgetURL(id: IDResolvable, query?: Query): string
+    /**
      * Gets the user listed on this service.
      * @param id - The user's ID
      */
     getUser(id: IDResolvable): Promise<AxiosResponse>
     /**
-     * Checks whether or not a user has liked the current bot based on your token on this service.
-     * @param userID - The user's ID
+     * Gets the info about someone's bots.
+     * @param id - The user's ID
      */
-    userVoted(userID: IDResolvable): Promise<AxiosResponse>
+    getUserBots(id: IDResolvable): Promise<AxiosResponse>
+    /**
+     * Gets the widget URL for this bot.
+     * @param id - The bot's ID
+     * @param [query] - The query string that will be used in the request
+     */
+    getWidgetURL(id: IDResolvable, query?: Query): string
 }
 
 /**
