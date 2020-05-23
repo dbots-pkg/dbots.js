@@ -26,48 +26,23 @@ class ListMyBots extends ServiceBase {
   }
 
   static get baseURL() {
-    return 'https://listmybots.com/api/public';
+    return 'https://listmybots.com/api';
   }
 
   /**
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request (this automatically determines what client its posting for)
+   * @param {string} options.clientID The client ID that the request will post for
    * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
-  static post({ token, serverCount }) {
+  static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
-      url: '/bot/stats',
+      url: `/bot/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { server_count: Util.resolveCount(serverCount) }
-    });
-  }
-
-  /**
-   * Gets the statistics of this service.
-   * @returns {Promise<AxiosResponse>}
-   */
-  getStatistics() {
-    return this._request({
-      url: '/stats',
-      headers: { Authorization: this.token },
-    }, {
-      requiresToken: true
-    });
-  }
-
-  /**
-   * Gets the bot's info based on the token.
-   * @returns {Promise<AxiosResponse>}
-   */
-  getCurrentBot() {
-    return this._request({
-      url: '/bot/me',
-      headers: { Authorization: this.token },
-    }, {
-      requiresToken: true
+      data: { count: Util.resolveCount(serverCount) }
     });
   }
 
@@ -77,12 +52,17 @@ class ListMyBots extends ServiceBase {
    * @returns {Promise<AxiosResponse>}
    */
   getBot(id) {
-    return this._request({
-      url: `/bot/${Util.resolveID(id)}`,
-      headers: { Authorization: this.token },
-    }, {
-      requiresToken: true
-    });
+    return this._request({ url: `/bot/${Util.resolveID(id)}` });
+  }
+
+  /**
+   * Gets the status widget URL for this bot.
+   * @param {IDResolvable} id The bot's ID
+   * @param {Query} [query] The query string that will be used in the request
+   * @returns {string}
+   */
+  getStatusWidgetURL(id, query) {
+    return this._appendQuery(`https://listmybots.com/api/bot/${Util.resolveID(id)}/widget/status`, query, false);
   }
 
   /**
@@ -91,24 +71,26 @@ class ListMyBots extends ServiceBase {
    * @returns {Promise<AxiosResponse>}
    */
   getUser(id) {
-    return this._request({
-      url: `/user/${Util.resolveID(id)}`,
-      headers: { Authorization: this.token },
-    }, {
-      requiresToken: true
-    });
+    return this._request({ url: `/user/${Util.resolveID(id)}` });
   }
 
   /**
-   * Checks whether or not a user has liked the current bot based on your token on this service.
-   * @param {IDResolvable} userID The user's ID
+   * Gets the info about someone's bots.
+   * @param {IDResolvable} id The user's ID
    * @returns {Promise<AxiosResponse>}
    */
-  userVoted(userID) {
-    return this._request({
-      url: `/bot/me/liked/${Util.resolveID(userID)}`,
-      query: { id: Util.resolveID(userID) }
-    });
+  getUserBots(id) {
+    return this._request({ url: `/bots/${Util.resolveID(id)}` });
+  }
+
+  /**
+   * Gets the widget URL for this bot.
+   * @param {IDResolvable} id The bot's ID
+   * @param {Query} [query] The query string that will be used in the request
+   * @returns {string}
+   */
+  getWidgetURL(id, query) {
+    return this._appendQuery(`https://listmybots.com/api/bot/${Util.resolveID(id)}/widget`, query, false);
   }
 }
 
