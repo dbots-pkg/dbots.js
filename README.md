@@ -26,6 +26,7 @@
   - [Example without client](#example-without-client)
 - [Supported Libraries](#supported-libraries)
 - [Supported Services](#supported-services)
+- [Changelog](#changelog)
 - [Contribution](#contribution)
 - [Other Links](#other-links)
 
@@ -90,7 +91,10 @@ abalabahaha | [![npm](static/npm.png)](https://npmjs.com/eris) [![GitHub](static
 
 ## Supported Services
 The supported services list has been moved into the website.  
-You can see a full (and automatically updated) list of usables services [here](https://dbots.js.org/#/docs/main/master/general/services).
+You can see a full (and automatically updated) list of usables services [here](https://dbots.js.org/#/docs/main/latest/general/services).
+
+## Changelog
+You can see the changelog for every version [here](https://dbots.js.org/#/docs/main/latest/general/changelog).
 
 ## Contribution
 Any contribution may be useful for the package! Make sure when making issues or PRs that the issue has not been addressed yet in a past issue/PR.

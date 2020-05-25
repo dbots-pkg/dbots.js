@@ -6,6 +6,11 @@ const README = fs.readFileSync(path(__dirname, '../README.md'), {encoding: 'utf8
   .replace(/https:\/\/dbots\.js\.org\/#([\w/]+)/, '#$1');
 fs.writeFileSync(path(__dirname, '../docs/general/welcome.md'), README);
 
+// Update docs/general/changelog.md to track CHANGELOG.md
+const CHANGELOG = fs.readFileSync(path(__dirname, '../CHANGELOG.md'), { encoding: 'utf8' })
+  .replace(/https:\/\/dbots\.js\.org\/#([\w/]+)/, '#$1');
+fs.writeFileSync(path(__dirname, '../docs/general/changelog.md'), CHANGELOG);
+
 // Update docs/general/services.md to reflect source changes
 var interfaceFolder = path(__dirname, '../src/Interface/Lists');
 const listClasses = fs.readdirSync(interfaceFolder);

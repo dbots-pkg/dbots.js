@@ -4,3 +4,5 @@
       path: welcome.md
     - name: Supported Services
       path: services.md
+    - name: Changelog
+      path: changelog.md
