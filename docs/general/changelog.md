@@ -10,7 +10,11 @@ You can see the docs for every version at [here](#/docs)
 
 ## [4.0.0] - 25-05-2020
 ### Changed
-- BREAKING: Update class methods for ListMyBots
+- **[BREAKING]** ListMyBots: Update class methods, check the docs to see the new class.
+- **[BREAKING]** GlennBotList: `.getProfile()` is now called `.getUser()` (we're skipping deprecation since we're publishing a major version anyway)
+
+### Fixed
+- Update endpoints for ListMyBots and GlennBotList.
 
 [Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...HEAD
 [4.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...v4.0.0
