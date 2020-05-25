@@ -27,7 +27,7 @@ class GlennBotList extends ServiceBase {
   }
 
   static get baseURL() {
-    return 'https://glennbotlist.xyz/api/v2';
+    return 'https://glennbotlist.xyz/api';
   }
 
   /**
@@ -38,12 +38,15 @@ class GlennBotList extends ServiceBase {
    * @param {CountResolvable} options.serverCount The amount of servers that the client is in
    * @returns {Promise<AxiosResponse>}
    */
-  static post({ token, clientID, serverCount }) {
+  static post({ token, clientID, serverCount, shard }) {
     return super._post({
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
-      data: { serverCount: Util.resolveCount(serverCount) }
+      data: { 
+        serverCount: Util.resolveCount(serverCount), 
+        shardCount: Util.resolveCount(shard.count)
+      }
     });
   }
 
@@ -75,8 +78,8 @@ class GlennBotList extends ServiceBase {
    * @param {IDResolvable} id The user's ID
    * @returns {Promise<AxiosResponse>}
    */
-  getProfile(id) {
-    return this._request({ url: `/profile/${Util.resolveID(id)}` });
+  getUser(id) {
+    return this._request({ url: `/user/${Util.resolveID(id)}` });
   }
 
   /**
