@@ -544,7 +544,7 @@ export class GlennBotList extends ServiceBase {
      * Get a user's profile listed on this service.
      * @param id - The user's ID
      */
-    getProfile(id: IDResolvable): Promise<AxiosResponse>
+    getUser(id: IDResolvable): Promise<AxiosResponse>
     /**
      * Gets the widget URL for this bot.
      * @param id - The bot's ID
