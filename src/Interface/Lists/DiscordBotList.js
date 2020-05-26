@@ -27,7 +27,7 @@ class DiscordBotList extends ServiceBase {
   }
 
   static get baseURL() {
-    return 'https://discordbotlist.com/api';
+    return 'https://discordbotlist.com/api/v1';
   }
 
   /**
@@ -56,16 +56,6 @@ class DiscordBotList extends ServiceBase {
       headers: { Authorization: `Bot ${token}` },
       data
     });
-  }
-
-  /**
-   * Gets the widget URL for this bot.
-   * @param {IDResolvable} id The bot's ID
-   * @param {Query} [query] The query string that will be used in the request
-   * @returns {string}
-   */
-  getWidgetURL(id, query) {
-    return this._appendQuery(`https://discordbotlist.com/bots/${Util.resolveID(id)}/widget`, query, false);
   }
 }
 
