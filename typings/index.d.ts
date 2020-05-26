@@ -387,12 +387,6 @@ export class DiscordBotList extends ServiceBase {
         voiceConnections: CountResolvable;
         shard: Shard;
     }): Promise<AxiosResponse>
-    /**
-     * Gets the widget URL for this bot.
-     * @param id - The bot's ID
-     * @param [query] - The query string that will be used in the request
-     */
-    getWidgetURL(id: IDResolvable, query?: Query): string
 }
 
 /**
