@@ -436,9 +436,21 @@ export class DiscordBotWorld extends ServiceBase {
 /**
  * Represents the Discord Bots service.
  * @param token - The token/key for the service
+ * @param options - The options of the service. Providing this is highly recommended.
+ * @param options.library - The bot's library
+ * @param options.clientID - The bot ID for the user agent
  */
 export class DiscordBotsGG extends ServiceBase {
-    constructor(token: string);
+    constructor(token: string, options: {
+        library: string;
+        clientID: IDResolvable;
+    });
+    /**
+     * Creates a compliant user agent to use for any API calls to Discord Bots.
+     * @param botID - The ID of the bot that the agent will be identified with
+     * @param [library = unknown] - The library the agent is using
+     */
+    static userAgent(botID: IDResolvable, library?: string): string
     /**
      * Posts statistics to this service.
      * @param options - The options of the request
