@@ -40,7 +40,7 @@ function FormatRequest(options) {
     options.headers = {
       'User-Agent': userAgent
     };
-  else
+  else if (!options.headers['User-Agent'])
     options.headers['User-Agent'] = userAgent;
   return axios(options);
 }
