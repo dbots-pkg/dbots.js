@@ -97,6 +97,8 @@ const messageObject = {
   INVALID_ID: 'An invalid ID was given.',
   INVALID_COUNT: 'An invalid countable number was given.',
   COUNT_NEGATIVE: 'A countable number cannot be negative.',
+
+  GENERIC: '',
 };
 
 for (const [name, message] of Object.entries(messageObject)) register(name, message);

@@ -214,8 +214,8 @@ class Poster {
             let msg = `${rejected.length} request${rejected.length == 1 ? '' : 's'} have been rejected.\n`;
             if (hostnames.length > 0) msg += `Failing hostnames: ${hostnames.join(', ')}\n`;
             msg += 'Please check the error from the following responses.\n';
-            msg += rejected.map(o => JSON.stringify(o.reason, null, 2)).join('\n');
-            throw new Error(msg);
+            msg += rejected.map(o => JSON.stringify(o.reason || o, null, 2)).join('\n');
+            throw new Error('GENERIC', msg);
           } else return requests.map(r => r.value);
         });
     }
