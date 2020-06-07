@@ -11,6 +11,7 @@
     <br/>
     <a href="https://github.com/dbots-pkg/dbots.js/actions?query=workflow%3A%22Source+code+linting%22"><img src="https://github.com/dbots-pkg/dbots.js/workflows/Source%20code%20linting/badge.svg" alt="Linting state" /></a>
     <a href="https://github.com/dbots-pkg/dbots.js/actions?query=workflow%3A%22TS+definitions%22"><img src="https://github.com/dbots-pkg/dbots.js/workflows/TS%20definitions/badge.svg" alt="Typings state" /></a>
+    <a href="https://lgtm.com/projects/g/dbots-pkg/dbots.js/context:javascript"><img src="https://img.shields.io/lgtm/grade/javascript/github/dbots-pkg/dbots.js.svg?label=Code%20quality" alt="LGTM Code Quality" /></a>
   </p>
   <p>
     <a href="https://nodei.co/npm/dbots/"><img src="https://nodei.co/npm/dbots.png" alt="NPM info" /></a>
