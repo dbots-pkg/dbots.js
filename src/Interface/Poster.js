@@ -1,6 +1,6 @@
 const Constants = require('../Utils/Constants');
 const EnsurePromise = require('../Utils/EnsurePromise');
-const { Error, TypeError } = require('../Utils/DBotsError');
+const { Error: DBotsError, TypeError } = require('../Utils/DBotsError');
 const ClientFiller = require('./ClientFiller');
 const Service = require('./ServiceBase');
 const allSettled = require('promise.allsettled');
@@ -13,7 +13,7 @@ const allSettled = require('promise.allsettled');
 class Poster {
   constructor(options) {
     if (!options || typeof options !== 'object')
-      throw new Error('INVALID_POSTER_OPTIONS');
+      throw new DBotsError('INVALID_POSTER_OPTIONS');
 
     /**
      * The client that will be used to fetch the stats
@@ -50,7 +50,7 @@ class Poster {
     if (typeof options.useSharding !== 'boolean')
       options.useSharding = true;
     if (!this.client && !options.clientID)
-      throw new Error('NO_CLIENT_OR_ID');
+      throw new DBotsError('NO_CLIENT_OR_ID');
     if (this.client && !options.clientID) Object.assign(options, {
       clientID: this.clientFiller.clientID,
       shard: this.clientFiller.shard,
@@ -84,9 +84,9 @@ class Poster {
     if (this.options.serverCount)
       return EnsurePromise(this.options.serverCount);
     if (!this.client)
-      throw new Error('NO_CLIENT', 'server');
+      throw new DBotsError('NO_CLIENT', 'server');
     if (!this.options.serverCount && !this.options.clientLibrary)
-      throw new Error('UNKNOWN_CLIENT', 'server');
+      throw new DBotsError('UNKNOWN_CLIENT', 'server');
     return Promise.resolve(this.clientFiller.serverCount);
   }
 
@@ -98,9 +98,9 @@ class Poster {
     if (this.options.userCount)
       return EnsurePromise(this.options.userCount);
     if (!this.client)
-      throw new Error('NO_CLIENT', 'user');
+      throw new DBotsError('NO_CLIENT', 'user');
     if (!this.options.userCount && !this.options.clientLibrary)
-      throw new Error('UNKNOWN_CLIENT', 'user');
+      throw new DBotsError('UNKNOWN_CLIENT', 'user');
     return Promise.resolve(this.clientFiller.userCount);
   }
 
@@ -112,9 +112,9 @@ class Poster {
     if (this.options.voiceConnections)
       return EnsurePromise(this.options.voiceConnections);
     if (!this.client)
-      throw new Error('NO_CLIENT', 'voice connection');
+      throw new DBotsError('NO_CLIENT', 'voice connection');
     if (!this.options.voiceConnections && !this.options.clientLibrary)
-      throw new Error('UNKNOWN_CLIENT', 'voice connection');
+      throw new DBotsError('UNKNOWN_CLIENT', 'voice connection');
     return Promise.resolve(this.clientFiller.voiceConnections);
   }
 
@@ -188,7 +188,7 @@ class Poster {
   postManual(service, { serverCount, userCount, voiceConnections } = {}) {
     if (!service) service = 'all';
     if (!this.apiKeys && !this.options.post)
-      return Promise.reject(new Error('NO_API_KEYS'));
+      return Promise.reject(new DBotsError('NO_API_KEYS'));
     if (service === 'custom')
       return EnsurePromise(this.options.post, this.options.clientID, serverCount, this.options.shard);
     if (!service || service === 'all') {
@@ -214,13 +214,18 @@ class Poster {
             let msg = `${rejected.length} request${rejected.length == 1 ? '' : 's'} have been rejected.\n`;
             if (hostnames.length > 0) msg += `Failing hostnames: ${hostnames.join(', ')}\n`;
             msg += 'Please check the error from the following responses.\n';
-            msg += rejected.map(o => JSON.stringify(o.reason || o, null, 2)).join('\n');
-            throw new Error('GENERIC', msg);
+            msg += rejected.map(rej => {
+              const reason = rej.reason || rej;
+              return (reason && typeof reason == 'object' && !(reason instanceof Error)) ? 
+                JSON.stringify(reason, null, 2) :
+                reason.toString();
+            }).join('\n');
+            throw new DBotsError('GENERIC', msg);
           } else return requests.map(r => r.value);
         });
     }
     if (!Object.keys(this.apiKeys).includes(service))
-      return Promise.reject(new Error('SERVICE_WITH_NO_KEY', service));
+      return Promise.reject(new DBotsError('SERVICE_WITH_NO_KEY', service));
     const serviceClass = Service.get(service, this.customServices);
     if (!serviceClass)
       return Promise.reject(new TypeError('INVALID_SERVICE', service));
@@ -252,7 +257,7 @@ class Poster {
     if (!Constants.SupportedEvents.includes(event))
       throw new TypeError('UNSUPPORTED_EVENT', 'add');
     if (!(handler instanceof Function || handler instanceof Promise))
-      throw new Error('HANDLER_INVALID');
+      throw new DBotsError('HANDLER_INVALID');
     return this.handlers[event].push(handler);
   }
 
@@ -266,7 +271,7 @@ class Poster {
     if (!Constants.SupportedEvents.includes(event))
       throw new TypeError('UNSUPPORTED_EVENT', 'remove');
     if (!(handler instanceof Function || handler instanceof Promise))
-      throw new Error('HANDLER_INVALID');
+      throw new DBotsError('HANDLER_INVALID');
     const index = this.handlers[event].indexOf(handler);
     if (index >= 0) this.handlers[event].splice(index, 1);
     return this.handlers[event];
