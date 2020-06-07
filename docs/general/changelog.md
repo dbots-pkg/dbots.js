@@ -8,7 +8,7 @@ You can see the docs for every version at [here](#/docs)
 
 ## [Unreleased]
 
-## [4.0.0] - 07-06-2020
+## [4.0.0] - 2020-06-07
 ### Added
 - Add better error handling for when requests to services get rejected.
 
