@@ -8,7 +8,10 @@ You can see the docs for every version at [here](#/docs)
 
 ## [Unreleased]
 
-## [4.0.0] - 25-05-2020
+## [4.0.0] - 07-06-2020
+### Added
+- Add better error handling for when requests to services get rejected.
+
 ### Changed
 - **[BREAKING]** ListMyBots: Update class methods, check the docs to see the new class.
 - **[BREAKING]** GlennBotList: `.getProfile()` is now called `.getUser()` (we're skipping deprecation since we're publishing a major version anyway).
