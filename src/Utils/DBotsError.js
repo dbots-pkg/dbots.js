@@ -60,7 +60,8 @@ function makeDbotsError(Base) {
 function message(key, args) {
   if (typeof key !== 'string') throw new Error('Error message key must be a string');
   const msg = messages.get(key);
-  if (typeof msg != 'string') throw new Error(`An invalid error message key was used: ${key}.`);
+  if (!['string', 'function'].includes(typeof msg)) 
+    throw new Error(`An invalid error message key was used: ${key}.`);
   if (typeof msg === 'function') return msg(...args);
   if (args === undefined || args.length === 0) return msg;
   args.unshift(msg);
