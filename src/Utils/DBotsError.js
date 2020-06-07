@@ -13,7 +13,7 @@ const messages = new Map();
   * @extends Error
   * @private
   */
-class DBotsError extends Error { // eslint-disable-line
+class DBotsError extends Error { /* eslint-disable-line */ /* lgtm [js/unused-local-variable] */
   constructor() {
     super();
     /**
