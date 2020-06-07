@@ -45,7 +45,7 @@ class GlennBotList extends ServiceBase {
       headers: { Authorization: token },
       data: { 
         serverCount: Util.resolveCount(serverCount), 
-        shardCount: Util.resolveCount(shard.count)
+        shardCount: shard ? Util.resolveCount(shard.count) : undefined
       }
     });
   }
