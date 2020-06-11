@@ -32,14 +32,14 @@ class BotsDataBase extends ServiceBase {
 
   /**
    * Posts statistics to this service.
+   * <warn>Shard data posting is not supported for this service.</warn>
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {IDResolvable} options.clientID The client ID that the request will post for
    * @param {CountResolvable} options.serverCount The amount of servers that the client is in
-   * @param {Shard} options.shard The shard the request is representing
    * @returns {Promise<AxiosResponse>}
    */
-  static post({ token, clientID, serverCount, shard }) {
+  static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}`,
@@ -47,12 +47,7 @@ class BotsDataBase extends ServiceBase {
         Authorization: token,
         'Content-Type': 'application/json'
       },
-      data: shard ?
-        {
-          servers: Util.resolveCount(serverCount),
-          /* shards: array with number of servers per shard*/
-        } :
-        { servers: Util.resolveCount(serverCount) }
+      data: { servers: Util.resolveCount(serverCount) }
     });
   }
 
