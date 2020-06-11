@@ -90,17 +90,16 @@ export class BotsDataBase extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request
      * @param options.clientID - The client ID that the request will post for
      * @param options.serverCount - The amount of servers that the client is in
-     * @param options.shard - The shard the request is representing
      */
     static post(options: {
         token: string;
         clientID: IDResolvable;
         serverCount: CountResolvable;
-        shard: Shard;
     }): Promise<AxiosResponse>
     /**
      * Gets the user listed on this service.
