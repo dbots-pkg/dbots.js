@@ -19,7 +19,7 @@
     "tslint:fix": "tslint ./typings/*.d.ts --fix",
     "types": "npm run tsd-jsdoc && mv out/types.d.ts typings/index.d.ts && rm out --dir && node scripts/post-types.js && npm run tslint:fix",
     "webpack": "webpack",
-    "prepublishOnly": "npm run eslint:fix && npm run tslint:fix && NODE_ENV=production npm run webpack"
+    "prepublishOnly": "npm run eslint:fix && npm run tslint:fix && cross-env NODE_ENV=production npm run webpack"
   },
   "unpkg": "./webpack/dbots.min.js",
   "jsdelivr": "./webpack/dbots.min.js",
@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@types/node": "^14.0.5",
+    "cross-env": "^7.0.2",
     "discord.js-docgen": "github:discordjs/docgen",
     "dtslint": "^3.3.0",
     "eslint": "^7.0.0",
