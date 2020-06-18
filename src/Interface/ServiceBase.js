@@ -1,6 +1,8 @@
 const FormatRequest = require('../Utils/FormatRequest');
 const { Error } = require('../Utils/DBotsError');
 const buildURL = require('axios/lib/helpers/buildURL');
+const path = require('path');
+const fs = require('fs');
 
 /**
  * Represents a basic service.
@@ -37,10 +39,7 @@ class ServiceBase {
     if (!key || typeof key !== 'string')
       return null;
     const services = [
-      Arcane, BotListSpace, BotsForDiscord, BotsOfDiscord, BotsOnDiscord, Carbon,
-      DBLista, DiscordAppsDev, DiscordBoats, DiscordBotList, DiscordBotsGG,
-      DiscordBotWorld, DiscordExtremeList, GlennBotList, LBots, ListMyBots,
-      MythicalBots, SpaceBotsList, TopGG, WonderBotList, YABL,
+      ...serviceClasses,
       ...extras
     ];
     for (let i = 0, len = services.length; i < len; i++) {
@@ -142,25 +141,10 @@ class ServiceBase {
 
 module.exports = ServiceBase;
 
-// Circular import
-const Arcane = require('./Lists/Arcane');
-const BotListSpace = require('./Lists/BotListSpace');
-const BotsForDiscord = require('./Lists/BotsForDiscord');
-const BotsOfDiscord = require('./Lists/BotsOfDiscord');
-const BotsOnDiscord = require('./Lists/BotsOnDiscord');
-const Carbon = require('./Lists/Carbon');
-const DBLista = require('./Lists/DBLista');
-const DiscordAppsDev = require('./Lists/DiscordAppsDev');
-const DiscordBoats = require('./Lists/DiscordBoats');
-const DiscordBotList = require('./Lists/DiscordBotList');
-const DiscordBotsGG = require('./Lists/DiscordBotsGG');
-const DiscordBotWorld = require('./Lists/DiscordBotWorld');
-const DiscordExtremeList = require('./Lists/DiscordExtremeList');
-const GlennBotList = require('./Lists/GlennBotList');
-const LBots = require('./Lists/LBots');
-const ListMyBots = require('./Lists/ListMyBots');
-const MythicalBots = require('./Lists/MythicalBots');
-const SpaceBotsList = require('./Lists/SpaceBotsList');
-const TopGG = require('./Lists/TopGG');
-const WonderBotList = require('./Lists/WonderBotList');
-const YABL = require('./Lists/YABL');
+// Service loading
+const listsDir = path.join(__dirname, './Lists');
+const serviceClasses = [];
+fs.readdirSync(listsDir).forEach(fileName => {
+  const listClass = require(path.join(listsDir, fileName));
+  if (listClass) serviceClasses.push(listClass);
+});
