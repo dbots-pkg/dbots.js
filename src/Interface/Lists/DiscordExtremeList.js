@@ -27,7 +27,7 @@ class DiscordExtremeList extends ServiceBase {
   }
 
   static get baseURL() {
-    return 'https://api.discordextremelist.xyz/v1';
+    return 'https://api.discordextremelist.xyz/v2';
   }
 
   /**
@@ -36,14 +36,18 @@ class DiscordExtremeList extends ServiceBase {
    * @param {string} options.token The Authorization token for the request
    * @param {IDResolvable} options.clientID The client ID that the request will post for
    * @param {CountResolvable} options.serverCount The amount of servers that the client is in
+   * @param {Shard} options.shard The shard the request is representing
    * @returns {Promise<AxiosResponse>}
    */
-  static post({ token, clientID, serverCount }) {
+  static post({ token, clientID, serverCount, shard }) {
     return super._post({
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { guildCount: Util.resolveCount(serverCount) }
+      data: {
+        guildCount: Util.resolveCount(serverCount),
+        shardCount: shard ? Util.resolveCount(shard.count) : undefined
+      }
     });
   }
 
@@ -86,16 +90,6 @@ class DiscordExtremeList extends ServiceBase {
     }, {
       requiresToken: true
     });
-  }
-
-  /**
-   * Gets the widget URL for this bot.
-   * @param {IDResolvable} id The bot's ID
-   * @param {Query} [query] The query string that will be used in the request
-   * @returns {string}
-   */
-  getWidgetURL(id, query) {
-    return this._appendQuery(`/bot/${Util.resolveID(id)}/widget`, query);
   }
 }
 
