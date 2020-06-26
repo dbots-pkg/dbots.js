@@ -526,11 +526,13 @@ export class DiscordExtremeList extends ServiceBase {
      * @param options.token - The Authorization token for the request
      * @param options.clientID - The client ID that the request will post for
      * @param options.serverCount - The amount of servers that the client is in
+     * @param options.shard - The shard the request is representing
      */
     static post(options: {
         token: string;
         clientID: IDResolvable;
         serverCount: CountResolvable;
+        shard: Shard;
     }): Promise<AxiosResponse>
     /**
      * Gets the statistics of this service.
@@ -546,12 +548,6 @@ export class DiscordExtremeList extends ServiceBase {
      * @param id - The bot's ID
      */
     getUser(id: IDResolvable): Promise<AxiosResponse>
-    /**
-     * Gets the widget URL for this bot.
-     * @param id - The bot's ID
-     * @param [query] - The query string that will be used in the request
-     */
-    getWidgetURL(id: IDResolvable, query?: Query): string
 }
 
 /**
