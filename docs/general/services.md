@@ -9,11 +9,13 @@
   <i id="arcanebotcenter.xyz"></i>
   <i id="arcane"></i>
   <i id="abc"></i>
-  <a href="https://arcane-botcenter.xyz"><h1>Arcane Bot List</h1></a>
+  <i id="arcane-center.xyz"></i>
+  <i id="arcanecenter.xyz"></i>
+  <a href="https://arcane-center.xyz"><h1>Arcane Bot List</h1></a>
 
-Keys: `arcanebotcenter`, `arcane-botcenter.xyz`, `arcanebotcenter.xyz`, `arcane`, `abc`  
+Keys: `arcanebotcenter`, `arcane-botcenter.xyz`, `arcanebotcenter.xyz`, `arcane`, `abc`, `arcane-center.xyz`, `arcanecenter.xyz`  
 Class: [dbots.Arcane](/#/docs/main/master/class/Arcane)  
-Website: https://arcane-botcenter.xyz
+Website: https://arcane-center.xyz
 </div>
 
 <div align=center>
