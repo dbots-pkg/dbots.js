@@ -37,7 +37,7 @@ class ServiceBase {
     if (!key || typeof key !== 'string')
       return null;
     const services = [
-      ...serviceClasses,
+      ...Object.values(serviceClasses),
       ...extras
     ];
     for (let i = 0, len = services.length; i < len; i++) {
