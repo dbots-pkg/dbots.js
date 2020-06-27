@@ -20,9 +20,9 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - run: npm install
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_TEST }}
+      # - run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Set up Node.js for GPR
         uses: actions/setup-node@v1
