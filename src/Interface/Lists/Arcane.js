@@ -3,7 +3,7 @@ const Util = require('../../Utils/Util');
 
 /**
  * Represents the Arcane Bot Center service.
- * @see https://arcane-botcenter.xyz/documentation
+ * @see https://arcane-center.xyz/documentation
  * @extends {ServiceBase}
  *
  * @constructor
@@ -11,7 +11,15 @@ const Util = require('../../Utils/Util');
  */
 class Arcane extends ServiceBase {
   static get aliases() {
-    return ['arcanebotcenter', 'arcane-botcenter.xyz', 'arcanebotcenter.xyz', 'arcane', 'abc'];
+    return [
+      'arcanebotcenter',
+      'arcane-botcenter.xyz',
+      'arcanebotcenter.xyz',
+      'arcane',
+      'abc',
+      'arcane-center.xyz',
+      'arcanecenter.xyz'
+    ];
   }
 
   static get logoURL() {
@@ -23,11 +31,11 @@ class Arcane extends ServiceBase {
   }
 
   static get websiteURL() {
-    return 'https://arcane-botcenter.xyz';
+    return 'https://arcane-center.xyz';
   }
 
   static get baseURL() {
-    return 'https://arcane-botcenter.xyz/api';
+    return 'https://arcane-center.xyz/api';
   }
 
   /**
@@ -45,12 +53,16 @@ class Arcane extends ServiceBase {
       method: 'post',
       url: `/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
-      data: shard ? 
-        { server_count: Util.resolveCount(serverCount),
+      data: shard ?
+        {
+          server_count: Util.resolveCount(serverCount),
           member_count: Util.resolveCount(userCount),
-          shard_count: shard.count } : 
-        { server_count: Util.resolveCount(serverCount),
-          member_count: Util.resolveCount(userCount) }
+          shard_count: shard.count
+        } :
+        {
+          server_count: Util.resolveCount(serverCount),
+          member_count: Util.resolveCount(userCount)
+        }
     });
   }
 }
