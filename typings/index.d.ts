@@ -1009,9 +1009,15 @@ export class ServiceBase {
     /**
      * Gets a service from a key.
      * @param key - The name of the service to get
-     * @param extras - An array of {@link CustomService}s to include
+     * @param [extras] - An array of {@link CustomService}s to include
      */
-    static get(key: string, extras: CustomService[]): ServiceBase
+    static get(key: string, extras?: CustomService[]): ServiceBase
+    /**
+     * Gets every loaded service.
+     */
+    static getAll(): {
+        [key: string]: ServiceBase;
+    }
     /**
      * The values that can be used to select the service.
      */
