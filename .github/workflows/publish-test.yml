@@ -8,7 +8,6 @@ jobs:
   publish:
     name: Publish on NPM and GPR
     runs-on: ubuntu-latest
-    needs: docs
     continue-on-error: true
 
     steps:
