@@ -1,8 +1,6 @@
 const FormatRequest = require('../Utils/FormatRequest');
 const { Error } = require('../Utils/DBotsError');
 const buildURL = require('axios/lib/helpers/buildURL');
-const path = require('path');
-const fs = require('fs');
 
 /**
  * Represents a basic service.
@@ -32,7 +30,7 @@ class ServiceBase {
   /**
    * Gets a service from a key.
    * @param {string} key The name of the service to get
-   * @param {Array<CustomService>} extras An array of {@link CustomService}s to include
+   * @param {Array<CustomService>} [extras] An array of {@link CustomService}s to include
    * @returns {?ServiceBase}
    */
   static get(key, extras = []) {
@@ -50,6 +48,14 @@ class ServiceBase {
         return service;
     }
     return null;
+  }
+
+  /**
+   * Gets every loaded service.
+   * @returns {Object<string, ServiceBase>}
+   */
+  static getAll() {
+    return serviceClasses;
   }
 
   /**
@@ -142,9 +148,18 @@ class ServiceBase {
 module.exports = ServiceBase;
 
 // Service loading
-const listsDir = path.join(__dirname, './Lists');
-const serviceClasses = [];
-fs.readdirSync(listsDir).forEach(fileName => {
-  const listClass = require(path.join(listsDir, fileName));
-  if (listClass) serviceClasses.push(listClass);
-});
+let serviceClasses = {};
+if (process.env.NODE_ENV == 'production') {
+  serviceClasses = require('../../.tmp/services-list');
+} else {
+  const path = require('path');
+  const fs = require('fs');
+
+  const listsDir = path.join(__dirname, './Lists');
+  fs.readdirSync(listsDir).forEach(fileName => {
+    const listClass = require(path.join(listsDir, fileName));
+    if (listClass)
+      serviceClasses[path.parse(fileName).name] = listClass;
+  });
+}
+

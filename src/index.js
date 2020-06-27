@@ -1,27 +1,8 @@
-module.exports = {
-  Poster: require('./Interface/Poster'),
+const ServiceBase = require('./Interface/ServiceBase'),
+  serviceClasses = ServiceBase.getAll();
 
-  Arcane: require('./Interface/Lists/Arcane'),
-  BotListSpace: require('./Interface/Lists/BotListSpace'),
-  BotsForDiscord: require('./Interface/Lists/BotsForDiscord'),
-  BotsOfDiscord: require('./Interface/Lists/BotsOfDiscord'),
-  BotsOnDiscord: require('./Interface/Lists/BotsOnDiscord'),
-  Carbon: require('./Interface/Lists/Carbon'),
-  DBLista: require('./Interface/Lists/DBLista'),
-  DiscordAppsDev: require('./Interface/Lists/DiscordAppsDev'),
-  DiscordBoats: require('./Interface/Lists/DiscordBoats'),
-  DiscordBotList: require('./Interface/Lists/DiscordBotList'),
-  DiscordBotsGG: require('./Interface/Lists/DiscordBotsGG'),
-  DiscordBotWorld: require('./Interface/Lists/DiscordBotWorld'),
-  DiscordExtremeList: require('./Interface/Lists/DiscordExtremeList'),
-  GlennBotList: require('./Interface/Lists/GlennBotList'),
-  LBots: require('./Interface/Lists/LBots'),
-  ListMyBots: require('./Interface/Lists/ListMyBots'),
-  MythicalBots: require('./Interface/Lists/MythicalBots'),
-  SpaceBotsList: require('./Interface/Lists/SpaceBotsList'),
-  TopGG: require('./Interface/Lists/TopGG'),
-  WonderBotList: require('./Interface/Lists/WonderBotList'),
-  YABL: require('./Interface/Lists/YABL'),
+module.exports = Object.assign({
+  Poster: require('./Interface/Poster'),
 
   Constants: require('./Utils/Constants'),
   DBotsError: require('./Utils/DBotsError'),
@@ -29,6 +10,6 @@ module.exports = {
   FormatRequest: require('./Utils/FormatRequest'),
   Util: require('./Utils/Util'),
 
-  ServiceBase: require('./Interface/ServiceBase'),
-  getService: require('./Interface/ServiceBase').get
-};
+  ServiceBase,
+  getService: ServiceBase.get
+}, serviceClasses);  
