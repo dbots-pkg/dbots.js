@@ -1,4 +1,4 @@
-# Supported Services (22)
+# Supported Services (21)
 
 <div align=center>
   <p>
@@ -57,20 +57,6 @@ Website: https://botsdatabase.com
 Keys: `botsfordiscord`, `botsfordiscord.com`, `bfd`  
 Class: [dbots.BotsForDiscord](/#/docs/main/master/class/BotsForDiscord)  
 Website: https://botsfordiscord.com
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://i.olsh.me/icon?size=1..100..500&url=b-o-d.cf" alt="botsofdiscord logo" width="100" align="left" />
-  </p>
-  <i id="botsofdiscord"></i>
-  <i id="b-o-d"></i>
-  <i id="b-o-d.cf"></i>
-  <a href="https://www.b-o-d.cf/"><h1>Bots Of Discord</h1></a>
-
-Keys: `botsofdiscord`, `b-o-d`, `b-o-d.cf`  
-Class: [dbots.BotsOfDiscord](/#/docs/main/master/class/BotsOfDiscord)  
-Website: https://www.b-o-d.cf/
 </div>
 
 <div align=center>
