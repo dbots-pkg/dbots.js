@@ -42,7 +42,7 @@ class DiscordExtremeList extends ServiceBase {
   static post({ token, clientID, serverCount, shard }) {
     return super._post({
       method: 'post',
-      url: `/bot/${Util.resolveID(clientID)}`,
+      url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
       data: {
         guildCount: Util.resolveCount(serverCount),
