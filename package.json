@@ -9,6 +9,7 @@
     "url": "git+https://github.com/dbots-pkg/dbots.js.git"
   },
   "scripts": {
+    "changelog": "node scripts/changelog.js",
     "docs": "node scripts/docs.js && docgen --source src --custom docs/index.yml --output docs/docs.json --jsdoc docs/docgen.json && node scripts/post-docgen.js",
     "eslint": "eslint ./src",
     "eslint:fix": "eslint ./src --fix",
