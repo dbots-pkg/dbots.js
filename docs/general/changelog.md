@@ -8,6 +8,10 @@ You can see the docs for every version at [here](#/docs).
 
 ## [Unreleased]
 
+## [5.0.2] - 2020-07-04
+### Fixed:
+- SpaceBotList: updated website and API URL
+
 ## [5.0.1] - 2020-06-29
 ### Fixed
 - DiscordExtremeList: fixed endpoint for stats posting.
@@ -43,8 +47,9 @@ You can see the docs for every version at [here](#/docs).
 ### Fixed
 - Update endpoints for ListMyBots, GlennBotList and DiscordBotList.
 
-[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.1...HEAD
+[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.2...HEAD
 [4.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...v4.0.0
 [4.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.0.0...v4.1.0
 [5.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.1.0...v5.0.0
 [5.0.1]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.0...v5.0.1
+[5.0.2]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.1...v5.0.2
