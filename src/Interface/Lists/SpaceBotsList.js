@@ -23,11 +23,11 @@ class SpaceBotsList extends ServiceBase {
   }
 
   static get websiteURL() {
-    return 'https://space-bot-list.org/';
+    return 'https://space-bot-list.xyz/';
   }
 
   static get baseURL() {
-    return 'https://space-bot-list.org/api';
+    return 'https://space-bot-list.xyz/api';
   }
 
   /**
@@ -44,8 +44,10 @@ class SpaceBotsList extends ServiceBase {
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { guilds: Util.resolveCount(serverCount),
-        users: Util.resolveCount(userCount) }
+      data: {
+        guilds: Util.resolveCount(serverCount),
+        users: Util.resolveCount(userCount)
+      }
     });
   }
 
