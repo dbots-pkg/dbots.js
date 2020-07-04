@@ -32,7 +32,7 @@ arr = futureChangelog
     ? `[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v${currentVersion}...HEAD`
     : line);
 
-// console.log(arr.reverse()[1].match(/\[([^\][]*)]/)[0]);
+// eslint-disable-next-line no-useless-escape
 const lastVersion = [...arr].reverse()[1].match(/\[([^\][]*)]/)[0].replace(/[\[\]']+/g, '');
 if (!lastVersion) throw new Error('Can\'t find last version in changelog.');
 
