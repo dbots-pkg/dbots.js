@@ -259,11 +259,11 @@ Website: https://mythicalbots.xyz/
   <i id="space-bot-list.org"></i>
   <i id="space"></i>
   <i id="sbl"></i>
-  <a href="https://space-bot-list.org/"><h1>Space Bots List</h1></a>
+  <a href="https://space-bot-list.xyz/"><h1>Space Bots List</h1></a>
 
 Keys: `spacebotslist`, `spacebotlist`, `spacebots`, `space-bot-list.org`, `space`, `sbl`  
 Class: [dbots.SpaceBotsList](/#/docs/main/master/class/SpaceBotsList)  
-Website: https://space-bot-list.org/
+Website: https://space-bot-list.xyz/
 </div>
 
 <div align=center>
