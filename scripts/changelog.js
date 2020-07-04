@@ -36,7 +36,9 @@ arr = futureChangelog
 const lastVersion = [...arr].reverse()[1].match(/\[([^\][]*)]/)[0].replace(/[\[\]']+/g, '');
 if (!lastVersion) throw new Error('Can\'t find last version in changelog.');
 
-arr.push(`[${currentVersion}]: https://github.com/dbots-pkg/dbots.js/compare/v${lastVersion}...v${currentVersion}`);
+const lastLine = `[${currentVersion}]: https://github.com/dbots-pkg/dbots.js/compare/v${lastVersion}...v${currentVersion}`;
+if (arr[arr.length - 1] === '') arr[arr.length - 1] = lastLine;
+else arr.push(lastLine);
 futureChangelog = arr.join('\n');
 
 fs.writeFileSync(changelogPath, futureChangelog);
