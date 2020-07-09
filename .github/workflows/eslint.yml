@@ -32,6 +32,6 @@ jobs:
         uses: EndBug/add-and-commit@v4
         with:
           add: src
-          message: "[auto] Lint source code"
+          message: "[auto] chore: lint source code"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

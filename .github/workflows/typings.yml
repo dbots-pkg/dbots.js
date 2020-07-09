@@ -34,6 +34,6 @@ jobs:
         uses: EndBug/add-and-commit@v4
         with:
           add: typings
-          message: "[auto] Update typings"
+          message: "[auto] docs: update typings"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

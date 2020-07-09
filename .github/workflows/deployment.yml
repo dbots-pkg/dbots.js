@@ -42,4 +42,4 @@ jobs:
         uses: EndBug/add-and-commit@v4
         with:
           add: docs/*.md
-          message: "[auto] Update docs"
+          message: "[auto] docs: update docs"
