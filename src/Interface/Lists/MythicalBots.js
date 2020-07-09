@@ -41,7 +41,7 @@ class MythicalBots extends ServiceBase {
   static post({ token, clientID, serverCount }) {
     return super._post({
       method: 'post',
-      url: `/bot/${Util.resolveID(clientID)}`,
+      url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
       data: { server_count: Util.resolveCount(serverCount) }
     });
