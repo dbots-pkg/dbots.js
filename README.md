@@ -107,4 +107,4 @@ Any contribution may be useful for the package! Make sure when making issues or 
 - [David (Dependency Watcher)](https://david-dm.org/dbots-pkg/dbots.js)
 - [Website](https://dbots.js.org) ([source](https://github.com/dbots-pkg/dbots-pkg.github.io))
 - [Documentation](https://dbots.js.org/#/docs)
-- [dbots GitHub Organization](https://github.com/dbots-pkg)
+- [Dbots GitHub Organization](https://github.com/dbots-pkg)
