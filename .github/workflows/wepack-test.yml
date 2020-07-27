@@ -6,6 +6,7 @@ on:
       - "!docs"
     paths:
       - "src/**"
+      - "package.json"
       - ".github/workflows/webpack-test.yml"
 
 jobs:
