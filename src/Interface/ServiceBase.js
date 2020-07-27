@@ -149,11 +149,12 @@ module.exports = ServiceBase;
 
 // Service loading
 let serviceClasses = {};
-if (process.env.WP == 'true') {
+const usingNode = typeof process != 'undefined' && process.release.name == 'node';
+if (usingNode) {
   serviceClasses = require('../../.tmp/services-list');
 } else {
-  const path = require('path');
-  const fs = require('fs');
+  const path = eval('require')('path');
+  const fs = eval('require')('fs');
 
   const listsDir = path.join(__dirname, './Lists');
   fs.readdirSync(listsDir).forEach(fileName => {
