@@ -149,7 +149,7 @@ module.exports = ServiceBase;
 
 // Service loading
 let serviceClasses = {};
-if (process.env.NODE_ENV == 'production') {
+if (process.env.WP == 'true') {
   serviceClasses = require('../../.tmp/services-list');
 } else {
   const path = require('path');
