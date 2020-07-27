@@ -150,7 +150,7 @@ module.exports = ServiceBase;
 // Service loading
 let serviceClasses = {};
 const usingNode = typeof process != 'undefined' && process.release.name == 'node';
-if (usingNode) {
+if (!usingNode) {
   serviceClasses = require('../../.tmp/services-list');
 } else {
   const path = eval('require')('path');
