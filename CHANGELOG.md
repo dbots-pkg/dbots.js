@@ -8,13 +8,17 @@ You can see the docs for every version at [here](https://dbots.js.org/#/docs).
 
 ## [Unreleased]
 
+## [5.0.4] - 2020-07-28
+### Fixed:
+- ServiceBase: fixed an issue that caused this file to throw an error when the `NODE_ENV` env variable was set to `production`.
+
 ## [5.0.3] - 2020-07-09
 ### Fixed:
-- MythicalBots: Updated URL for stats posting
+- MythicalBots: updated URL for stats posting.
 
 ## [5.0.2] - 2020-07-04
 ### Fixed:
-- SpaceBotList: updated website and API URL
+- SpaceBotList: updated website and API URL.
 
 ## [5.0.1] - 2020-06-29
 ### Fixed
@@ -51,10 +55,11 @@ You can see the docs for every version at [here](https://dbots.js.org/#/docs).
 ### Fixed
 - Update endpoints for ListMyBots, GlennBotList and DiscordBotList.
 
-[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.3...HEAD
+[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.4...HEAD
 [4.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...v4.0.0
 [4.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.0.0...v4.1.0
 [5.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.1.0...v5.0.0
 [5.0.1]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.0...v5.0.1
 [5.0.2]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.1...v5.0.2
 [5.0.3]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.2...v5.0.3
+[5.0.4]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.3...v5.0.4
