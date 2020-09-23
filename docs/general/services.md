@@ -1,4 +1,4 @@
-# Supported Services (21)
+# Supported Services (26)
 
 <div align=center>
   <p>
@@ -14,8 +14,21 @@
   <a href="https://arcane-center.xyz"><h1>Arcane Bot List</h1></a>
 
 Keys: `arcanebotcenter`, `arcane-botcenter.xyz`, `arcanebotcenter.xyz`, `arcane`, `abc`, `arcane-center.xyz`, `arcanecenter.xyz`  
-Class: [dbots.Arcane](/#/docs/main/master/class/Arcane)  
+Class: [dbots.Arcane](/#/docs/main/new-services/class/Arcane)  
 Website: https://arcane-center.xyz
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://blist.xyz/main_site/staticfiles/main/assets/blist.png" alt="blist logo" width="100" align="left" />
+  </p>
+  <i id="blist"></i>
+  <i id="blist.xyz"></i>
+  <a href="https://blist.xyz/"><h1>Blist</h1></a>
+
+Keys: `blist`, `blist.xyz`  
+Class: [dbots.Blist](/#/docs/main/new-services/class/Blist)  
+Website: https://blist.xyz/
 </div>
 
 <div align=center>
@@ -28,7 +41,7 @@ Website: https://arcane-center.xyz
   <a href="https://botlist.space"><h1>botlist.space</h1></a>
 
 Keys: `botlistspace`, `botlist.space`, `bls`  
-Class: [dbots.BotListSpace](/#/docs/main/master/class/BotListSpace)  
+Class: [dbots.BotListSpace](/#/docs/main/new-services/class/BotListSpace)  
 Website: https://botlist.space
 </div>
 
@@ -41,7 +54,7 @@ Website: https://botlist.space
   <a href="https://botsdatabase.com"><h1>BotsDataBase</h1></a>
 
 Keys: `botsdatabase`, `bdb`  
-Class: [dbots.BotsDataBase](/#/docs/main/master/class/BotsDataBase)  
+Class: [dbots.BotsDataBase](/#/docs/main/new-services/class/BotsDataBase)  
 Website: https://botsdatabase.com
 </div>
 
@@ -55,7 +68,7 @@ Website: https://botsdatabase.com
   <a href="https://botsfordiscord.com"><h1>Bots For Discord</h1></a>
 
 Keys: `botsfordiscord`, `botsfordiscord.com`, `bfd`  
-Class: [dbots.BotsForDiscord](/#/docs/main/master/class/BotsForDiscord)  
+Class: [dbots.BotsForDiscord](/#/docs/main/new-services/class/BotsForDiscord)  
 Website: https://botsfordiscord.com
 </div>
 
@@ -69,7 +82,7 @@ Website: https://botsfordiscord.com
   <a href="https://bots.ondiscord.xyz"><h1>Bots On Discord</h1></a>
 
 Keys: `botsondiscord`, `bots.ondiscord.xyz`, `bod`  
-Class: [dbots.BotsOnDiscord](/#/docs/main/master/class/BotsOnDiscord)  
+Class: [dbots.BotsOnDiscord](/#/docs/main/new-services/class/BotsOnDiscord)  
 Website: https://bots.ondiscord.xyz
 </div>
 
@@ -83,7 +96,7 @@ Website: https://bots.ondiscord.xyz
   <a href="https://www.carbonitex.net/Discord/bots"><h1>Carbonitex</h1></a>
 
 Keys: `carbonitex`, `carbonitex.net`, `carbon`  
-Class: [dbots.Carbon](/#/docs/main/master/class/Carbon)  
+Class: [dbots.Carbon](/#/docs/main/new-services/class/Carbon)  
 Website: https://www.carbonitex.net/Discord/bots
 </div>
 
@@ -97,7 +110,7 @@ Website: https://www.carbonitex.net/Discord/bots
   <a href="https://dblista.pl"><h1>DBLista</h1></a>
 
 Keys: `dblistapl`, `dblista.pl`, `dblista`  
-Class: [dbots.DBLista](/#/docs/main/master/class/DBLista)  
+Class: [dbots.DBLista](/#/docs/main/new-services/class/DBLista)  
 Website: https://dblista.pl
 </div>
 
@@ -112,7 +125,7 @@ Website: https://dblista.pl
   <a href="https://discordapps.dev"><h1>Discord Apps</h1></a>
 
 Keys: `discordappsdev`, `discordapps.dev`, `discordapps`, `dapps`  
-Class: [dbots.DiscordAppsDev](/#/docs/main/master/class/DiscordAppsDev)  
+Class: [dbots.DiscordAppsDev](/#/docs/main/new-services/class/DiscordAppsDev)  
 Website: https://discordapps.dev
 </div>
 
@@ -126,7 +139,7 @@ Website: https://discordapps.dev
   <a href="https://discord.boats"><h1>Discord Boats</h1></a>
 
 Keys: `discordboats`, `discord.boats`, `dboats`  
-Class: [dbots.DiscordBoats](/#/docs/main/master/class/DiscordBoats)  
+Class: [dbots.DiscordBoats](/#/docs/main/new-services/class/DiscordBoats)  
 Website: https://discord.boats
 </div>
 
@@ -140,7 +153,7 @@ Website: https://discord.boats
   <a href="https://discordbotlist.com"><h1>Discord Bot List</h1></a>
 
 Keys: `discordbotlist`, `discordbotlist.com`, `dbotlist`  
-Class: [dbots.DiscordBotList](/#/docs/main/master/class/DiscordBotList)  
+Class: [dbots.DiscordBotList](/#/docs/main/new-services/class/DiscordBotList)  
 Website: https://discordbotlist.com
 </div>
 
@@ -155,8 +168,20 @@ Website: https://discordbotlist.com
   <a href="https://discordbot.world"><h1>Discord Bot World</h1></a>
 
 Keys: `discordbotworld`, `discordbot.world`, `dbotworld`, `dbw`  
-Class: [dbots.DiscordBotWorld](/#/docs/main/master/class/DiscordBotWorld)  
+Class: [dbots.DiscordBotWorld](/#/docs/main/new-services/class/DiscordBotWorld)  
 Website: https://discordbot.world
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://cdn.discordapp.com/avatars/688927563409522694/17cfd572fd3e2d3285534c12e0f58422.png" alt="discordbotsco logo" width="100" align="left" />
+  </p>
+  <i id="discordbotsco"></i>
+  <a href="https://discordbots.co"><h1>DiscordBots.co</h1></a>
+
+Keys: `discordbotsco`  
+Class: [dbots.DiscordBotsCo](/#/docs/main/new-services/class/DiscordBotsCo)  
+Website: https://discordbots.co
 </div>
 
 <div align=center>
@@ -171,7 +196,7 @@ Website: https://discordbot.world
   <a href="https://discord.bots.gg"><h1>Discord Bots</h1></a>
 
 Keys: `discordbotsgg`, `discord.bots.gg`, `botsgg`, `bots.gg`, `dbots`  
-Class: [dbots.DiscordBotsGG](/#/docs/main/master/class/DiscordBotsGG)  
+Class: [dbots.DiscordBotsGG](/#/docs/main/new-services/class/DiscordBotsGG)  
 Website: https://discord.bots.gg
 </div>
 
@@ -186,8 +211,35 @@ Website: https://discord.bots.gg
   <a href="https://discordextremelist.xyz/"><h1>Discord Extreme List</h1></a>
 
 Keys: `discordextremelist`, `discordextremelist.xyz`, `discordextremelistxyz`, `del`  
-Class: [dbots.DiscordExtremeList](/#/docs/main/master/class/DiscordExtremeList)  
+Class: [dbots.DiscordExtremeList](/#/docs/main/new-services/class/DiscordExtremeList)  
 Website: https://discordextremelist.xyz/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://avatars2.githubusercontent.com/u/54491479?v=4" alt="discordlabs logo" width="100" align="left" />
+  </p>
+  <i id="discordlabs"></i>
+  <i id="discord-labs"></i>
+  <i id="discordlabs.org"></i>
+  <i id="bots.discordlabs.org"></i>
+  <a href="https://bots.discordlabs.org/"><h1>Discord Labs</h1></a>
+
+Keys: `discordlabs`, `discord-labs`, `discordlabs.org`, `bots.discordlabs.org`  
+Class: [dbots.DiscordLabs](/#/docs/main/new-services/class/DiscordLabs)  
+Website: https://bots.discordlabs.org/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://discordlistology.com/idiscord.png" alt="discordlistology logo" width="100" align="left" />
+  </p>
+  <i id="discordlistology"></i>
+  <a href="https://discordlistology.com/"><h1>DiscordListology</h1></a>
+
+Keys: `discordlistology`  
+Class: [dbots.DiscordListology](/#/docs/main/new-services/class/DiscordListology)  
+Website: https://discordlistology.com/
 </div>
 
 <div align=center>
@@ -201,7 +253,7 @@ Website: https://discordextremelist.xyz/
   <a href="https://glennbotlist.xyz"><h1>Glenn Bot List</h1></a>
 
 Keys: `glennbotlist`, `glennbotlist.xyz`, `glennbotlist.gg`, `glenn`  
-Class: [dbots.GlennBotList](/#/docs/main/master/class/GlennBotList)  
+Class: [dbots.GlennBotList](/#/docs/main/new-services/class/GlennBotList)  
 Website: https://glennbotlist.xyz
 </div>
 
@@ -215,7 +267,7 @@ Website: https://glennbotlist.xyz
   <a href="https://lbots.org/"><h1>LBots</h1></a>
 
 Keys: `lbots`, `lbotsorg`, `lbots.org`  
-Class: [dbots.LBots](/#/docs/main/master/class/LBots)  
+Class: [dbots.LBots](/#/docs/main/new-services/class/LBots)  
 Website: https://lbots.org/
 </div>
 
@@ -230,7 +282,7 @@ Website: https://lbots.org/
   <a href="https://listmybots.com/"><h1>List My Bots</h1></a>
 
 Keys: `listmybots`, `listmybots.com`, `listmybotscom`, `lmb`  
-Class: [dbots.ListMyBots](/#/docs/main/master/class/ListMyBots)  
+Class: [dbots.ListMyBots](/#/docs/main/new-services/class/ListMyBots)  
 Website: https://listmybots.com/
 </div>
 
@@ -245,7 +297,7 @@ Website: https://listmybots.com/
   <a href="https://mythicalbots.xyz/"><h1>Mythical Bots</h1></a>
 
 Keys: `mythicalbots`, `mythicalbots.xyz`, `mythicalbotsxyz`, `mythical`  
-Class: [dbots.MythicalBots](/#/docs/main/master/class/MythicalBots)  
+Class: [dbots.MythicalBots](/#/docs/main/new-services/class/MythicalBots)  
 Website: https://mythicalbots.xyz/
 </div>
 
@@ -262,8 +314,21 @@ Website: https://mythicalbots.xyz/
   <a href="https://space-bot-list.xyz/"><h1>Space Bots List</h1></a>
 
 Keys: `spacebotslist`, `spacebotlist`, `spacebots`, `space-bot-list.org`, `space`, `sbl`  
-Class: [dbots.SpaceBotsList](/#/docs/main/master/class/SpaceBotsList)  
+Class: [dbots.SpaceBotsList](/#/docs/main/new-services/class/SpaceBotsList)  
 Website: https://space-bot-list.xyz/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://avatars0.githubusercontent.com/u/69593894?v=4" alt="topcord logo" width="100" align="left" />
+  </p>
+  <i id="topcord"></i>
+  <i id="topcord.xyz"></i>
+  <a href="https://topcord.xyz/"><h1>TopCord</h1></a>
+
+Keys: `topcord`, `topcord.xyz`  
+Class: [dbots.TopCord](/#/docs/main/new-services/class/TopCord)  
+Website: https://topcord.xyz/
 </div>
 
 <div align=center>
@@ -276,7 +341,7 @@ Website: https://space-bot-list.xyz/
   <a href="https://top.gg"><h1>Top.gg</h1></a>
 
 Keys: `topgg`, `top.gg`, `top`  
-Class: [dbots.TopGG](/#/docs/main/master/class/TopGG)  
+Class: [dbots.TopGG](/#/docs/main/new-services/class/TopGG)  
 Website: https://top.gg
 </div>
 
@@ -292,7 +357,7 @@ Website: https://top.gg
   <a href="https://wonderbotlist.com/en"><h1>Wonder Bot List</h1></a>
 
 Keys: `wonderbotlist`, `wonderbotlist.com`, `wonderbotlistcom`, `wonder`, `wbl`  
-Class: [dbots.WonderBotList](/#/docs/main/master/class/WonderBotList)  
+Class: [dbots.WonderBotList](/#/docs/main/new-services/class/WonderBotList)  
 Website: https://wonderbotlist.com/en
 </div>
 
@@ -306,6 +371,6 @@ Website: https://wonderbotlist.com/en
   <a href="https://yabl.xyz/"><h1>Yet Another Bot List</h1></a>
 
 Keys: `yabl`, `yablxyz`, `yabl.xyz`  
-Class: [dbots.YABL](/#/docs/main/master/class/YABL)  
+Class: [dbots.YABL](/#/docs/main/new-services/class/YABL)  
 Website: https://yabl.xyz/
 </div>
