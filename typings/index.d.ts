@@ -23,6 +23,49 @@ export class Arcane extends ServiceBase {
 }
 
 /**
+ * Represents the Blist service.
+ * @param token - The token/key for the service
+ */
+export class Blist extends ServiceBase {
+    constructor(token: string);
+    /**
+     * Posts statistics to this service.
+     * @param options - The options of the request
+     * @param options.token - The Authorization token for the request
+     * @param options.clientID - The client ID that the request will post for
+     * @param options.serverCount - The amount of servers that the client is in
+     * @param options.shard - The shard the request is representing
+     */
+    static post(options: {
+        token: string;
+        clientID: IDResolvable;
+        serverCount: CountResolvable;
+        shard: Shard;
+    }): Promise<AxiosResponse>
+    /**
+     * Gets the user listed on this service.
+     * @param id - The user's ID
+     */
+    getUser(id: IDResolvable): Promise<AxiosResponse>
+    /**
+     * Gets the bot listed on this service.
+     * @param id - The bot's ID
+     */
+    getBot(id: IDResolvable): Promise<AxiosResponse>
+    /**
+     * Gets the list of people who voted this bot on this service.
+     * @param id - The bot's ID
+     */
+    getBotVotes(id: IDResolvable): Promise<AxiosResponse>
+    /**
+     * Gets the widget URL for this bot.
+     * @param id - The bot's ID
+     * @param [query] - The query string that will be used in the request
+     */
+    getWidgetURL(id: IDResolvable, query?: Query): string
+}
+
+/**
  * Represents the botlist.space service.
  * @param token - The token/key for the service
  */
@@ -436,6 +479,33 @@ export class DiscordBotWorld extends ServiceBase {
 }
 
 /**
+ * Represents the DicordBots.co service.
+ * @param token - The token/key for the service
+ */
+export class DiscordBotsCo extends ServiceBase {
+    constructor(token: string);
+    /**
+     * Posts statistics to this service.
+     * @param options - The options of the request
+     * @param options.token - The Authorization token for the request
+     * @param options.clientID - The client ID that the request will post for
+     * @param options.serverCount - The amount of servers that the client is in
+     * @param options.shard - The shard the request is representing
+     */
+    static post(options: {
+        token: string;
+        clientID: IDResolvable;
+        serverCount: CountResolvable;
+        shard: Shard;
+    }): Promise<AxiosResponse>
+    /**
+     * Gets the bot listed on this service.
+     * @param id - The bot's ID
+     */
+    getBot(id: IDResolvable): Promise<AxiosResponse>
+}
+
+/**
  * Represents the Discord Bots service.
  * @param token - The token/key for the service
  * @param options - The options of the service. Providing this is highly recommended.
@@ -514,6 +584,77 @@ export class DiscordExtremeList extends ServiceBase {
      * @param id - The bot's ID
      */
     getUser(id: IDResolvable): Promise<AxiosResponse>
+}
+
+/**
+ * Represents the Discord Labs service.
+ * @param token - The token/key for the service
+ */
+export class DiscordLabs extends ServiceBase {
+    constructor(token: string);
+    /**
+     * Posts statistics to this service.
+     * @param options - The options of the request
+     * @param options.token - The Authorization token for the request
+     * @param options.clientID - The client ID that the request will post for
+     * @param options.serverCount - The amount of servers that the client is in
+     * @param options.shard - The shard the request is representing
+     */
+    static post(options: {
+        token: string;
+        clientID: IDResolvable;
+        serverCount: CountResolvable;
+        shard: Shard;
+    }): Promise<AxiosResponse>
+    /**
+     * Gets the bot listed on this service.
+     * @param id - The bot's ID
+     */
+    getBot(id: IDResolvable): Promise<AxiosResponse>
+}
+
+/**
+ * Represents the DiscordListology service.
+ * @param token - The token/key for the service
+ */
+export class DiscordListology extends ServiceBase {
+    constructor(token: string);
+    /**
+     * Posts statistics to this service.
+     * @param options - The options of the request
+     * @param options.token - The Authorization token for the request
+     * @param options.clientID - The client ID that the request will post for
+     * @param options.serverCount - The amount of servers that the client is in
+     * @param options.shard - The shard the request is representing
+     */
+    static post(options: {
+        token: string;
+        clientID: IDResolvable;
+        serverCount: CountResolvable;
+        shard: Shard;
+    }): Promise<AxiosResponse>
+    /**
+     * Gets the bot's stats listed on this service.
+     * @param id - The bot's ID
+     */
+    getBotStats(id: IDResolvable): Promise<AxiosResponse>
+    /**
+     * Checks whether or not a user has voted for a bot on this service.
+     * @param id - The bot's ID
+     * @param userID - The user's ID
+     */
+    userVotedBot(id: IDResolvable, userID: IDResolvable): Promise<AxiosResponse>
+    /**
+     * Gets the guild's stats listed on this service.
+     * @param id - The guild's ID
+     */
+    getGuildStats(id: IDResolvable): Promise<AxiosResponse>
+    /**
+     * Checks whether or not a user has voted for a guild on this service.
+     * @param id - The guild's ID
+     * @param userID - The user's ID
+     */
+    userVotedGuild(id: IDResolvable, userID: IDResolvable): Promise<AxiosResponse>
 }
 
 /**
@@ -716,6 +857,33 @@ export class SpaceBotsList extends ServiceBase {
         clientID: IDResolvable;
         serverCount: CountResolvable;
         userCount: CountResolvable;
+    }): Promise<AxiosResponse>
+    /**
+     * Gets the bot listed on this service.
+     * @param id - The bot's ID
+     */
+    getBot(id: IDResolvable): Promise<AxiosResponse>
+}
+
+/**
+ * Represents the Topcord service.
+ * @param token - The token/key for the service
+ */
+export class TopCord extends ServiceBase {
+    constructor(token: string);
+    /**
+     * Posts statistics to this service.
+     * @param options - The options of the request
+     * @param options.token - The Authorization token for the request
+     * @param options.clientID - The client ID that the request will post for
+     * @param options.serverCount - The amount of servers that the client is in
+     * @param options.shard - The shard the request is representing
+     */
+    static post(options: {
+        token: string;
+        clientID: IDResolvable;
+        serverCount: CountResolvable;
+        shard: Shard;
     }): Promise<AxiosResponse>
     /**
      * Gets the bot listed on this service.
