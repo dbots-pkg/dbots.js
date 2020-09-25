@@ -23,11 +23,11 @@ class Blist extends ServiceBase {
   }
 
   static get websiteURL() {
-    return 'https://blist.xyz/';
+    return 'https://blist.xyz';
   }
 
   static get baseURL() {
-    return 'https://blist.xyz/api/';
+    return 'https://blist.xyz/api';
   }
 
   /**
@@ -42,7 +42,7 @@ class Blist extends ServiceBase {
   static post({ token, clientID, serverCount, shard }) {
     return super._post({
       method: 'post',
-      url: `/bot/${Util.resolveID(clientID)}/stats`,
+      url: `/bot/${Util.resolveID(clientID)}/stats/`,
       headers: { Authorization: token },
       data: shard ?
         {
