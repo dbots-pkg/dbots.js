@@ -8,6 +8,10 @@ You can see the docs for every version at [here](https://dbots.js.org/#/docs).
 
 ## [Unreleased]
 
+## [5.1.0] - 2020-09-25
+### Added:
+- 5 new services have been added: DiscordLabs, Blist, TopCord, DiscordListology, and DiscordBotsCo.
+
 ## [5.0.4] - 2020-07-28
 ### Fixed:
 - ServiceBase: fixed an issue that caused this file to throw an error when the `NODE_ENV` env variable was set to `production`.
@@ -55,7 +59,7 @@ You can see the docs for every version at [here](https://dbots.js.org/#/docs).
 ### Fixed
 - Update endpoints for ListMyBots, GlennBotList and DiscordBotList.
 
-[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.4...HEAD
+[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v5.1.0...HEAD
 [4.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...v4.0.0
 [4.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.0.0...v4.1.0
 [5.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.1.0...v5.0.0
@@ -63,3 +67,4 @@ You can see the docs for every version at [here](https://dbots.js.org/#/docs).
 [5.0.2]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.1...v5.0.2
 [5.0.3]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.2...v5.0.3
 [5.0.4]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.3...v5.0.4
+[5.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v5.0.4...v5.1.0
