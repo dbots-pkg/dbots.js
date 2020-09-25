@@ -24,11 +24,11 @@ Website: https://arcane-center.xyz
   </p>
   <i id="blist"></i>
   <i id="blist.xyz"></i>
-  <a href="https://blist.xyz/"><h1>Blist</h1></a>
+  <a href="https://blist.xyz"><h1>Blist</h1></a>
 
 Keys: `blist`, `blist.xyz`  
 Class: [dbots.Blist](/#/docs/main/master/class/Blist)  
-Website: https://blist.xyz/
+Website: https://blist.xyz
 </div>
 
 <div align=center>
