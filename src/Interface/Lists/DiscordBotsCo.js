@@ -2,7 +2,7 @@ const ServiceBase = require('../ServiceBase');
 const Util = require('../../Utils/Util');
 
 /**
- * Represents the DicordBots.co service.
+ * Represents the DiscordBots.co service.
  * @see https://discordbots.co/api
  * @extends {ServiceBase}
  *
