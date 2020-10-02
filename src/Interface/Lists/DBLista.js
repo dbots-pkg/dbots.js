@@ -32,8 +32,9 @@ class DBLista extends ServiceBase {
   }
 
   /**
-   * This service does not support posting.
-   * The promise returned will be rejected with an error.
+   * <warn>This service does not support posting.
+   * This function is defined to properly return an error if improperly used to post.</warn>
+   * @private
    * @returns {Promise<void>}
    */
   static post() {

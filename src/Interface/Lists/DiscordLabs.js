@@ -27,7 +27,7 @@ class DiscordLabs extends ServiceBase {
   }
 
   static get baseURL() {
-    return 'https://bots.discordlabs.org/v2/';
+    return 'https://bots.discordlabs.org/v2';
   }
 
   /**

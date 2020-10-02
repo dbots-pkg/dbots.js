@@ -2,7 +2,7 @@ const ServiceBase = require('../ServiceBase');
 const Util = require('../../Utils/Util');
 
 /**
- * Represents the Topcord service.
+ * Represents the TopCord service.
  * @see https://docs.topcord.xyz/#/API
  * @extends {ServiceBase}
  *

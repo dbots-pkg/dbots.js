@@ -32,6 +32,7 @@ class DiscordBoats extends ServiceBase {
 
   /**
    * Posts statistics to this service.
+   * <warn>Shard data posting is not supported for this service.</warn>
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request
    * @param {IDResolvable} options.clientID The client ID that the request will post for
