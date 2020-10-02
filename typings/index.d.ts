@@ -73,6 +73,7 @@ export class BotListSpace extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request
      * @param options.clientID - The client ID that the request will post for
@@ -169,6 +170,7 @@ export class BotsForDiscord extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request
      * @param options.clientID - The client ID that the request will post for
@@ -215,6 +217,7 @@ export class BotsOnDiscord extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request
      * @param options.clientID - The client ID that the request will post for
@@ -247,6 +250,7 @@ export class Carbon extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request (this automatically determines what client its posting for)
      * @param options.serverCount - The amount of servers that the client is in
@@ -267,11 +271,6 @@ export class Carbon extends ServiceBase {
  */
 export class DBLista extends ServiceBase {
     constructor(token: string);
-    /**
-     * This service does not support posting.
-     * The promise returned will be rejected with an error.
-     */
-    static post(): Promise<void>
     /**
      * Adds a bot to the service.
      * @param data - The data being posted. This should include the ID of the bot
@@ -331,6 +330,7 @@ export class DiscordAppsDev extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request
      * @param options.clientID - The client ID that the request will post for
@@ -374,6 +374,7 @@ export class DiscordBoats extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request
      * @param options.clientID - The client ID that the request will post for
@@ -442,6 +443,7 @@ export class DiscordBotWorld extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request
      * @param options.clientID - The client ID that the request will post for
@@ -479,7 +481,7 @@ export class DiscordBotWorld extends ServiceBase {
 }
 
 /**
- * Represents the DicordBots.co service.
+ * Represents the DiscordBots.co service.
  * @param token - The token/key for the service
  */
 export class DiscordBotsCo extends ServiceBase {
@@ -763,6 +765,7 @@ export class ListMyBots extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request (this automatically determines what client its posting for)
      * @param options.clientID - The client ID that the request will post for
@@ -810,6 +813,7 @@ export class MythicalBots extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request
      * @param options.clientID - The client ID that the request will post for
@@ -846,6 +850,7 @@ export class SpaceBotsList extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request
      * @param options.clientID - The client ID that the request will post for
@@ -866,7 +871,7 @@ export class SpaceBotsList extends ServiceBase {
 }
 
 /**
- * Represents the Topcord service.
+ * Represents the TopCord service.
  * @param token - The token/key for the service
  */
 export class TopCord extends ServiceBase {
@@ -993,6 +998,7 @@ export class YABL extends ServiceBase {
     constructor(token: string);
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options - The options of the request
      * @param options.token - The Authorization token for the request
      * @param options.clientID - The client ID that the request will post for
