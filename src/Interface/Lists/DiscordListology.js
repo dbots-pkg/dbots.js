@@ -27,7 +27,7 @@ class DiscordListology extends ServiceBase {
   }
 
   static get baseURL() {
-    return 'https://discordlistology.com/api/v1/';
+    return 'https://discordlistology.com/api/v1';
   }
 
   /**
