@@ -31,6 +31,7 @@ class Carbon extends ServiceBase {
 
   /**
    * Posts statistics to this service.
+   * <warn>Shard data posting is not supported for this service.</warn>
    * @param {Object} options The options of the request
    * @param {string} options.token The Authorization token for the request (this automatically determines what client its posting for)
    * @param {CountResolvable} options.serverCount The amount of servers that the client is in
