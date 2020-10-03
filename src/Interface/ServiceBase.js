@@ -61,7 +61,7 @@ class ServiceBase {
   /**
    * Posts statistics to this service.
    * Internally, this is supposed to be used in extended classes.
-   * @param {Object} form The request form
+   * @param {import('../Utils/FormatRequest').RequestForm} form The request form
    * @param {boolean} [appendBaseURL] Whether to append the service's base API url
    * @private
    * @returns {Promise<AxiosResponse>}
@@ -76,7 +76,7 @@ class ServiceBase {
 
   /**
    * Sends a request for the service interface.
-   * @param {Object} form The request form
+   * @param {import('../Utils/FormatRequest').RequestForm} form The request form
    * @param {Object} options The options of this request
    * @param {boolean} [options.requiresToken] Whether the request requires a token
    * @param {boolean} [options.appendBaseURL] Whether to prepend the service's base API url
