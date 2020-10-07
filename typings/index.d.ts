@@ -685,25 +685,17 @@ export class DiscordServices extends ServiceBase {
      * @param title - The title of the post
      * @param content - The content of the post
      */
-    postNews(id: string, title: string, content: string): void
+    postNews(id: IDResolvable, title: string, content: string): void
     /**
      * Posts commands info to your bot page
      * @param id - The bot's ID
      * @param commands - The command info to post
-     * @param content - The content of the post
      */
-    postCommands(id: string, commands: DiscordServicesCommandInfo[], content: string): void
-    /**
-     * Gets the widget URL for this bot.
-     * @param id - The bot's ID
-     * @param [query] - The query string that will be used in the request
-     * @param [smallWidget = null] - The sub-path name to turn the widget into a badge (i.e. owner)
-     */
-    getWidgetURL(id: IDResolvable, query?: Query, smallWidget?: string): string
+    postCommands(id: IDResolvable, commands: DiscordServicesCommandInfo[]): void
 }
 
 /**
- * @property command - The command (include the prefix)
+ * @property command - The command name including the prefix
  * @property desc - The description for your command
  * @property category - The category of your command
  */
