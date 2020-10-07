@@ -1352,27 +1352,6 @@ export interface AxiosResponse {
 }
 
 /**
- * @property method - The method to use
- * @property url - The URL for the request
- * @property headers - The headers to append to the request
- * @property data - The data to send with the request, if the method allows it
- * @property params - The query parameters for the request
- */
-export interface RequestForm {
-    method: string
-    url: string
-    headers: {
-        [key: string]: string;
-    }
-    data: {
-        [key: string]: string | number;
-    }
-    params: {
-        [key: string]: string | number;
-    }
-}
-
-/**
  * Returns a request.
  * @param options - An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
  * @returns The request
