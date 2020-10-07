@@ -660,6 +660,52 @@ export class DiscordListology extends ServiceBase {
 }
 
 /**
+ * Represents the Discord Services service.
+ * @param token - The token/key for the service
+ */
+export class DiscordServices extends ServiceBase {
+    constructor(token: string);
+    /**
+     * Posts statistics to this service.
+     * @param options - The options of the request
+     * @param options.token - The Authorization token for the request
+     * @param options.clientID - The client ID that the request will post for
+     * @param options.serverCount - The amount of servers that the client is in
+     * @param options.shard - The shard the request is representing
+     */
+    static post(options: {
+        token: string;
+        clientID: IDResolvable;
+        serverCount: CountResolvable;
+        shard: Shard;
+    }): Promise<AxiosResponse>
+    /**
+     * Posts news to your bot page
+     * @param id - The bot's ID
+     * @param title - The title of the post
+     * @param content - The content of the post
+     */
+    postNews(id: IDResolvable, title: string, content: string): void
+    /**
+     * Posts commands info to your bot page
+     * @param id - The bot's ID
+     * @param commands - The command info to post
+     */
+    postCommands(id: IDResolvable, commands: DiscordServicesCommandInfo[]): void
+}
+
+/**
+ * @property command - The command name including the prefix
+ * @property desc - The description for your command
+ * @property category - The category of your command
+ */
+export interface DiscordServicesCommandInfo {
+    command: string
+    desc: string
+    category: string
+}
+
+/**
  * Represents the Glenn Bot List service.
  * @param token - The token/key for the service
  */
@@ -1300,26 +1346,9 @@ export interface AxiosResponse {
 /**
  * Returns a request.
  * @param options - An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
- * @param options.method - The method to use
- * @param options.url - The URL for the request
- * @param options.headers - The headers to append to the request
- * @param options.data - The data to send with the request, if the method allows it
- * @param options.params - The query parameters for the request
  * @returns The request
  */
-export function FormatRequest(options: {
-    method: string;
-    url: string;
-    headers: {
-        [key: string]: string;
-    };
-    data: {
-        [key: string]: string | number;
-    };
-    params: {
-        [key: string]: string | number;
-    };
-}): Promise<AxiosResponse>
+export function FormatRequest(options: RequestForm): Promise<AxiosResponse>
 
 export class Util {
     /**
