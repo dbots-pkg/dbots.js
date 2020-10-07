@@ -22,6 +22,7 @@ const { Package } = require('./Constants');
  * @property {Object.<string, string>} headers The headers to append to the request
  * @property {Object.<string, string|number>} data The data to send with the request, if the method allows it
  * @property {Object.<string, string|number>} params The query parameters for the request
+ * @private
  */
 
 /** 
