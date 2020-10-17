@@ -31,7 +31,7 @@
 - name: 'type: automation'
   color: 2fc904
   description: 'About actions workflows and automation.'
-  aliases: []
+  aliases: ['automation']
 
 - name: 'type: bug'
   color: d73a4a
