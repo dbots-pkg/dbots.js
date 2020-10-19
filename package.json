@@ -52,7 +52,7 @@
     "tsd-jsdoc": "github:EndBug/tsd-jsdoc",
     "tslint": "^6.0.0",
     "typescript": "^4.0.2",
-    "webpack": "^4.42.0",
+    "webpack": "^5.1.3",
     "webpack-cli": "^4.0.0"
   }
 }
