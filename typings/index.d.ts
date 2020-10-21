@@ -39,6 +39,10 @@ export class AstroBotList extends ServiceBase {
         token: string;
         serverCount: CountResolvable;
     }): Promise<AxiosResponse>
+    /**
+     * Gets the stats of this bot.
+     */
+    getOwnStats(): Promise<AxiosResponse>
 }
 
 /**
