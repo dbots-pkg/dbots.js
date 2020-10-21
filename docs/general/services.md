@@ -20,13 +20,14 @@ Website: https://arcane-center.xyz
 
 <div align=center>
   <p>
-    <img src="https://cdn.bot-list.xyz/7364djcas.png" alt="astrobotlist logo" width="100" align="left" />
+    <img src="https://cdn.bot-list.xyz/7364djcas.png" alt="abl logo" width="100" align="left" />
   </p>
+  <i id="abl"></i>
   <i id="astrobotlist"></i>
   <i id="botlists.com"></i>
   <a href="https://botlists.com"><h1>Astro Bot List</h1></a>
 
-Keys: `astrobotlist`, `botlists.com`  
+Keys: `abl`, `astrobotlist`, `botlists.com`  
 Class: [dbots.AstroBotList](/#/docs/main/new-services/class/AstroBotList)  
 Website: https://botlists.com
 </div>
