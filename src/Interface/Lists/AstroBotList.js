@@ -12,6 +12,7 @@ const Util = require('../../Utils/Util');
 class AstroBotList extends ServiceBase {
   static get aliases() {
     return [
+      'abl',
       'astrobotlist',
       'botlists.com'
     ];
@@ -49,6 +50,19 @@ class AstroBotList extends ServiceBase {
       data: {
         guild_count: Util.resolveCount(serverCount),
       }
+    });
+  }
+
+  /**
+   * Gets the stats of this bot.
+   * @returns {Promise<AxiosResponse>}
+   */
+  getOwnStats() {
+    return this._request({
+      url: '/bot',
+      headers: { token: this.token }
+    }, {
+      requiresToken: true
     });
   }
 }
