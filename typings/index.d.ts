@@ -510,15 +510,9 @@ export class DiscordBotsCo extends ServiceBase {
 /**
  * Represents the Discord Bots service.
  * @param token - The token/key for the service
- * @param options - The options of the service. Providing this is highly recommended.
- * @param options.library - The bot's library
- * @param options.clientID - The bot ID for the user agent
  */
 export class DiscordBotsGG extends ServiceBase {
-    constructor(token: string, options: {
-        library: string;
-        clientID: IDResolvable;
-    });
+    constructor(token: string);
     /**
      * Creates a compliant user agent to use for any API calls to Discord Bots.
      * @param botID - The ID of the bot that the agent will be identified with
@@ -1088,6 +1082,10 @@ export class YABL extends ServiceBase {
     getUnverifiedBots(): Promise<AxiosResponse>
 }
 
+/**
+ * A class that posts server count to listing site(s).
+ * @param options - The options needed to construct the poster
+ */
 export class Poster {
     constructor(options: PosterOptions);
     /**
@@ -1350,6 +1348,9 @@ export interface AxiosResponse {
  */
 export function FormatRequest(options: RequestForm): Promise<AxiosResponse>
 
+/**
+ * Contains various general-purpose utility methods.
+ */
 export class Util {
     /**
      * Resolves data into a Discord ID.
