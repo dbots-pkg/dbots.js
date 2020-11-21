@@ -42,7 +42,8 @@ Website: ${websiteURL}
 fs.writeFileSync(path.join(__dirname, '../docs/general/services.md'), services)
 
 runGenerator({
-  source: [path.join(__dirname, '../src/index.ts')],
+  // source: ['src'/* , path.join(__dirname, '../src/Interface/Lists')*/],
+  existingOutput: '.tmp/typedoc-out.json',
   custom: 'docs/index.yml',
   output: 'docs/docs.json'
 })
