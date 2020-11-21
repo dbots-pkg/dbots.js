@@ -18,8 +18,9 @@ var interfaceFolder = path.join(__dirname, '../src/Interface/Lists')
 const listClasses = fs.readdirSync(interfaceFolder)
 var services = `# Supported Services (${listClasses.length})`
 for (const filename of listClasses) {
-  const { aliases, logoURL, name, websiteURL } = require(path.join(interfaceFolder, filename)).default as typeof ServiceBase
-  const className = filename.replace(/.ts/, '')
+  const filePath = path.join(interfaceFolder, filename)
+  const { aliases, logoURL, name, websiteURL } = require(filePath).default as typeof ServiceBase
+  const className = path.basename(filePath, '.ts')
   var ref
   if (process.env.GITHUB_REF) {
     const arr = process.env.GITHUB_REF.split('/')
