@@ -1,24 +1,24 @@
 import fs from 'fs'
-import { join as path } from 'path'
+import path from 'path'
 import { ServiceBase } from '../src'
 import { runGenerator } from 'ts-docgen'
 
 // Update docs/general/welcome.md to track README.md
-const README = fs.readFileSync(path(__dirname, '../README.md'), { encoding: 'utf8' })
+const README = fs.readFileSync(path.join(__dirname, '../README.md'), { encoding: 'utf8' })
   .replace(/https:\/\/dbots\.js\.org\/#([\w/]+)/, '#$1')
-fs.writeFileSync(path(__dirname, '../docs/general/welcome.md'), README)
+fs.writeFileSync(path.join(__dirname, '../docs/general/welcome.md'), README)
 
 // Update docs/general/changelog.md to track CHANGELOG.md
-const CHANGELOG = fs.readFileSync(path(__dirname, '../CHANGELOG.md'), { encoding: 'utf8' })
+const CHANGELOG = fs.readFileSync(path.join(__dirname, '../CHANGELOG.md'), { encoding: 'utf8' })
   .replace(/https:\/\/dbots\.js\.org\/#([\w/]+)/, '#$1')
-fs.writeFileSync(path(__dirname, '../docs/general/changelog.md'), CHANGELOG)
+fs.writeFileSync(path.join(__dirname, '../docs/general/changelog.md'), CHANGELOG)
 
 // Update docs/general/services.md to reflect source changes
-var interfaceFolder = path(__dirname, '../src/Interface/Lists')
+var interfaceFolder = path.join(__dirname, '../src/Interface/Lists')
 const listClasses = fs.readdirSync(interfaceFolder)
 var services = `# Supported Services (${listClasses.length})`
 for (const filename of listClasses) {
-  const { aliases, logoURL, name, websiteURL } = require(path(interfaceFolder, filename)).default as typeof ServiceBase
+  const { aliases, logoURL, name, websiteURL } = require(path.join(interfaceFolder, filename)).default as typeof ServiceBase
   const className = filename.replace(/.ts/, '')
   var ref
   if (process.env.GITHUB_REF) {
@@ -39,10 +39,10 @@ Class: [dbots.${className}](${ref ? `/#/docs/main/${ref}/class/${className}` : '
 Website: ${websiteURL}
 </div>`
 }
-fs.writeFileSync(path(__dirname, '../docs/general/services.md'), services)
+fs.writeFileSync(path.join(__dirname, '../docs/general/services.md'), services)
 
 runGenerator({
-  source: ['./src'],
+  source: [path.join(__dirname, '../src/index.ts')],
   custom: 'docs/index.yml',
   output: 'docs/docs.json'
 })
