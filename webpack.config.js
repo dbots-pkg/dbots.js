@@ -11,7 +11,7 @@ const prod = process.env.NODE_ENV === 'production';
 const filename = `dbots${process.env.VERSIONED ? `.${version}` : ''}${prod ? '.min' : ''}.js`;
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.ts',
   mode: prod ? 'production' : 'development',
   devtool: 'source-map',
   output: {
@@ -34,7 +34,15 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      }
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
   optimization: {
     minimizer: [

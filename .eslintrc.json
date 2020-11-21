@@ -6,10 +6,14 @@
   },
   "extends": "eslint:recommended",
   "globals": {},
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 8,
+    "ecmaVersion": 6,
     "sourceType": "module"
   },
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "rules": {
     "array-bracket-spacing": [
       "warn",
@@ -18,7 +22,10 @@
     "computed-property-spacing": "warn",
     "indent": [
       "warn",
-      2
+      2,
+      {
+        "SwitchCase": 1
+      }
     ],
     "keyword-spacing": [
       "warn",
@@ -30,7 +37,7 @@
     "max-len": [
       "warn",
       {
-        "code": 110,
+        "code": 125,
         "ignoreComments": true,
         "ignoreUrls": true
       }
@@ -39,18 +46,11 @@
       2,
       "except-parens"
     ],
-    "no-use-before-define": [
-      2,
-      {
-        "functions": false,
-        "classes": false,
-        "variables": false
-      }
-    ],
     "new-cap": 0,
     "no-caller": 2,
     "no-undef": 2,
-    "no-unused-vars": 1,
+    "no-unused-vars": 0,
+    "@typescript-eslint/no-unused-vars": 1,
     "no-empty": [
       "error",
       {
@@ -71,7 +71,7 @@
     ],
     "semi": [
       "warn",
-      "always"
+      "never"
     ],
     "spaced-comment": "warn",
     "space-infix-ops": "warn"
