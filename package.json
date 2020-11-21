@@ -11,14 +11,10 @@
   "scripts": {
     "build": "tsc",
     "changelog": "node scripts/changelog.js",
-    "docs": "node scripts/docs.js && docgen --source src --custom docs/index.yml --output docs/docs.json --jsdoc docs/docgen.json && node scripts/post-docgen.js",
+    "docs": "node scripts/docs.js && docgen --source src --custom docs/index.yml --output docs/docs.json --jsdoc docs/docgen.json",
     "eslint": "eslint ./src",
     "eslint:fix": "eslint ./src --fix",
     "gpr": "node scripts/gpr.js",
-    "tsd-jsdoc": "jsdoc -c ./typings/jsdoc.json -r src",
-    "tslint": "tslint ./typings/*.d.ts",
-    "tslint:fix": "tslint ./typings/*.d.ts --fix",
-    "types": "npm run tsd-jsdoc && mv out/types.d.ts typings/index.d.ts && rm out --dir && node scripts/post-types.js && npm run tslint:fix",
     "webpack": "node scripts/services-wp && cross-env NODE_ENV=production webpack && rm -r .tmp",
     "prepublishOnly": "npm run eslint:fix && npm run tslint:fix && npm run webpack"
   },
