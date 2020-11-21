@@ -54,7 +54,7 @@ Website: https://botlist.space
   <a href="https://botsdatabase.com"><h1>BotsDataBase</h1></a>
 
 Keys: `botsdatabase`, `bdb`  
-Class: [dbots.BDataBase.ts](/#/docs/main/typescript/class/BDataBase.ts)  
+Class: [dbots.BotsDataBase](/#/docs/main/typescript/class/BotsDataBase)  
 Website: https://botsdatabase.com
 </div>
 
@@ -68,7 +68,7 @@ Website: https://botsdatabase.com
   <a href="https://botsfordiscord.com"><h1>BotsForDiscord</h1></a>
 
 Keys: `botsfordiscord`, `botsfordiscord.com`, `bfd`  
-Class: [dbots.BForDiscord.ts](/#/docs/main/typescript/class/BForDiscord.ts)  
+Class: [dbots.BotsForDiscord](/#/docs/main/typescript/class/BotsForDiscord)  
 Website: https://botsfordiscord.com
 </div>
 
@@ -82,7 +82,7 @@ Website: https://botsfordiscord.com
   <a href="https://bots.ondiscord.xyz"><h1>BotsOnDiscord</h1></a>
 
 Keys: `botsondiscord`, `bots.ondiscord.xyz`, `bod`  
-Class: [dbots.BOnDiscord.ts](/#/docs/main/typescript/class/BOnDiscord.ts)  
+Class: [dbots.BotsOnDiscord](/#/docs/main/typescript/class/BotsOnDiscord)  
 Website: https://bots.ondiscord.xyz
 </div>
 
@@ -139,7 +139,7 @@ Website: https://discordapps.dev
   <a href="https://discord.boats"><h1>DiscordBoats</h1></a>
 
 Keys: `discordboats`, `discord.boats`, `dboats`  
-Class: [dbots.DiscordBo.ts](/#/docs/main/typescript/class/DiscordBo.ts)  
+Class: [dbots.DiscordBoats](/#/docs/main/typescript/class/DiscordBoats)  
 Website: https://discord.boats
 </div>
 
@@ -180,7 +180,7 @@ Website: https://discordbot.world
   <a href="https://discordbots.co"><h1>DiscordBotsCo</h1></a>
 
 Keys: `discordbotsco`  
-Class: [dbots.DiscordBCo.ts](/#/docs/main/typescript/class/DiscordBCo.ts)  
+Class: [dbots.DiscordBotsCo](/#/docs/main/typescript/class/DiscordBotsCo)  
 Website: https://discordbots.co
 </div>
 
@@ -196,7 +196,7 @@ Website: https://discordbots.co
   <a href="https://discord.bots.gg"><h1>DiscordBotsGG</h1></a>
 
 Keys: `discordbotsgg`, `discord.bots.gg`, `botsgg`, `bots.gg`, `dbots`  
-Class: [dbots.DiscordBGG.ts](/#/docs/main/typescript/class/DiscordBGG.ts)  
+Class: [dbots.DiscordBotsGG](/#/docs/main/typescript/class/DiscordBotsGG)  
 Website: https://discord.bots.gg
 </div>
 
@@ -280,7 +280,7 @@ Website: https://glennbotlist.xyz
   <a href="https://lbots.org/"><h1>LBots</h1></a>
 
 Keys: `lbots`, `lbotsorg`, `lbots.org`  
-Class: [dbots.LB.ts](/#/docs/main/typescript/class/LB.ts)  
+Class: [dbots.LBots](/#/docs/main/typescript/class/LBots)  
 Website: https://lbots.org/
 </div>
 
@@ -295,7 +295,7 @@ Website: https://lbots.org/
   <a href="https://listmybots.com/"><h1>ListMyBots</h1></a>
 
 Keys: `listmybots`, `listmybots.com`, `listmybotscom`, `lmb`  
-Class: [dbots.ListMyB.ts](/#/docs/main/typescript/class/ListMyB.ts)  
+Class: [dbots.ListMyBots](/#/docs/main/typescript/class/ListMyBots)  
 Website: https://listmybots.com/
 </div>
 
@@ -310,7 +310,7 @@ Website: https://listmybots.com/
   <a href="https://mythicalbots.xyz/"><h1>MythicalBots</h1></a>
 
 Keys: `mythicalbots`, `mythicalbots.xyz`, `mythicalbotsxyz`, `mythical`  
-Class: [dbots.MythicalB.ts](/#/docs/main/typescript/class/MythicalB.ts)  
+Class: [dbots.MythicalBots](/#/docs/main/typescript/class/MythicalBots)  
 Website: https://mythicalbots.xyz/
 </div>
 
@@ -327,7 +327,7 @@ Website: https://mythicalbots.xyz/
   <a href="https://space-bot-list.xyz/"><h1>SpaceBotsList</h1></a>
 
 Keys: `spacebotslist`, `spacebotlist`, `spacebots`, `space-bot-list.org`, `space`, `sbl`  
-Class: [dbots.SpaceBList.ts](/#/docs/main/typescript/class/SpaceBList.ts)  
+Class: [dbots.SpaceBotsList](/#/docs/main/typescript/class/SpaceBotsList)  
 Website: https://space-bot-list.xyz/
 </div>
 
