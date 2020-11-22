@@ -43,8 +43,8 @@ export default class GlennBotList extends ServiceBase {
       headers: { Authorization: token },
       data: {
         serverCount: Util.resolveCount(serverCount),
-        shardCount: shard ? Util.resolveCount(shard.count) : undefined
-      }
+        shardCount: shard ? Util.resolveCount(shard.count) : undefined,
+      },
     })
   }
 
@@ -61,12 +61,15 @@ export default class GlennBotList extends ServiceBase {
    * @param id The bot's ID
    */
   getBotVotes(id: IDResolvable) {
-    return this._request({
-      url: `/bot/${Util.resolveID(id)}/votes`,
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/bot/${Util.resolveID(id)}/votes`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -83,7 +86,10 @@ export default class GlennBotList extends ServiceBase {
    * @param query The query string that will be used in the request
    */
   getWidgetURL(id: IDResolvable, query?: Query) {
-    return this._appendQuery(`https://glennbotlist.xyz/bot/${Util.resolveID(id)}/widget`, query || {}, false)
+    return this._appendQuery(
+      `https://glennbotlist.xyz/bot/${Util.resolveID(id)}/widget`,
+      query || {},
+      false
+    )
   }
 }
-

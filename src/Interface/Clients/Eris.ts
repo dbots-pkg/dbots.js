@@ -14,7 +14,10 @@ export default class Eris extends ClientFiller {
   }
 
   get voiceConnections(): number {
-    if (this.client.voiceConnections?.constructor?.name === 'VoiceConnectionManager')
+    if (
+      this.client.voiceConnections?.constructor?.name ===
+      'VoiceConnectionManager'
+    )
       return this.client.voiceConnections?.size
     else return Object.keys(this.client.voiceConnections?.pendingGuilds).length
   }
@@ -23,7 +26,7 @@ export default class Eris extends ClientFiller {
     return this.client.user?.id
   }
 
-  /** 
+  /**
    * <warn>This client does not natively support sharding.</warn>
    * @private
    */
@@ -31,4 +34,3 @@ export default class Eris extends ClientFiller {
     return undefined
   }
 }
-

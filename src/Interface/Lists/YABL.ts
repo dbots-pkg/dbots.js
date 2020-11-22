@@ -38,18 +38,21 @@ export default class YABL extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
-      data: { guildCount: Util.resolveCount(serverCount) }
+      data: { guildCount: Util.resolveCount(serverCount) },
     })
   }
 
   /** Invalidates the token being used in the request. */
   invalidate() {
-    return this._request({
-      url: '/token/invalidate',
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: '/token/invalidate',
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -75,12 +78,15 @@ export default class YABL extends ServiceBase {
 
   /** Gets a list of bots on this service. */
   getBots() {
-    return this._request({
-      url: '/bots/all',
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: '/bots/all',
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -93,11 +99,14 @@ export default class YABL extends ServiceBase {
 
   /** Gets a list of unverified bots on this service. */
   getUnverifiedBots() {
-    return this._request({
-      url: '/bots/unverified',
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: '/bots/unverified',
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 }

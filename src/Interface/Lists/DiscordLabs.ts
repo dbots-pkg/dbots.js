@@ -7,7 +7,12 @@ import Util, { IDResolvable } from '../../Utils/Util'
  */
 export default class DiscordLabs extends ServiceBase {
   static get aliases() {
-    return ['discordlabs', 'discord-labs', 'discordlabs.org', 'bots.discordlabs.org']
+    return [
+      'discordlabs',
+      'discord-labs',
+      'discordlabs.org',
+      'bots.discordlabs.org',
+    ]
   }
 
   static get logoURL() {
@@ -37,14 +42,14 @@ export default class DiscordLabs extends ServiceBase {
       url: `/bot/${Util.resolveID(clientID)}/stats`,
       data: shard
         ? {
-          token,
-          server_count: Util.resolveCount(serverCount),
-          shard_count: shard.count
-        }
+            token,
+            server_count: Util.resolveCount(serverCount),
+            shard_count: shard.count,
+          }
         : {
-          token,
-          server_count: Util.resolveCount(serverCount)
-        }
+            token,
+            server_count: Util.resolveCount(serverCount),
+          },
     })
   }
 
@@ -56,4 +61,3 @@ export default class DiscordLabs extends ServiceBase {
     return this._request({ url: `/bot/${Util.resolveID(id)}` })
   }
 }
-

@@ -37,13 +37,13 @@ export default class TopGG extends ServiceBase {
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
-      data: shard ?
-        {
-          server_count: Util.resolveCount(serverCount),
-          shard_id: shard.id,
-          shard_count: shard.count
-        } :
-        { server_count: Util.resolveCount(serverCount) }
+      data: shard
+        ? {
+            server_count: Util.resolveCount(serverCount),
+            shard_id: shard.id,
+            shard_count: shard.count,
+          }
+        : { server_count: Util.resolveCount(serverCount) },
     })
   }
 
@@ -85,7 +85,10 @@ export default class TopGG extends ServiceBase {
    * @param query The query string that will be used in the request
    */
   getBotVotes(id: IDResolvable, query?: Query) {
-    return this._request({ url: `/bots/${Util.resolveID(id)}/votes`, params: query })
+    return this._request({
+      url: `/bots/${Util.resolveID(id)}/votes`,
+      params: query,
+    })
   }
 
   /**
@@ -96,7 +99,7 @@ export default class TopGG extends ServiceBase {
   userVoted(id: IDResolvable, userID: IDResolvable) {
     return this._request({
       url: `/bots/${Util.resolveID(id)}/check`,
-      params: { userId: Util.resolveID(userID) }
+      params: { userId: Util.resolveID(userID) },
     })
   }
 
@@ -108,6 +111,9 @@ export default class TopGG extends ServiceBase {
    */
   getWidgetURL(id: IDResolvable, query?: Query, smallWidget?: string) {
     const subPath = smallWidget ? `${smallWidget}/` : ''
-    return this._appendQuery(`/widget/${subPath}${Util.resolveID(id)}.svg`, query || {})
+    return this._appendQuery(
+      `/widget/${subPath}${Util.resolveID(id)}.svg`,
+      query || {}
+    )
   }
 }

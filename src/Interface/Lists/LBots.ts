@@ -36,13 +36,13 @@ export default class LBots extends ServiceBase {
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
-      data: shard ?
-        {
-          guild_count: Util.resolveCount(serverCount),
-          shard_id: shard.id,
-          shard_count: shard.count
-        } :
-        { guild_count: Util.resolveCount(serverCount) }
+      data: shard
+        ? {
+            guild_count: Util.resolveCount(serverCount),
+            shard_id: shard.id,
+            shard_count: shard.count,
+          }
+        : { guild_count: Util.resolveCount(serverCount) },
     })
   }
 
@@ -51,12 +51,15 @@ export default class LBots extends ServiceBase {
    * @param id The bot's ID
    */
   invalidate(id: IDResolvable) {
-    return this._request({
-      url: `/bots/${Util.resolveID(id)}/invalidate`,
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(id)}/invalidate`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -64,12 +67,15 @@ export default class LBots extends ServiceBase {
    * @param id The bot's ID
    */
   getBotFavorites(id: IDResolvable) {
-    return this._request({
-      url: `/bot/${Util.resolveID(id)}/favorites`,
-      headers: { Authorization: this.token },
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/bot/${Util.resolveID(id)}/favorites`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -78,12 +84,17 @@ export default class LBots extends ServiceBase {
    * @param userID The user's ID
    */
   userFavorited(id: IDResolvable, userID: IDResolvable) {
-    return this._request({
-      url: `/bots/${Util.resolveID(id)}/favorites/user/${Util.resolveID(userID)}`,
-      headers: { Authorization: this.token },
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(id)}/favorites/user/${Util.resolveID(
+          userID
+        )}`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -92,14 +103,17 @@ export default class LBots extends ServiceBase {
    * @param data The data being posted
    */
   updatePanelGuilds(id: IDResolvable, data: AnyObject) {
-    return this._request({
-      method: 'post',
-      url: `/panel/${Util.resolveID(id)}/guilds`,
-      headers: { Authorization: this.token },
-      data
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        method: 'post',
+        url: `/panel/${Util.resolveID(id)}/guilds`,
+        headers: { Authorization: this.token },
+        data,
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -108,12 +122,15 @@ export default class LBots extends ServiceBase {
    * @param guildID The guild's ID
    */
   getPanelGuildSettings(id: IDResolvable, guildID: IDResolvable) {
-    return this._request({
-      url: `/panel/${Util.resolveID(id)}/guild/${Util.resolveID(guildID)}`,
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/panel/${Util.resolveID(id)}/guild/${Util.resolveID(guildID)}`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -122,14 +139,22 @@ export default class LBots extends ServiceBase {
    * @param guildID The guild's ID
    * @param data The data being posted
    */
-  updatePanelGuildSettings(id: IDResolvable, guildID: IDResolvable, data: AnyObject) {
-    return this._request({
-      url: `/panel/${Util.resolveID(id)}/guild/${Util.resolveID(guildID)}/update`,
-      headers: { Authorization: this.token },
-      data
-    }, {
-      requiresToken: true
-    })
+  updatePanelGuildSettings(
+    id: IDResolvable,
+    guildID: IDResolvable,
+    data: AnyObject
+  ) {
+    return this._request(
+      {
+        url: `/panel/${Util.resolveID(id)}/guild/${Util.resolveID(
+          guildID
+        )}/update`,
+        headers: { Authorization: this.token },
+        data,
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 }
-

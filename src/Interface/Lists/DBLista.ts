@@ -1,6 +1,10 @@
 import ServiceBase from '../ServiceBase'
 import { errors } from '../../Utils/DBotsError'
-import Util, { AnyObject, CountResolvable, IDResolvable } from '../../Utils/Util'
+import Util, {
+  AnyObject,
+  CountResolvable,
+  IDResolvable,
+} from '../../Utils/Util'
 
 const { Error } = errors
 
@@ -43,14 +47,17 @@ export default class DBLista extends ServiceBase {
    * @param data The data being posted. This should include the ID of the bot
    */
   addBot(data: AnyObject) {
-    return this._request({
-      method: 'post',
-      url: '/bots',
-      headers: { Authorization: this.token },
-      data
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        method: 'post',
+        url: '/bots',
+        headers: { Authorization: this.token },
+        data,
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -58,14 +65,17 @@ export default class DBLista extends ServiceBase {
    * @param data The data being posted. This should include the ID of the bot
    */
   updateBot(data: AnyObject) {
-    return this._request({
-      method: 'put',
-      url: '/bots',
-      headers: { Authorization: this.token },
-      data
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        method: 'put',
+        url: '/bots',
+        headers: { Authorization: this.token },
+        data,
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -100,14 +110,17 @@ export default class DBLista extends ServiceBase {
    * @param data The data being posted
    */
   rateBot(id: IDResolvable, data: AnyObject) {
-    return this._request({
-      method: 'post',
-      url: `/bots/${Util.resolveID(id)}/rate`,
-      headers: { Authorization: this.token },
-      data
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        method: 'post',
+        url: `/bots/${Util.resolveID(id)}/rate`,
+        headers: { Authorization: this.token },
+        data,
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -115,13 +128,16 @@ export default class DBLista extends ServiceBase {
    * @param id The bot's ID
    */
   removeRating(id: IDResolvable) {
-    return this._request({
-      method: 'delete',
-      url: `/bots/${Util.resolveID(id)}/rate`,
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        method: 'delete',
+        url: `/bots/${Util.resolveID(id)}/rate`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -129,13 +145,16 @@ export default class DBLista extends ServiceBase {
    * @param id The bot's ID
    */
   removeBot(id: IDResolvable) {
-    return this._request({
-      method: 'delete',
-      url: `/bots/${Util.resolveID(id)}`,
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        method: 'delete',
+        url: `/bots/${Util.resolveID(id)}`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**

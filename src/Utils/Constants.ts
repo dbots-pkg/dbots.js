@@ -5,13 +5,13 @@ export interface PosterOptions {
   /** An object that pairs a {@link Service} with their token */
   apiKeys?: Record<Service, string>
 
-  /** 
-   * The client that a supported {@link Library} uses to manage the Discord application. 
+  /**
+   * The client that a supported {@link Library} uses to manage the Discord application.
    * Requires {@link #clientLibrary} to be present
    */
   client?: object
 
-  /** 
+  /**
    * The client ID used for posting to a {@link Service}.
    * Automatically filled in when {@link #client} is present
    */
@@ -75,15 +75,15 @@ export interface PostRequestData {
 /** An object with all query parameters */
 export type Query = Record<string, string | number>
 
-/** 
- * A mock of a {@link Service} that only consists of the nessessities for a poster to use it. 
+/**
+ * A mock of a {@link Service} that only consists of the nessessities for a poster to use it.
  * <warn>When you're passing your custom services to method in this package, remmeber to use pass the actual service class, not an instance of it.</warn>
  * @example
  * class MyCustomService {
  *   static get aliases() {
  *     return ['a', 'string', 'array'] // string[]
  *   }
- * 
+ *
  *   static post() {
  *     return yourCustomPostMethod() // Promise<any>
  *   }
@@ -120,12 +120,16 @@ export type eventHandler = (result: object | object[]) => void
  * * postSuccess
  * * postFail
  */
-export type CustomEvent = 'autopostSuccess' | 'autopostFail' | 'postSuccess' | 'postFail'
+export type CustomEvent =
+  | 'autopostSuccess'
+  | 'autopostFail'
+  | 'postSuccess'
+  | 'postFail'
 export const SupportedEvents: CustomEvent[] = [
   'autopostSuccess',
   'autopostFail',
   'postSuccess',
-  'postFail'
+  'postFail',
 ]
 
 /**

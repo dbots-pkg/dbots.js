@@ -7,7 +7,14 @@ import Util, { IDResolvable } from '../../Utils/Util'
  */
 export default class SpaceBotsList extends ServiceBase {
   static get aliases() {
-    return ['spacebotslist', 'spacebotlist', 'spacebots', 'space-bot-list.org', 'space', 'sbl']
+    return [
+      'spacebotslist',
+      'spacebotlist',
+      'spacebots',
+      'space-bot-list.org',
+      'space',
+      'sbl',
+    ]
   }
 
   static get logoURL() {
@@ -39,8 +46,8 @@ export default class SpaceBotsList extends ServiceBase {
       headers: { Authorization: token },
       data: {
         guilds: Util.resolveCount(serverCount),
-        users: Util.resolveCount(userCount)
-      }
+        users: Util.resolveCount(userCount),
+      },
     })
   }
 
@@ -52,4 +59,3 @@ export default class SpaceBotsList extends ServiceBase {
     return this._request({ url: `/bots/${Util.resolveID(id)}` })
   }
 }
-

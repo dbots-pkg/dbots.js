@@ -39,7 +39,7 @@ export interface ServiceBasePostOptions {
 
 /** Represents a basic service. */
 export default class ServiceBase {
-  /** 
+  /**
    * The token that will be used for the service.
    * @private
    */
@@ -62,23 +62,20 @@ export default class ServiceBase {
    * @param key The name of the service to get
    * @param extras An array of {@link CustomService}s to include
    */
-  static get(key: string, extras: CustomService[] = []): typeof ServiceBase | null {
-    if (!key || typeof key !== 'string')
-      return null
+  static get(
+    key: string,
+    extras: CustomService[] = []
+  ): typeof ServiceBase | null {
+    if (!key || typeof key !== 'string') return null
 
-    const services = [
-      ...Object.values(serviceClasses),
-      ...extras
-    ]
+    const services = [...Object.values(serviceClasses), ...extras]
 
     for (let i = 0, len = services.length; i < len; i++) {
       const service = services[i]
 
-      if (!service || !service.aliases || !service.post)
-        continue
+      if (!service || !service.aliases || !service.post) continue
 
-      if (service.aliases.includes(key.toLowerCase()))
-        return service
+      if (service.aliases.includes(key.toLowerCase())) return service
     }
     return null
   }
@@ -98,8 +95,7 @@ export default class ServiceBase {
   static _post(form: RequestForm, appendBaseURL = true) {
     if (this.serviceName === 'ServiceBase')
       return Promise.reject(new Error('CALLED_FROM_BASE'))
-    if (this.baseURL && appendBaseURL)
-      form.url = this.baseURL + form.url
+    if (this.baseURL && appendBaseURL) form.url = this.baseURL + form.url
     return FormatRequest(form)
   }
 
@@ -166,15 +162,17 @@ export default class ServiceBase {
     throw 'This is just a placeholder prop, it should not be accessed'
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  static post(options: ServiceBasePostOptions): ReturnType<(typeof ServiceBase)['_post']> {
+  static post(
+    options: ServiceBasePostOptions // eslint-disable-line @typescript-eslint/no-unused-vars
+  ): ReturnType<typeof ServiceBase['_post']> {
     throw 'This is just a placeholder method, it should not be called'
   }
 }
 
 // Service loading
 let serviceClasses: Record<string, typeof ServiceBase> = {}
-const usingNode = typeof process != 'undefined' && process.release.name == 'node'
+const usingNode =
+  typeof process != 'undefined' && process.release.name == 'node'
 if (!usingNode) {
   serviceClasses = require('../../.tmp/services-list')
 } else {
@@ -184,8 +182,6 @@ if (!usingNode) {
   const listsDir = path.join(__dirname, './Lists')
   fs.readdirSync(listsDir).forEach((fileName: string) => {
     const listClass = require(path.join(listsDir, fileName)).default
-    if (listClass)
-      serviceClasses[path.parse(fileName).name] = listClass
+    if (listClass) serviceClasses[path.parse(fileName).name] = listClass
   })
 }
-

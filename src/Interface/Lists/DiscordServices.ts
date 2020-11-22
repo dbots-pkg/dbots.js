@@ -48,12 +48,12 @@ export default class DiscordServices extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
-      data: shard ?
-        {
-          servers: Util.resolveCount(serverCount),
-          shards: shard.count
-        } :
-        { servers: Util.resolveCount(serverCount) }
+      data: shard
+        ? {
+            servers: Util.resolveCount(serverCount),
+            shards: shard.count,
+          }
+        : { servers: Util.resolveCount(serverCount) },
     })
   }
 
@@ -64,16 +64,19 @@ export default class DiscordServices extends ServiceBase {
    * @param content The content of the post
    */
   postNews(id: IDResolvable, title: string, content: string) {
-    return this._request({
-      method: 'post',
-      url: `/bot/${Util.resolveID(id)}/news`,
-      headers: { Authorization: this.token },
-      data: {
-        title,
-        content,
-        error: false
-      }
-    }, { requiresToken: true })
+    return this._request(
+      {
+        method: 'post',
+        url: `/bot/${Util.resolveID(id)}/news`,
+        headers: { Authorization: this.token },
+        data: {
+          title,
+          content,
+          error: false,
+        },
+      },
+      { requiresToken: true }
+    )
   }
 
   /**
@@ -82,12 +85,14 @@ export default class DiscordServices extends ServiceBase {
    * @param commands The command info to post
    */
   postCommands(id: IDResolvable, commands: DiscordServicesCommandInfo[]) {
-    return this._request({
-      method: 'post',
-      url: `/bot/${Util.resolveID(id)}/commands`,
-      headers: { Authorization: this.token },
-      data: commands
-    }, { requiresToken: true })
+    return this._request(
+      {
+        method: 'post',
+        url: `/bot/${Util.resolveID(id)}/commands`,
+        headers: { Authorization: this.token },
+        data: commands,
+      },
+      { requiresToken: true }
+    )
   }
 }
-

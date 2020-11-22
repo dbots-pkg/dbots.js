@@ -38,9 +38,9 @@ export default class BotsDataBase extends ServiceBase {
       url: `/bots/${Util.resolveID(clientID)}`,
       headers: {
         Authorization: token,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      data: { servers: Util.resolveCount(serverCount) }
+      data: { servers: Util.resolveCount(serverCount) },
     })
   }
 
@@ -65,9 +65,12 @@ export default class BotsDataBase extends ServiceBase {
    * @param id The bot's ID
    */
   getBotVotes(id: IDResolvable) {
-    return this._request({
-      url: `/bots/${Util.resolveID(id)}/votes`,
-      headers: { Authorization: this.token }
-    }, { requiresToken: true })
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(id)}/votes`,
+        headers: { Authorization: this.token },
+      },
+      { requiresToken: true }
+    )
   }
 }

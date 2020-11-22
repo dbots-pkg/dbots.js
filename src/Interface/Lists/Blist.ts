@@ -37,12 +37,12 @@ export default class Blist extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}/stats/`,
       headers: { Authorization: token },
-      data: shard ?
-        {
-          server_count: Util.resolveCount(serverCount),
-          shard_count: shard.count
-        } :
-        { server_count: Util.resolveCount(serverCount) }
+      data: shard
+        ? {
+            server_count: Util.resolveCount(serverCount),
+            shard_count: shard.count,
+          }
+        : { server_count: Util.resolveCount(serverCount) },
     })
   }
 
@@ -67,12 +67,15 @@ export default class Blist extends ServiceBase {
    * @param id The bot's ID
    */
   getBotVotes(id: IDResolvable) {
-    return this._request({
-      url: `/bot/${Util.resolveID(id)}/votes`,
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/bot/${Util.resolveID(id)}/votes`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**

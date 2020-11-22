@@ -31,12 +31,17 @@ export default class DiscordBotList extends ServiceBase {
    * @param options The options of the request
    */
   static post(options: ServiceBasePostOptions) {
-    const { token, clientID, serverCount, shard, userCount, voiceConnections } = options
+    const {
+      token,
+      clientID,
+      serverCount,
+      shard,
+      userCount,
+      voiceConnections,
+    } = options
     const data: AnyObject = { guilds: Util.resolveCount(serverCount) }
-    if (shard)
-      data.shard_id = shard.id
-    if (userCount)
-      data.users = Util.resolveCount(userCount)
+    if (shard) data.shard_id = shard.id
+    if (userCount) data.users = Util.resolveCount(userCount)
     if (voiceConnections)
       data.voice_connections = Util.resolveCount(voiceConnections)
 
@@ -44,8 +49,7 @@ export default class DiscordBotList extends ServiceBase {
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: `Bot ${token}` },
-      data
+      data,
     })
   }
 }
-

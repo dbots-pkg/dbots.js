@@ -38,7 +38,7 @@ export default class ListMyBots extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { count: Util.resolveCount(serverCount) }
+      data: { count: Util.resolveCount(serverCount) },
     })
   }
 
@@ -56,7 +56,11 @@ export default class ListMyBots extends ServiceBase {
    * @param query The query string that will be used in the request
    */
   getStatusWidgetURL(id: IDResolvable, query?: Query) {
-    return this._appendQuery(`https://listmybots.com/api/bot/${Util.resolveID(id)}/widget/status`, query || {}, false)
+    return this._appendQuery(
+      `https://listmybots.com/api/bot/${Util.resolveID(id)}/widget/status`,
+      query || {},
+      false
+    )
   }
 
   /**
@@ -81,7 +85,10 @@ export default class ListMyBots extends ServiceBase {
    * @param query The query string that will be used in the request
    */
   getWidgetURL(id: IDResolvable, query?: Query) {
-    return this._appendQuery(`https://listmybots.com/api/bot/${Util.resolveID(id)}/widget`, query || {}, false)
+    return this._appendQuery(
+      `https://listmybots.com/api/bot/${Util.resolveID(id)}/widget`,
+      query || {},
+      false
+    )
   }
 }
-

@@ -27,8 +27,7 @@ export default class ClientFiller {
    * @param client The client that the library made
    */
   static get(libraryName: string, client: object): ClientFiller {
-    if (!client)
-      throw new Error('No client was provided!')
+    if (!client) throw new Error('No client was provided!')
 
     switch (libraryName) {
       case 'discordie':

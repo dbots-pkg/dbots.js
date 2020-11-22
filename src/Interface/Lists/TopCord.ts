@@ -36,12 +36,12 @@ export default class TopCord extends ServiceBase {
       method: 'post',
       url: `/bot/stats/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: shard ?
-        {
-          guilds: Util.resolveCount(serverCount),
-          shards: shard.count
-        } :
-        { guilds: Util.resolveCount(serverCount) }
+      data: shard
+        ? {
+            guilds: Util.resolveCount(serverCount),
+            shards: shard.count,
+          }
+        : { guilds: Util.resolveCount(serverCount) },
     })
   }
 

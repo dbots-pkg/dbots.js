@@ -19,8 +19,7 @@ export default class DiscordJS extends ClientFiller {
   }
 
   get voiceConnections(): number {
-    if (this.client.voice)
-      return this.client.voice.broadcasts?.length || 0
+    if (this.client.voice) return this.client.voice.broadcasts?.length || 0
     else return this.client.broadcasts?.size
   }
 
@@ -29,9 +28,11 @@ export default class DiscordJS extends ClientFiller {
   }
 
   get shard(): Shard | undefined {
-    return this.client.shard ? {
-      id: this.client.shard.id,
-      count: this.client.shard.count
-    } : undefined
+    return this.client.shard
+      ? {
+          id: this.client.shard.id,
+          count: this.client.shard.count,
+        }
+      : undefined
   }
 }

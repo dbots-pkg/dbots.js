@@ -29,7 +29,9 @@ export declare function assert<T>(value: any): asserts value is T
  */
 export default class Util {
   constructor() {
-    throw new Error(`The ${this.constructor.name} class may not be instantiated.`)
+    throw new Error(
+      `The ${this.constructor.name} class may not be instantiated.`
+    )
   }
 
   /**
@@ -41,18 +43,17 @@ export default class Util {
       throw new DBotsError('INVALID_ID')
 
     let id = null
-    if (typeof data === 'string')
-      id = data
-    else if (typeof data === 'number')
-      id = String(data)
-    else if (typeof data === 'object' &&
+    if (typeof data === 'string') id = data
+    else if (typeof data === 'number') id = String(data)
+    else if (
+      typeof data === 'object' &&
       Object.prototype.hasOwnProperty.call(data, 'id') &&
-      typeof data.id !== 'object')
+      typeof data.id !== 'object'
+    )
       return this.resolveID(data.id)
     else throw new DBotsError('INVALID_ID')
 
-    if (/^\d{17,19}$/.test(id))
-      return id
+    if (/^\d{17,19}$/.test(id)) return id
     else throw new DBotsError('INVALID_ID')
   }
 
@@ -62,10 +63,8 @@ export default class Util {
    */
   static resolveCount(data: CountResolvable) {
     const count = parseInt(data)
-    if (isNaN(count))
-      throw new TypeError('INVALID_COUNT')
-    else if (count < 0)
-      throw new RangeError('COUNT_NEGATIVE')
+    if (isNaN(count)) throw new TypeError('INVALID_COUNT')
+    else if (count < 0) throw new RangeError('COUNT_NEGATIVE')
     return count
   }
 }

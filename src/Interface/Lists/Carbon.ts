@@ -35,7 +35,7 @@ export default class Carbon extends ServiceBase {
     return super._post({
       method: 'post',
       url: '/data/botdata.php',
-      data: { key: token, servercount: Util.resolveCount(serverCount) }
+      data: { key: token, servercount: Util.resolveCount(serverCount) },
     })
   }
 
@@ -44,4 +44,3 @@ export default class Carbon extends ServiceBase {
     return this._request({ url: '/api/listedbots' })
   }
 }
-

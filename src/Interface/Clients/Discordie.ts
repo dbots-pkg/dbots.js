@@ -23,9 +23,11 @@ export default class Discordie extends ClientFiller {
   }
 
   get shard(): Shard | undefined {
-    return this.client.options?.shardId && this.client.options?.shardCount ? {
-      id: this.client.options.shardId,
-      count: this.client.options.shardCount
-    } : undefined
+    return this.client.options?.shardId && this.client.options?.shardCount
+      ? {
+          id: this.client.options.shardId,
+          count: this.client.options.shardCount,
+        }
+      : undefined
   }
 }

@@ -16,7 +16,7 @@ import { Package } from './Constants'
  */
 export { AxiosResponse } from 'axios'
 
-/** 
+/**
  * @private
  */
 export interface RequestForm {
@@ -36,12 +36,14 @@ export interface RequestForm {
   params?: Record<string, string | number | boolean>
 }
 
-/** 
+/**
  * Returns a request.
  * @param opts An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
  * @returns The request
  */
-export default function FormatRequest(options: RequestForm): Promise<AxiosResponse> {
+export default function FormatRequest(
+  options: RequestForm
+): Promise<AxiosResponse> {
   const opts: AxiosRequestConfig = options
 
   if (!opts.method) opts.method = 'get'
@@ -59,10 +61,9 @@ export default function FormatRequest(options: RequestForm): Promise<AxiosRespon
   const userAgent = `dbots (https://github.com/dbots-pkg/dbots.js ${Package.version}) Node.js/${process.version}`
   if (!opts.headers)
     opts.headers = {
-      'User-Agent': userAgent
+      'User-Agent': userAgent,
     }
-  else if (!opts.headers['User-Agent'])
-    opts.headers['User-Agent'] = userAgent
+  else if (!opts.headers['User-Agent']) opts.headers['User-Agent'] = userAgent
 
   return axios(opts)
 }

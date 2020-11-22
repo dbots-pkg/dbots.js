@@ -7,7 +7,12 @@ import Util, { IDResolvable } from '../../Utils/Util'
  */
 export default class DiscordExtremeList extends ServiceBase {
   static get aliases() {
-    return ['discordextremelist', 'discordextremelist.xyz', 'discordextremelistxyz', 'del']
+    return [
+      'discordextremelist',
+      'discordextremelist.xyz',
+      'discordextremelistxyz',
+      'del',
+    ]
   }
 
   static get logoURL() {
@@ -38,19 +43,22 @@ export default class DiscordExtremeList extends ServiceBase {
       headers: { Authorization: token },
       data: {
         guildCount: Util.resolveCount(serverCount),
-        shardCount: shard ? Util.resolveCount(shard.count) : undefined
-      }
+        shardCount: shard ? Util.resolveCount(shard.count) : undefined,
+      },
     })
   }
 
   /** Gets the statistics of this service. */
   getStatistics() {
-    return this._request({
-      url: '/stats',
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: '/stats',
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -58,12 +66,15 @@ export default class DiscordExtremeList extends ServiceBase {
    * @param id The bot's ID
    */
   getBot(id: IDResolvable) {
-    return this._request({
-      url: `/bot/${Util.resolveID(id)}`,
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/bot/${Util.resolveID(id)}`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -71,12 +82,14 @@ export default class DiscordExtremeList extends ServiceBase {
    * @param id The bot's ID
    */
   getUser(id: IDResolvable) {
-    return this._request({
-      url: `/user/${Util.resolveID(id)}`,
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/user/${Util.resolveID(id)}`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 }
-

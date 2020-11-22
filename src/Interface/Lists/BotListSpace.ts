@@ -40,7 +40,7 @@ export default class BotListSpace extends ServiceBase {
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { server_count: Util.resolveCount(serverCount) }
+      data: { server_count: Util.resolveCount(serverCount) },
     })
   }
 
@@ -64,12 +64,15 @@ export default class BotListSpace extends ServiceBase {
    * @param id The bot's ID
    */
   getBotVotes(id: IDResolvable) {
-    return this._request({
-      url: `/bots/${Util.resolveID(id)}/upvotes`,
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(id)}/upvotes`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -102,7 +105,17 @@ export default class BotListSpace extends ServiceBase {
    * @param style The style of the widget, cannot be zero
    * @param query The query string that will be used in the request
    */
-  getWidgetURL(id: IDResolvable, style: CountResolvable = 1, query: Query = {}) {
-    return this._appendQuery(`https://api.botlist.space/widget/${Util.resolveID(id)}/${Util.resolveCount(style)}`, query, false)
+  getWidgetURL(
+    id: IDResolvable,
+    style: CountResolvable = 1,
+    query: Query = {}
+  ) {
+    return this._appendQuery(
+      `https://api.botlist.space/widget/${Util.resolveID(
+        id
+      )}/${Util.resolveCount(style)}`,
+      query,
+      false
+    )
   }
 }

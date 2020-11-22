@@ -7,7 +7,13 @@ import Util, { IDResolvable } from '../../Utils/Util'
  */
 export default class WonderBotList extends ServiceBase {
   static get aliases() {
-    return ['wonderbotlist', 'wonderbotlist.com', 'wonderbotlistcom', 'wonder', 'wbl']
+    return [
+      'wonderbotlist',
+      'wonderbotlist.com',
+      'wonderbotlistcom',
+      'wonder',
+      'wbl',
+    ]
   }
 
   static get logoURL() {
@@ -36,9 +42,10 @@ export default class WonderBotList extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      params: shard && shard.count ?
-        { serveurs: Util.resolveCount(serverCount), shard: shard.count } :
-        { serveurs: Util.resolveCount(serverCount) }
+      params:
+        shard && shard.count
+          ? { serveurs: Util.resolveCount(serverCount), shard: shard.count }
+          : { serveurs: Util.resolveCount(serverCount) },
     })
   }
 
@@ -47,12 +54,15 @@ export default class WonderBotList extends ServiceBase {
    * @param id The bot's ID
    */
   getBot(id: IDResolvable) {
-    return this._request({
-      url: `/bot/${Util.resolveID(id)}`,
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/bot/${Util.resolveID(id)}`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -60,12 +70,14 @@ export default class WonderBotList extends ServiceBase {
    * @param id The user's ID
    */
   getUser(id: IDResolvable) {
-    return this._request({
-      url: `/user/${Util.resolveID(id)}`,
-      headers: { Authorization: this.token }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/user/${Util.resolveID(id)}`,
+        headers: { Authorization: this.token },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 }
-

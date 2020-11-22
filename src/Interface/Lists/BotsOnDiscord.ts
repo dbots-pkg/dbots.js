@@ -38,7 +38,7 @@ export default class BotsOnDiscord extends ServiceBase {
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}/guilds`,
       headers: { Authorization: token },
-      data: { guildCount: Util.resolveCount(serverCount) }
+      data: { guildCount: Util.resolveCount(serverCount) },
     })
   }
 
@@ -48,13 +48,16 @@ export default class BotsOnDiscord extends ServiceBase {
    * @param userId The user's ID
    */
   checkReview(id: IDResolvable, userId: IDResolvable) {
-    return this._request({
-      url: `/bots/${Util.resolveID(id)}/review`,
-      headers: { Authorization: this.token },
-      params: { owner: Util.resolveID(userId) }
-    }, {
-      requiresToken: true
-    })
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(id)}/review`,
+        headers: { Authorization: this.token },
+        params: { owner: Util.resolveID(userId) },
+      },
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -63,7 +66,10 @@ export default class BotsOnDiscord extends ServiceBase {
    * @param query The query string that will be used in the request
    */
   getWidgetURL(id: IDResolvable, query?: Query) {
-    return this._appendQuery(`https://bots.ondiscord.xyz/bots/${Util.resolveID(id)}/embed`, query || {}, false)
+    return this._appendQuery(
+      `https://bots.ondiscord.xyz/bots/${Util.resolveID(id)}/embed`,
+      query || {},
+      false
+    )
   }
 }
-

@@ -38,7 +38,7 @@ export default class MythicalBots extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
-      data: { server_count: Util.resolveCount(serverCount) }
+      data: { server_count: Util.resolveCount(serverCount) },
     })
   }
 
@@ -64,7 +64,10 @@ export default class MythicalBots extends ServiceBase {
    * @param query The query string that will be used in the request
    */
   getWidgetURL(id: IDResolvable, query?: Query) {
-    return this._appendQuery(`https://mythicalbots.xyz/bot/${Util.resolveID(id)}/embed`, query || {}, false)
+    return this._appendQuery(
+      `https://mythicalbots.xyz/bot/${Util.resolveID(id)}/embed`,
+      query || {},
+      false
+    )
   }
 }
-

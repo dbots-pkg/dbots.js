@@ -19,7 +19,7 @@ export default class DiscordBotsGG extends ServiceBase {
   /** The user agent options for this service */
   private agent: DiscordBotsGGUserAgent
 
-  // 
+  //
   /**
    * @param token The token/key for the service
    * @param userAgent The user agent options of the service. Providing this is highly recommended.
@@ -28,7 +28,7 @@ export default class DiscordBotsGG extends ServiceBase {
     super(token)
     this.agent = {
       library: userAgent?.library || 'unknown',
-      clientID: userAgent?.clientID || '000000000000000'
+      clientID: userAgent?.clientID || '000000000000000',
     }
   }
 
@@ -58,7 +58,11 @@ export default class DiscordBotsGG extends ServiceBase {
    * @param library The library the agent is using
    */
   static userAgent(botID: IDResolvable, library = 'unknown') {
-    return `dbots-0000/${Package.version} (${library}; +https://github.com/dbots-pkg/dbots.js) DBots/${Util.resolveID(botID)}`
+    return `dbots-0000/${
+      Package.version
+    } (${library}; +https://github.com/dbots-pkg/dbots.js) DBots/${Util.resolveID(
+      botID
+    )}`
   }
 
   /**
@@ -72,15 +76,15 @@ export default class DiscordBotsGG extends ServiceBase {
       url: `/bots/${Util.resolveID(clientID)}/stats`,
       headers: {
         Authorization: token,
-        'User-Agent': DiscordBotsGG.userAgent(clientID)
+        'User-Agent': DiscordBotsGG.userAgent(clientID),
       },
-      data: shard ?
-        {
-          guildCount: Util.resolveCount(serverCount),
-          shardId: shard.id,
-          shardCount: shard.count
-        } :
-        { guildCount: Util.resolveCount(serverCount) }
+      data: shard
+        ? {
+            guildCount: Util.resolveCount(serverCount),
+            shardId: shard.id,
+            shardCount: shard.count,
+          }
+        : { guildCount: Util.resolveCount(serverCount) },
     })
   }
 
@@ -90,16 +94,22 @@ export default class DiscordBotsGG extends ServiceBase {
    * @param sanitized Whether to sanitize descriptions
    */
   getBot(id: IDResolvable, sanitized = false) {
-    return this._request({
-      url: `/bots/${Util.resolveID(id)}`,
-      headers: {
-        Authorization: this.token,
-        'User-Agent': DiscordBotsGG.userAgent(this.agent.clientID, this.agent.library)
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(id)}`,
+        headers: {
+          Authorization: this.token,
+          'User-Agent': DiscordBotsGG.userAgent(
+            this.agent.clientID,
+            this.agent.library
+          ),
+        },
+        params: { sanitized },
       },
-      params: { sanitized }
-    }, {
-      requiresToken: true
-    })
+      {
+        requiresToken: true,
+      }
+    )
   }
 
   /**
@@ -107,16 +117,21 @@ export default class DiscordBotsGG extends ServiceBase {
    * @param query The query string that will be used in the request
    */
   getBots(query?: Query) {
-    return this._request({
-      url: '/bots',
-      headers: {
-        Authorization: this.token,
-        'User-Agent': DiscordBotsGG.userAgent(this.agent.clientID, this.agent.library)
+    return this._request(
+      {
+        url: '/bots',
+        headers: {
+          Authorization: this.token,
+          'User-Agent': DiscordBotsGG.userAgent(
+            this.agent.clientID,
+            this.agent.library
+          ),
+        },
+        params: query,
       },
-      params: query
-    }, {
-      requiresToken: true
-    })
+      {
+        requiresToken: true,
+      }
+    )
   }
 }
-
