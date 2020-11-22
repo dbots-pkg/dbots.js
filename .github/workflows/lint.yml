@@ -1,4 +1,4 @@
-name: Source code linting
+name: Run linter
 on:
   push:
     branches:
@@ -7,10 +7,12 @@ on:
     paths:
       - "src/**"
       - ".eslintrc.*"
-      - ".github/workflows/eslint.yml"
+      - ".prettierrc"
+      - ".github/workflows/lint.yml"
+  workflow_dispatch:
 
 jobs:
-  tslint:
+  lint:
     name: Lint source code
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +28,7 @@ jobs:
         run: npm install
 
       - name: Run ESLint
-        run: npm run eslint:fix
+        run: npm run lint:fix
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v4

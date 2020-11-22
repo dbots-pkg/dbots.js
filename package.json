@@ -20,7 +20,7 @@
   },
   "husky": {
     "hooks": {
-      "precommit": "npm run build && npm run lint && git add lib"
+      "pre-commit": "npm run lint && npm run build && git add lib"
     }
   },
   "unpkg": "./webpack/dbots.min.js",
