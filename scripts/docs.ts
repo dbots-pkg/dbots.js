@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-import { ServiceBase } from '../src'
 import { runGenerator } from 'ts-docgen'
 
 // Update docs/general/welcome.md to track README.md
@@ -19,7 +18,7 @@ const listClasses = fs.readdirSync(interfaceFolder)
 var services = `# Supported Services (${listClasses.length})`
 for (const filename of listClasses) {
   const filePath = path.join(interfaceFolder, filename)
-  const { aliases, logoURL, name, websiteURL } = require(filePath).default as typeof ServiceBase
+  const { aliases, logoURL, name, websiteURL } = require(filePath).default
   const className = path.basename(filePath, '.ts')
   var ref
   if (process.env.GITHUB_REF) {
@@ -32,10 +31,10 @@ for (const filename of listClasses) {
   <p>
     <img src="${logoURL}" alt="${aliases[0]} logo" width="100" align="left" />
   </p>
-  ${aliases.map(key => `<i id="${key}"></i>`).join('\n  ')}
+  ${aliases.map((key: string) => `<i id="${key}"></i>`).join('\n  ')}
   <a href="${websiteURL}"><h1>${name}</h1></a>
 
-Keys: ${aliases.map(key => `\`${key}\``).join(', ')}  
+Keys: ${aliases.map((key: string) => `\`${key}\``).join(', ')}  
 Class: [dbots.${className}](${ref ? `/#/docs/main/${ref}/class/${className}` : ''})  
 Website: ${websiteURL}
 </div>`

@@ -103,8 +103,6 @@ export default class ServiceBase {
     return FormatRequest(form)
   }
 
-
-
   /**
    * Sends a request for the service interface.
    * @param form The request form

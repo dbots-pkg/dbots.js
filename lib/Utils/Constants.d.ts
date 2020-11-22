@@ -35,8 +35,8 @@ export interface PosterOptions {
 }
 /** A shard that is used when posting to services. */
 export interface Shard {
-    count: number;
-    id: number;
+    count?: number;
+    id?: number;
 }
 /** The object that is given to {@link ServiceBase}s and {@link CustomService}s in order to send requests to them. */
 export interface PostRequestData {

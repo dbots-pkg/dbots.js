@@ -1,6 +1,6 @@
 import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
 import Util, { IDResolvable } from '../../Utils/Util'
-import { Query, Service } from '../../Utils/Constants'
+import { Query } from '../../Utils/Constants'
 
 /**
  * Represents the Discord Boats service.

@@ -52,7 +52,7 @@ function makeDbotsError(Base: typeof Error) {
 /**
  * Format the message for an error.
  * @param key Error key
- * @param {Array<*>} args Arguments to pass for util format or as function args
+ * @param args Arguments to pass for util format or as function args
  * @returns Formatted string
  */
 function message(key: string, args: any[]): string {

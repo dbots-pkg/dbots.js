@@ -36,7 +36,7 @@ export default class WonderBotList extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      params: shard ?
+      params: shard && shard.count ?
         { serveurs: Util.resolveCount(serverCount), shard: shard.count } :
         { serveurs: Util.resolveCount(serverCount) }
     })
