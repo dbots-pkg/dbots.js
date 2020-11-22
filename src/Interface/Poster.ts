@@ -145,9 +145,9 @@ export default class Poster {
     this._interval && clearTimeout(this._interval)
 
     this._interval = setInterval(() => this.post().then(result => {
-      this.runHandlers('autopost', result)
+      this.runHandlers('autopostSuccess', result)
       return result
-    }).catch(error => this.runHandlers('autopostfail', error)), interval)
+    }).catch(error => this.runHandlers('autopostFail', error)), interval)
     return this._interval
   }
 
@@ -260,10 +260,10 @@ export default class Poster {
         userCount,
         voiceConnections
       }).then(result => {
-        this.runHandlers('post', result)
+        this.runHandlers('postSuccess', result)
         resolve(result)
       }).catch(error => {
-        this.runHandlers('postfail', error)
+        this.runHandlers('postFail', error)
         reject(error)
       })
     })

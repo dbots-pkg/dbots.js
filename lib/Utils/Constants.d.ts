@@ -91,11 +91,11 @@ export declare type Library = 'discord.js' | 'discord.io' | 'discordie' | 'eris'
 export declare type eventHandler = (result: object | object[]) => void;
 /**
  * An event that can be added an handler for. These are the available events:
- * * autopost
- * * autopostfail
- * * post
- * * postfail
+ * * autopostSuccess
+ * * autopostFail
+ * * postSuccess
+ * * postFail
  */
-export declare type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail';
+export declare type CustomEvent = 'autopostSuccess' | 'autopostFail' | 'postSuccess' | 'postFail';
 export declare const SupportedEvents: CustomEvent[];
 export declare const Package: any;

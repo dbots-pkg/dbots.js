@@ -115,17 +115,17 @@ export type eventHandler = (result: object | object[]) => void
 
 /**
  * An event that can be added an handler for. These are the available events:
- * * autopost
- * * autopostfail
- * * post
- * * postfail
+ * * autopostSuccess
+ * * autopostFail
+ * * postSuccess
+ * * postFail
  */
-export type CustomEvent = 'autopost' | 'autopostfail' | 'post' | 'postfail'
+export type CustomEvent = 'autopostSuccess' | 'autopostFail' | 'postSuccess' | 'postFail'
 export const SupportedEvents: CustomEvent[] = [
-  'autopost',
-  'autopostfail',
-  'post',
-  'postfail'
+  'autopostSuccess',
+  'autopostFail',
+  'postSuccess',
+  'postFail'
 ]
 
 /**
@@ -134,7 +134,7 @@ export const SupportedEvents: CustomEvent[] = [
  * @asMemberOf Poster
  * @param result The result(s) of the post
  */
-declare function autopost(result: object | object[]): void // eslint-disable-line @typescript-eslint/no-unused-vars
+declare function autopostSuccess(result: object | object[]): void // eslint-disable-line @typescript-eslint/no-unused-vars
 
 /**
  * Emitted when the interval failed to post.
@@ -142,7 +142,7 @@ declare function autopost(result: object | object[]): void // eslint-disable-lin
  * @asMemberOf Poster
  * @param result The error(s) of the post
  */
-declare function autopostfail(result: object | object[]): void // eslint-disable-line @typescript-eslint/no-unused-vars
+declare function autopostFail(result: object | object[]): void // eslint-disable-line @typescript-eslint/no-unused-vars
 
 /**
  * Emitted when a post succeeds.
@@ -150,7 +150,7 @@ declare function autopostfail(result: object | object[]): void // eslint-disable
  * @asMemberOf Poster
  * @param result The result of the post
  */
-declare function post(result: object): void // eslint-disable-line @typescript-eslint/no-unused-vars
+declare function postSuccess(result: object): void // eslint-disable-line @typescript-eslint/no-unused-vars
 
 /**
  * Emitted when a post fails.
@@ -158,6 +158,6 @@ declare function post(result: object): void // eslint-disable-line @typescript-e
  * @asMemberOf Poster
  * @param result The error of the post
  */
-declare function postfail(result: object): void // eslint-disable-line @typescript-eslint/no-unused-vars
+declare function postFail(result: object): void // eslint-disable-line @typescript-eslint/no-unused-vars
 
 export const Package = require('../../package.json')
