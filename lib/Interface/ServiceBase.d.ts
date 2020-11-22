@@ -85,5 +85,5 @@ export default class ServiceBase {
      * @private
      */
     static get websiteURL(): string;
-    static post(options: ServiceBasePostOptions): ReturnType<(typeof ServiceBase)['_post']>;
+    static post(options: ServiceBasePostOptions): ReturnType<typeof ServiceBase['_post']>;
 }

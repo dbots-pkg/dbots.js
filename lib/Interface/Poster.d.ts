@@ -33,13 +33,13 @@ export default class Poster {
     /** The client filler used in the poster */
     private get clientFiller();
     /**
-      * Retrieves the current server count of the client/shard.
-      * @returns Amount of servers the client/shard is in
-      */
+     * Retrieves the current server count of the client/shard.
+     * @returns Amount of servers the client/shard is in
+     */
     getServerCount(): Promise<number>;
     /**
-      * Retrieves the current user count of the client/shard.
-      * @returns Amount of users the client/shard is connected with
+     * Retrieves the current user count of the client/shard.
+     * @returns Amount of users the client/shard is connected with
      */
     getUserCount(): Promise<number>;
     /**
@@ -48,31 +48,31 @@ export default class Poster {
      */
     getVoiceConnections(): Promise<number>;
     /**
-      * Creates an interval that posts to all services.
-      * @param interval The time (in ms) to reach to post to all {@link Service}s again
-      * @returns The interval that is responsible for posting
-      */
+     * Creates an interval that posts to all services.
+     * @param interval The time (in ms) to reach to post to all {@link Service}s again
+     * @returns The interval that is responsible for posting
+     */
     startInterval(interval?: number): NodeJS.Timeout;
     /** Destroys the current interval. */
     stopInterval(): void;
     /**
-      * Gets a service, autofilling its API key if the poster has it.
-      * @param service The service to get
-      */
+     * Gets a service, autofilling its API key if the poster has it.
+     * @param service The service to get
+     */
     getService(service: Service): ServiceBase | CustomService | undefined;
     /**
-      * Posts the current clients server count to a service.
-      * @param service The service to post to
-      * @see Poster#postManual
-      * @returns The result(s) of the post
-      */
+     * Posts the current clients server count to a service.
+     * @param service The service to post to
+     * @see Poster#postManual
+     * @returns The result(s) of the post
+     */
     post(service?: Service | 'all'): Promise<object | object[]>;
     /**
-      * Manually posts a server count to a service.
-      * @param service The service to post to
-      * @param counts An object containing the tallies of servers, users and voice connections
-      * @returns The result(s) of the post
-      */
+     * Manually posts a server count to a service.
+     * @param service The service to post to
+     * @param counts An object containing the tallies of servers, users and voice connections
+     * @returns The result(s) of the post
+     */
     postManual(service: Service | 'all', counts: manualPostOptions): Promise<object | object[]>;
     /**
      * Adds an handler for an event.

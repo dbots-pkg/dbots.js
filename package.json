@@ -12,16 +12,19 @@
     "build": "tsc",
     "changelog": "ts-node scripts/changelog",
     "docs": "typedoc --json .tmp/typedoc-out.json --plugin typedoc-plugin-as-member-of && ts-node scripts/docs",
-    "lint": "eslint ./src/**/*.ts",
-    "lint:fix": "eslint ./src/**/*.ts --fix",
+    "lint": "npx eslint ./src/**/*.ts",
+    "lint:fix": "npx eslint ./src/**/*.ts --fix",
     "gpr": "ts-node scripts/gpr",
     "webpack": "ts-node scripts/services-wp && cross-env NODE_ENV=production webpack && rm -r .tmp",
     "prepublishOnly": "npm run eslint:fix && npm run tslint:fix && npm run webpack"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm run build && git add lib"
+      "pre-commit": "lint-staged && npm run build && git add lib"
     }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --fix"
   },
   "unpkg": "./webpack/dbots.min.js",
   "jsdelivr": "./webpack/dbots.min.js",
@@ -49,18 +52,17 @@
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
     "cross-env": "^7.0.2",
-    "dtslint": "^4.0.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
     "jsdoc-typeof-plugin": "^1.0.0",
+    "lint-staged": "^10.5.1",
+    "prettier": "^2.2.0",
     "terser-webpack-plugin": "^3.0.0",
     "ts-docgen": "github:dbots-pkg/ts-docgen#main",
     "ts-loader": "^8.0.11",
     "ts-node": "^9.0.0",
-    "tsd-jsdoc": "github:EndBug/tsd-jsdoc",
-    "tslint": "^6.0.0",
     "typedoc": "^0.19.2",
     "typedoc-plugin-as-member-of": "^1.0.2",
     "typescript": "v4.0.x",
