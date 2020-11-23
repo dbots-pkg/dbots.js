@@ -51,6 +51,8 @@ export default class Poster {
      * Creates an interval that posts to all services.
      * @param interval The time (in ms) to reach to post to all {@link Service}s again
      * @returns The interval that is responsible for posting
+     * @emits Poster#autopostSuccess
+     * @emits Poste#autopostFail
      */
     startInterval(interval?: number): NodeJS.Timeout;
     /** Destroys the current interval. */
@@ -65,6 +67,8 @@ export default class Poster {
      * @param service The service to post to
      * @see Poster#postManual
      * @returns The result(s) of the post
+     * @emits Poster#postSuccess
+     * @emits Poster#postFail
      */
     post(service?: Service | 'all'): Promise<object | object[]>;
     /**
