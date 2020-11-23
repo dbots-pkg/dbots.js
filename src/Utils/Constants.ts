@@ -129,7 +129,7 @@ export const SupportedEvents: CustomEvent[] = [
   'autopostSuccess',
   'autopostFail',
   'postSuccess',
-  'postFail',
+  'postFail'
 ]
 
 /**

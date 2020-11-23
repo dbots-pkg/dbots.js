@@ -103,7 +103,7 @@ const messageObject = {
   INVALID_COUNT: 'An invalid countable number was given.',
   COUNT_NEGATIVE: 'A countable number cannot be negative.',
 
-  GENERIC: (err: string) => err,
+  GENERIC: (err: string) => err
 }
 
 for (const [name, message] of Object.entries(messageObject))
@@ -112,5 +112,5 @@ for (const [name, message] of Object.entries(messageObject))
 export const errors = {
   Error: makeDbotsError(Error),
   TypeError: makeDbotsError(TypeError),
-  RangeError: makeDbotsError(RangeError),
+  RangeError: makeDbotsError(RangeError)
 }

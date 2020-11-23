@@ -61,7 +61,7 @@ export default function FormatRequest(
   const userAgent = `dbots (https://github.com/dbots-pkg/dbots.js ${Package.version}) Node.js/${process.version}`
   if (!opts.headers)
     opts.headers = {
-      'User-Agent': userAgent,
+      'User-Agent': userAgent
     }
   else if (!opts.headers['User-Agent']) opts.headers['User-Agent'] = userAgent
 
