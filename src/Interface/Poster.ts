@@ -150,7 +150,7 @@ export default class Poster {
    * @param interval The time (in ms) to reach to post to all {@link Service}s again
    * @returns The interval that is responsible for posting
    * @emits Poster#autopostSuccess
-   * @emits Poste#autopostFail
+   * @emits Poster#autopostFail
    */
   startInterval(interval = 1800000) {
     this._interval && clearTimeout(this._interval)
