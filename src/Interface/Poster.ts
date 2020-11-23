@@ -4,7 +4,7 @@ import {
   eventHandler,
   PosterOptions,
   Service,
-  SupportedEvents,
+  SupportedEvents
 } from '../Utils/Constants'
 import EnsurePromise from '../Utils/EnsurePromise'
 import { errors } from '../Utils/DBotsError'
@@ -76,7 +76,7 @@ export default class Poster {
     if (this.client && !options.clientID)
       Object.assign(options, {
         clientID: this.clientFiller?.clientID,
-        shard: this.clientFiller?.shard,
+        shard: this.clientFiller?.shard
       })
     if (!options.useSharding) options.shard = undefined
 
@@ -149,6 +149,8 @@ export default class Poster {
    * Creates an interval that posts to all services.
    * @param interval The time (in ms) to reach to post to all {@link Service}s again
    * @returns The interval that is responsible for posting
+   * @emits Poster#autopostSuccess
+   * @emits Poste#autopostFail
    */
   startInterval(interval = 1800000) {
     this._interval && clearTimeout(this._interval)
@@ -194,6 +196,8 @@ export default class Poster {
    * @param service The service to post to
    * @see Poster#postManual
    * @returns The result(s) of the post
+   * @emits Poster#postSuccess
+   * @emits Poster#postFail
    */
   post(service: Service | 'all' = 'all'): Promise<object | object[]> {
     const _this = this
@@ -201,7 +205,7 @@ export default class Poster {
       return Promise.all([
         _this.getServerCount(),
         _this.getUserCount(),
-        _this.getVoiceConnections(),
+        _this.getVoiceConnections()
       ])
         .then(([serverCount, userCount, voiceConnections]) => {
           _this
@@ -301,7 +305,7 @@ export default class Poster {
           shard: this.options.shard,
           serverCount,
           userCount,
-          voiceConnections,
+          voiceConnections
         })
         .then((result) => {
           this.runHandlers('postSuccess', result)
