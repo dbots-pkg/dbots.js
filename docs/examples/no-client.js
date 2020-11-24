@@ -12,5 +12,5 @@ const poster = new dbots.Poster({
   voiceConnections: async () => 1234
 })
 
-// Ff the service is undefined, it posts to all services provided with a key.
+// If the service is undefined, it posts to all services provided with a key.
 poster.post('carbon')

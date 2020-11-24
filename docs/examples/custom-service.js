@@ -1,6 +1,6 @@
 const dbots = require('dbots')
 
-// This does not explicitly have o be a class
+// This does not explicitly have to be a class
 // As long as it follows the same structure
 class MyCustomService {
   static get aliases() {
