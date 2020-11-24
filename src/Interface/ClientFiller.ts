@@ -2,6 +2,7 @@ import Discordie from './Clients/Discordie'
 import DiscordIO from './Clients/DiscordIO'
 import DiscordJS from './Clients/DiscordJS'
 import Eris from './Clients/Eris'
+import Paracord from './Clients/Paracord'
 
 import { Shard } from '../Utils/Constants'
 import { AnyObject } from '../Utils/Util'
@@ -56,6 +57,12 @@ export default class ClientFiller {
 
       case 'eris': {
         return new Eris(client)
+      }
+
+      case 'paracord.js':
+      case 'paracordjs':
+      case 'paracord': {
+        return new Paracord(client)
       }
 
       default: {
