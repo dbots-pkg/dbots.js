@@ -2,14 +2,18 @@ module.exports = {
   env: {
     commonjs: true,
     es6: true,
-    node: true,
+    node: true
   },
-  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  extends: [
+    'eslint:recommended',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended'
+  ],
   globals: {},
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 6,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['@typescript-eslint'],
   rules: {
@@ -20,15 +24,15 @@ module.exports = {
     'no-empty': [
       'error',
       {
-        allowEmptyCatch: true,
-      },
+        allowEmptyCatch: true
+      }
     ],
     'prefer-const': [
       'warn',
       {
-        destructuring: 'all',
-      },
+        destructuring: 'all'
+      }
     ],
-    'spaced-comment': 'warn',
-  },
+    'spaced-comment': 'warn'
+  }
 }
