@@ -11,7 +11,7 @@
     <br/>
     <a href="https://github.com/dbots-pkg/dbots.js/actions?query=workflow%3A%22Source+code+linting%22"><img src="https://github.com/dbots-pkg/dbots.js/workflows/Source%20code%20linting/badge.svg" alt="Linting state" /></a>
     <a href="https://github.com/dbots-pkg/dbots.js/actions?query=workflow%3A%22TS+definitions%22"><img src="https://github.com/dbots-pkg/dbots.js/workflows/TS%20definitions/badge.svg" alt="Typings state" /></a>
-    <a href="https://lgtm.com/projects/g/dbots-pkg/dbots.js/context:javascript"><img src="https://img.shields.io/lgtm/grade/javascript/github/dbots-pkg/dbots.js.svg?label=Code%20quality" alt="LGTM Code Quality" /></a> <a href="https://deepscan.io/dashboard#view=project&tid=11596&pid=14801&bid=284012"><img src="https://deepscan.io/api/teams/11596/projects/14801/branches/284012/badge/grade.svg" alt="DeepScan grade"></a>
+     <a href="https://deepscan.io/dashboard#view=project&tid=11596&pid=14801&bid=284012"><img src="https://deepscan.io/api/teams/11596/projects/14801/branches/284012/badge/grade.svg" alt="DeepScan grade"></a>
   </p>
   <p>
     <a href="https://nodei.co/npm/dbots/"><img src="https://nodei.co/npm/dbots.png" alt="NPM info" /></a>
@@ -19,7 +19,9 @@
 </div>
 
 <!-- omit in toc -->
+
 # Table of Contents
+
 - [About](#about)
 - [Installing](#installing)
 - [Examples](#examples)
@@ -32,10 +34,13 @@
 - [Other Links](#other-links)
 
 ## About
+
 `dbots` helps [Discord](https://discordapp.com) bot developers group all your statistic posting needs into one poster, complete with seperate posting, API wrappers for supported lists, and an interval to post to all services every `n` seconds.
 
 ## Installing
+
 You can install dbots by running this command:
+
 ```sh
 # Stable
 npm i dbots
@@ -49,59 +54,66 @@ yarn add ssh://github.com/dbots-pkg/dbots.js#master
 ## Examples
 
 ### Example with client
-```js
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const dbots = require('dbots');
-const poster = new dbots.Poster({
-    client,
-    apiKeys: {
-        discordbotsgg: '…',
-        topgg: '…',
-        lsterminalink: '…',
-        carbon: '…'
-    },
-    clientLibrary: 'discord.js'
-});
 
-poster.startInterval(); // starts an interval thats posts to all services every 30 minutes
+```js
+const Discord = require('discord.js')
+const client = new Discord.Client()
+const dbots = require('dbots')
+const poster = new dbots.Poster({
+  client,
+  apiKeys: {
+    discordbotsgg: '…',
+    topgg: '…',
+    lsterminalink: '…',
+    carbon: '…'
+  },
+  clientLibrary: 'discord.js'
+})
+
+poster.startInterval() // starts an interval thats posts to all services every 30 minutes
 ```
 
 ### Example without client
+
 ```js
-const dbots = require('dbots');
+const dbots = require('dbots')
 const poster = new dbots.Poster({
-    apiKeys: {
-        discordbotsgg: '…',
-        topgg: '…',
-        lsterminalink: '…',
-        carbon: '…'
-    }
-});
+  apiKeys: {
+    discordbotsgg: '…',
+    topgg: '…',
+    lsterminalink: '…',
+    carbon: '…'
+  }
+})
 
 poster.post('carbon') // if the service is undefined, it posts to all services provided with a key
 ```
 
 ## Supported Libraries
-Creator     | Name
------------ | -----
-Amish Shah (originally hydrabolt)   | [![npm](static/npm.png)](https://npm.im/discord.js) [![GitHub](static/github.png)](https://github.com/discordjs/discord.js) discord.js
-izy521      | [![npm](static/npm.png)](https://npm.im/discord.io) [![GitHub](static/github.png)](https://github.com/izy521/discord.io) discord.io
-qeled       | [![npm](static/npm.png)](https://npm.im/discordie) [![GitHub](static/github.png)](https://github.com/qeled/discordie) discordie
-abalabahaha | [![npm](static/npm.png)](https://npm.im/eris) [![GitHub](static/github.png)](https://github.com/abalabahaha/eris) eris
-Lando       | [![npm](static/npm.png)](https://npm.im/paracord) [![GitHub](static/github.png)](https://github.com/paracordjs/paracord) paracord
+
+| Creator                           | Name                                                                                                                                   |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Amish Shah (originally hydrabolt) | [![npm](static/npm.png)](https://npm.im/discord.js) [![GitHub](static/github.png)](https://github.com/discordjs/discord.js) discord.js |
+| izy521                            | [![npm](static/npm.png)](https://npm.im/discord.io) [![GitHub](static/github.png)](https://github.com/izy521/discord.io) discord.io    |
+| qeled                             | [![npm](static/npm.png)](https://npm.im/discordie) [![GitHub](static/github.png)](https://github.com/qeled/discordie) discordie        |
+| abalabahaha                       | [![npm](static/npm.png)](https://npm.im/eris) [![GitHub](static/github.png)](https://github.com/abalabahaha/eris) eris                 |
+| Lando                             | [![npm](static/npm.png)](https://npm.im/paracord) [![GitHub](static/github.png)](https://github.com/paracordjs/paracord) paracord      |
 
 ## Supported Services
+
 The supported services list has been moved into the website.
 You can see a full (and automatically updated) list of usables services [here](https://dbots.js.org/#/docs/main/latest/general/services).
 
 ## Changelog
+
 You can see the changelog for every version [here](https://dbots.js.org/#/docs/main/latest/general/changelog).
 
 ## Contribution
+
 Any contribution may be useful for the package! Make sure when making issues or PRs that the issue has not been addressed yet in a past issue/PR.
 
 ## Other Links
+
 - [NPM](https://npmjs.org/package/dbots)
 - [Yarn](https://yarn.pm/dbots)
 - [JSDelivr](https://www.jsdelivr.com/package/npm/dbots)

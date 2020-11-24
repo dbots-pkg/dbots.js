@@ -11,7 +11,7 @@ export const messages = new Map()
  * @extends Error
  * @private
  */
-class DBotsError extends Error { /* eslint-disable-line */ /* lgtm [js/unused-local-variable] */
+class DBotsError extends Error { /* eslint-disable-line */
   name: string
   code: string
 
