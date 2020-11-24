@@ -3,7 +3,7 @@ import fs from 'fs'
 
 const listsDir = '../src/Interface/Lists'
 const services: Record<string, any> = {}
-fs.readdirSync(path.join(__dirname, listsDir)).forEach(file => {
+fs.readdirSync(path.join(__dirname, listsDir)).forEach((file) => {
   const name = path.parse(file).name,
     filePath = path.join(listsDir, file)
 
@@ -13,8 +13,8 @@ fs.readdirSync(path.join(__dirname, listsDir)).forEach(file => {
 const fileStr = `// This is an auto-generated file, any edit will be overwritten
 module.exports = {
 ${Object.entries(services)
-    .map(([name, filePath]) => `  ${name}: require('${filePath}')`)
-    .join(',\n')}
+  .map(([name, filePath]) => `  ${name}: require('${filePath}')`)
+  .join(',\n')}
 }
 `
 

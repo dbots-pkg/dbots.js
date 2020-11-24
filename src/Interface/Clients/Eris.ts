@@ -19,7 +19,9 @@ export default class Eris extends ClientFiller {
       'VoiceConnectionManager'
     )
       return this.client.voiceConnections?.size
-    else return Object.keys(this.client.voiceConnections?.pendingGuilds).length
+    else
+      return Object.keys(this.client.voiceConnections?.pendingGuilds || {})
+        .length
   }
 
   get clientID(): string | undefined {
