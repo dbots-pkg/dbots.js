@@ -11,7 +11,7 @@
     <br/>
     <a href="https://github.com/dbots-pkg/dbots.js/actions?query=workflow%3A%22Source+code+linting%22"><img src="https://github.com/dbots-pkg/dbots.js/workflows/Source%20code%20linting/badge.svg" alt="Linting state" /></a>
     <a href="https://github.com/dbots-pkg/dbots.js/actions?query=workflow%3A%22TS+definitions%22"><img src="https://github.com/dbots-pkg/dbots.js/workflows/TS%20definitions/badge.svg" alt="Typings state" /></a>
-    <a href="https://lgtm.com/projects/g/dbots-pkg/dbots.js/context:javascript"><img src="https://img.shields.io/lgtm/grade/javascript/github/dbots-pkg/dbots.js.svg?label=Code%20quality" alt="LGTM Code Quality" /></a>
+    <a href="https://lgtm.com/projects/g/dbots-pkg/dbots.js/context:javascript"><img src="https://img.shields.io/lgtm/grade/javascript/github/dbots-pkg/dbots.js.svg?label=Code%20quality" alt="LGTM Code Quality" /></a> <a href="https://deepscan.io/dashboard#view=project&tid=11596&pid=14801&bid=284012"><img src="https://deepscan.io/api/teams/11596/projects/14801/branches/284012/badge/grade.svg" alt="DeepScan grade"></a>
   </p>
   <p>
     <a href="https://nodei.co/npm/dbots/"><img src="https://nodei.co/npm/dbots.png" alt="NPM info" /></a>
@@ -91,7 +91,7 @@ qeled       | [![npm](static/npm.png)](https://npmjs.com/discordie) [![GitHub](s
 abalabahaha | [![npm](static/npm.png)](https://npmjs.com/eris) [![GitHub](static/github.png)](https://github.com/abalabahaha/eris) eris
 
 ## Supported Services
-The supported services list has been moved into the website.  
+The supported services list has been moved into the website.
 You can see a full (and automatically updated) list of usables services [here](https://dbots.js.org/#/docs/main/latest/general/services).
 
 ## Changelog
