@@ -38,7 +38,7 @@ export default class BotsForDiscord extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { server_count: Util.resolveCount(serverCount) },
+      data: { server_count: Util.resolveCount(serverCount) }
     })
   }
 

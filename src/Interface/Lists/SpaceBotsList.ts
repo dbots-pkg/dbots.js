@@ -13,7 +13,7 @@ export default class SpaceBotsList extends ServiceBase {
       'spacebots',
       'space-bot-list.org',
       'space',
-      'sbl',
+      'sbl'
     ]
   }
 
@@ -46,8 +46,8 @@ export default class SpaceBotsList extends ServiceBase {
       headers: { Authorization: token },
       data: {
         guilds: Util.resolveCount(serverCount),
-        users: Util.resolveCount(userCount),
-      },
+        users: Util.resolveCount(userCount)
+      }
     })
   }
 

@@ -37,7 +37,7 @@ export default class DiscordBotWorld extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
-      data: { guild_count: serverCount },
+      data: { guild_count: serverCount }
     })
   }
 
@@ -70,10 +70,10 @@ export default class DiscordBotWorld extends ServiceBase {
     return this._request(
       {
         url: `/bots/${Util.resolveID(id)}/likes`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

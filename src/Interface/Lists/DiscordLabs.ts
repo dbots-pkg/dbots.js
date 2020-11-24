@@ -11,7 +11,7 @@ export default class DiscordLabs extends ServiceBase {
       'discordlabs',
       'discord-labs',
       'discordlabs.org',
-      'bots.discordlabs.org',
+      'bots.discordlabs.org'
     ]
   }
 
@@ -44,12 +44,12 @@ export default class DiscordLabs extends ServiceBase {
         ? {
             token,
             server_count: Util.resolveCount(serverCount),
-            shard_count: shard.count,
+            shard_count: shard.count
           }
         : {
             token,
-            server_count: Util.resolveCount(serverCount),
-          },
+            server_count: Util.resolveCount(serverCount)
+          }
     })
   }
 

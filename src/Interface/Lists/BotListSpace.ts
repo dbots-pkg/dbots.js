@@ -40,7 +40,7 @@ export default class BotListSpace extends ServiceBase {
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { server_count: Util.resolveCount(serverCount) },
+      data: { server_count: Util.resolveCount(serverCount) }
     })
   }
 
@@ -67,10 +67,10 @@ export default class BotListSpace extends ServiceBase {
     return this._request(
       {
         url: `/bots/${Util.resolveID(id)}/upvotes`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

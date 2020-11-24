@@ -41,9 +41,9 @@ export default class TopGG extends ServiceBase {
         ? {
             server_count: Util.resolveCount(serverCount),
             shard_id: shard.id,
-            shard_count: shard.count,
+            shard_count: shard.count
           }
-        : { server_count: Util.resolveCount(serverCount) },
+        : { server_count: Util.resolveCount(serverCount) }
     })
   }
 
@@ -87,7 +87,7 @@ export default class TopGG extends ServiceBase {
   getBotVotes(id: IDResolvable, query?: Query) {
     return this._request({
       url: `/bots/${Util.resolveID(id)}/votes`,
-      params: query,
+      params: query
     })
   }
 
@@ -99,7 +99,7 @@ export default class TopGG extends ServiceBase {
   userVoted(id: IDResolvable, userID: IDResolvable) {
     return this._request({
       url: `/bots/${Util.resolveID(id)}/check`,
-      params: { userId: Util.resolveID(userID) },
+      params: { userId: Util.resolveID(userID) }
     })
   }
 

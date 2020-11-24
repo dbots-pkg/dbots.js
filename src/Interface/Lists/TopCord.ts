@@ -39,9 +39,9 @@ export default class TopCord extends ServiceBase {
       data: shard
         ? {
             guilds: Util.resolveCount(serverCount),
-            shards: shard.count,
+            shards: shard.count
           }
-        : { guilds: Util.resolveCount(serverCount) },
+        : { guilds: Util.resolveCount(serverCount) }
     })
   }
 

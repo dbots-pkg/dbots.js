@@ -40,9 +40,9 @@ export default class LBots extends ServiceBase {
         ? {
             guild_count: Util.resolveCount(serverCount),
             shard_id: shard.id,
-            shard_count: shard.count,
+            shard_count: shard.count
           }
-        : { guild_count: Util.resolveCount(serverCount) },
+        : { guild_count: Util.resolveCount(serverCount) }
     })
   }
 
@@ -54,10 +54,10 @@ export default class LBots extends ServiceBase {
     return this._request(
       {
         url: `/bots/${Util.resolveID(id)}/invalidate`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -70,10 +70,10 @@ export default class LBots extends ServiceBase {
     return this._request(
       {
         url: `/bot/${Util.resolveID(id)}/favorites`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -89,10 +89,10 @@ export default class LBots extends ServiceBase {
         url: `/bots/${Util.resolveID(id)}/favorites/user/${Util.resolveID(
           userID
         )}`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -108,10 +108,10 @@ export default class LBots extends ServiceBase {
         method: 'post',
         url: `/panel/${Util.resolveID(id)}/guilds`,
         headers: { Authorization: this.token },
-        data,
+        data
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -125,10 +125,10 @@ export default class LBots extends ServiceBase {
     return this._request(
       {
         url: `/panel/${Util.resolveID(id)}/guild/${Util.resolveID(guildID)}`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -150,10 +150,10 @@ export default class LBots extends ServiceBase {
           guildID
         )}/update`,
         headers: { Authorization: this.token },
-        data,
+        data
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

@@ -43,8 +43,8 @@ export default class GlennBotList extends ServiceBase {
       headers: { Authorization: token },
       data: {
         serverCount: Util.resolveCount(serverCount),
-        shardCount: shard ? Util.resolveCount(shard.count) : undefined,
-      },
+        shardCount: shard ? Util.resolveCount(shard.count) : undefined
+      }
     })
   }
 
@@ -64,10 +64,10 @@ export default class GlennBotList extends ServiceBase {
     return this._request(
       {
         url: `/bot/${Util.resolveID(id)}/votes`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

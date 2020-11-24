@@ -38,7 +38,7 @@ export default class BotsOnDiscord extends ServiceBase {
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}/guilds`,
       headers: { Authorization: token },
-      data: { guildCount: Util.resolveCount(serverCount) },
+      data: { guildCount: Util.resolveCount(serverCount) }
     })
   }
 
@@ -52,10 +52,10 @@ export default class BotsOnDiscord extends ServiceBase {
       {
         url: `/bots/${Util.resolveID(id)}/review`,
         headers: { Authorization: this.token },
-        params: { owner: Util.resolveID(userId) },
+        params: { owner: Util.resolveID(userId) }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

@@ -26,7 +26,7 @@ export default class DiscordIO extends ClientFiller {
     return this.client._shard
       ? {
           id: this.client._shard[0],
-          count: this.client._shard[1],
+          count: this.client._shard[1]
         }
       : undefined
   }

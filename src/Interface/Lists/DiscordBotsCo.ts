@@ -37,14 +37,14 @@ export default class DiscordBotsCo extends ServiceBase {
       url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: {
         Authorization: token,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       data: shard
         ? {
             serverCount: Util.resolveCount(serverCount),
-            shardCount: shard.count,
+            shardCount: shard.count
           }
-        : { serverCount: Util.resolveCount(serverCount) },
+        : { serverCount: Util.resolveCount(serverCount) }
     })
   }
 
@@ -56,10 +56,10 @@ export default class DiscordBotsCo extends ServiceBase {
     return this._request(
       {
         url: `/bot/${Util.resolveID(id)}`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

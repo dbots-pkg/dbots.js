@@ -11,7 +11,7 @@ export default class DiscordExtremeList extends ServiceBase {
       'discordextremelist',
       'discordextremelist.xyz',
       'discordextremelistxyz',
-      'del',
+      'del'
     ]
   }
 
@@ -43,8 +43,8 @@ export default class DiscordExtremeList extends ServiceBase {
       headers: { Authorization: token },
       data: {
         guildCount: Util.resolveCount(serverCount),
-        shardCount: shard ? Util.resolveCount(shard.count) : undefined,
-      },
+        shardCount: shard ? Util.resolveCount(shard.count) : undefined
+      }
     })
   }
 
@@ -53,10 +53,10 @@ export default class DiscordExtremeList extends ServiceBase {
     return this._request(
       {
         url: '/stats',
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -69,10 +69,10 @@ export default class DiscordExtremeList extends ServiceBase {
     return this._request(
       {
         url: `/bot/${Util.resolveID(id)}`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -85,10 +85,10 @@ export default class DiscordExtremeList extends ServiceBase {
     return this._request(
       {
         url: `/user/${Util.resolveID(id)}`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

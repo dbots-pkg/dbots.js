@@ -14,7 +14,7 @@ export default class Arcane extends ServiceBase {
       'arcane',
       'abc',
       'arcane-center.xyz',
-      'arcanecenter.xyz',
+      'arcanecenter.xyz'
     ]
   }
 
@@ -48,12 +48,12 @@ export default class Arcane extends ServiceBase {
         ? {
             server_count: Util.resolveCount(serverCount),
             member_count: Util.resolveCount(userCount),
-            shard_count: shard.count,
+            shard_count: shard.count
           }
         : {
             server_count: Util.resolveCount(serverCount),
-            member_count: Util.resolveCount(userCount),
-          },
+            member_count: Util.resolveCount(userCount)
+          }
     })
   }
 }

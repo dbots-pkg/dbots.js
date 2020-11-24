@@ -40,9 +40,9 @@ export default class Blist extends ServiceBase {
       data: shard
         ? {
             server_count: Util.resolveCount(serverCount),
-            shard_count: shard.count,
+            shard_count: shard.count
           }
-        : { server_count: Util.resolveCount(serverCount) },
+        : { server_count: Util.resolveCount(serverCount) }
     })
   }
 
@@ -70,10 +70,10 @@ export default class Blist extends ServiceBase {
     return this._request(
       {
         url: `/bot/${Util.resolveID(id)}/votes`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

@@ -28,7 +28,7 @@ export default class DiscordBotsGG extends ServiceBase {
     super(token)
     this.agent = {
       library: userAgent?.library || 'unknown',
-      clientID: userAgent?.clientID || '000000000000000',
+      clientID: userAgent?.clientID || '000000000000000'
     }
   }
 
@@ -76,15 +76,15 @@ export default class DiscordBotsGG extends ServiceBase {
       url: `/bots/${Util.resolveID(clientID)}/stats`,
       headers: {
         Authorization: token,
-        'User-Agent': DiscordBotsGG.userAgent(clientID),
+        'User-Agent': DiscordBotsGG.userAgent(clientID)
       },
       data: shard
         ? {
             guildCount: Util.resolveCount(serverCount),
             shardId: shard.id,
-            shardCount: shard.count,
+            shardCount: shard.count
           }
-        : { guildCount: Util.resolveCount(serverCount) },
+        : { guildCount: Util.resolveCount(serverCount) }
     })
   }
 
@@ -102,12 +102,12 @@ export default class DiscordBotsGG extends ServiceBase {
           'User-Agent': DiscordBotsGG.userAgent(
             this.agent.clientID,
             this.agent.library
-          ),
+          )
         },
-        params: { sanitized },
+        params: { sanitized }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -125,12 +125,12 @@ export default class DiscordBotsGG extends ServiceBase {
           'User-Agent': DiscordBotsGG.userAgent(
             this.agent.clientID,
             this.agent.library
-          ),
+          )
         },
-        params: query,
+        params: query
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

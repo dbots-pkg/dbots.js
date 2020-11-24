@@ -38,7 +38,7 @@ export default class YABL extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
-      data: { guildCount: Util.resolveCount(serverCount) },
+      data: { guildCount: Util.resolveCount(serverCount) }
     })
   }
 
@@ -47,10 +47,10 @@ export default class YABL extends ServiceBase {
     return this._request(
       {
         url: '/token/invalidate',
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -81,10 +81,10 @@ export default class YABL extends ServiceBase {
     return this._request(
       {
         url: '/bots/all',
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -102,10 +102,10 @@ export default class YABL extends ServiceBase {
     return this._request(
       {
         url: '/bots/unverified',
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

@@ -51,9 +51,9 @@ export default class DiscordServices extends ServiceBase {
       data: shard
         ? {
             servers: Util.resolveCount(serverCount),
-            shards: shard.count,
+            shards: shard.count
           }
-        : { servers: Util.resolveCount(serverCount) },
+        : { servers: Util.resolveCount(serverCount) }
     })
   }
 
@@ -72,8 +72,8 @@ export default class DiscordServices extends ServiceBase {
         data: {
           title,
           content,
-          error: false,
-        },
+          error: false
+        }
       },
       { requiresToken: true }
     )
@@ -90,7 +90,7 @@ export default class DiscordServices extends ServiceBase {
         method: 'post',
         url: `/bot/${Util.resolveID(id)}/commands`,
         headers: { Authorization: this.token },
-        data: commands,
+        data: commands
       },
       { requiresToken: true }
     )

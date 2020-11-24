@@ -39,9 +39,9 @@ export default class DiscordListology extends ServiceBase {
       data: shard
         ? {
             servers: Util.resolveCount(serverCount),
-            shards: shard.count,
+            shards: shard.count
           }
-        : { servers: Util.resolveCount(serverCount) },
+        : { servers: Util.resolveCount(serverCount) }
     })
   }
 
@@ -60,7 +60,7 @@ export default class DiscordListology extends ServiceBase {
    */
   userVotedBot(id: IDResolvable, userID: IDResolvable) {
     return this._request({
-      url: `/bots/${Util.resolveID(userID)}/hasvoted/${Util.resolveID(id)}`,
+      url: `/bots/${Util.resolveID(userID)}/hasvoted/${Util.resolveID(id)}`
     })
   }
 
@@ -79,7 +79,7 @@ export default class DiscordListology extends ServiceBase {
    */
   userVotedGuild(id: IDResolvable, userID: IDResolvable) {
     return this._request({
-      url: `/guilds/${Util.resolveID(userID)}/hasvoted/${Util.resolveID(id)}`,
+      url: `/guilds/${Util.resolveID(userID)}/hasvoted/${Util.resolveID(id)}`
     })
   }
 }

@@ -38,7 +38,7 @@ export default class ListMyBots extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { count: Util.resolveCount(serverCount) },
+      data: { count: Util.resolveCount(serverCount) }
     })
   }
 

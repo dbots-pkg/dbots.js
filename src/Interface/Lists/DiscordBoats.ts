@@ -38,7 +38,7 @@ export default class DiscordBoats extends ServiceBase {
       method: 'post',
       url: `/bot/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { server_count: Util.resolveCount(serverCount) },
+      data: { server_count: Util.resolveCount(serverCount) }
     })
   }
 
@@ -66,7 +66,7 @@ export default class DiscordBoats extends ServiceBase {
   userVoted(id: IDResolvable, userID: IDResolvable) {
     return this._request({
       url: `/bot/${Util.resolveID(id)}/voted`,
-      params: { id: Util.resolveID(userID) },
+      params: { id: Util.resolveID(userID) }
     })
   }
 

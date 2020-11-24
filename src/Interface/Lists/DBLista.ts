@@ -3,7 +3,7 @@ import { errors } from '../../Utils/DBotsError'
 import Util, {
   AnyObject,
   CountResolvable,
-  IDResolvable,
+  IDResolvable
 } from '../../Utils/Util'
 
 const { Error } = errors
@@ -52,10 +52,10 @@ export default class DBLista extends ServiceBase {
         method: 'post',
         url: '/bots',
         headers: { Authorization: this.token },
-        data,
+        data
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -70,10 +70,10 @@ export default class DBLista extends ServiceBase {
         method: 'put',
         url: '/bots',
         headers: { Authorization: this.token },
-        data,
+        data
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -115,10 +115,10 @@ export default class DBLista extends ServiceBase {
         method: 'post',
         url: `/bots/${Util.resolveID(id)}/rate`,
         headers: { Authorization: this.token },
-        data,
+        data
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -132,10 +132,10 @@ export default class DBLista extends ServiceBase {
       {
         method: 'delete',
         url: `/bots/${Util.resolveID(id)}/rate`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -149,10 +149,10 @@ export default class DBLista extends ServiceBase {
       {
         method: 'delete',
         url: `/bots/${Util.resolveID(id)}`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

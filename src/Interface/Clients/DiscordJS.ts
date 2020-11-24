@@ -31,7 +31,7 @@ export default class DiscordJS extends ClientFiller {
     return this.client.shard
       ? {
           id: this.client.shard.id,
-          count: this.client.shard.count,
+          count: this.client.shard.count
         }
       : undefined
   }

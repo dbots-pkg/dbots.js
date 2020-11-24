@@ -12,7 +12,7 @@ export default class WonderBotList extends ServiceBase {
       'wonderbotlist.com',
       'wonderbotlistcom',
       'wonder',
-      'wbl',
+      'wbl'
     ]
   }
 
@@ -45,7 +45,7 @@ export default class WonderBotList extends ServiceBase {
       params:
         shard && shard.count
           ? { serveurs: Util.resolveCount(serverCount), shard: shard.count }
-          : { serveurs: Util.resolveCount(serverCount) },
+          : { serveurs: Util.resolveCount(serverCount) }
     })
   }
 
@@ -57,10 +57,10 @@ export default class WonderBotList extends ServiceBase {
     return this._request(
       {
         url: `/bot/${Util.resolveID(id)}`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }
@@ -73,10 +73,10 @@ export default class WonderBotList extends ServiceBase {
     return this._request(
       {
         url: `/user/${Util.resolveID(id)}`,
-        headers: { Authorization: this.token },
+        headers: { Authorization: this.token }
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

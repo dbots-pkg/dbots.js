@@ -37,7 +37,7 @@ export default class DiscordAppsDev extends ServiceBase {
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}`,
       headers: { Authorization: token },
-      data: { bot: { count: Util.resolveCount(serverCount) } },
+      data: { bot: { count: Util.resolveCount(serverCount) } }
     })
   }
 
@@ -75,10 +75,10 @@ export default class DiscordAppsDev extends ServiceBase {
         method: 'post',
         url: `/bots/${Util.resolveID(id)}`,
         headers: { Authorization: this.token },
-        data,
+        data
       },
       {
-        requiresToken: true,
+        requiresToken: true
       }
     )
   }

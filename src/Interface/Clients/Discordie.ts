@@ -26,7 +26,7 @@ export default class Discordie extends ClientFiller {
     return this.client.options?.shardId && this.client.options?.shardCount
       ? {
           id: this.client.options.shardId,
-          count: this.client.options.shardCount,
+          count: this.client.options.shardCount
         }
       : undefined
   }
