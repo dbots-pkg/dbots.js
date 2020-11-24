@@ -14,8 +14,6 @@ import allSettled, { PromiseRejection } from 'promise.allsettled'
 
 const { Error: DBotsError, TypeError } = errors
 
-1 + 2
-
 export interface manualPostOptions {
   /** The server count to post to the service */
   serverCount: number
@@ -107,7 +105,7 @@ export default class Poster {
       return EnsurePromise(this.options.serverCount)
 
     if (!this.client) throw new DBotsError('NO_CLIENT', 'server')
-    if (!this.options.serverCount && !this.options.clientLibrary)
+    if (!this.options.clientLibrary)
       throw new DBotsError('UNKNOWN_CLIENT', 'server')
 
     return Promise.resolve(this.clientFiller?.serverCount || 0)
@@ -123,7 +121,7 @@ export default class Poster {
       return EnsurePromise(this.options.userCount) as Promise<number>
 
     if (!this.client) throw new DBotsError('NO_CLIENT', 'user')
-    if (!this.options.userCount && !this.options.clientLibrary)
+    if (!this.options.clientLibrary)
       throw new DBotsError('UNKNOWN_CLIENT', 'user')
 
     return Promise.resolve(this.clientFiller?.userCount || 0)
@@ -139,7 +137,7 @@ export default class Poster {
       return EnsurePromise(this.options.voiceConnections) as Promise<number>
 
     if (!this.client) throw new DBotsError('NO_CLIENT', 'voice connection')
-    if (!this.options.voiceConnections && !this.options.clientLibrary)
+    if (!this.options.clientLibrary)
       throw new DBotsError('UNKNOWN_CLIENT', 'voice connection')
 
     return Promise.resolve(this.clientFiller?.voiceConnections || 0)
@@ -244,7 +242,7 @@ export default class Poster {
         this.options.shard
       )
 
-    if (!service || service === 'all') {
+    if (service === 'all') {
       const services = Object.keys(this.apiKeys)
       if (this.options.post) services.push('custom')
       return allSettled(
@@ -259,7 +257,7 @@ export default class Poster {
           if (r.status == 'rejected') {
             rejected.push(r)
             // @ts-expect-error
-            if (r?.reason?.config?.url) {
+            if (r.reason?.config?.url) {
               // @ts-expect-error
               const hostname = new URL(r.reason.config.url).hostname
               if (hostname && !hostnames.includes(hostname))
