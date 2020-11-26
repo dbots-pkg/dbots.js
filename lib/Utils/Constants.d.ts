@@ -82,8 +82,9 @@ export declare type Service = string;
  * * discord.io
  * * discordie
  * * eris
+ * * paracord
  */
-export declare type Library = 'discord.js' | 'discord.io' | 'discordie' | 'eris';
+export declare type Library = 'discord.js' | 'discord.io' | 'discordie' | 'eris' | 'paracord';
 /**
  * Type of function to set for handlers
  * @param result The result(s) of the post

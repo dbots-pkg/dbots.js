@@ -104,8 +104,14 @@ export type Service = string
  * * discord.io
  * * discordie
  * * eris
+ * * paracord
  */
-export type Library = 'discord.js' | 'discord.io' | 'discordie' | 'eris'
+export type Library =
+  | 'discord.js'
+  | 'discord.io'
+  | 'discordie'
+  | 'eris'
+  | 'paracord'
 
 /**
  * Type of function to set for handlers
