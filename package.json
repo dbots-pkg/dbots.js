@@ -2,8 +2,7 @@
   "name": "dbots",
   "version": "5.2.0",
   "description": "Discord bot list poster and stats retriever",
-  "main": "./src/index",
-  "types": "./typings/index.d.ts",
+  "main": "./lib/index",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dbots-pkg/dbots.js.git"
