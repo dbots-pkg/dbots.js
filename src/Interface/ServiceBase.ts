@@ -181,6 +181,8 @@ if (!usingNode) {
 
   const listsDir = path.join(__dirname, './Lists')
   fs.readdirSync(listsDir).forEach((fileName: string) => {
+    if (fileName.endsWith('.d.ts')) return
+
     const listClass = require(path.join(listsDir, fileName)).default
     if (listClass) serviceClasses[path.parse(fileName).name] = listClass
   })
