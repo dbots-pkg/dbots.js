@@ -7,22 +7,27 @@ import { Query } from '../../Utils/Constants'
  * @see https://top.gg/api/docs
  */
 export default class TopGG extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['topgg', 'top.gg', 'top']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://top.gg/images/dblnew.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Top.gg'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://top.gg'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://top.gg/api'
   }

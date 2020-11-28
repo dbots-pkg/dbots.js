@@ -7,22 +7,27 @@ import { Query } from '../../Utils/Constants'
  * @see https://blist.xyz/docs/
  */
 export default class Blist extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['blist', 'blist.xyz']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://blist.xyz/main_site/staticfiles/main/assets/blist.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Blist'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://blist.xyz'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://blist.xyz/api'
   }

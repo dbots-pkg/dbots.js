@@ -7,22 +7,27 @@ import { Query } from '../../Utils/Constants'
  * @see https://docs.botsfordiscord.com/
  */
 export default class BotsForDiscord extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['botsfordiscord', 'botsfordiscord.com', 'bfd']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://i.olsh.me/icon?size=1..100..500&url=botsfordiscord.com'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Bots For Discord'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://botsfordiscord.com'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://botsfordiscord.com/api'
   }

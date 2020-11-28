@@ -6,22 +6,27 @@ import Util, { IDResolvable } from '../../Utils/Util'
  * @see https://docs.botsdatabase.com/
  */
 export default class BotsDataBase extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['botsdatabase', 'bdb']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://botsdatabase.com/images/icons/favicon-96x96.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'BotsDataBase'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://botsdatabase.com'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://api.botsdatabase.com/v1'
   }

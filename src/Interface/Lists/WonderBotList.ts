@@ -6,6 +6,7 @@ import Util, { IDResolvable } from '../../Utils/Util'
  * @see https://api.wonderbotlist.com/en/
  */
 export default class WonderBotList extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return [
       'wonderbotlist',
@@ -16,18 +17,22 @@ export default class WonderBotList extends ServiceBase {
     ]
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://get.snaz.in/8Jk3EJg.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Wonder Bot List'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://wonderbotlist.com/en'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://api.wonderbotlist.com/v1'
   }

@@ -6,22 +6,27 @@ import Util, { AnyObject } from '../../Utils/Util'
  * @see https://discordbotlist.com/api-docs
  */
 export default class DiscordBotList extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordbotlist', 'discordbotlist.com', 'dbotlist']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://i.olsh.me/icon?size=1..100..500&url=discordbotlist.com'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Discord Bot List'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://discordbotlist.com'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://discordbotlist.com/api/v1'
   }

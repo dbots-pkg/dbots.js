@@ -7,22 +7,27 @@ import { Query } from '../../Utils/Constants'
  * @see https://discord.boats/api/docs
  */
 export default class DiscordBoats extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordboats', 'discord.boats', 'dboats']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://i.olsh.me/icon?size=1..100..500&url=discord.boats'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Discord Boats'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://discord.boats'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://discord.boats/api/v2'
   }

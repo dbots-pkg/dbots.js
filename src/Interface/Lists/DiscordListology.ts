@@ -6,22 +6,27 @@ import Util, { IDResolvable } from '../../Utils/Util'
  * @see https://discordlistology.com/developer/documentation
  */
 export default class DiscordListology extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordlistology']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://discordlistology.com/idiscord.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'DiscordListology'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://discordlistology.com/'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://discordlistology.com/api/v1'
   }

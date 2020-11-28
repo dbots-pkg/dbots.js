@@ -7,22 +7,27 @@ import { Query } from '../../Utils/Constants'
  * @see https://docs.mythicalbots.xyz/
  */
 export default class MythicalBots extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['mythicalbots', 'mythicalbots.xyz', 'mythicalbotsxyz', 'mythical']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://get.snaz.in/2PGqLVM.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Mythical Bots'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://mythicalbots.xyz/'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://mythicalbots.xyz/api'
   }

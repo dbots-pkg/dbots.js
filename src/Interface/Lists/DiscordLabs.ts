@@ -6,6 +6,7 @@ import Util, { IDResolvable } from '../../Utils/Util'
  * @see https://docs.discordlabs.org/docs/api/api
  */
 export default class DiscordLabs extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return [
       'discordlabs',
@@ -15,18 +16,22 @@ export default class DiscordLabs extends ServiceBase {
     ]
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://avatars2.githubusercontent.com/u/54491479?v=4'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Discord Labs'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://bots.discordlabs.org/'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://bots.discordlabs.org/v2'
   }

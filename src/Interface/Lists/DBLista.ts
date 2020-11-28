@@ -13,22 +13,27 @@ const { Error } = errors
  * @see https://docs.dblista.pl/
  */
 export default class DBLista extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['dblistapl', 'dblista.pl', 'dblista']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://i.olsh.me/icon?size=1..100..500&url=dblista.pl'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'DBLista'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://dblista.pl'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://api.dblista.pl/v1'
   }

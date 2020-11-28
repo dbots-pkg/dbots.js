@@ -5,22 +5,27 @@ import Util from '../../Utils/Util'
  * Represents the Carbonitex service.
  */
 export default class Carbon extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['carbonitex', 'carbonitex.net', 'carbon']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://get.snaz.in/7N8ywwr.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Carbonitex'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://www.carbonitex.net/Discord/bots'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://www.carbonitex.net/discord'
   }

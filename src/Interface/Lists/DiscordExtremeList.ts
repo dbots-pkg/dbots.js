@@ -6,6 +6,7 @@ import Util, { IDResolvable } from '../../Utils/Util'
  * @see https://docs.discordextremelist.xyz/
  */
 export default class DiscordExtremeList extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return [
       'discordextremelist',
@@ -15,18 +16,22 @@ export default class DiscordExtremeList extends ServiceBase {
     ]
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://get.snaz.in/4KjWg91.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Discord Extreme List'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://discordextremelist.xyz/'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://api.discordextremelist.xyz/v2'
   }

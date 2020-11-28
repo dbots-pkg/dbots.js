@@ -6,22 +6,27 @@ import Util, { IDResolvable } from '../../Utils/Util'
  * @see https://discordbots.co/api
  */
 export default class DiscordBotsCo extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordbotsco']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://cdn.discordapp.com/avatars/688927563409522694/17cfd572fd3e2d3285534c12e0f58422.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'DiscordBots.co'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://discordbots.co'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://api.discordbots.co/v1/public'
   }

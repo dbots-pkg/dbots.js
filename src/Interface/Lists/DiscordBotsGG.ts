@@ -32,22 +32,27 @@ export default class DiscordBotsGG extends ServiceBase {
     }
   }
 
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordbotsgg', 'discord.bots.gg', 'botsgg', 'bots.gg', 'dbots']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://i.olsh.me/icon?size=1..100..500&url=discord.bots.gg'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Discord Bots'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://discord.bots.gg'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://discord.bots.gg/api/v1'
   }

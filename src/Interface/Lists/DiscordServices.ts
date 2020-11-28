@@ -18,22 +18,27 @@ export interface DiscordServicesCommandInfo {
  * @see https://discordservices.net/docs/api
  */
 export default class DiscordServices extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordservices', 'discordservices.net']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://discordservices.net/icon.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Discord Services'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://discordservices.net'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://api.discordservices.net'
   }

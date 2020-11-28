@@ -6,22 +6,27 @@ import Util, { IDResolvable } from '../../Utils/Util'
  * @see https://docs.topcord.xyz/#/API
  */
 export default class TopCord extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['topcord', 'topcord.xyz']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://avatars0.githubusercontent.com/u/69593894?v=4'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'TopCord'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://topcord.xyz/'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://topcord.xyz/api'
   }

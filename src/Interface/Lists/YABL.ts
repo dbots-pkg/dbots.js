@@ -7,22 +7,27 @@ import { Query } from '../../Utils/Constants'
  * @see https://yabl.xyz/api
  */
 export default class YABL extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['yabl', 'yablxyz', 'yabl.xyz']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://i.imgur.com/OFiMern.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Yet Another Bot List'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://yabl.xyz/'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://yabl.xyz/api'
   }

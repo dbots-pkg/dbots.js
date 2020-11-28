@@ -6,22 +6,27 @@ import Util, { IDResolvable } from '../../Utils/Util'
  * @see https://discordbot.world/docs
  */
 export default class DiscordBotWorld extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordbotworld', 'discordbot.world', 'dbotworld', 'dbw']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://i.olsh.me/icon?size=1..100..500&url=discordbot.world'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Discord Bot World'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://discordbot.world'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://discordbot.world/api'
   }

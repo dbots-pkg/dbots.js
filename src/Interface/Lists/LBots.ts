@@ -6,22 +6,27 @@ import Util, { AnyObject, IDResolvable } from '../../Utils/Util'
  * @see https://lbots.org/api/docs
  */
 export default class LBots extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['lbots', 'lbotsorg', 'lbots.org']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://i.olsh.me/icon?size=1..100..500&url=lbots.org'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'LBots'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://lbots.org/'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://lbots.org/api/v1'
   }

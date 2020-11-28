@@ -7,22 +7,27 @@ import { Query } from '../../Utils/Constants'
  * @see https://listmybots.com/docs/api
  */
 export default class ListMyBots extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['listmybots', 'listmybots.com', 'listmybotscom', 'lmb']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://get.snaz.in/5Vm5J7i.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'List My Bots'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://listmybots.com/'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://listmybots.com/api'
   }

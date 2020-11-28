@@ -11,22 +11,27 @@ import { Query } from '../../Utils/Constants'
  * @param {string} token The token/key for the service
  */
 export default class GlennBotList extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['glennbotlist', 'glennbotlist.xyz', 'glennbotlist.gg', 'glenn']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://get.snaz.in/8HphUE7.jpg'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Glenn Bot List'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://glennbotlist.xyz'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://glennbotlist.xyz/api'
   }

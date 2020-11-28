@@ -9,22 +9,27 @@ import { Query } from '../../Utils/Constants'
  * @see https://docs.botlist.space/
  */
 export default class BotListSpace extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['botlistspace', 'botlist.space', 'bls']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://i.olsh.me/icon?size=1..100..500&url=botlist.space'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'botlist.space'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://botlist.space'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://api.botlist.space/v1'
   }

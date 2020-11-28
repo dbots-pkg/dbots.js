@@ -6,6 +6,7 @@ import Util from '../../Utils/Util'
  * @see https://arcane-center.xyz/documentation
  */
 export default class Arcane extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return [
       'arcanebotcenter',
@@ -18,18 +19,22 @@ export default class Arcane extends ServiceBase {
     ]
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://i.olsh.me/icon?size=1..100..500&url=arcane-botcenter.xyz'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Arcane Bot List'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://arcane-center.xyz'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://arcane-center.xyz/api'
   }

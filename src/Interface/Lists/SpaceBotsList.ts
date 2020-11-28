@@ -6,6 +6,7 @@ import Util, { IDResolvable } from '../../Utils/Util'
  * @see https://spacebots.gitbook.io/tutorial-en/
  */
 export default class SpaceBotsList extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return [
       'spacebotslist',
@@ -17,18 +18,22 @@ export default class SpaceBotsList extends ServiceBase {
     ]
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://get.snaz.in/334CtqK.jpg'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Space Bots List'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://space-bot-list.xyz/'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://space-bot-list.xyz/api'
   }

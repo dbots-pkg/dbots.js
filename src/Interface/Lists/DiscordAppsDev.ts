@@ -6,22 +6,27 @@ import Util, { AnyObject, IDResolvable } from '../../Utils/Util'
  * @see https://discordapps.dev/en-GB/posts/docs/api-v2/
  */
 export default class DiscordAppsDev extends ServiceBase {
+  /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordappsdev', 'discordapps.dev', 'discordapps', 'dapps']
   }
 
+  /** The logo URL. */
   static get logoURL() {
     return 'https://api.discordapps.dev/img/logo/logo128.png'
   }
 
+  /** Service's name. */
   static get serviceName() {
     return 'Discord Apps'
   }
 
+  /** The website URL. */
   static get websiteURL() {
     return 'https://discordapps.dev'
   }
 
+  /** The base URL of the service's API. */
   static get baseURL() {
     return 'https://api.discordapps.dev/api/v2'
   }
