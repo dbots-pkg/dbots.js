@@ -20,10 +20,15 @@ export default class DiscordBotsGG extends ServiceBase {
      * @param userAgent The user agent options of the service. Providing this is highly recommended.
      */
     constructor(token: string, userAgent?: DiscordBotsGGUserAgent);
+    /** The values that can be used to select the service. */
     static get aliases(): string[];
+    /** The logo URL. */
     static get logoURL(): string;
+    /** Service's name. */
     static get serviceName(): string;
+    /** The website URL. */
     static get websiteURL(): string;
+    /** The base URL of the service's API. */
     static get baseURL(): string;
     /**
      * Creates a compliant user agent to use for any API calls to Discord Bots.
