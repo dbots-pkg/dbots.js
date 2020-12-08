@@ -24,9 +24,6 @@
 
 - [About](#about)
 - [Installing](#installing)
-- [Examples](#examples)
-  - [Example with client](#example-with-client)
-  - [Example without client](#example-without-client)
 - [Supported Libraries](#supported-libraries)
 - [Supported Services](#supported-services)
 - [Changelog](#changelog)
@@ -49,44 +46,6 @@ yarn add dbots
 # Master
 npm i dbots-pkg/dbots.js#master
 yarn add ssh://github.com/dbots-pkg/dbots.js#master
-```
-
-## Examples
-
-### Example with client
-
-```js
-const Discord = require('discord.js')
-const client = new Discord.Client()
-const dbots = require('dbots')
-const poster = new dbots.Poster({
-  client,
-  apiKeys: {
-    discordbotsgg: '…',
-    topgg: '…',
-    lsterminalink: '…',
-    carbon: '…'
-  },
-  clientLibrary: 'discord.js'
-})
-
-poster.startInterval() // starts an interval thats posts to all services every 30 minutes
-```
-
-### Example without client
-
-```js
-const dbots = require('dbots')
-const poster = new dbots.Poster({
-  apiKeys: {
-    discordbotsgg: '…',
-    topgg: '…',
-    lsterminalink: '…',
-    carbon: '…'
-  }
-})
-
-poster.post('carbon') // if the service is undefined, it posts to all services provided with a key
 ```
 
 ## Supported Libraries
