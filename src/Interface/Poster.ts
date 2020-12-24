@@ -291,7 +291,7 @@ export default class Poster {
       })
     }
     if (!Object.keys(this.apiKeys).includes(service))
-      return Promise.reject(new DBotsError('SERVICE_WITH_NO_KEY', service))
+      return Promise.reject(new DBotsError('SERVICE_NO_KEY', service))
     const serviceClass = ServiceBase.get(service, this.customServices)
     if (!serviceClass)
       return Promise.reject(new TypeError('INVALID_SERVICE', service))

@@ -1,7 +1,10 @@
 // Taken from Discord.JS's way of making errors
 
 export const codeSymbol = Symbol('code')
-export const messages = new Map()
+export const messages = new Map<
+  errorKey,
+  string | ((...args: any[]) => string)
+>()
 
 // This is just a mock class to make docs work
 /**
@@ -29,7 +32,7 @@ class DBotsError extends Error { /* eslint-disable-line */
  */
 function makeDbotsError(Base: typeof Error) {
   return class DBotsError extends Base {
-    constructor(key: string, ...args: any[]) {
+    constructor(key: errorKey, ...args: any[]) {
       super(message(key, args))
       // @ts-expect-error
       this[codeSymbol] = key
@@ -54,14 +57,18 @@ function makeDbotsError(Base: typeof Error) {
  * @param args Arguments to pass for util format or as function args
  * @returns Formatted string
  */
-function message(key: string, args: any[]): string {
+function message(key: errorKey, args: any[]): string | undefined {
   if (typeof key !== 'string')
     throw new Error('Error message key must be a string')
+
   const msg = messages.get(key)
   if (!['string', 'function'].includes(typeof msg))
     throw new Error(`An invalid error message key was used: ${key}.`)
+
   if (typeof msg === 'function') return msg(...args)
+
   if (args === undefined || args.length === 0) return msg
+
   args.unshift(msg)
   return String(...args)
 }
@@ -71,10 +78,11 @@ function message(key: string, args: any[]): string {
  * @param sym Unique name for the error
  * @param val Value of the error
  */
-export function register(sym: string, val: any) {
+export function register(sym: errorKey, val: any) {
   messages.set(sym, typeof val === 'function' ? val : String(val))
 }
 
+type errorKey = keyof typeof messageObject
 const messageObject = {
   INVALID_POSTER_OPTIONS:
     'An object is required a parameter to construct a poster.',
@@ -107,7 +115,7 @@ const messageObject = {
 }
 
 for (const [name, message] of Object.entries(messageObject))
-  register(name, message)
+  register(name as errorKey, message)
 
 export const errors = {
   Error: makeDbotsError(Error),
