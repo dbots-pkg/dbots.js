@@ -4,19 +4,13 @@ import { AnyObject } from '../Utils/Util';
  * A class that gets certain values from a client.
  * @private
  */
-export default class ClientFiller {
+export declare class ClientFiller {
     /** The client that will be used for the filler. */
     client: AnyObject;
     /**
      * @param client The client that will be used
      */
     constructor(client: object);
-    /**
-     * Gets a client filler from a library.
-     * @param libraryName The name of the library to get
-     * @param client The client that the library made
-     */
-    static get(libraryName: string, client: object): ClientFiller;
     /** Gets the amount of users the bot has cached. */
     get userCount(): number;
     /** Gets the amount of servers the bot has cached. */
@@ -28,3 +22,9 @@ export default class ClientFiller {
     /** Gets the shard of the bot. */
     get shard(): Shard | undefined;
 }
+/**
+ * Gets a client filler from a library.
+ * @param libraryName The name of the library to get
+ * @param client The client that the library made
+ */
+export declare function getClientFiller(libraryName: string, client: object): ClientFiller;

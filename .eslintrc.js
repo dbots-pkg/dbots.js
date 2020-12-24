@@ -2,7 +2,8 @@ module.exports = {
   env: {
     commonjs: true,
     es6: true,
-    node: true
+    node: true,
+    'jest/globals': true
   },
   extends: [
     'eslint:recommended',
@@ -15,7 +16,7 @@ module.exports = {
     ecmaVersion: 6,
     sourceType: 'module'
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'jest'],
   rules: {
     'prettier/prettier': 'warn',
     'no-cond-assign': [2, 'except-parens'],

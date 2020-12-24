@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { CustomEvent, CustomService, eventHandler, PosterOptions, Service } from '../Utils/Constants';
 import ServiceBase from './ServiceBase';
 export interface manualPostOptions {
@@ -54,7 +53,7 @@ export default class Poster {
      * @emits Poster#autopostSuccess
      * @emits Poster#autopostFail
      */
-    startInterval(interval?: number): NodeJS.Timeout;
+    startInterval(interval?: number): number;
     /** Destroys the current interval. */
     stopInterval(): void;
     /**
