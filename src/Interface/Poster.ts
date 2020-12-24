@@ -8,7 +8,7 @@ import {
 } from '../Utils/Constants'
 import EnsurePromise from '../Utils/EnsurePromise'
 import { errors } from '../Utils/DBotsError'
-import ClientFiller from './ClientFiller'
+import { ClientFiller, getClientFiller } from './ClientFiller'
 import ServiceBase from './ServiceBase'
 import allSettled, { PromiseRejection } from 'promise.allsettled'
 
@@ -47,7 +47,7 @@ export default class Poster {
   private _clientFiller: ClientFiller | null
 
   /** Interval that posts to all services */
-  private _interval?: NodeJS.Timeout // eslint-disable-line no-undef
+  private _interval?: number // eslint-disable-line no-undef
   // #endregion
 
   /**
@@ -87,7 +87,7 @@ export default class Poster {
     return (
       this._clientFiller ||
       (this.options.clientLibrary && this.client
-        ? (this._clientFiller = ClientFiller.get(
+        ? (this._clientFiller = getClientFiller(
             this.options.clientLibrary,
             this.client
           ))
@@ -153,7 +153,7 @@ export default class Poster {
   startInterval(interval = 1800000) {
     this._interval && clearTimeout(this._interval)
 
-    this._interval = setInterval(
+    this._interval = (setInterval(
       () =>
         this.post()
           .then((result) => {
@@ -162,7 +162,7 @@ export default class Poster {
           })
           .catch((error) => this.runHandlers('autopostFail', error)),
       interval
-    )
+    ) as unknown) as number
     return this._interval
   }
 

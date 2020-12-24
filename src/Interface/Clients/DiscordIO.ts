@@ -1,5 +1,5 @@
 import { Shard } from '../../Utils/Constants'
-import ClientFiller from '../ClientFiller'
+import { ClientFiller } from '../ClientFiller'
 
 /**
  * Represents the client filler for discord.io clients.
