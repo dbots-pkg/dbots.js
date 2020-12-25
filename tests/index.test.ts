@@ -9,7 +9,7 @@ describe('Library exports', () => {
     expect(typeof dbots.EnsurePromise).toBe('function')
     expect(typeof dbots.FormatRequest).toBe('function')
     expect(typeof dbots.Util).toBe('object')
-    expect(typeof dbots.ServiceBase).toBe('function')
+    expect(typeof dbots.Service).toBe('function')
     expect(typeof dbots.getService).toBe('function')
     expect(typeof dbots.serviceClasses).toBe('object')
   })

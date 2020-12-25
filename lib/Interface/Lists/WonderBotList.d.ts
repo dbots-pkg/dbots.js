@@ -1,10 +1,10 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 import { IDResolvable } from '../../Utils/Util';
 /**
  * Represents the Wonder Bot List service.
  * @see https://api.wonderbotlist.com/en/
  */
-export default class WonderBotList extends ServiceBase {
+export default class WonderBotList extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -19,7 +19,7 @@ export default class WonderBotList extends ServiceBase {
      * Posts statistics to this service.
      * @param options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Gets the bot listed on this service.
      * @param id The bot's ID

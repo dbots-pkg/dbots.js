@@ -1,11 +1,11 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 import { IDResolvable } from '../../Utils/Util';
 import { Query } from '../../Utils/Constants';
 /**
  * Represents the Top.gg service.
  * @see https://top.gg/api/docs
  */
-export default class TopGG extends ServiceBase {
+export default class TopGG extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -20,7 +20,7 @@ export default class TopGG extends ServiceBase {
      * Posts statistics to this service.
      * @param options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Gets the user listed on this service.
      * @param id The user's ID

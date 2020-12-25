@@ -2,8 +2,8 @@ import { PromiseResolvable } from './EnsurePromise'
 
 /** Options for a poster. */
 export interface PosterOptions {
-  /** An object that pairs a {@link Service} with their token */
-  apiKeys?: Record<Service, string>
+  /** An object that pairs a {@link ServiceKey} with their token */
+  apiKeys?: Record<ServiceKey, string>
 
   /**
    * The client that a supported {@link Library} uses to manage the Discord application.
@@ -22,7 +22,7 @@ export interface PosterOptions {
 
   /**
    * The function to use when posting to a server that uses the client ID, the amount of servers, and a {@link Shard}.
-   * This will be used when the {@link Service} is `custom`
+   * This will be used when the {@link ServiceKey} is `custom`
    */
   post?: PromiseResolvable<void>
 
@@ -41,7 +41,7 @@ export interface PosterOptions {
   /** The custom services that the poster will use */
   customServices?: CustomService[]
 
-  /** Whether or not to use a {@link ServiceBase}s sharding methods when posting */
+  /** Whether or not to use a {@link Service}s sharding methods when posting */
   useSharding?: boolean
 }
 
@@ -51,7 +51,7 @@ export interface Shard {
   id?: number
 }
 
-/** The object that is given to {@link ServiceBase}s and {@link CustomService}s in order to send requests to them. */
+/** The object that is given to {@link Service}s and {@link CustomService}s in order to send requests to them. */
 export interface PostRequestData {
   /** The Authorization token for the request */
   token: string
@@ -92,11 +92,11 @@ export type Query = Record<string, string | number>
 export type CustomService = any
 
 /**
- * A {@link ServiceBase} key supported by the package.
+ * A {@link Service} key supported by the package.
  * This can also includes keys from {@link CustomService}s and can be `custom` if a {@link Poster} has a custom post function.
  * @see {@link https://dbots.js.org/#/docs/main/master/general/services}
  */
-export type Service = string
+export type ServiceKey = string
 
 /**
  * A library supported by the package. Here are the available libraries:

@@ -1,4 +1,4 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { IDResolvable } from '../../Utils/Util'
 import { Package, Query } from '../../Utils/Constants'
 
@@ -15,7 +15,7 @@ export interface DiscordBotsGGUserAgent {
  * Represents the Discord Bots service.
  * @see https://discord.bots.gg/docs
  */
-export default class DiscordBotsGG extends ServiceBase {
+export default class DiscordBotsGG extends Service {
   /** The user agent options for this service */
   private agent: DiscordBotsGGUserAgent
 
@@ -74,7 +74,7 @@ export default class DiscordBotsGG extends ServiceBase {
    * Posts statistics to this service.
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
     return super._post({
       method: 'post',

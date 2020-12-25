@@ -1,11 +1,11 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { AnyObject, IDResolvable } from '../../Utils/Util'
 
 /**
  * Represents the Discord Apps service.
  * @see https://discordapps.dev/en-GB/posts/docs/api-v2/
  */
-export default class DiscordAppsDev extends ServiceBase {
+export default class DiscordAppsDev extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordappsdev', 'discordapps.dev', 'discordapps', 'dapps']
@@ -36,7 +36,7 @@ export default class DiscordAppsDev extends ServiceBase {
    * <warn>Shard data posting is not supported for this service.</warn>
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount } = options
     return super._post({
       method: 'post',

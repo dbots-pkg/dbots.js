@@ -1,11 +1,11 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { AnyObject } from '../../Utils/Util'
 
 /**
  * Represents the Discord Bot List service.
  * @see https://discordbotlist.com/api-docs
  */
-export default class DiscordBotList extends ServiceBase {
+export default class DiscordBotList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordbotlist', 'discordbotlist.com', 'dbotlist']
@@ -35,7 +35,7 @@ export default class DiscordBotList extends ServiceBase {
    * Posts statistics to this service.
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const {
       token,
       clientID,

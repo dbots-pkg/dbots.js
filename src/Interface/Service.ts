@@ -8,7 +8,7 @@ import { CustomService, Query, Shard } from '../Utils/Constants'
 import { assert, CountResolvable, IDResolvable } from '../Utils/Util'
 
 /** Options provided when sending a service request */
-export interface ServiceBaseRequestOptions {
+export interface ServiceRequestOptions {
   /** Whether the request requires a token */
   requiresToken?: boolean
 
@@ -17,7 +17,7 @@ export interface ServiceBaseRequestOptions {
 }
 
 /** Options provided when posting to a service */
-export interface ServiceBasePostOptions {
+export interface ServicePostOptions {
   /** The Authorization token for the request */
   token: string
 
@@ -38,7 +38,7 @@ export interface ServiceBasePostOptions {
 }
 
 /** Represents a basic service. */
-export default class ServiceBase {
+export default class Service {
   /**
    * The token that will be used for the service.
    * @private
@@ -62,10 +62,7 @@ export default class ServiceBase {
    * @param key The name of the service to get
    * @param extras An array of {@link CustomService}s to include
    */
-  static get(
-    key: string,
-    extras: CustomService[] = []
-  ): typeof ServiceBase | null {
+  static get(key: string, extras: CustomService[] = []): typeof Service | null {
     if (!key || typeof key !== 'string') return null
 
     const services = [...Object.values(serviceClasses), ...extras]
@@ -93,7 +90,7 @@ export default class ServiceBase {
    * @private
    */
   static _post(form: RequestForm, appendBaseURL = true) {
-    if (this.serviceName === 'ServiceBase')
+    if (this.serviceName === 'Service')
       return Promise.reject(new Error('CALLED_FROM_BASE'))
     if (this.baseURL && appendBaseURL) form.url = this.baseURL + form.url
     return FormatRequest(form)
@@ -105,13 +102,13 @@ export default class ServiceBase {
    * @param options The options of this request
    * @private
    */
-  _request(form: RequestForm, options: ServiceBaseRequestOptions = {}) {
+  _request(form: RequestForm, options: ServiceRequestOptions = {}) {
     const { requiresToken = false, appendBaseURL = true } = options
 
     if (requiresToken && !this.token)
       return Promise.reject(new Error('REQUIRES_TOKEN'))
 
-    assert<typeof ServiceBase>(this.constructor)
+    assert<typeof Service>(this.constructor)
     if (this.constructor.baseURL && appendBaseURL)
       form.url = this.constructor.baseURL + form.url
     return FormatRequest(form)
@@ -126,7 +123,7 @@ export default class ServiceBase {
    * @private
    */
   _appendQuery(url: string, query: Query, appendBaseURL = true): string {
-    assert<typeof ServiceBase>(this.constructor)
+    assert<typeof Service>(this.constructor)
 
     if (this.constructor.baseURL && appendBaseURL)
       url = this.constructor.baseURL + url
@@ -163,14 +160,14 @@ export default class ServiceBase {
   }
 
   static post(
-    options: ServiceBasePostOptions // eslint-disable-line @typescript-eslint/no-unused-vars
-  ): ReturnType<typeof ServiceBase['_post']> {
+    options: ServicePostOptions // eslint-disable-line @typescript-eslint/no-unused-vars
+  ): ReturnType<typeof Service['_post']> {
     throw 'This is just a placeholder method, it should not be called'
   }
 }
 
 // Service loading
-let serviceClasses: Record<string, typeof ServiceBase> = {}
+let serviceClasses: Record<string, typeof Service> = {}
 const usingNode =
   typeof process != 'undefined' && process.release.name == 'node'
 if (!usingNode) {

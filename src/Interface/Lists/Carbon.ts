@@ -1,10 +1,10 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util from '../../Utils/Util'
 
 /**
  * Represents the Carbonitex service.
  */
-export default class Carbon extends ServiceBase {
+export default class Carbon extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['carbonitex', 'carbonitex.net', 'carbon']
@@ -35,7 +35,7 @@ export default class Carbon extends ServiceBase {
    * <warn>Shard data posting is not supported for this service.</warn>
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, serverCount } = options
     return super._post({
       method: 'post',

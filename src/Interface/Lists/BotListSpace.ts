@@ -1,6 +1,4 @@
-import { ServiceBasePostOptions } from '../ServiceBase'
-
-import ServiceBase from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { CountResolvable, IDResolvable } from '../../Utils/Util'
 import { Query } from '../../Utils/Constants'
 
@@ -8,7 +6,7 @@ import { Query } from '../../Utils/Constants'
  * Represents the botlist.space service.
  * @see https://docs.botlist.space/
  */
-export default class BotListSpace extends ServiceBase {
+export default class BotListSpace extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['botlistspace', 'botlist.space', 'bls']
@@ -39,7 +37,7 @@ export default class BotListSpace extends ServiceBase {
    * <warn>Shard data posting is not supported for this service.</warn>
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount } = options
     return super._post({
       method: 'post',

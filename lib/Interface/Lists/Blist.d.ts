@@ -1,11 +1,11 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 import { IDResolvable } from '../../Utils/Util';
 import { Query } from '../../Utils/Constants';
 /**
  * Represents the Blist service.
  * @see https://blist.xyz/docs/
  */
-export default class Blist extends ServiceBase {
+export default class Blist extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -20,7 +20,7 @@ export default class Blist extends ServiceBase {
      * Posts statistics to this service.
      * @param {Object} options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Gets the user listed on this service.
      * @param id The user's ID

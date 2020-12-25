@@ -1,4 +1,4 @@
-import ServiceBase from './Interface/ServiceBase'
+import Service from './Interface/Service'
 
 export { default as Poster } from './Interface/Poster'
 
@@ -8,6 +8,6 @@ export { default as EnsurePromise } from './Utils/EnsurePromise'
 export { default as FormatRequest } from './Utils/FormatRequest'
 export * as Util from './Utils/Util'
 
-export { ServiceBase }
-export const getService = ServiceBase.get
-export const serviceClasses = ServiceBase.getAll()
+export { Service }
+export const getService = Service.get
+export const serviceClasses = Service.getAll()

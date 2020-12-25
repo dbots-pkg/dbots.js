@@ -1,12 +1,11 @@
-import { ServiceBasePostOptions } from '../ServiceBase';
-import ServiceBase from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 import { CountResolvable, IDResolvable } from '../../Utils/Util';
 import { Query } from '../../Utils/Constants';
 /**
  * Represents the botlist.space service.
  * @see https://docs.botlist.space/
  */
-export default class BotListSpace extends ServiceBase {
+export default class BotListSpace extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -22,7 +21,7 @@ export default class BotListSpace extends ServiceBase {
      * <warn>Shard data posting is not supported for this service.</warn>
      * @param options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /** Gets the statistics of this service. */
     getStatistics(): Promise<import("axios").AxiosResponse<any>>;
     /** Gets a list of bots on this service. */

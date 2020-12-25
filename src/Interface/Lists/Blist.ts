@@ -1,4 +1,4 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { IDResolvable } from '../../Utils/Util'
 import { Query } from '../../Utils/Constants'
 
@@ -6,7 +6,7 @@ import { Query } from '../../Utils/Constants'
  * Represents the Blist service.
  * @see https://blist.xyz/docs/
  */
-export default class Blist extends ServiceBase {
+export default class Blist extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['blist', 'blist.xyz']
@@ -36,7 +36,7 @@ export default class Blist extends ServiceBase {
    * Posts statistics to this service.
    * @param {Object} options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
     return super._post({
       method: 'post',

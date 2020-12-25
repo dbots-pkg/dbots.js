@@ -1,11 +1,11 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { IDResolvable } from '../../Utils/Util'
 
 /**
  * Represents the BotsDataBase service.
  * @see https://docs.botsdatabase.com/
  */
-export default class BotsDataBase extends ServiceBase {
+export default class BotsDataBase extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['botsdatabase', 'bdb']
@@ -36,7 +36,7 @@ export default class BotsDataBase extends ServiceBase {
    * <warn>Shard data posting is not supported for this service.</warn>
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount } = options
     return super._post({
       method: 'post',

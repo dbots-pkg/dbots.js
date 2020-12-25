@@ -1,11 +1,11 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { IDResolvable } from '../../Utils/Util'
 
 /**
  * Represents the TopCord service.
  * @see https://docs.topcord.xyz/#/API
  */
-export default class TopCord extends ServiceBase {
+export default class TopCord extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['topcord', 'topcord.xyz']
@@ -35,7 +35,7 @@ export default class TopCord extends ServiceBase {
    * Posts statistics to this service.
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
     return super._post({
       method: 'post',

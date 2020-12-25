@@ -1,10 +1,10 @@
-import ServiceBase from '../ServiceBase';
+import Service from '../Service';
 import { AnyObject, CountResolvable, IDResolvable } from '../../Utils/Util';
 /**
  * Represents the DBLista service.
  * @see https://docs.dblista.pl/
  */
-export default class DBLista extends ServiceBase {
+export default class DBLista extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */

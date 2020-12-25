@@ -1,8 +1,8 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 /**
  * Represents the Carbonitex service.
  */
-export default class Carbon extends ServiceBase {
+export default class Carbon extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -18,7 +18,7 @@ export default class Carbon extends ServiceBase {
      * <warn>Shard data posting is not supported for this service.</warn>
      * @param options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /** Gets a list of bots on this service. */
     getBots(): Promise<import("axios").AxiosResponse<any>>;
 }

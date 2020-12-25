@@ -1,4 +1,4 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { IDResolvable } from '../../Utils/Util'
 
 /** The options to use when posting command info for the DiscordServices service */
@@ -17,7 +17,7 @@ export interface DiscordServicesCommandInfo {
  * Represents the Discord Services service.
  * @see https://discordservices.net/docs/api
  */
-export default class DiscordServices extends ServiceBase {
+export default class DiscordServices extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordservices', 'discordservices.net']
@@ -47,7 +47,7 @@ export default class DiscordServices extends ServiceBase {
    * Posts statistics to this service.
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
     return super._post({
       method: 'post',

@@ -1,16 +1,12 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { IDResolvable } from '../../Utils/Util'
 import { Query } from '../../Utils/Constants'
 
 /**
  * Represents the Glenn Bot List service.
  * @see https://docs.glennbotlist.xyz/
- * @extends {ServiceBase}
- *
- * @constructor
- * @param {string} token The token/key for the service
  */
-export default class GlennBotList extends ServiceBase {
+export default class GlennBotList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['glennbotlist', 'glennbotlist.xyz', 'glennbotlist.gg', 'glenn']
@@ -40,7 +36,7 @@ export default class GlennBotList extends ServiceBase {
    * Posts statistics to this service.
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
     return super._post({
       method: 'post',

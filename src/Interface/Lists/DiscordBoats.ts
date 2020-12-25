@@ -1,4 +1,4 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { IDResolvable } from '../../Utils/Util'
 import { Query } from '../../Utils/Constants'
 
@@ -6,7 +6,7 @@ import { Query } from '../../Utils/Constants'
  * Represents the Discord Boats service.
  * @see https://discord.boats/api/docs
  */
-export default class DiscordBoats extends ServiceBase {
+export default class DiscordBoats extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordboats', 'discord.boats', 'dboats']
@@ -37,7 +37,7 @@ export default class DiscordBoats extends ServiceBase {
    * <warn>Shard data posting is not supported for this service.</warn>
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount } = options
     return super._post({
       method: 'post',

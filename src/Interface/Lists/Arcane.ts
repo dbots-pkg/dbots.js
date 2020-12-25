@@ -1,11 +1,11 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util from '../../Utils/Util'
 
 /**
  * Represents the Arcane Bot Center service.
  * @see https://arcane-center.xyz/documentation
  */
-export default class Arcane extends ServiceBase {
+export default class Arcane extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return [
@@ -43,7 +43,7 @@ export default class Arcane extends ServiceBase {
    * Posts statistics to this service.
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, userCount, shard } = options
     return super._post({
       method: 'post',

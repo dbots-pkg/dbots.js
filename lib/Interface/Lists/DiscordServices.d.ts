@@ -1,4 +1,4 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 import { IDResolvable } from '../../Utils/Util';
 /** The options to use when posting command info for the DiscordServices service */
 export interface DiscordServicesCommandInfo {
@@ -13,7 +13,7 @@ export interface DiscordServicesCommandInfo {
  * Represents the Discord Services service.
  * @see https://discordservices.net/docs/api
  */
-export default class DiscordServices extends ServiceBase {
+export default class DiscordServices extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -28,7 +28,7 @@ export default class DiscordServices extends ServiceBase {
      * Posts statistics to this service.
      * @param options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Posts news to your bot page
      * @param id The bot's ID

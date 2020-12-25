@@ -1,5 +1,5 @@
-import { CustomEvent, CustomService, eventHandler, PosterOptions, Service } from '../Utils/Constants';
-import ServiceBase from './ServiceBase';
+import { CustomEvent, CustomService, eventHandler, PosterOptions, ServiceKey } from '../Utils/Constants';
+import Service from './Service';
 export interface manualPostOptions {
     /** The server count to post to the service */
     serverCount: number;
@@ -15,7 +15,7 @@ export default class Poster {
     /** An array of custom services that the poster uses */
     customServices: CustomService[];
     /** The API keys that the poster is using */
-    apiKeys: Record<Service, string>;
+    apiKeys: Record<ServiceKey, string>;
     /** The options the poster was built with */
     readonly options: PosterOptions;
     /** The list of event handlers for every custom event */
@@ -60,7 +60,7 @@ export default class Poster {
      * Gets a service, autofilling its API key if the poster has it.
      * @param service The service to get
      */
-    getService(service: Service): ServiceBase | CustomService | undefined;
+    getService(service: ServiceKey): Service | CustomService | undefined;
     /**
      * Posts the current clients server count to a service.
      * @param service The service to post to
@@ -69,14 +69,14 @@ export default class Poster {
      * @emits Poster#postSuccess
      * @emits Poster#postFail
      */
-    post(service?: Service | 'all'): Promise<object | object[]>;
+    post(service?: ServiceKey | 'all'): Promise<object | object[]>;
     /**
      * Manually posts a server count to a service.
      * @param service The service to post to
      * @param counts An object containing the tallies of servers, users and voice connections
      * @returns The result(s) of the post
      */
-    postManual(service: Service | 'all', counts: manualPostOptions): Promise<object | object[]>;
+    postManual(service: ServiceKey | 'all', counts: manualPostOptions): Promise<object | object[]>;
     /**
      * Adds an handler for an event.
      * @param event The name of the event to add the handler to

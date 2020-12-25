@@ -1,11 +1,11 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 import { IDResolvable } from '../../Utils/Util';
 import { Query } from '../../Utils/Constants';
 /**
  * Represents the List My Bots service.
  * @see https://listmybots.com/docs/api
  */
-export default class ListMyBots extends ServiceBase {
+export default class ListMyBots extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -21,7 +21,7 @@ export default class ListMyBots extends ServiceBase {
      * <warn>Shard data posting is not supported for this service.</warn>
      * @param options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Gets the bot listed on this service.
      * @param id The bot's ID

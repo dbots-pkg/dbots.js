@@ -1,4 +1,4 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { IDResolvable } from '../../Utils/Util'
 import { Query } from '../../Utils/Constants'
 
@@ -6,7 +6,7 @@ import { Query } from '../../Utils/Constants'
  * Represents the Top.gg service.
  * @see https://top.gg/api/docs
  */
-export default class TopGG extends ServiceBase {
+export default class TopGG extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['topgg', 'top.gg', 'top']
@@ -36,7 +36,7 @@ export default class TopGG extends ServiceBase {
    * Posts statistics to this service.
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
     return super._post({
       method: 'post',

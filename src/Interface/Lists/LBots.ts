@@ -1,11 +1,11 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { AnyObject, IDResolvable } from '../../Utils/Util'
 
 /**
  * Represents the LBots service.
  * @see https://lbots.org/api/docs
  */
-export default class LBots extends ServiceBase {
+export default class LBots extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['lbots', 'lbotsorg', 'lbots.org']
@@ -35,7 +35,7 @@ export default class LBots extends ServiceBase {
    * Posts statistics to this service.
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
     return super._post({
       method: 'post',

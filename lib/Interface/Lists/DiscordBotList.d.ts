@@ -1,9 +1,9 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 /**
  * Represents the Discord Bot List service.
  * @see https://discordbotlist.com/api-docs
  */
-export default class DiscordBotList extends ServiceBase {
+export default class DiscordBotList extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -18,5 +18,5 @@ export default class DiscordBotList extends ServiceBase {
      * Posts statistics to this service.
      * @param options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
 }

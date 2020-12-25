@@ -3,13 +3,13 @@ import {
   CustomService,
   eventHandler,
   PosterOptions,
-  Service,
+  ServiceKey,
   SupportedEvents
 } from '../Utils/Constants'
 import EnsurePromise from '../Utils/EnsurePromise'
 import { errors } from '../Utils/DBotsError'
 import { ClientFiller, getClientFiller } from './ClientFiller'
-import ServiceBase from './ServiceBase'
+import Service from './Service'
 import allSettled, { PromiseRejection } from 'promise.allsettled'
 
 const { Error: DBotsError, TypeError } = errors
@@ -35,7 +35,7 @@ export default class Poster {
   customServices: CustomService[]
 
   /** The API keys that the poster is using */
-  apiKeys: Record<Service, string>
+  apiKeys: Record<ServiceKey, string>
 
   /** The options the poster was built with */
   readonly options: PosterOptions
@@ -175,12 +175,12 @@ export default class Poster {
    * Gets a service, autofilling its API key if the poster has it.
    * @param service The service to get
    */
-  getService(service: Service): ServiceBase | CustomService | undefined {
-    const serviceClass = ServiceBase.get(service, this.customServices)
+  getService(service: ServiceKey): Service | CustomService | undefined {
+    const serviceClass = Service.get(service, this.customServices)
 
     if (!serviceClass) return null
 
-    if (!Object.prototype.isPrototypeOf.call(ServiceBase, serviceClass))
+    if (!Object.prototype.isPrototypeOf.call(Service, serviceClass))
       return serviceClass
 
     const keyName = serviceClass.aliases.find((key: string) =>
@@ -197,7 +197,7 @@ export default class Poster {
    * @emits Poster#postSuccess
    * @emits Poster#postFail
    */
-  post(service: Service | 'all' = 'all'): Promise<object | object[]> {
+  post(service: ServiceKey | 'all' = 'all'): Promise<object | object[]> {
     const _this = this
     return new Promise((resolve, reject) => {
       return Promise.all([
@@ -222,7 +222,7 @@ export default class Poster {
    * @returns The result(s) of the post
    */
   postManual(
-    service: Service | 'all',
+    service: ServiceKey | 'all',
     counts: manualPostOptions
   ): Promise<object | object[]> {
     const { serverCount, userCount, voiceConnections } = counts
@@ -292,7 +292,7 @@ export default class Poster {
     }
     if (!Object.keys(this.apiKeys).includes(service))
       return Promise.reject(new DBotsError('SERVICE_NO_KEY', service))
-    const serviceClass = ServiceBase.get(service, this.customServices)
+    const serviceClass = Service.get(service, this.customServices)
     if (!serviceClass)
       return Promise.reject(new TypeError('INVALID_SERVICE', service))
     return new Promise((resolve, reject) => {

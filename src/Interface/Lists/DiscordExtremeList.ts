@@ -1,11 +1,11 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { IDResolvable } from '../../Utils/Util'
 
 /**
  * Represents the Discord Extreme List service.
  * @see https://docs.discordextremelist.xyz/
  */
-export default class DiscordExtremeList extends ServiceBase {
+export default class DiscordExtremeList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return [
@@ -40,7 +40,7 @@ export default class DiscordExtremeList extends ServiceBase {
    * Posts statistics to this service.
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
     return super._post({
       method: 'post',

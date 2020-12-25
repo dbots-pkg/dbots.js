@@ -1,4 +1,4 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 import { IDResolvable } from '../../Utils/Util';
 import { Query } from '../../Utils/Constants';
 /** The user agent used options for the DiscordBotsGG service */
@@ -12,7 +12,7 @@ export interface DiscordBotsGGUserAgent {
  * Represents the Discord Bots service.
  * @see https://discord.bots.gg/docs
  */
-export default class DiscordBotsGG extends ServiceBase {
+export default class DiscordBotsGG extends Service {
     /** The user agent options for this service */
     private agent;
     /**
@@ -40,7 +40,7 @@ export default class DiscordBotsGG extends ServiceBase {
      * Posts statistics to this service.
      * @param options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Gets the bot listed on this service.
      * @param id The bot's ID

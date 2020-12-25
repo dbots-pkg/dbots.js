@@ -1,10 +1,10 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 import { AnyObject, IDResolvable } from '../../Utils/Util';
 /**
  * Represents the Discord Apps service.
  * @see https://discordapps.dev/en-GB/posts/docs/api-v2/
  */
-export default class DiscordAppsDev extends ServiceBase {
+export default class DiscordAppsDev extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -20,7 +20,7 @@ export default class DiscordAppsDev extends ServiceBase {
      * <warn>Shard data posting is not supported for this service.</warn>
      * @param options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /** Gets a list of bots on this service. */
     getBots(): Promise<import("axios").AxiosResponse<any>>;
     /** Gets a list of applications on this service. */

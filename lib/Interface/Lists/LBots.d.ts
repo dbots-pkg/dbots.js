@@ -1,10 +1,10 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 import { AnyObject, IDResolvable } from '../../Utils/Util';
 /**
  * Represents the LBots service.
  * @see https://lbots.org/api/docs
  */
-export default class LBots extends ServiceBase {
+export default class LBots extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -19,7 +19,7 @@ export default class LBots extends ServiceBase {
      * Posts statistics to this service.
      * @param options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Invalidates the token being used in the request.
      * @param id The bot's ID

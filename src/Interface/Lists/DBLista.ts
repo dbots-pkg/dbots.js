@@ -1,4 +1,4 @@
-import ServiceBase from '../ServiceBase'
+import Service from '../Service'
 import { errors } from '../../Utils/DBotsError'
 import Util, {
   AnyObject,
@@ -12,7 +12,7 @@ const { Error } = errors
  * Represents the DBLista service.
  * @see https://docs.dblista.pl/
  */
-export default class DBLista extends ServiceBase {
+export default class DBLista extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['dblistapl', 'dblista.pl', 'dblista']

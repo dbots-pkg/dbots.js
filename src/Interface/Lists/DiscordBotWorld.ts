@@ -1,11 +1,11 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase'
+import Service, { ServicePostOptions } from '../Service'
 import Util, { IDResolvable } from '../../Utils/Util'
 
 /**
  * Represents the Discord Bot World service.
  * @see https://discordbot.world/docs
  */
-export default class DiscordBotWorld extends ServiceBase {
+export default class DiscordBotWorld extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['discordbotworld', 'discordbot.world', 'dbotworld', 'dbw']
@@ -36,7 +36,7 @@ export default class DiscordBotWorld extends ServiceBase {
    * <warn>Shard data posting is not supported for this service.</warn>
    * @param options The options of the request
    */
-  static post(options: ServiceBasePostOptions) {
+  static post(options: ServicePostOptions) {
     const { token, clientID, serverCount } = options
     return super._post({
       method: 'post',

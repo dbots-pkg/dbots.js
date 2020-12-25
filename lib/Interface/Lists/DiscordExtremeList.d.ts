@@ -1,10 +1,10 @@
-import ServiceBase, { ServiceBasePostOptions } from '../ServiceBase';
+import Service, { ServicePostOptions } from '../Service';
 import { IDResolvable } from '../../Utils/Util';
 /**
  * Represents the Discord Extreme List service.
  * @see https://docs.discordextremelist.xyz/
  */
-export default class DiscordExtremeList extends ServiceBase {
+export default class DiscordExtremeList extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -19,7 +19,7 @@ export default class DiscordExtremeList extends ServiceBase {
      * Posts statistics to this service.
      * @param options The options of the request
      */
-    static post(options: ServiceBasePostOptions): Promise<import("axios").AxiosResponse<any>>;
+    static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /** Gets the statistics of this service. */
     getStatistics(): Promise<import("axios").AxiosResponse<any>>;
     /**
