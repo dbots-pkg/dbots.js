@@ -50,7 +50,7 @@ export default class Util {
       Object.prototype.hasOwnProperty.call(data, 'id') &&
       typeof data.id !== 'object'
     )
-      return this.resolveID(data.id)
+      return Util.resolveID(data.id)
     else throw new DBotsError('INVALID_ID')
 
     if (/^\d{17,19}$/.test(id)) return id
