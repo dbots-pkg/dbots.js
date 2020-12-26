@@ -10,13 +10,14 @@
   "scripts": {
     "build": "tsc",
     "changelog": "ts-node scripts/changelog",
-    "coverage": "jest --coverage",
     "docs": "typedoc --json .tmp/typedoc-out.json --plugin typedoc-plugin-as-member-of && ts-node scripts/docs",
     "gpr": "ts-node scripts/gpr",
     "lint": "npx eslint --ext .ts ./src",
     "lint:fix": "npx eslint --ext .ts ./src --fix",
     "prepublishOnly": "npm run eslint:fix && npm run tslint:fix && npm run webpack",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
     "webpack": "ts-node scripts/services-wp && cross-env NODE_ENV=production webpack && rm -r .tmp"
   },
   "husky": {
