@@ -56,14 +56,16 @@ export function getClientFiller(
   switch (libraryName) {
     case 'discordie':
     case 'die': {
-      return new (require('./Clients/Discordie') as typeof ClientFiller)(client)
+      return new (require('./Clients/Discordie')
+        .default as typeof ClientFiller)(client)
     }
 
     case 'discord.io':
     case 'discordio':
     case 'd.io':
     case 'dio': {
-      return new (require('./Clients/DiscordIO') as typeof ClientFiller)(client)
+      return new (require('./Clients/DiscordIO')
+        .default as typeof ClientFiller)(client)
     }
 
     case 'discord.js':
@@ -75,17 +77,22 @@ export function getClientFiller(
     case 'd.js-commando':
     case 'djs-commando':
     case 'commando': {
-      return new (require('./Clients/DiscordJS') as typeof ClientFiller)(client)
+      return new (require('./Clients/DiscordJS')
+        .default as typeof ClientFiller)(client)
     }
 
     case 'eris': {
-      return new (require('./Clients/Eris') as typeof ClientFiller)(client)
+      return new (require('./Clients/Eris').default as typeof ClientFiller)(
+        client
+      )
     }
 
     case 'paracord.js':
     case 'paracordjs':
     case 'paracord': {
-      return new (require('./Clients/Paracord') as typeof ClientFiller)(client)
+      return new (require('./Clients/Paracord').default as typeof ClientFiller)(
+        client
+      )
     }
 
     default: {
