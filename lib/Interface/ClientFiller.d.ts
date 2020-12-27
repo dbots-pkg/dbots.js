@@ -12,11 +12,11 @@ export declare class ClientFiller {
      */
     constructor(client: object);
     /** Gets the amount of users the bot has cached. */
-    get userCount(): number;
+    get userCount(): number | undefined;
     /** Gets the amount of servers the bot has cached. */
-    get serverCount(): number;
+    get serverCount(): number | undefined;
     /** Gets the amount of voice connectinos the bot is using. */
-    get voiceConnections(): number;
+    get voiceConnections(): number | undefined;
     /** Gets the client ID (technically the user ID) of the bot. */
     get clientID(): string | undefined;
     /** Gets the shard of the bot. */

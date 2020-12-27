@@ -1,3 +1,4 @@
+import { errors } from '../Utils/DBotsError'
 import { Library, Shard } from '../Utils/Constants'
 import { AnyObject } from '../Utils/Util'
 
@@ -13,21 +14,23 @@ export class ClientFiller {
    * @param client The client that will be used
    */
   constructor(client: object) {
+    if (!client || typeof client != 'object')
+      throw new errors.Error('UNKNOWN_CLIENT')
     this.client = client
   }
 
   /** Gets the amount of users the bot has cached. */
-  get userCount() {
+  get userCount(): number | undefined {
     return 0
   }
 
   /** Gets the amount of servers the bot has cached. */
-  get serverCount() {
+  get serverCount(): number | undefined {
     return 0
   }
 
   /** Gets the amount of voice connectinos the bot is using. */
-  get voiceConnections() {
+  get voiceConnections(): number | undefined {
     return 0
   }
 

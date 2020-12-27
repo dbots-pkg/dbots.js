@@ -7,7 +7,22 @@ describe('ClientFiller module', () => {
     let cf: ClientFillerModule.ClientFiller
     const customClient = { a: 'a', b: 'b' }
 
-    it('should instantiate', () => {
+    it('should reject non-object clients', () => {
+      expect(() => {
+        // @ts-expect-error
+        new ClientFiller('a')
+      }).toThrow()
+      expect(() => {
+        // @ts-expect-error
+        new ClientFiller(true)
+      }).toThrow()
+      expect(() => {
+        // @ts-expect-error
+        new ClientFiller(Symbol())
+      }).toThrow()
+    })
+
+    it('should instantiate with a valid client', () => {
       expect(() => {
         cf = new ClientFiller(customClient)
       }).not.toThrow()
