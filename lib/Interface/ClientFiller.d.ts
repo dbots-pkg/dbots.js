@@ -1,4 +1,4 @@
-import { Shard } from '../Utils/Constants';
+import { Library, Shard } from '../Utils/Constants';
 import { AnyObject } from '../Utils/Util';
 /**
  * A class that gets certain values from a client.
@@ -27,4 +27,4 @@ export declare class ClientFiller {
  * @param libraryName The name of the library to get
  * @param client The client that the library made
  */
-export declare function getClientFiller(libraryName: string, client: object): ClientFiller;
+export declare function getClientFiller(libraryName: Library, client: object): ClientFiller;

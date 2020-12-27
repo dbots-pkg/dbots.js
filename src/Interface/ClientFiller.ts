@@ -1,4 +1,4 @@
-import { Shard } from '../Utils/Constants'
+import { Library, Shard } from '../Utils/Constants'
 import { AnyObject } from '../Utils/Util'
 
 /**
@@ -48,35 +48,23 @@ export class ClientFiller {
  * @param client The client that the library made
  */
 export function getClientFiller(
-  libraryName: string,
+  libraryName: Library,
   client: object
 ): ClientFiller {
   if (!client) throw new Error('No client was provided!')
 
   switch (libraryName) {
-    case 'discordie':
-    case 'die': {
+    case 'discordie': {
       return new (require('./Clients/Discordie')
         .default as typeof ClientFiller)(client)
     }
 
-    case 'discord.io':
-    case 'discordio':
-    case 'd.io':
-    case 'dio': {
+    case 'discord.io': {
       return new (require('./Clients/DiscordIO')
         .default as typeof ClientFiller)(client)
     }
 
-    case 'discord.js':
-    case 'discordjs':
-    case 'd.js':
-    case 'djs':
-    case 'discord.js-commando':
-    case 'discordjs-commando':
-    case 'd.js-commando':
-    case 'djs-commando':
-    case 'commando': {
+    case 'discord.js': {
       return new (require('./Clients/DiscordJS')
         .default as typeof ClientFiller)(client)
     }
@@ -87,8 +75,6 @@ export function getClientFiller(
       )
     }
 
-    case 'paracord.js':
-    case 'paracordjs':
     case 'paracord': {
       return new (require('./Clients/Paracord').default as typeof ClientFiller)(
         client

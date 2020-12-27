@@ -33,7 +33,10 @@ describe('ClientFiller module', () => {
     })
 
     it('should throw without a valid library name', () => {
-      expect(() => getClientFiller('invalid', {})).toThrow()
+      expect(() => {
+        // @ts-expect-error
+        getClientFiller('invalid', {})
+      }).toThrow()
     })
 
     it('should return a ClientFiller for every supported library', () => {
@@ -41,7 +44,7 @@ describe('ClientFiller module', () => {
       expect(getClientFiller('discord.io', {})).toBeInstanceOf(ClientFiller)
       expect(getClientFiller('discord.js', {})).toBeInstanceOf(ClientFiller)
       expect(getClientFiller('eris', {})).toBeInstanceOf(ClientFiller)
-      expect(getClientFiller('paracord.js', {})).toBeInstanceOf(ClientFiller)
+      expect(getClientFiller('paracord', {})).toBeInstanceOf(ClientFiller)
     })
   })
 })
