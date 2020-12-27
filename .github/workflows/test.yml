@@ -1,0 +1,16 @@
+name: Test
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  test:
+    name: Run Jest
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+
+      - name: Run tests
+        run: npm run test:cov
+
+      - name: Upload coverage result to CodeCov
+        run: bash <(curl -s https://codecov.io/bash)
