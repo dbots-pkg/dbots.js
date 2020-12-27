@@ -109,9 +109,13 @@ export default class Service {
       return Promise.reject(new Error('REQUIRES_TOKEN'))
 
     assert<typeof Service>(this.constructor)
-    if (this.constructor.baseURL && appendBaseURL)
-      form.url = this.constructor.baseURL + form.url
-    return FormatRequest(form)
+    return FormatRequest({
+      ...form,
+      url:
+        (this.constructor.baseURL && appendBaseURL
+          ? this.constructor.baseURL
+          : '') + form.url
+    })
   }
 
   /**
