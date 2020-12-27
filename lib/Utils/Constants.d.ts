@@ -54,7 +54,7 @@ export interface PostRequestData {
     shard?: Shard;
 }
 /** An object with all query parameters */
-export declare type Query = Record<string, string | number>;
+export declare type Query = Record<string, string | number | boolean>;
 /**
  * A mock of a {@link Service} that only consists of the nessessities for a poster to use it.
  * <warn>When you're passing your custom services to method in this package, remmeber to use pass the actual service class, not an instance of it.</warn>

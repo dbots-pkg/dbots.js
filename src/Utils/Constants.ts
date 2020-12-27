@@ -73,7 +73,7 @@ export interface PostRequestData {
 }
 
 /** An object with all query parameters */
-export type Query = Record<string, string | number>
+export type Query = Record<string, string | number | boolean>
 
 /**
  * A mock of a {@link Service} that only consists of the nessessities for a poster to use it.
