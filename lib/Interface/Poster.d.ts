@@ -60,7 +60,7 @@ export default class Poster {
      * Gets a service, autofilling its API key if the poster has it.
      * @param service The service to get
      */
-    getService(service: ServiceKey): Service | CustomService | undefined;
+    getService(service: ServiceKey): (Service | CustomService) | typeof Service | undefined;
     /**
      * Posts the current clients server count to a service.
      * @param service The service to post to

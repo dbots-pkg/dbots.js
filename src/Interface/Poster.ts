@@ -175,18 +175,18 @@ export default class Poster {
    * Gets a service, autofilling its API key if the poster has it.
    * @param service The service to get
    */
-  getService(service: ServiceKey): Service | CustomService | undefined {
+  getService(
+    service: ServiceKey
+  ): (Service | CustomService) | typeof Service | undefined {
     const serviceClass = Service.get(service, this.customServices)
 
-    if (!serviceClass) return null
-
-    if (!Object.prototype.isPrototypeOf.call(Service, serviceClass))
-      return serviceClass
+    if (!serviceClass) return undefined
 
     const keyName = serviceClass.aliases.find((key: string) =>
       Object.keys(this.apiKeys).includes(key)
     )
     if (keyName) return new serviceClass(this.apiKeys[keyName])
+    else return serviceClass
   }
 
   /**
@@ -245,56 +245,62 @@ export default class Poster {
     if (service === 'all') {
       const services = Object.keys(this.apiKeys)
       if (this.options.post) services.push('custom')
-      return allSettled(
-        services.map((k) =>
-          this.postManual(k, { serverCount, userCount, voiceConnections })
+      return allSettled
+        .call(
+          Promise,
+          services.map((k) =>
+            this.postManual(k, { serverCount, userCount, voiceConnections })
+          )
         )
-      ).then((requests) => {
-        const rejected: PromiseRejection<any>[] = [],
-          hostnames: string[] = []
+        .then((requests) => {
+          const rejected: PromiseRejection<any>[] = [],
+            hostnames: string[] = []
 
-        for (const r of requests) {
-          if (r.status == 'rejected') {
-            rejected.push(r)
-            // @ts-expect-error
-            if (r.reason?.config?.url) {
+          for (const r of requests) {
+            if (r.status == 'rejected') {
+              rejected.push(r)
               // @ts-expect-error
-              const hostname = new URL(r.reason.config.url).hostname
-              if (hostname && !hostnames.includes(hostname))
-                hostnames.push(hostname)
-            } else hostnames.push('???')
+              if (r.reason?.config?.url) {
+                // @ts-expect-error
+                const hostname = new URL(r.reason.config.url).hostname
+                if (hostname && !hostnames.includes(hostname))
+                  hostnames.push(hostname)
+              } else hostnames.push('???')
+            }
           }
-        }
 
-        if (rejected.length > 0) {
-          let msg = `${rejected.length} request${
-            rejected.length == 1 ? '' : 's'
-          } have been rejected.\n`
-          if (hostnames.length > 0)
-            msg += `Failing hostnames: ${hostnames.join(', ')}\n`
-          msg += 'Please check the error from the following responses.\n'
-          msg += rejected
-            .map((rej) => {
-              const reason = rej.reason || rej
-              return reason &&
-                typeof reason == 'object' &&
-                !(reason instanceof Error)
-                ? JSON.stringify(reason, null, 2)
-                : reason.toString()
-            })
-            .join('\n')
-          throw new DBotsError('GENERIC', msg)
-        } else {
-          // @ts-expect-error
-          return requests.map((r) => r.value)
-        }
-      })
+          if (rejected.length > 0) {
+            let msg = `${rejected.length} request${
+              rejected.length == 1 ? '' : 's'
+            } have been rejected.\n`
+            if (hostnames.length > 0)
+              msg += `Failing hostnames: ${hostnames.join(', ')}\n`
+            msg += 'Please check the error from the following responses.\n'
+            msg += rejected
+              .map((rej) => {
+                const reason = rej.reason || rej
+                return reason &&
+                  typeof reason == 'object' &&
+                  !(reason instanceof Error)
+                  ? JSON.stringify(reason, null, 2)
+                  : reason.toString()
+              })
+              .join('\n')
+            throw new DBotsError('GENERIC', msg)
+          } else {
+            // @ts-expect-error
+            return requests.map((r) => r.value)
+          }
+        })
     }
+
     if (!Object.keys(this.apiKeys).includes(service))
       return Promise.reject(new DBotsError('SERVICE_NO_KEY', service))
+
     const serviceClass = Service.get(service, this.customServices)
     if (!serviceClass)
       return Promise.reject(new TypeError('INVALID_SERVICE', service))
+
     return new Promise((resolve, reject) => {
       serviceClass
         .post({
@@ -325,7 +331,7 @@ export default class Poster {
   addHandler(event: CustomEvent, handler: eventHandler): eventHandler[] {
     if (!SupportedEvents.includes(event))
       throw new TypeError('UNSUPPORTED_EVENT', 'add')
-    if (!(handler instanceof Function)) throw new DBotsError('HANDLER_INVALID')
+    if (typeof handler != 'function') throw new DBotsError('HANDLER_INVALID')
 
     this.handlers[event].push(handler)
     return this.handlers[event]
@@ -340,7 +346,7 @@ export default class Poster {
   removeHandler(event: CustomEvent, handler: eventHandler): eventHandler[] {
     if (!SupportedEvents.includes(event))
       throw new TypeError('UNSUPPORTED_EVENT', 'remove')
-    if (!(handler instanceof Function)) throw new DBotsError('HANDLER_INVALID')
+    if (typeof handler != 'function') throw new DBotsError('HANDLER_INVALID')
 
     const index = this.handlers[event].indexOf(handler)
     if (index >= 0) this.handlers[event].splice(index, 1)
