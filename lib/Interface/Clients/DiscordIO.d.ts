@@ -5,9 +5,9 @@ import { ClientFiller } from '../ClientFiller';
  * @private
  */
 export default class DiscordIO extends ClientFiller {
-    get userCount(): number;
-    get serverCount(): number;
-    get voiceConnections(): number;
+    get userCount(): number | undefined;
+    get serverCount(): number | undefined;
+    get voiceConnections(): number | undefined;
     get clientID(): string | undefined;
     get shard(): Shard | undefined;
 }

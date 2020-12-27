@@ -7,14 +7,17 @@ import { ClientFiller } from '../ClientFiller'
  */
 export default class DiscordIO extends ClientFiller {
   get userCount() {
+    if (!this.client.users) return undefined
     return Object.keys(this.client.users).length
   }
 
   get serverCount() {
+    if (!this.client.servers) return undefined
     return Object.keys(this.client.servers).length
   }
 
   get voiceConnections() {
+    if (!this.client._vChannels) return undefined
     return Object.keys(this.client._vChannels).length
   }
 
