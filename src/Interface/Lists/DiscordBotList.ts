@@ -1,5 +1,5 @@
-import Service, { ServicePostOptions } from '../Service'
-import Util, { AnyObject } from '../../Utils/Util'
+import { Service, ServicePostOptions } from '../Service'
+import { Util, AnyObject } from '../../Utils/Util'
 
 /**
  * Represents the Discord Bot List service.

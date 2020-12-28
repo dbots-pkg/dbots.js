@@ -1,5 +1,5 @@
 import * as ServiceModule from '../../src/Interface/Service'
-import * as FormatRequest from '../../src/Utils/FormatRequest'
+import { FormatRequest, RequestForm } from '../../src/Utils/FormatRequest'
 
 import * as Util from '../../src/Utils/Util'
 // @ts-expect-error
@@ -8,7 +8,7 @@ Util.assert = jest.fn()
 
 describe('Service module', () => {
   describe('Service class', () => {
-    const Service = ServiceModule.default
+    const { Service } = ServiceModule
 
     describe('constructor', () => {
       it('should set the token', () => {
@@ -18,7 +18,7 @@ describe('Service module', () => {
     })
 
     describe('_request method', () => {
-      const req: FormatRequest.RequestForm = {
+      const req: RequestForm = {
         url: 'abc',
         data: { a: 1 },
         headers: { auth: 'def' },
@@ -39,18 +39,18 @@ describe('Service module', () => {
       it('should call FormatRequest with the given form', async () => {
         // @ts-expect-error
         // eslint-disable-next-line no-import-assign
-        FormatRequest.default = jest.fn()
+        FormatRequest = jest.fn()
 
         const s = new Service('')
         await s._request(req, { appendBaseURL: false })
-        expect(FormatRequest.default).toHaveBeenCalledTimes(1)
-        expect(FormatRequest.default).toHaveBeenLastCalledWith(req)
+        expect(FormatRequest).toHaveBeenCalledTimes(1)
+        expect(FormatRequest).toHaveBeenLastCalledWith(req)
       })
 
       it('should correctly append the baseURL', async () => {
         // @ts-expect-error
         // eslint-disable-next-line no-import-assign
-        FormatRequest.default = jest.fn()
+        FormatRequest = jest.fn()
 
         class CS extends Service {
           static get baseURL() {
@@ -61,15 +61,15 @@ describe('Service module', () => {
         const s = new CS('')
 
         await s._request(req)
-        expect(FormatRequest.default).toHaveBeenCalledTimes(1)
-        expect(FormatRequest.default).toHaveBeenLastCalledWith({
+        expect(FormatRequest).toHaveBeenCalledTimes(1)
+        expect(FormatRequest).toHaveBeenLastCalledWith({
           ...req,
           url: 'xyz' + req.url
         })
 
         await s._request(req, { appendBaseURL: true })
-        expect(FormatRequest.default).toHaveBeenCalledTimes(2)
-        expect(FormatRequest.default).toHaveBeenLastCalledWith({
+        expect(FormatRequest).toHaveBeenCalledTimes(2)
+        expect(FormatRequest).toHaveBeenLastCalledWith({
           ...req,
           url: 'xyz' + req.url
         })

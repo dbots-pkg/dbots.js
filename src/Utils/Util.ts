@@ -27,7 +27,7 @@ export declare function assert<T>(value: any): asserts value is T
 /**
  * Contains various general-purpose utility methods.
  */
-export default class Util {
+export class Util {
   constructor() {
     throw new Error(
       `The ${this.constructor.name} class may not be instantiated.`

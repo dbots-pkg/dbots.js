@@ -1,18 +1,16 @@
-import * as FormatRequest from '../../src/Utils/FormatRequest'
+import { FormatRequest } from '../../src/Utils/FormatRequest'
 import axios from 'axios'
 
 jest.mock('axios')
 
-const formatRequest = FormatRequest.default
-
 describe('FormatRequest function', () => {
   it('should call the axios with the config object', async () => {
-    formatRequest({ url: 'test1' })
+    FormatRequest({ url: 'test1' })
     expect(axios).toHaveBeenCalledWith(expect.any(Object))
   })
 
   it('should use the default method and headers', () => {
-    formatRequest({ url: 'test2' })
+    FormatRequest({ url: 'test2' })
     expect(axios).toHaveBeenCalledWith({
       url: 'test2',
       method: 'get',
@@ -23,7 +21,7 @@ describe('FormatRequest function', () => {
   })
 
   it('should correctly handle a custom config', () => {
-    formatRequest({
+    FormatRequest({
       url: 'test3',
       data: {
         a: 'a',

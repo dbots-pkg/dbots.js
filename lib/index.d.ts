@@ -1,9 +1,9 @@
-import Service from './Interface/Service';
-export { default as Poster } from './Interface/Poster';
+import { Service } from './Interface/Service';
+export { Poster } from './Interface/Poster';
 export * as Constants from './Utils/Constants';
 export * as DBotsError from './Utils/DBotsError';
-export { default as EnsurePromise } from './Utils/EnsurePromise';
-export { default as FormatRequest } from './Utils/FormatRequest';
+export { EnsurePromise } from './Utils/EnsurePromise';
+export { FormatRequest } from './Utils/FormatRequest';
 export * as Util from './Utils/Util';
 export { Service };
 export declare const getService: typeof Service.get;

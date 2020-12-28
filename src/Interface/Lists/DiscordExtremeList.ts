@@ -1,5 +1,5 @@
-import Service, { ServicePostOptions } from '../Service'
-import Util, { IDResolvable } from '../../Utils/Util'
+import { Service, ServicePostOptions } from '../Service'
+import { Util, IDResolvable } from '../../Utils/Util'
 
 /**
  * Represents the Discord Extreme List service.

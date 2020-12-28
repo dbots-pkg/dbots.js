@@ -20,7 +20,7 @@ export declare function assert<T>(value: any): asserts value is T;
 /**
  * Contains various general-purpose utility methods.
  */
-export default class Util {
+export declare class Util {
     constructor();
     /**
      * Resolves data into a Discord ID.

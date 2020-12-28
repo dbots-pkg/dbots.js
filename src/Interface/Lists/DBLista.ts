@@ -1,6 +1,7 @@
-import Service from '../Service'
+import { Service } from '../Service'
 import { errors } from '../../Utils/DBotsError'
-import Util, {
+import {
+  Util,
   AnyObject,
   CountResolvable,
   IDResolvable

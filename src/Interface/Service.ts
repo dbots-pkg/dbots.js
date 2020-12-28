@@ -1,4 +1,4 @@
-import FormatRequest, { RequestForm } from '../Utils/FormatRequest'
+import { FormatRequest, RequestForm } from '../Utils/FormatRequest'
 import { errors } from '../Utils/DBotsError'
 const { Error } = errors
 
@@ -38,7 +38,7 @@ export interface ServicePostOptions {
 }
 
 /** Represents a basic service. */
-export default class Service {
+export class Service {
   /**
    * The token that will be used for the service.
    * @private

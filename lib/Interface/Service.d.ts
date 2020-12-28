@@ -24,7 +24,7 @@ export interface ServicePostOptions {
     shard?: Shard;
 }
 /** Represents a basic service. */
-export default class Service {
+export declare class Service {
     /**
      * The token that will be used for the service.
      * @private

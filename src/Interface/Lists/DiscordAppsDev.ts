@@ -1,5 +1,5 @@
-import Service, { ServicePostOptions } from '../Service'
-import Util, { AnyObject, IDResolvable } from '../../Utils/Util'
+import { Service, ServicePostOptions } from '../Service'
+import { Util, AnyObject, IDResolvable } from '../../Utils/Util'
 
 /**
  * Represents the Discord Apps service.

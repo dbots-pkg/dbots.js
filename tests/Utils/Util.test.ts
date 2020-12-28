@@ -1,15 +1,14 @@
-import * as Util from '../../src/Utils/Util'
-
-const UtilClass = Util.default
+import * as UtilModule from '../../src/Utils/Util'
 
 describe('Util module', () => {
+  const { Util } = UtilModule
   describe('Util class', () => {
     it("shouldn't be instantiated", () => {
-      expect(() => new UtilClass()).toThrow()
+      expect(() => new Util()).toThrow()
     })
 
     describe('resolveID method', () => {
-      const { resolveID } = UtilClass,
+      const { resolveID } = Util,
         validID = '123456789012345678'
 
       it('should throw when used with undefined or null', () => {
@@ -46,7 +45,7 @@ describe('Util module', () => {
       })
     })
 
-    const { resolveCount } = UtilClass
+    const { resolveCount } = Util
     describe('resolveCount method', () => {
       it("should throw when the value can't be parsed", () => {
         expect(() => resolveCount('abc')).toThrow()

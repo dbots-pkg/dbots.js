@@ -1,4 +1,4 @@
-import Service, { ServicePostOptions } from '../Service';
+import { Service, ServicePostOptions } from '../Service';
 /**
  * Represents the Discord Bot List service.
  * @see https://discordbotlist.com/api-docs

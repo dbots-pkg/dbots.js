@@ -1,4 +1,4 @@
-import Service, { ServicePostOptions } from '../Service';
+import { Service, ServicePostOptions } from '../Service';
 /**
  * Represents the Carbonitex service.
  */

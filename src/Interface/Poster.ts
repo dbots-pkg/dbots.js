@@ -6,10 +6,10 @@ import {
   ServiceKey,
   SupportedEvents
 } from '../Utils/Constants'
-import EnsurePromise from '../Utils/EnsurePromise'
+import { EnsurePromise } from '../Utils/EnsurePromise'
 import { errors } from '../Utils/DBotsError'
 import { ClientFiller, getClientFiller } from './ClientFiller'
-import Service from './Service'
+import { Service } from './Service'
 import allSettled, { PromiseRejection } from 'promise.allsettled'
 
 const { Error: DBotsError, TypeError } = errors
@@ -26,7 +26,7 @@ export interface manualPostOptions {
 }
 
 /** A class that posts server count to listing site(s). */
-export default class Poster {
+export class Poster {
   // #region Properties
   /** The client that will be used to fetch the stats */
   client: PosterOptions['client']

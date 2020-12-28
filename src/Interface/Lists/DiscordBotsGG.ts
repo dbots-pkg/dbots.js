@@ -1,5 +1,5 @@
-import Service, { ServicePostOptions } from '../Service'
-import Util, { IDResolvable } from '../../Utils/Util'
+import { Service, ServicePostOptions } from '../Service'
+import { Util, IDResolvable } from '../../Utils/Util'
 import { Package, Query } from '../../Utils/Constants'
 
 /** The user agent used options for the DiscordBotsGG service */

@@ -1,5 +1,5 @@
-import Service, { ServicePostOptions } from '../Service'
-import Util from '../../Utils/Util'
+import { Service, ServicePostOptions } from '../Service'
+import { Util } from '../../Utils/Util'
 
 /**
  * Represents the Arcane Bot Center service.

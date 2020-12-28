@@ -1,11 +1,11 @@
 import * as PosterModule from '../../src/Interface/Poster'
-import Service from '../../src/Interface/Service'
+import { Service } from '../../src/Interface/Service'
 import TopGG from '../../src/Interface/Lists/TopGG'
 import { PosterOptions } from '../../src/Utils/Constants'
 
 describe('Poster module', () => {
   describe('Poster class', () => {
-    const Poster = PosterModule.default
+    const { Poster } = PosterModule
 
     describe('constructor', () => {
       it('should throw when instatiated without options', () => {

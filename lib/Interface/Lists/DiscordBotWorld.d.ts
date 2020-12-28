@@ -1,4 +1,4 @@
-import Service, { ServicePostOptions } from '../Service';
+import { Service, ServicePostOptions } from '../Service';
 import { IDResolvable } from '../../Utils/Util';
 /**
  * Represents the Discord Bot World service.

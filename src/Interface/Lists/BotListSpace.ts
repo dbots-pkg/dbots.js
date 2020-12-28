@@ -1,5 +1,5 @@
-import Service, { ServicePostOptions } from '../Service'
-import Util, { CountResolvable, IDResolvable } from '../../Utils/Util'
+import { Service, ServicePostOptions } from '../Service'
+import { Util, CountResolvable, IDResolvable } from '../../Utils/Util'
 import { Query } from '../../Utils/Constants'
 
 /**

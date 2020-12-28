@@ -1,5 +1,5 @@
 import { CustomEvent, CustomService, eventHandler, PosterOptions, ServiceKey } from '../Utils/Constants';
-import Service from './Service';
+import { Service } from './Service';
 export interface manualPostOptions {
     /** The server count to post to the service */
     serverCount: number;
@@ -9,7 +9,7 @@ export interface manualPostOptions {
     voiceConnections?: number;
 }
 /** A class that posts server count to listing site(s). */
-export default class Poster {
+export declare class Poster {
     /** The client that will be used to fetch the stats */
     client: PosterOptions['client'];
     /** An array of custom services that the poster uses */

@@ -1,4 +1,4 @@
-import Service, { ServicePostOptions } from '../Service';
+import { Service, ServicePostOptions } from '../Service';
 import { AnyObject, IDResolvable } from '../../Utils/Util';
 /**
  * Represents the LBots service.

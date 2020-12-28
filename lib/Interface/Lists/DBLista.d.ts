@@ -1,4 +1,4 @@
-import Service from '../Service';
+import { Service } from '../Service';
 import { AnyObject, CountResolvable, IDResolvable } from '../../Utils/Util';
 /**
  * Represents the DBLista service.

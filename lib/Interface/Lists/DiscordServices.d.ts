@@ -1,4 +1,4 @@
-import Service, { ServicePostOptions } from '../Service';
+import { Service, ServicePostOptions } from '../Service';
 import { IDResolvable } from '../../Utils/Util';
 /** The options to use when posting command info for the DiscordServices service */
 export interface DiscordServicesCommandInfo {

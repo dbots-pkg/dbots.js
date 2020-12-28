@@ -1,4 +1,4 @@
-import Service, { ServicePostOptions } from '../Service';
+import { Service, ServicePostOptions } from '../Service';
 import { CountResolvable, IDResolvable } from '../../Utils/Util';
 import { Query } from '../../Utils/Constants';
 /**
