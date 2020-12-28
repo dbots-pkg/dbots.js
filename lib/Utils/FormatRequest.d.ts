@@ -24,4 +24,4 @@ export interface RequestForm {
  * @param opts An object containing the config for the request: only basic properties are documented, but all [Axios](https://github.com/axios/axios#request-config) parameters are valid
  * @returns The request
  */
-export declare function FormatRequest(options: RequestForm): Promise<AxiosResponse>;
+export declare function formatRequest(options: RequestForm): Promise<AxiosResponse>;

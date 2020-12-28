@@ -6,7 +6,7 @@ import {
   ServiceKey,
   SupportedEvents
 } from '../Utils/Constants'
-import { EnsurePromise } from '../Utils/EnsurePromise'
+import { ensurePromise } from '../Utils/EnsurePromise'
 import { errors } from '../Utils/DBotsError'
 import { ClientFiller, getClientFiller } from './ClientFiller'
 import { Service } from './Service'
@@ -102,7 +102,7 @@ export class Poster {
   getServerCount(): Promise<number> {
     if (this.options.serverCount)
       // @ts-expect-error
-      return EnsurePromise(this.options.serverCount)
+      return ensurePromise(this.options.serverCount)
 
     if (!this.client) throw new DBotsError('NO_CLIENT', 'server')
     if (!this.options.clientLibrary)
@@ -118,7 +118,7 @@ export class Poster {
   getUserCount(): Promise<number> {
     if (this.options.userCount)
       // @ts-expect-error
-      return EnsurePromise(this.options.userCount) as Promise<number>
+      return ensurePromise(this.options.userCount) as Promise<number>
 
     if (!this.client) throw new DBotsError('NO_CLIENT', 'user')
     if (!this.options.clientLibrary)
@@ -134,7 +134,7 @@ export class Poster {
   getVoiceConnections(): Promise<number> {
     if (this.options.voiceConnections)
       // @ts-expect-error
-      return EnsurePromise(this.options.voiceConnections) as Promise<number>
+      return ensurePromise(this.options.voiceConnections) as Promise<number>
 
     if (!this.client) throw new DBotsError('NO_CLIENT', 'voice connection')
     if (!this.options.clientLibrary)
@@ -234,7 +234,7 @@ export class Poster {
 
     if (service === 'custom')
       // @ts-expect-error
-      return EnsurePromise(
+      return ensurePromise(
         // @ts-expect-error
         this.options.post,
         this.options.clientID,
@@ -362,6 +362,6 @@ export class Poster {
     if (!SupportedEvents.includes(event))
       throw new TypeError('UNSUPPORTED_EVENT', 'run')
 
-    for (const handler of this.handlers[event]) EnsurePromise(handler, ...args)
+    for (const handler of this.handlers[event]) ensurePromise(handler, ...args)
   }
 }

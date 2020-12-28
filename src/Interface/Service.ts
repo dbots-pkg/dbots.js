@@ -1,4 +1,4 @@
-import { FormatRequest, RequestForm } from '../Utils/FormatRequest'
+import { formatRequest, RequestForm } from '../Utils/FormatRequest'
 import { errors } from '../Utils/DBotsError'
 const { Error } = errors
 
@@ -93,7 +93,7 @@ export class Service {
     if (this.serviceName === 'Service')
       return Promise.reject(new Error('CALLED_FROM_BASE'))
     if (this.baseURL && appendBaseURL) form.url = this.baseURL + form.url
-    return FormatRequest(form)
+    return formatRequest(form)
   }
 
   /**
@@ -109,7 +109,7 @@ export class Service {
       return Promise.reject(new Error('REQUIRES_TOKEN'))
 
     assert<typeof Service>(this.constructor)
-    return FormatRequest({
+    return formatRequest({
       ...form,
       url:
         (this.constructor.baseURL && appendBaseURL

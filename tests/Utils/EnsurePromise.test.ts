@@ -1,13 +1,13 @@
-import { EnsurePromise } from '../../src/Utils/EnsurePromise'
+import { ensurePromise } from '../../src/Utils/EnsurePromise'
 
 describe('EnsurePromise function', () => {
   it('should return undefined when an invalid argument is provided', () => {
     // @ts-expect-error
-    expect(EnsurePromise('abc')).toBe(undefined)
+    expect(ensurePromise('abc')).toBe(undefined)
   })
 
   it('should return a Promise when a Promise is passed', () => {
-    const p = EnsurePromise(
+    const p = ensurePromise(
       new Promise((res) => {
         res('a')
       })
@@ -17,7 +17,7 @@ describe('EnsurePromise function', () => {
   })
 
   it('should return a Promise when a function is passed', () => {
-    const p = EnsurePromise(() => 'a')
+    const p = ensurePromise(() => 'a')
     expect(p instanceof Promise).toBeTruthy()
     expect(p).resolves.toBe('a')
   })

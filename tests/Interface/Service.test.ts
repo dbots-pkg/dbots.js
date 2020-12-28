@@ -1,5 +1,5 @@
 import * as ServiceModule from '../../src/Interface/Service'
-import { FormatRequest, RequestForm } from '../../src/Utils/FormatRequest'
+import { formatRequest, RequestForm } from '../../src/Utils/FormatRequest'
 
 import * as Util from '../../src/Utils/Util'
 // @ts-expect-error
@@ -39,18 +39,18 @@ describe('Service module', () => {
       it('should call FormatRequest with the given form', async () => {
         // @ts-expect-error
         // eslint-disable-next-line no-import-assign
-        FormatRequest = jest.fn()
+        formatRequest = jest.fn()
 
         const s = new Service('')
         await s._request(req, { appendBaseURL: false })
-        expect(FormatRequest).toHaveBeenCalledTimes(1)
-        expect(FormatRequest).toHaveBeenLastCalledWith(req)
+        expect(formatRequest).toHaveBeenCalledTimes(1)
+        expect(formatRequest).toHaveBeenLastCalledWith(req)
       })
 
       it('should correctly append the baseURL', async () => {
         // @ts-expect-error
         // eslint-disable-next-line no-import-assign
-        FormatRequest = jest.fn()
+        formatRequest = jest.fn()
 
         class CS extends Service {
           static get baseURL() {
@@ -61,15 +61,15 @@ describe('Service module', () => {
         const s = new CS('')
 
         await s._request(req)
-        expect(FormatRequest).toHaveBeenCalledTimes(1)
-        expect(FormatRequest).toHaveBeenLastCalledWith({
+        expect(formatRequest).toHaveBeenCalledTimes(1)
+        expect(formatRequest).toHaveBeenLastCalledWith({
           ...req,
           url: 'xyz' + req.url
         })
 
         await s._request(req, { appendBaseURL: true })
-        expect(FormatRequest).toHaveBeenCalledTimes(2)
-        expect(FormatRequest).toHaveBeenLastCalledWith({
+        expect(formatRequest).toHaveBeenCalledTimes(2)
+        expect(formatRequest).toHaveBeenLastCalledWith({
           ...req,
           url: 'xyz' + req.url
         })
