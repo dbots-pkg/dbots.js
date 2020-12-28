@@ -1,4 +1,6 @@
 import * as ServiceModule from '../../src/Interface/Service'
+
+jest.mock('../../src/Utils/FormatRequest')
 import { formatRequest, RequestForm } from '../../src/Utils/FormatRequest'
 
 import * as Util from '../../src/Utils/Util'
@@ -18,6 +20,10 @@ describe('Service module', () => {
     })
 
     describe('_request method', () => {
+      afterEach(() => {
+        jest.resetAllMocks()
+      })
+
       const req: RequestForm = {
         url: 'abc',
         data: { a: 1 },
@@ -36,11 +42,7 @@ describe('Service module', () => {
           .catch(() => done())
       })
 
-      it('should call FormatRequest with the given form', async () => {
-        // @ts-expect-error
-        // eslint-disable-next-line no-import-assign
-        formatRequest = jest.fn()
-
+      it('should call formatRequest with the given form', async () => {
         const s = new Service('')
         await s._request(req, { appendBaseURL: false })
         expect(formatRequest).toHaveBeenCalledTimes(1)
@@ -48,10 +50,6 @@ describe('Service module', () => {
       })
 
       it('should correctly append the baseURL', async () => {
-        // @ts-expect-error
-        // eslint-disable-next-line no-import-assign
-        formatRequest = jest.fn()
-
         class CS extends Service {
           static get baseURL() {
             return 'xyz'
