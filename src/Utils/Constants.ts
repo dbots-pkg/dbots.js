@@ -2,7 +2,10 @@ import { PromiseResolvable } from './EnsurePromise'
 
 /** Options for a poster. */
 export interface PosterOptions {
-  /** An object that pairs a {@link ServiceKey} with their token */
+  /**
+   * An object that pairs a {@link ServiceKey} with their token
+   * @default {}
+   */
   apiKeys?: Record<ServiceKey, string>
 
   /**
@@ -38,10 +41,16 @@ export interface PosterOptions {
   /** The function to use when retrieving the number of active voice connections, using the client as a parameter */
   voiceConnections?: PromiseResolvable<number>
 
-  /** The custom services that the poster will use */
+  /**
+   * The custom services that the poster will use
+   * @default []
+   */
   customServices?: CustomService[]
 
-  /** Whether or not to use a {@link Service}s sharding methods when posting */
+  /**
+   * Whether or not to use a {@link Service}s sharding methods when posting
+   * @default true
+   */
   useSharding?: boolean
 }
 
