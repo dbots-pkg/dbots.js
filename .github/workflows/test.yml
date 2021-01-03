@@ -21,6 +21,14 @@ jobs:
       - name: Upload coverage result to CodeCov
         run: bash <(curl -s https://codecov.io/bash)
 
+  lint:
+    name: Run linters
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions@checkout@v2
+      - run: npm install
+      - run: npm run lint
+
   webpack:
     name: Run webpack
     runs-on: ubuntu-20.04
