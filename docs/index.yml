@@ -6,3 +6,11 @@
       path: services.md
     - name: Changelog
       path: changelog.md
+- name: Examples
+  files:
+    - name: With a Client
+      path: client.js
+    - name: Without a Client
+      path: no-client.js
+    - name: Custom Services
+      path: custom-service.js

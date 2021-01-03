@@ -8,8 +8,7 @@ on:
       - 'src/**'
       - 'docs/**'
       - '.github/workflows/deployment.yml'
-      - 'scripts/docs.js'
-      - 'scripts/post-docgen.js'
+      - 'scripts/docs.ts'
       - 'package.json'
       - 'README.md'
   workflow_dispatch:
