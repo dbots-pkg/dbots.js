@@ -60,7 +60,7 @@
 
 - name: 'type: maintenance'
   color: 0075ca
-  description: "Documentation improvements and code refactoring, doesn't affect functionality"
+  description: "Docs & refactoring, doesn't affect functionality"
   aliases: ['documentation']
 
 - name: 'type: not a bug'
