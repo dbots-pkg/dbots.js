@@ -13,5 +13,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: EndBug/label-sync@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           config-file: '.github/labels.yml'
