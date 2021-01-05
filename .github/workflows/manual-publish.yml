@@ -1,0 +1,25 @@
+name: Release on GPR
+on:
+  workflow_dispatch:
+
+
+jobs:
+  publish-gpr:
+    name: Publish on GPR
+    runs-on: ubuntu-latest
+    needs: docs
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js for GPR
+        uses: actions/setup-node@v1
+        with:
+          registry-url: 'https://npm.pkg.github.com/'
+          scope: '@dbots-pkg'
+
+      - run: npm install
+      - run: npm run gpr
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
