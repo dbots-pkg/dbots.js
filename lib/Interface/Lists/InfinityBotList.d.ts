@@ -1,4 +1,5 @@
 import { Service, ServicePostOptions } from '../Service';
+import { IDResolvable } from '../../Utils/Util';
 /**
  * Represents the Infinity Bot List service.
  * @see https://infinitybotlist.com/docs
@@ -19,6 +20,14 @@ export default class InfinityBotList extends Service {
      * @param options The options of the request
      */
     static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
-    /** Gets the stats of this bot. */
-    getOwnStats(): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Gets the bot listed on this service.
+     * @param id The bot's ID
+     */
+    getBot(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Gets the user listed on this service.
+     * @param id The user's ID
+     */
+    getUser(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
 }
