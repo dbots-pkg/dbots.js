@@ -2,7 +2,7 @@ import { Service, ServicePostOptions } from '../Service';
 import { IDResolvable } from '../../Utils/Util';
 /**
  * Represents the DiscordBots.co service.
- * @see https://discordbots.co/api
+ * @see https://discordbots.co/api-information
  */
 export default class DiscordBotsCo extends Service {
     /** The values that can be used to select the service. */

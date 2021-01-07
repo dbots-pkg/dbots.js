@@ -3,7 +3,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 
 /**
  * Represents the Discord Labs service.
- * @see https://docs.discordlabs.org/docs/api/api
+ * @see https://docs.discordlabs.org/#/api
  */
 export default class DiscordLabs extends Service {
   /** The values that can be used to select the service. */
