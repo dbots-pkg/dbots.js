@@ -67,9 +67,7 @@ export class Service {
 
     const services = [...Object.values(serviceClasses), ...extras]
 
-    for (let i = 0, len = services.length; i < len; i++) {
-      const service = services[i]
-
+    for (const service of services) {
       if (!service || !service.aliases || !service.post) continue
 
       if (service.aliases.includes(key.toLowerCase())) return service
@@ -90,8 +88,12 @@ export class Service {
    * @private
    */
   static _post(form: RequestForm, appendBaseURL = true) {
-    if (this.serviceName === 'Service')
+    try {
+      this.serviceName
+    } catch {
       return Promise.reject(new Error('CALLED_FROM_BASE'))
+    }
+
     if (this.baseURL && appendBaseURL) form.url = this.baseURL + form.url
     return formatRequest(form)
   }

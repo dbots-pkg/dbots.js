@@ -8,6 +8,24 @@ import * as Util from '../../src/Utils/Util'
 // eslint-disable-next-line no-import-assign
 Util.assert = jest.fn()
 
+function find_duplicates_in_array(array: any[]) {
+  var object = {} as Record<string, any>
+  var result = []
+
+  array.forEach((item) => {
+    if (!object[item]) object[item] = 0
+    object[item]++
+  })
+
+  for (var prop in object) {
+    if (object[prop] >= 2) {
+      result.push(prop)
+    }
+  }
+
+  return result
+}
+
 describe('Service module', () => {
   describe('Service class', () => {
     const { Service } = ServiceModule
@@ -16,6 +34,93 @@ describe('Service module', () => {
       it('should set the token', () => {
         const s = new Service('abc')
         expect(s.token).toBe('abc')
+      })
+    })
+
+    describe('get method', () => {
+      it('should return null when no valid key is used', () => {
+        // @ts-expect-error
+        expect(Service.get()).toBeNull()
+        // @ts-expect-error
+        expect(Service.get({})).toBeNull()
+        expect(Service.get('')).toBeNull()
+        expect(
+          Service.get('some_invalid_alias_no_service_will_ever_have')
+        ).toBeNull()
+      })
+
+      it('should return a class when the a valid alias is used', () => {
+        expect(Service.get('top.gg')).toEqual(expect.any(Function))
+      })
+
+      it('should account for extra services', () => {
+        // @ts-expect-error
+        const CustomService = class extends Service {
+          static get aliases() {
+            return ['some_invalid_alias_no_service_will_ever_have']
+          }
+          static post: () => {}
+        }
+        expect(
+          Service.get('some_invalid_alias_no_service_will_ever_have', [
+            CustomService
+          ])
+        ).toEqual(expect.any(Function))
+      })
+    })
+
+    describe('getAll method', () => {
+      it('should return an array of Service classes', () => {
+        const serviceClasses = Service.getAll()
+        expect(typeof serviceClasses).toBe('object')
+        Object.entries(serviceClasses).forEach(([key, value]) => {
+          expect(typeof key).toBe('string')
+          expect(value).toEqual(expect.any(Function))
+          expect(value.prototype).toEqual(expect.any(Service))
+        })
+      })
+
+      test('the aliases and names of classes cannot be duplicate', () => {
+        const everyAlias = ([] as string[]).concat(
+          ...Object.values(Service.getAll()).map((serviceClass) =>
+            [...serviceClass.aliases].map((s) => s.toLowerCase())
+          )
+        )
+
+        const duplicates = find_duplicates_in_array(everyAlias)
+
+        expect(duplicates).toEqual([])
+      })
+    })
+
+    describe('_post method', () => {
+      it('should reject when called on the base', (done) => {
+        Service._post({ url: 'abc' })
+          .then(() => done.fail())
+          .catch(() => done())
+      })
+
+      it('should call formatRequest with the given form', async () => {
+        class CS extends Service {
+          static get serviceName() {
+            return 'abc'
+          }
+          static get baseURL() {
+            return 'xyz'
+          }
+        }
+        const req: RequestForm = {
+          url: 'abc',
+          data: { a: 1 },
+          headers: { auth: 'def' },
+          method: 'get',
+          params: { b: 2, c: false }
+        }
+
+        await CS._post(req, false)
+        expect(formatRequest).toHaveBeenCalledTimes(1)
+        expect(formatRequest).toHaveBeenLastCalledWith(req)
+        jest.resetAllMocks()
       })
     })
 
