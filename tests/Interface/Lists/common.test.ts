@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { Service, ServicePostOptions } from '../../../src/Interface/Service'
+import { Util } from '../../../src/Utils/Util'
 
 const listsDir = path.join(__dirname, '../../../src/Interface/Lists')
 
@@ -70,6 +71,46 @@ fs.readdirSync(listsDir).forEach((file) => {
               } else done.fail(e)
             })
         })
+      })
+
+      describe('class methods', () => {
+        const listInstance = new List('abc')
+        const methods = Object.getOwnPropertyNames(List.prototype).filter(
+          (n) =>
+            n != 'constructor' &&
+            // @ts-ignore
+            typeof listInstance[n] == 'function'
+        )
+
+        listInstance._appendQuery = jest.fn()
+        listInstance._request = jest.fn()
+        Util.resolveCount = jest.fn(() => 123)
+        Util.resolveID = jest.fn(() => 'abc')
+
+        for (const method of methods) {
+          describe(method, () => {
+            afterEach(() => {
+              listInstance._appendQuery = jest.fn()
+              listInstance._request = jest.fn()
+              Util.resolveCount = jest.fn(() => 123)
+              Util.resolveID = jest.fn(() => 'abc')
+            })
+
+            if (method == 'getWidgetURL' || method == 'getStatusWidgetURL') {
+              it('should call this._appendQuery', () => {
+                // @ts-ignore
+                listInstance[method]('111111111111111111')
+                expect(listInstance._appendQuery).toHaveBeenCalledTimes(1)
+              })
+            } else {
+              it('should call this._request', () => {
+                // @ts-ignore
+                listInstance[method]()
+                expect(listInstance._request).toHaveBeenCalledTimes(1)
+              })
+            }
+          })
+        }
       })
     })
   })
