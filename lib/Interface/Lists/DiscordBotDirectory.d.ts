@@ -17,8 +17,8 @@ export default class DiscordBotDirectory extends Service {
     static get baseURL(): string;
     /**
      * Posts statistics to this service.
-     * <warn>The docs for this endopoint exist only in a Discord message</warn>
-     * <warn>Shard data posting is not supported for this service.</warn>
+     * <warn>The docs for this endopoint exist only in a Discord message.
+     * Shard data posting is not supported for this service.</warn>
      * @param options The options of the request
      */
     static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
