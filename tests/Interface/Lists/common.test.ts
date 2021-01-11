@@ -71,6 +71,23 @@ fs.readdirSync(listsDir).forEach((file) => {
               } else done.fail(e)
             })
         })
+
+        it('should work when the shard info is undefined', (done) => {
+          // @ts-expect-error
+          Service._post = jest.fn(async () => {})
+
+          expect(typeof List.post).toBe('function')
+          List.post({ ...opts, shard: undefined })
+            .then(() => {
+              expect(Service._post).toHaveBeenCalledTimes(1)
+              done()
+            })
+            .catch((e) => {
+              if (e?.message?.includes('does not support posting.')) {
+                done()
+              } else done.fail(e)
+            })
+        })
       })
 
       describe('class methods', () => {
