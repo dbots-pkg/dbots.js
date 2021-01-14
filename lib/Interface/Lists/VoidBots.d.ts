@@ -17,7 +17,6 @@ export default class VoidBots extends Service {
     static get baseURL(): string;
     /**
      * Posts statistics to this service.
-     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options The options of the request
      */
     static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
@@ -26,11 +25,6 @@ export default class VoidBots extends Service {
      * @param id The bot's ID
      */
     getBot(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
-    /**
-     * Gets the user listed on this service.
-     * @param id The user's ID
-     */
-    getUser(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Checks whether or not a user has voted for a bot on this service.
      * @param botId The bot's ID

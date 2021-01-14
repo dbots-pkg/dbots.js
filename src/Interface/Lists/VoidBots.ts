@@ -28,21 +28,25 @@ export default class VoidBots extends Service {
 
   /** The base URL of the service's API. */
   static get baseURL() {
-    return 'https://voidbots.net/api'
+    return 'https://api.voidbots.net'
   }
 
   /**
    * Posts statistics to this service.
-   * <warn>Shard data posting is not supported for this service.</warn>
    * @param options The options of the request
    */
   static post(options: ServicePostOptions) {
-    const { token, clientID, serverCount } = options
+    const { token, clientID, serverCount, shard } = options
     return super._post({
       method: 'post',
-      url: `/auth/stats/${Util.resolveID(clientID)}`,
-      headers: { Authorization: token, 'Content-Type': 'application/json' },
-      data: { server_count: Util.resolveCount(serverCount) }
+      url: `/bot/stats/${Util.resolveID(clientID)}`,
+      headers: { Authorization: token },
+      data: shard?.count
+        ? {
+            server_count: Util.resolveCount(serverCount),
+            shard_count: Util.resolveCount(shard.count)
+          }
+        : { server_count: Util.resolveCount(serverCount) }
     })
   }
 
@@ -51,15 +55,15 @@ export default class VoidBots extends Service {
    * @param id The bot's ID
    */
   getBot(id: IDResolvable) {
-    return this._request({ url: `/auth/info/${Util.resolveID(id)}` })
-  }
-
-  /**
-   * Gets the user listed on this service.
-   * @param id The user's ID
-   */
-  getUser(id: IDResolvable) {
-    return this._request({ url: `/user/info/${Util.resolveID(id)}` })
+    return this._request(
+      {
+        url: `/bot/info/${Util.resolveID(id)}`,
+        headers: {
+          Authorization: this.token
+        }
+      },
+      { requiresToken: true }
+    )
   }
 
   /**
@@ -68,10 +72,15 @@ export default class VoidBots extends Service {
    * @param userID The user's ID
    */
   userVoted(botId: IDResolvable, userID: IDResolvable) {
-    return this._request({
-      url: `/auth/voted/${Util.resolveID(botId)}`,
-      headers: { voter: Util.resolveID(userID) }
-    })
+    return this._request(
+      {
+        url: `/bot/voted/${Util.resolveID(botId)}/${Util.resolveID(userID)}`,
+        headers: {
+          Authorization: this.token
+        }
+      },
+      { requiresToken: true }
+    )
   }
 
   /**
@@ -81,7 +90,7 @@ export default class VoidBots extends Service {
   getBotReviews(id: IDResolvable) {
     return this._request(
       {
-        url: `/auth/reviews/${Util.resolveID(id)}`,
+        url: `/bot/reviews/${Util.resolveID(id)}`,
         headers: { Authorization: this.token }
       },
       { requiresToken: true }
@@ -95,7 +104,7 @@ export default class VoidBots extends Service {
   getBotAnalytics(id: IDResolvable) {
     return this._request(
       {
-        url: `/auth/analytics/${Util.resolveID(id)}`,
+        url: `/bot/analytics/${Util.resolveID(id)}`,
         headers: { Authorization: this.token }
       },
       { requiresToken: true }
