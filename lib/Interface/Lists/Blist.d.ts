@@ -18,7 +18,7 @@ export default class Blist extends Service {
     static get baseURL(): string;
     /**
      * Posts statistics to this service.
-     * @param {Object} options The options of the request
+     * @param options The options of the request
      */
     static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
     /**
