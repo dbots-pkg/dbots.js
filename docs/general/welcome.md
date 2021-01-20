@@ -13,9 +13,6 @@
     <a href="https://www.npmjs.com/package/dbots">
       <img src="https://img.shields.io/npm/dt/dbots.svg?maxAge=3600" alt="NPM downloads" />
     </a>
-    <a href="https://david-dm.org/dbots-pkg/dbots.js">
-      <img src="https://img.shields.io/david/dbots-pkg/dbots.js.svg?maxAge=3600" alt="Dependencies" />
-    </a>
     <br/>
     <a href="https://github.com/dbots-pkg/dbots.js/actions?query=workflow%3ATest">
       <img src="https://github.com/dbots-pkg/dbots.js/workflows/Test/badge.svg" alt="Tests" />
@@ -90,7 +87,6 @@ Any contribution may be useful for the package! Make sure when making issues or 
 - [NPM](https://npmjs.org/package/dbots)
 - [Yarn](https://yarn.pm/dbots)
 - [JSDelivr](https://www.jsdelivr.com/package/npm/dbots)
-- [David (Dependency Watcher)](https://david-dm.org/dbots-pkg/dbots.js)
 - [Website](https://dbots.js.org) ([source](https://github.com/dbots-pkg/dbots-pkg.github.io))
 - [Documentation](https://dbots.js.org/#/docs)
 - [Dbots GitHub Organization](https://github.com/dbots-pkg)
