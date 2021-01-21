@@ -33,7 +33,7 @@ export default class BladeBotList extends Service {
 
   /**
    * Posts statistics to this service.
-   * @param {Object} options The options of the request
+   * @param options The options of the request
    */
   static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options

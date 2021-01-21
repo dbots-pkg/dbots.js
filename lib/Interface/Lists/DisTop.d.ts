@@ -1,10 +1,9 @@
 import { Service, ServicePostOptions } from '../Service';
-import { IDResolvable } from '../../Utils/Util';
 /**
- * Represents the BladeBotList service.
- * @see https://docs.bladebotlist.xyz/api/introduction.html
+ * Represents the DisTop service.
+ * @see https://docs.distop.xyz/
  */
-export default class BladeBotList extends Service {
+export default class DisTop extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
@@ -17,18 +16,8 @@ export default class BladeBotList extends Service {
     static get baseURL(): string;
     /**
      * Posts statistics to this service.
+     * <warn>Shard data posting is not supported for this service.</warn>
      * @param options The options of the request
      */
     static post(options: ServicePostOptions): Promise<import("axios").AxiosResponse<any>>;
-    /**
-     * Gets the bot listed on this service.
-     * @param id The bot's ID
-     */
-    getBot(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
-    /**
-     * Checks whether a user has given a vote to the bot
-     * @param botId The bot's ID
-     * @param userID The user's ID
-     */
-    userVoted(botId: IDResolvable, userID: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
 }
