@@ -8,15 +8,7 @@ import { Util } from '../../Utils/Util'
 export default class Arcane extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return [
-      'arcanebotcenter',
-      'arcane-botcenter.xyz',
-      'arcanebotcenter.xyz',
-      'arcane',
-      'abc',
-      'arcane-center.xyz',
-      'arcanecenter.xyz'
-    ]
+    return ['arcane', 'arcane-center.xyz']
   }
 
   /** The logo URL. */

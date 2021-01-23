@@ -8,7 +8,7 @@ import { Util } from '../../Utils/Util'
 export default class Disforge extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['disforge', 'df', 'disforge.com']
+    return ['disforge', 'disforge.com']
   }
 
   /** The logo URL. */

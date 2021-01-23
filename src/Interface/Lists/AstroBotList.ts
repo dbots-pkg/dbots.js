@@ -8,7 +8,7 @@ import { Util } from '../../Utils/Util'
 export default class AstroBotList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['abl', 'astrobotlist', 'botlists.com']
+    return ['astrobotlist', 'botlists.com']
   }
 
   /** The logo URL. */

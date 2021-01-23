@@ -9,7 +9,7 @@ import { Query } from '../../Utils/Constants'
 export default class MythicalBots extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['mythicalbots', 'mythicalbots.xyz', 'mythicalbotsxyz', 'mythical']
+    return ['mythicalbots', 'mythicalbots.xyz']
   }
 
   /** The logo URL. */

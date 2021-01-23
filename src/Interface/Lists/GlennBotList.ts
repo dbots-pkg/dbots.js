@@ -9,7 +9,7 @@ import { Query } from '../../Utils/Constants'
 export default class GlennBotList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['glennbotlist', 'glennbotlist.xyz', 'glennbotlist.gg', 'glenn']
+    return ['glennbotlist', 'glennbotlist.xyz']
   }
 
   /** The logo URL. */

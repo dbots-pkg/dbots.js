@@ -9,7 +9,7 @@ import { Query } from '../../Utils/Constants'
 export default class BotListSpace extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['botlistspace', 'botlist.space', 'bls']
+    return ['botlistspace', 'botlist.space']
   }
 
   /** The logo URL. */

@@ -8,7 +8,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 export default class DiscordBotsCo extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['discordbotsco']
+    return ['discordbotsco', 'discordbots.co']
   }
 
   /** The logo URL. */

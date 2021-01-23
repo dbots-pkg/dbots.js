@@ -9,7 +9,7 @@ import { Query } from '../../Utils/Constants'
 export default class TopGG extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['topgg', 'top.gg', 'top']
+    return ['topgg', 'top.gg']
   }
 
   /** The logo URL. */

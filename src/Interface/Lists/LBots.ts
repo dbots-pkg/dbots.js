@@ -8,7 +8,7 @@ import { Util, AnyObject, IDResolvable } from '../../Utils/Util'
 export default class LBots extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['lbots', 'lbotsorg', 'lbots.org']
+    return ['lbots', 'lbots.org']
   }
 
   /** The logo URL. */

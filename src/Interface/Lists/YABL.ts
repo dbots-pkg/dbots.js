@@ -9,7 +9,7 @@ import { Query } from '../../Utils/Constants'
 export default class YABL extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['yabl', 'yablxyz', 'yabl.xyz']
+    return ['yabl', 'yabl.xyz']
   }
 
   /** The logo URL. */
