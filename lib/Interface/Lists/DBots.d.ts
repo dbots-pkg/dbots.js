@@ -31,9 +31,4 @@ export default class DBots extends Service {
      * @param id The bot's ID
      */
     regenToken(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
-    /**
-     * Gets the bot's API document.
-     * @param id The bot's ID
-     */
-    getAPIDoc(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
 }

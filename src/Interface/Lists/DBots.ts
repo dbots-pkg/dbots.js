@@ -73,18 +73,4 @@ export default class DBots extends Service {
       { requiresToken: true }
     )
   }
-
-  /**
-   * Gets the bot's API document.
-   * @param id The bot's ID
-   */
-  getAPIDoc(id: IDResolvable) {
-    return this._request(
-      {
-        url: `/bots/${Util.resolveID(id)}/api`,
-        headers: { Authorization: this.token }
-      },
-      { requiresToken: true }
-    )
-  }
 }
