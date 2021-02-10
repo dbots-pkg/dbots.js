@@ -8,7 +8,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 export default class DiscordListology extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['discordlistology']
+    return ['discordlistology', 'discordlistology.com']
   }
 
   /** The logo URL. */

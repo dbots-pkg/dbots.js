@@ -8,13 +8,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 export default class WonderBotList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return [
-      'wonderbotlist',
-      'wonderbotlist.com',
-      'wonderbotlistcom',
-      'wonder',
-      'wbl'
-    ]
+    return ['wonderbotlist', 'wonderbotlist.com']
   }
 
   /** The logo URL. */

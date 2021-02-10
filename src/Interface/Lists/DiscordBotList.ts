@@ -8,7 +8,7 @@ import { Util, AnyObject } from '../../Utils/Util'
 export default class DiscordBotList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['discordbotlist', 'discordbotlist.com', 'dbotlist']
+    return ['discordbotlist', 'discordbotlist.com']
   }
 
   /** The logo URL. */

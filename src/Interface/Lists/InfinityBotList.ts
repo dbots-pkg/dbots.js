@@ -8,7 +8,7 @@ import { IDResolvable, Util } from '../../Utils/Util'
 export default class InfinityBotList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['ibl', 'infinitybotlist', 'infinitybotlist.com']
+    return ['infinitybotlist', 'infinitybotlist.com']
   }
 
   /** The logo URL. */

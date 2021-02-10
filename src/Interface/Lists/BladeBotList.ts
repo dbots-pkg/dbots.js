@@ -8,7 +8,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 export default class BladeBotList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['bladebotlist', 'bladebotlist.xyz', 'bbl']
+    return ['bladebotlist', 'bladebotlist.xyz']
   }
 
   /** The logo URL. */

@@ -9,7 +9,7 @@ import { Query } from '../../Utils/Constants'
 export default class DiscordBoats extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['discordboats', 'discord.boats', 'dboats']
+    return ['discordboats', 'discord.boats']
   }
 
   /** The logo URL. */

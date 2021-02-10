@@ -8,7 +8,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 export default class DiscordBotDirectory extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['discordbotdirectory', 'dbd', 'discordbotdirectory.net']
+    return ['discordbotdirectory', 'discordbotdirectory.net']
   }
 
   /** The logo URL. */

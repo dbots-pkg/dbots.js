@@ -34,7 +34,7 @@ export default class DiscordBotsGG extends Service {
 
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['discordbotsgg', 'discord.bots.gg', 'botsgg', 'bots.gg', 'dbots']
+    return ['discordbotsgg', 'discord.bots.gg']
   }
 
   /** The logo URL. */

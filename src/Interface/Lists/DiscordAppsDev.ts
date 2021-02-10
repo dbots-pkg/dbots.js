@@ -8,7 +8,7 @@ import { Util, AnyObject, IDResolvable } from '../../Utils/Util'
 export default class DiscordAppsDev extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['discordappsdev', 'discordapps.dev', 'discordapps', 'dapps']
+    return ['discordappsdev', 'discordapps.dev']
   }
 
   /** The logo URL. */

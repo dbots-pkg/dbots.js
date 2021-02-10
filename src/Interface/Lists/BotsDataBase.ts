@@ -8,7 +8,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 export default class BotsDataBase extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['botsdatabase', 'bdb']
+    return ['botsdatabase', 'botsdatabase.com']
   }
 
   /** The logo URL. */

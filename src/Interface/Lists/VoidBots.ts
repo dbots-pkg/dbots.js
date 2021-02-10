@@ -8,7 +8,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 export default class VoidBots extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['voidbots', 'void', 'voidbots.net']
+    return ['voidbots', 'voidbots.net']
   }
 
   /** The logo URL. */

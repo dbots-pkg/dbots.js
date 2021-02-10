@@ -16,7 +16,7 @@ const { Error } = errors
 export default class DBLista extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['dblistapl', 'dblista.pl', 'dblista']
+    return ['dblista.pl', 'dblista']
   }
 
   /** The logo URL. */

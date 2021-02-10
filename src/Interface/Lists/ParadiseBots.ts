@@ -8,7 +8,7 @@ import { IDResolvable, Util } from '../../Utils/Util'
 export default class ParadiseBots extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['paradise', 'paradisebots', 'paradisebots.net', 'pb']
+    return ['paradisebots', 'paradisebots.net']
   }
 
   /** The logo URL. */

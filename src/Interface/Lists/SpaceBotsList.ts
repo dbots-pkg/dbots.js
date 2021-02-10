@@ -8,14 +8,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 export default class SpaceBotsList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return [
-      'spacebotslist',
-      'spacebotlist',
-      'spacebots',
-      'space-bot-list.org',
-      'space',
-      'sbl'
-    ]
+    return ['spacebotslist', 'space-bot-list.xyz']
   }
 
   /** The logo URL. */

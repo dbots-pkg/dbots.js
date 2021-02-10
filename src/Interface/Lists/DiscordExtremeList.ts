@@ -8,12 +8,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 export default class DiscordExtremeList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return [
-      'discordextremelist',
-      'discordextremelist.xyz',
-      'discordextremelistxyz',
-      'del'
-    ]
+    return ['discordextremelist', 'discordextremelist.xyz']
   }
 
   /** The logo URL. */
