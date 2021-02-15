@@ -14,16 +14,13 @@
     "gpr": "ts-node scripts/gpr",
     "lint": "npx eslint --ext .ts ./src",
     "lint:fix": "npx eslint --ext .ts ./src --fix",
-    "prepublishOnly": "npm run lint:fix && npm run webpack",
+    "postinstall": "husky install",
+    "postpublish": "pinst --enable",
+    "prepublishOnly": "npm run lint:fix && npm run webpack && pinst --disable",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "webpack": "ts-node scripts/services-wp && cross-env NODE_ENV=production webpack && rm -r .tmp"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run build && git add lib"
-    }
   },
   "lint-staged": {
     "*.ts": "eslint --fix"
@@ -59,11 +56,12 @@
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-jest": "^24.1.3",
     "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^4.3.0",
+    "husky": "^5.0.9",
     "jest": "^26.6.3",
     "jsdoc-typeof-plugin": "^1.0.0",
     "lint-staged": "^10.5.1",
     "mkdirp": "^1.0.4",
+    "pinst": "^2.1.4",
     "prettier": "^2.2.0",
     "terser-webpack-plugin": "^3.0.0",
     "ts-docgen": "github:dbots-pkg/ts-docgen#main",
