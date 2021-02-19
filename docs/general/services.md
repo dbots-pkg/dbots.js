@@ -1,4 +1,4 @@
-# Supported Services (36)
+# Supported Services (35)
 
 <div align=center>
   <p>
@@ -337,19 +337,6 @@ Website: https://glennbotlist.xyz
 Keys: `infinitybotlist`, `infinitybotlist.com`  
 Class: [dbots.InfinityBotList](/#/docs/main/master/class/InfinityBotList)  
 Website: https://infinitybotlist.com
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://i.olsh.me/icon?size=1..100..500&url=lbots.org" alt="lbots logo" width="100" align="left" />
-  </p>
-  <i id="lbots"></i>
-  <i id="lbots.org"></i>
-  <a href="https://lbots.org/"><h1>LBots</h1></a>
-
-Keys: `lbots`, `lbots.org`  
-Class: [dbots.LBots](/#/docs/main/master/class/LBots)  
-Website: https://lbots.org/
 </div>
 
 <div align=center>
