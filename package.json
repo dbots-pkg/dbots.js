@@ -8,7 +8,7 @@
     "url": "git+https://github.com/dbots-pkg/dbots.js.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "rm -r lib/* && tsc",
     "changelog": "ts-node scripts/changelog",
     "docs": "mkdirp .tmp && typedoc --json .tmp/typedoc-out.json --plugin typedoc-plugin-as-member-of src && ts-node scripts/docs",
     "gpr": "ts-node scripts/gpr",
