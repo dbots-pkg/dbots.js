@@ -3,7 +3,7 @@ import { IDResolvable, Util } from '../../Utils/Util'
 
 /**
  * Represents the Infinity Bot List service.
- * @see https://infinitybotlist.com/docs
+ * @see https://docs.infinitybotlist.com
  */
 export default class InfinityBotList extends Service {
   /** The values that can be used to select the service. */
@@ -28,7 +28,7 @@ export default class InfinityBotList extends Service {
 
   /** The base URL of the service's API. */
   static get baseURL() {
-    return 'https://infinitybotlist.com/api'
+    return 'https://api.infinitybotlist.com'
   }
 
   /**
@@ -39,10 +39,9 @@ export default class InfinityBotList extends Service {
     const { clientID, token, serverCount, shard } = options
     return super._post({
       method: 'post',
-      url: `/bots/${Util.resolveID(clientID)}`,
+      url: `/bot/${Util.resolveID(clientID)}`,
       headers: {
-        authorization: token,
-        'Content-Type': 'application/json'
+        authorization: token
       },
       data: {
         servers: Util.resolveCount(serverCount),
@@ -61,10 +60,7 @@ export default class InfinityBotList extends Service {
    */
   getBot(id: IDResolvable) {
     return this._request({
-      url: `/bots/${Util.resolveID(id)}/info`,
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      url: `/bot/${Util.resolveID(id)}/info`
     })
   }
 
@@ -74,10 +70,7 @@ export default class InfinityBotList extends Service {
    */
   getUser(id: IDResolvable) {
     return this._request({
-      url: `/users/${Util.resolveID(id)}`,
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      url: `/user/${Util.resolveID(id)}`
     })
   }
 }
