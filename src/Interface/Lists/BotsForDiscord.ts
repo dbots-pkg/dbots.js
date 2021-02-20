@@ -14,7 +14,7 @@ export default class BotsForDiscord extends Service {
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://i.olsh.me/icon?size=1..100..500&url=botsfordiscord.com'
+    return 'https://botsfordiscord.com/img/manifest/icon-512x512.png'
   }
 
   /** Service's name. */

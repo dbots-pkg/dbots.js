@@ -39,7 +39,7 @@ export default class DiscordBotsGG extends Service {
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://i.olsh.me/icon?size=1..100..500&url=discord.bots.gg'
+    return 'https://discord.bots.gg/favicon.png'
   }
 
   /** Service's name. */

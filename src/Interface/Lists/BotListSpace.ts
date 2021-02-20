@@ -14,7 +14,7 @@ export default class BotListSpace extends Service {
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://i.olsh.me/icon?size=1..100..500&url=botlist.space'
+    return 'https://botlist.space/img/android-chrome-512x512.png'
   }
 
   /** Service's name. */
