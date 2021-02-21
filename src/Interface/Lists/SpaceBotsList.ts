@@ -13,7 +13,7 @@ export default class SpaceBotsList extends Service {
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://get.snaz.in/334CtqK.jpg'
+    return 'https://cdn.discordapp.com/avatars/546742409409593354/123b9b0a54b45d99627215c7154580af.webp?size=256'
   }
 
   /** Service's name. */
