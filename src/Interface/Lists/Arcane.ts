@@ -13,7 +13,7 @@ export default class Arcane extends Service {
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://i.olsh.me/icon?size=1..100..500&url=arcane-botcenter.xyz'
+    return 'https://arcane-center.xyz/src/images/favicons/favicon.png'
   }
 
   /** Service's name. */

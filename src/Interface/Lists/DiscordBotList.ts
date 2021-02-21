@@ -13,7 +13,7 @@ export default class DiscordBotList extends Service {
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://i.olsh.me/icon?size=1..100..500&url=discordbotlist.com'
+    return 'https://discordbotlist.com/android-icon-192x192.png'
   }
 
   /** Service's name. */

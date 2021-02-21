@@ -14,7 +14,7 @@ export default class BotsOnDiscord extends Service {
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://i.olsh.me/icon?size=1..100..500&url=bots.ondiscord.xyz'
+    return 'https://bots.ondiscord.xyz/favicon/android-chrome-256x256.png'
   }
 
   /** Service's name. */
