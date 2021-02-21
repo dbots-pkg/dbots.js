@@ -237,7 +237,7 @@ Website: https://discordbots.co
 
 <div align=center>
   <p>
-    <img src="https://discord.bots.gg/favicon.png" alt="discordbotsgg logo" width="100" align="left" />
+    <img src="https://pbs.twimg.com/profile_images/1071582837030060032/kKV-I01n_400x400.jpg" alt="discordbotsgg logo" width="100" align="left" />
   </p>
   <i id="discordbotsgg"></i>
   <i id="discord.bots.gg"></i>
@@ -380,7 +380,7 @@ Website: https://paradisebots.net/
 
 <div align=center>
   <p>
-    <img src="https://get.snaz.in/334CtqK.jpg" alt="spacebotslist logo" width="100" align="left" />
+    <img src="https://cdn.discordapp.com/avatars/546742409409593354/123b9b0a54b45d99627215c7154580af.webp?size=256" alt="spacebotslist logo" width="100" align="left" />
   </p>
   <i id="spacebotslist"></i>
   <i id="space-bot-list.xyz"></i>
