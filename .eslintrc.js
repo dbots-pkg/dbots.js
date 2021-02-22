@@ -5,11 +5,7 @@ module.exports = {
     node: true,
     'jest/globals': true
   },
-  extends: [
-    'eslint:recommended',
-    'prettier/@typescript-eslint',
-    'plugin:prettier/recommended'
-  ],
+  extends: ['eslint:recommended', 'prettier', 'plugin:prettier/recommended'],
   globals: {},
   parser: '@typescript-eslint/parser',
   parserOptions: {
