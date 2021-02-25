@@ -25,4 +25,8 @@ export default class TopCord extends Service {
      * @param id The bot's ID
      */
     getBot(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Lists every bot on this service.
+     */
+    getBots(): Promise<import("axios").AxiosResponse<any>>;
 }
