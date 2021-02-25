@@ -39,7 +39,7 @@ export default class TopCord extends Service {
     const { token, clientID, serverCount, shard } = options
     return super._post({
       method: 'post',
-      url: `/bot/stats/${Util.resolveID(clientID)}`,
+      url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: { Authorization: token },
       data: shard
         ? {
@@ -56,5 +56,12 @@ export default class TopCord extends Service {
    */
   getBot(id: IDResolvable) {
     return this._request({ url: `/bot/${Util.resolveID(id)}` })
+  }
+
+  /**
+   * Lists every bot on this service.
+   */
+  getBots() {
+    return this._request({ url: `/bots` })
   }
 }
