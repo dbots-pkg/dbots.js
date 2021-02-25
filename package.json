@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "rm -r lib/* && tsc",
-    "changelog": "ts-node scripts/changelog",
+    "changelog": "ts-node scripts/changelog && npm i --package-lock-only",
     "docs": "mkdirp .tmp && typedoc --json .tmp/typedoc-out.json --plugin typedoc-plugin-as-member-of src && ts-node scripts/docs",
     "gpr": "ts-node scripts/gpr",
     "lint": "npx eslint --ext .ts ./src",
