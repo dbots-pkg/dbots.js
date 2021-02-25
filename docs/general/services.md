@@ -1,4 +1,4 @@
-# Supported Services (32)
+# Supported Services (31)
 
 <div align=center>
   <p>
@@ -129,19 +129,6 @@ Website: https://www.carbonitex.net/Discord/bots
 Keys: `dbots`, `dbots.co`  
 Class: [dbots.DBots](/#/docs/main/master/class/DBots)  
 Website: https://dbots.co/
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://gblobscdn.gitbook.com/spaces%2F-MNddxbtCjE7i-9BWYMZ%2Favatar-1607019591745.png" alt="distop logo" width="100" align="left" />
-  </p>
-  <i id="distop"></i>
-  <i id="distop.xyz"></i>
-  <a href="https://bots.distop.xyz/"><h1>DisTop</h1></a>
-
-Keys: `distop`, `distop.xyz`  
-Class: [dbots.DisTop](/#/docs/main/master/class/DisTop)  
-Website: https://bots.distop.xyz/
 </div>
 
 <div align=center>
