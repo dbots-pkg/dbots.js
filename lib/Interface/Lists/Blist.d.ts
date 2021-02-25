@@ -27,6 +27,21 @@ export default class Blist extends Service {
      */
     getUser(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
     /**
+     * Gets the user's bots listed on this service.
+     * @param id The user's ID
+     */
+    getUserBots(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Gets the user's servers listed on this service.
+     * @param id The user's ID
+     */
+    getUserServers(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Gets the server listed on this service.
+     * @param id The server's ID
+     */
+    getServer(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
+    /**
      * Gets the bot listed on this service.
      * @param id The bot's ID
      */
@@ -36,6 +51,11 @@ export default class Blist extends Service {
      * @param id The bot's ID
      */
     getBotVotes(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Gets the bot's reviews on this service.
+     * @param id The bot's ID
+     */
+    getBotReviews(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Gets the widget URL for this bot.
      * @param id The bot's ID
