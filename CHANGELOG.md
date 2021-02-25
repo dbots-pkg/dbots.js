@@ -9,6 +9,31 @@ You can see the docs for every version at [here](https://dbots.js.org/#/docs).
 
 ## [Unreleased]
 
+## [7.0.0] - 2021-02-25
+
+### Removed:
+
+You can refer to issue #58 for each of these lists
+
+- LBots
+- DBLista
+- DiscordBotWorld
+- MythicalBots: they became IdleDev, which is unreachable at the moment.
+
+### Added:
+
+- DiscordBotDirectory (#101)
+- VoidBots (#102, #114)
+- Disforge (#103)
+- ParadiseBots (#104)
+- BladeBotList (#115)
+- DisTop (#121)
+- Dbots (#122)
+
+### Fixed:
+
+- InfinityBotList: updated to new API version (#144)
+
 ## [6.1.0] - 2021-01-07
 
 ### Added:
@@ -135,7 +160,7 @@ You can also refer to issue #71.
 - Update endpoints for ListMyBots, GlennBotList and DiscordBotList.
 
 <!-- prettier-ignore -->
-[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v6.1.0...HEAD
+[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v7.0.0...HEAD
 [4.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...v4.0.0
 [4.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.0.0...v4.1.0
 [5.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.1.0...v5.0.0
@@ -147,3 +172,4 @@ You can also refer to issue #71.
 [5.2.0]: https://github.com/dbots-pkg/dbots.js/compare/v5.1.0...v5.2.0
 [6.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v5.2.0...v6.0.0
 [6.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v6.0.0...v6.1.0
+[7.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v6.1.0...v7.0.0
