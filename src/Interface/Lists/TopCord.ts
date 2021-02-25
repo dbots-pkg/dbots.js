@@ -28,7 +28,7 @@ export default class TopCord extends Service {
 
   /** The base URL of the service's API. */
   static get baseURL() {
-    return 'https://topcord.xyz/api'
+    return 'https://api.topcord.xyz'
   }
 
   /**
