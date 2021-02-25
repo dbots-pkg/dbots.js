@@ -9,6 +9,14 @@ You can see the docs for every version at [here](https://dbots.js.org/#/docs).
 
 ## [Unreleased]
 
+## [7.0.1] - 2021-02-25
+
+### Fixed:
+
+- DisTop: removed since they disappeared
+- TopCord: update to new API version
+- Blist: update to new API version
+
 ## [7.0.0] - 2021-02-25
 
 ### Removed:
@@ -160,7 +168,7 @@ You can also refer to issue #71.
 - Update endpoints for ListMyBots, GlennBotList and DiscordBotList.
 
 <!-- prettier-ignore -->
-[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v7.0.0...HEAD
+[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v7.0.1...HEAD
 [4.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...v4.0.0
 [4.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.0.0...v4.1.0
 [5.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.1.0...v5.0.0
@@ -173,3 +181,4 @@ You can also refer to issue #71.
 [6.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v5.2.0...v6.0.0
 [6.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v6.0.0...v6.1.0
 [7.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v6.1.0...v7.0.0
+[7.0.1]: https://github.com/dbots-pkg/dbots.js/compare/v7.0.0...v7.0.1
