@@ -1,10 +1,10 @@
 import { Service, ServicePostOptions } from '../Service';
 import { IDResolvable } from '../../Utils/Util';
 /**
- * Represents the Infinity Bot List service.
- * @see https://docs.infinitybotlist.com
+ * Represents the Infinity Bots service.
+ * @see https://docs.infinitybots.xyz
  */
-export default class InfinityBotList extends Service {
+export default class InfinityBots extends Service {
     /** The values that can be used to select the service. */
     static get aliases(): string[];
     /** The logo URL. */
