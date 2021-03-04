@@ -296,7 +296,7 @@ Website: https://glennbotlist.xyz
   <a href="https://infinitybots.xyz"><h1>Infinity Bot List</h1></a>
 
 Keys: `infinitybots`, `infinitybots.xyz`  
-Class: [dbots.InfinityBotList](/#/docs/main/master/class/InfinityBotList)  
+Class: [dbots.InfinityBots](/#/docs/main/master/class/InfinityBots)  
 Website: https://infinitybots.xyz
 </div>
 
