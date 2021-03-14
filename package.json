@@ -61,7 +61,7 @@
     "lint-staged": "^10.5.1",
     "prettier": "^2.2.0",
     "terser-webpack-plugin": "^3.0.0",
-    "ts-docgen": "github:dbots-pkg/ts-docgen#next",
+    "ts-docgen": "github:dbots-pkg/ts-docgen#v2",
     "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.11",
     "ts-node": "^9.0.0",
