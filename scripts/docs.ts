@@ -44,18 +44,18 @@ for (const filename of listClasses) {
   ${aliases.map((key: string) => `<i id="${key}"></i>`).join('\n  ')}
   <a href="${websiteURL}"><h1>${serviceName}</h1></a>
 
-Keys: ${aliases.map((key: string) => `\`${key}\``).join(', ')}  
+Keys: ${aliases.map((key: string) => `\`${key}\``).join(', ')}
 Class: [dbots.${className}](${
     ref ? `/#/docs/main/${ref}/class/${className}` : ''
-  })  
+  })
 Website: ${websiteURL}
 </div>`
 }
 fs.writeFileSync(path.join(__dirname, '../docs/general/services.md'), services)
 
 runGenerator({
-  // source: ['src'/* , path.join(__dirname, '../src/Interface/Lists')*/],
-  existingOutput: '.tmp/typedoc-out.json',
+  source: ['src'],
+  tsconfig: 'tsconfig.json',
   custom: 'docs/index.yml',
   output: 'docs/docs.json'
 })
