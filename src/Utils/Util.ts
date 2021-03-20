@@ -22,7 +22,7 @@ export type AnyObject = Record<string, any>
  * Enforces a type on its argument
  * @private
  */
-export declare function assert<T>(value: any): asserts value is T
+export function assert<T>(value: any): asserts value is T {}
 
 /**
  * Contains various general-purpose utility methods.
