@@ -27,7 +27,7 @@ export default class TopGG extends Service {
      */
     getUser(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
     /**
-     * Gets the list of bots on this service.
+     * Gets the a of bots on this service that match your query (refer to Top.gg docs for query parameters).
      * @param query The query string that will be used in the request
      */
     getBots(query: Query): Promise<import("axios").AxiosResponse<any>>;
@@ -44,15 +44,14 @@ export default class TopGG extends Service {
     /**
      * Gets the list of people who voted this bot on this service.
      * @param id The bot's ID
-     * @param query The query string that will be used in the request
      */
-    getBotVotes(id: IDResolvable, query?: Query): Promise<import("axios").AxiosResponse<any>>;
+    getBotVotes(id: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Checks whether or not a user has voted for a bot on this service.
-     * @param id The bot's ID
+     * @param botId The bot's ID
      * @param userID The user's ID
      */
-    userVoted(id: IDResolvable, userID: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
+    userVoted(botId: IDResolvable, userID: IDResolvable): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Gets the widget URL for this bot.
      * @param id The bot's ID
