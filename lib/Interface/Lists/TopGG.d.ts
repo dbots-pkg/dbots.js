@@ -3,7 +3,7 @@ import { IDResolvable } from '../../Utils/Util';
 import { Query } from '../../Utils/Constants';
 /**
  * Represents the Top.gg service.
- * @see https://top.gg/api/docs
+ * @see https://docs.top.gg/
  */
 export default class TopGG extends Service {
     /** The values that can be used to select the service. */
