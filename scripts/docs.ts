@@ -44,10 +44,12 @@ for (const filename of listClasses) {
   ${aliases.map((key: string) => `<i id="${key}"></i>`).join('\n  ')}
   <a href="${websiteURL}"><h1>${serviceName}</h1></a>
 
-Keys: ${aliases.map((key: string) => `\`${key}\``).join(', ')}
+Keys: ${aliases.map((key: string) => `\`${key}\``).join(', ')}${
+    '  ' /* This is just to avoid prettier deleting the spaces*/
+  }
 Class: [dbots.${className}](${
     ref ? `/#/docs/main/${ref}/class/${className}` : ''
-  })
+  })${'  '}
 Website: ${websiteURL}
 </div>`
 }

@@ -4,7 +4,7 @@ import { Query } from '../../Utils/Constants'
 
 /**
  * Represents the Top.gg service.
- * @see https://top.gg/api/docs
+ * @see https://docs.top.gg/
  */
 export default class TopGG extends Service {
   /** The values that can be used to select the service. */
@@ -57,15 +57,24 @@ export default class TopGG extends Service {
    * @param id The user's ID
    */
   getUser(id: IDResolvable) {
-    return this._request({ url: `/users/${Util.resolveID(id)}` })
+    return this._request(
+      {
+        url: `/users/${Util.resolveID(id)}`,
+        headers: { Authorization: this.token }
+      },
+      { requiresToken: true }
+    )
   }
 
   /**
-   * Gets the list of bots on this service.
+   * Gets the a of bots on this service that match your query (refer to Top.gg docs for query parameters).
    * @param query The query string that will be used in the request
    */
   getBots(query: Query) {
-    return this._request({ url: '/bots', params: query })
+    return this._request(
+      { url: '/bots', params: query, headers: { Authorization: this.token } },
+      { requiresToken: true }
+    )
   }
 
   /**
@@ -73,7 +82,13 @@ export default class TopGG extends Service {
    * @param id The bot's ID
    */
   getBot(id: IDResolvable) {
-    return this._request({ url: `/bots/${Util.resolveID(id)}` })
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(id)}`,
+        headers: { Authorization: this.token }
+      },
+      { requiresToken: true }
+    )
   }
 
   /**
@@ -81,31 +96,43 @@ export default class TopGG extends Service {
    * @param id The bot's ID
    */
   getBotStats(id: IDResolvable) {
-    return this._request({ url: `/bots/${Util.resolveID(id)}/stats` })
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(id)}/stats`,
+        headers: { Authorization: this.token }
+      },
+      { requiresToken: true }
+    )
   }
 
   /**
    * Gets the list of people who voted this bot on this service.
    * @param id The bot's ID
-   * @param query The query string that will be used in the request
    */
-  getBotVotes(id: IDResolvable, query?: Query) {
-    return this._request({
-      url: `/bots/${Util.resolveID(id)}/votes`,
-      params: query
-    })
+  getBotVotes(id: IDResolvable) {
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(id)}/votes`,
+        headers: { Authorization: this.token }
+      },
+      { requiresToken: true }
+    )
   }
 
   /**
    * Checks whether or not a user has voted for a bot on this service.
-   * @param id The bot's ID
+   * @param botId The bot's ID
    * @param userID The user's ID
    */
-  userVoted(id: IDResolvable, userID: IDResolvable) {
-    return this._request({
-      url: `/bots/${Util.resolveID(id)}/check`,
-      params: { userId: Util.resolveID(userID) }
-    })
+  userVoted(botId: IDResolvable, userID: IDResolvable) {
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(botId)}/check`,
+        params: { userId: Util.resolveID(userID) },
+        headers: { Authorization: this.token }
+      },
+      { requiresToken: true }
+    )
   }
 
   /**
