@@ -9,6 +9,12 @@ You can see the docs for every version at [here](#/docs).
 
 ## [Unreleased]
 
+## [8.0.2] - 2021-03-23
+
+### Fixed:
+
+- TopGG: require authentication on every class method, in order to fix API rejections (issue #174)
+
 ## [8.0.1] - 2021-03-04
 
 ### Fixed:
@@ -180,7 +186,7 @@ You can also refer to issue #71.
 - Update endpoints for ListMyBots, GlennBotList and DiscordBotList.
 
 <!-- prettier-ignore -->
-[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.1...HEAD
+[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.2...HEAD
 [4.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...v4.0.0
 [4.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.0.0...v4.1.0
 [5.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.1.0...v5.0.0
@@ -196,3 +202,4 @@ You can also refer to issue #71.
 [7.0.1]: https://github.com/dbots-pkg/dbots.js/compare/v7.0.0...v7.0.1
 [8.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v7.0.1...v8.0.0
 [8.0.1]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.0...v8.0.1
+[8.0.2]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.1...v8.0.2
