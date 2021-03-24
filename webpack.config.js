@@ -1,14 +1,15 @@
-'use strict';
+'use strict'
 
-const path = require('path');
-const TerserJSPlugin = require('terser-webpack-plugin');
-const webpack = require('webpack');
-const version = require('./package.json').version;
+const path = require('path')
+const TerserJSPlugin = require('terser-webpack-plugin')
+const webpack = require('webpack')
+const version = require('./package.json').version
 
-const prod = process.env.NODE_ENV === 'production';
+const prod = process.env.NODE_ENV === 'production'
 
-// eslint-disable-next-line max-len
-const filename = `dbots${process.env.VERSIONED ? `.${version}` : ''}${prod ? '.min' : ''}.js`;
+const filename = `dbots${process.env.VERSIONED ? `.${version}` : ''}${
+  prod ? '.min' : ''
+}.js`
 
 module.exports = {
   entry: './src/index.ts',
@@ -19,7 +20,7 @@ module.exports = {
     filename,
     library: 'dbots',
     libraryTarget: 'umd',
-    sourceMapFilename: `./${filename}.map`,
+    sourceMapFilename: `./${filename}.map`
   },
   module: {
     rules: [
@@ -30,19 +31,19 @@ module.exports = {
         use: {
           loader: 'json-filter-loader',
           options: {
-            used: ['version'],
-          },
-        },
+            used: ['version']
+          }
+        }
       },
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/
       }
-    ],
+    ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js']
   },
   optimization: {
     minimizer: [
@@ -52,10 +53,10 @@ module.exports = {
           mangle: { keep_classnames: true },
           compress: { keep_classnames: true },
           keep_classnames: true,
-          output: { comments: false },
-        },
-      }),
-    ],
+          output: { comments: false }
+        }
+      })
+    ]
   },
-  plugins: [new webpack.optimize.ModuleConcatenationPlugin()],
-};
+  plugins: [new webpack.optimize.ModuleConcatenationPlugin()]
+}
