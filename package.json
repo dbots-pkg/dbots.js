@@ -2,11 +2,10 @@
   "name": "dbots",
   "version": "8.0.2",
   "description": "Discord bot list poster and stats retriever",
-  "main": "./lib/index",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dbots-pkg/dbots.js.git"
-  },
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "unpkg": "./webpack/dbots.min.js",
+  "jsdelivr": "./webpack/dbots.min.js",
   "scripts": {
     "build": "rm -r lib/* && tsc",
     "changelog": "ts-node scripts/changelog && npm i --package-lock-only",
@@ -24,8 +23,10 @@
   "lint-staged": {
     "*.ts": "eslint --fix"
   },
-  "unpkg": "./webpack/dbots.min.js",
-  "jsdelivr": "./webpack/dbots.min.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbots-pkg/dbots.js.git"
+  },
   "keywords": [
     "api",
     "discord",
