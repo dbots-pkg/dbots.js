@@ -8,7 +8,7 @@ import { ClientFiller } from '../ClientFiller'
  */
 export default class DiscordJS extends ClientFiller {
   get userCount(): number {
-    if (this.client.guilds?.constructor?.name === 'UserManager')
+    if (this.client.guilds?.constructor?.name === 'GuildManager')
       return this.client.guilds?.cache?.reduce(
         (count: number, guild: AnyObject) => count + guild.memberCount,
         0
