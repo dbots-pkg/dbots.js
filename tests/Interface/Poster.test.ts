@@ -1,3 +1,4 @@
+import Collection from '@discordjs/collection'
 import * as PosterModule from '../../src/Interface/Poster'
 import { Service } from '../../src/Interface/Service'
 import TopGG from '../../src/Interface/Lists/TopGG'
@@ -6,6 +7,11 @@ import { PosterOptions } from '../../src/Utils/Constants'
 describe('Poster module', () => {
   describe('Poster class', () => {
     const { Poster } = PosterModule
+    const fakeClientGuilds = new Collection(
+      Array(123)
+        .fill('a')
+        .map((_value, index) => [index, { memberCount: 2 }]) as [number, any][]
+    )
 
     describe('constructor', () => {
       it('should throw when instatiated without options', () => {
@@ -109,12 +115,17 @@ describe('Poster module', () => {
         expect(fn).toHaveBeenCalled()
       })
 
-      it('should use the clientFiller', () => {
+      it('should use the clientFiller', (done) => {
         const p = new Poster({
-          client: { users: { size: 123 } },
+          client: { guilds: fakeClientGuilds },
           clientLibrary: 'discord.js'
         })
-        expect(p.getUserCount()).resolves.toBe(123)
+        p.getUserCount()
+          .then((res) => {
+            expect(res).toBe(123 * 2)
+            done()
+          })
+          .catch(() => done.fail())
       })
 
       it('should default to 0', () => {
@@ -219,7 +230,7 @@ describe('Poster module', () => {
     describe('post method', () => {
       const p = new Poster({
         client: {
-          guilds: { size: 123 },
+          guilds: fakeClientGuilds,
           users: { size: 456 },
           broadcasts: { size: 789 }
         },
@@ -242,7 +253,7 @@ describe('Poster module', () => {
         await p.post('service')
         expect(p.postManual).toHaveBeenLastCalledWith('service', {
           serverCount: 123,
-          userCount: 456,
+          userCount: 123 * 2,
           voiceConnections: 789
         })
       })
