@@ -1,3 +1,4 @@
+import { AnyObject } from '../../Utils/Util'
 import { ClientFiller } from '../ClientFiller'
 
 /**
@@ -6,7 +7,10 @@ import { ClientFiller } from '../ClientFiller'
  */
 export default class Eris extends ClientFiller {
   get userCount(): number {
-    return this.client.users?.size
+    return this.client.guilds?.reduce(
+      (count: number, guild: AnyObject) => count + guild.memberCount,
+      0
+    )
   }
 
   get serverCount(): number {

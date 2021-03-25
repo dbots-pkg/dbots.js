@@ -1,3 +1,4 @@
+import { AnyObject } from '../../Utils/Util'
 import { Shard } from '../../Utils/Constants'
 import { ClientFiller } from '../ClientFiller'
 
@@ -7,11 +8,14 @@ import { ClientFiller } from '../ClientFiller'
  */
 export default class Discordie extends ClientFiller {
   get userCount(): number {
-    return this.client.Guilds?.size
+    return this.client.Guilds?.toArray().reduce(
+      (count: number, guild: AnyObject) => count + guild.member_count,
+      0
+    )
   }
 
   get serverCount(): number {
-    return this.client.Users?.size
+    return this.client.Guilds?.size
   }
 
   get voiceConnections(): number {

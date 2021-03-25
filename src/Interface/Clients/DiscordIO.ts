@@ -1,3 +1,4 @@
+import { AnyObject } from '../../Utils/Util'
 import { Shard } from '../../Utils/Constants'
 import { ClientFiller } from '../ClientFiller'
 
@@ -7,8 +8,13 @@ import { ClientFiller } from '../ClientFiller'
  */
 export default class DiscordIO extends ClientFiller {
   get userCount() {
-    if (!this.client.users) return undefined
-    return Object.keys(this.client.users).length
+    if (!this.client.servers) return undefined
+    return Object.keys(this.client.servers)
+      .map((id) => this.client.servers[id])
+      .reduce(
+        (count: number, guild: AnyObject) => count + guild.member_count,
+        0
+      )
   }
 
   get serverCount() {
