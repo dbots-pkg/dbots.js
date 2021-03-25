@@ -6,7 +6,8 @@ import { ClientFiller } from '../ClientFiller'
  * @private
  */
 export default class Paracord extends ClientFiller {
-  get userCount(): number {
+  get userCount() {
+    if (!this.client.guilds) return undefined
     return Array.from(this.client.guilds.values as ArrayLike<AnyObject>).reduce(
       (count: number, guild: AnyObject) => count + guild.member_count,
       0
