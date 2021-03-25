@@ -1,3 +1,4 @@
+import { AnyObject } from '../../Utils/Util'
 import { Shard } from '../../Utils/Constants'
 import { ClientFiller } from '../ClientFiller'
 
@@ -7,9 +8,16 @@ import { ClientFiller } from '../ClientFiller'
  */
 export default class DiscordJS extends ClientFiller {
   get userCount(): number {
-    if (this.client.users?.constructor?.name === 'UserManager')
-      return this.client.users?.cache?.size
-    else return this.client.users?.size
+    if (this.client.guilds?.constructor?.name === 'GuildManager')
+      return this.client.guilds?.cache?.reduce(
+        (count: number, guild: AnyObject) => count + guild.memberCount,
+        0
+      )
+    else
+      return this.client.guilds?.reduce(
+        (count: number, guild: AnyObject) => count + guild.memberCount,
+        0
+      )
   }
 
   get serverCount(): number {

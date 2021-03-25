@@ -19,7 +19,7 @@ export class ClientFiller {
     this.client = client
   }
 
-  /** Gets the amount of users the bot has cached. */
+  /** Gets the amount of users the bot can reach. */
   get userCount(): number | undefined {
     return 0
   }

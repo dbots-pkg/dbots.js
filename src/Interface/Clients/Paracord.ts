@@ -1,3 +1,4 @@
+import { AnyObject } from '../../Utils/Util'
 import { ClientFiller } from '../ClientFiller'
 
 /**
@@ -5,8 +6,12 @@ import { ClientFiller } from '../ClientFiller'
  * @private
  */
 export default class Paracord extends ClientFiller {
-  get userCount(): number {
-    return this.client.users?.size
+  get userCount() {
+    if (!this.client.guilds) return undefined
+    return Array.from(this.client.guilds.values as ArrayLike<AnyObject>).reduce(
+      (count: number, guild: AnyObject) => count + guild.member_count,
+      0
+    )
   }
 
   get serverCount(): number {
