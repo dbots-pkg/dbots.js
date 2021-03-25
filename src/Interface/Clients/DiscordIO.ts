@@ -9,8 +9,7 @@ import { ClientFiller } from '../ClientFiller'
 export default class DiscordIO extends ClientFiller {
   get userCount() {
     if (!this.client.servers) return undefined
-    return Object.keys(this.client.servers)
-      .map((id) => this.client.servers[id])
+    return Object.values(this.client.servers)
       .reduce(
         (count: number, guild: AnyObject) => count + guild.member_count,
         0
