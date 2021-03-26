@@ -37,10 +37,15 @@ export default class DiscordJS extends ClientFiller {
 
   get shard(): Shard | undefined {
     return this.client.shard
-      ? {
-          id: this.client.shard.id,
-          count: this.client.shard.count
-        }
+      ? this.client.shard?.ids // True if on v12
+        ? {
+            id: this.client.guilds?.cache?.find((g: any) => g.shardID)?.shardID,
+            count: this.client.shard.count
+          }
+        : {
+            id: this.client.shard.id,
+            count: this.client.shard.count
+          }
       : undefined
   }
 }
