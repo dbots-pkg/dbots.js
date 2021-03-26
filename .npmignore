@@ -15,6 +15,7 @@ deploy/
 scripts/
 static/
 docs/
+coverage/
 
 # NPM ignore
 .eslintrc.json
