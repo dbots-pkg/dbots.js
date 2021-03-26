@@ -22,8 +22,8 @@ export default class Paracord extends ClientFiller {
    * <warn>This client does not yet support voice connections.</warn>
    * @private
    */
-  get voiceConnections(): number {
-    return 0
+  get voiceConnections(): undefined {
+    return undefined
   }
 
   get clientID(): string | undefined {
