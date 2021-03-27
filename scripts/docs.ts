@@ -2,21 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import { runGenerator } from 'ts-docgen'
 
-// Update docs/general/welcome.md to track README.md
-const README = fs
-  .readFileSync(path.join(__dirname, '../README.md'), { encoding: 'utf8' })
-  .replace(/https:\/\/dbots\.js\.org\/#([\w/]+)/, '#$1')
-fs.writeFileSync(path.join(__dirname, '../docs/general/welcome.md'), README)
-
-// Update docs/general/changelog.md to track CHANGELOG.md
-const CHANGELOG = fs
-  .readFileSync(path.join(__dirname, '../CHANGELOG.md'), { encoding: 'utf8' })
-  .replace(/https:\/\/dbots\.js\.org\/#([\w/]+)/, '#$1')
-fs.writeFileSync(
-  path.join(__dirname, '../docs/general/changelog.md'),
-  CHANGELOG
-)
-
 // Update docs/general/services.md to reflect source changes
 var interfaceFolder = path.join(__dirname, '../src/Interface/Lists')
 const listClasses = fs.readdirSync(interfaceFolder)
@@ -30,11 +15,6 @@ for (const filename of listClasses) {
     websiteURL
   } = require(filePath).default
   const className = path.basename(filePath, '.ts')
-  var ref
-  if (process.env.GITHUB_REF) {
-    const arr = process.env.GITHUB_REF.split('/')
-    ref = arr[arr.length - 1]
-  }
   services += `
 
 <div align=center>
@@ -47,9 +27,7 @@ for (const filename of listClasses) {
 Keys: ${aliases.map((key: string) => `\`${key}\``).join(', ')}${
     '  ' /* This is just to avoid prettier deleting the spaces*/
   }
-Class: [dbots.${className}](${
-    ref ? `/#/docs/main/${ref}/class/${className}` : ''
-  })${'  '}
+Class: [dbots.${className}](/#/docs/main/$$$ref/class/${className})${'  '}
 Website: ${websiteURL}
 </div>`
 }
