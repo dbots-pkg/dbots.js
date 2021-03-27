@@ -2,10 +2,12 @@
   files:
     - name: Welcome
       path: ../../README.md
+      id: welcome
     - name: Supported Services
       path: services.md
     - name: Changelog
       path: ../../CHANGELOG.md
+      id: changelog
 - name: Examples
   files:
     - name: With a Client
