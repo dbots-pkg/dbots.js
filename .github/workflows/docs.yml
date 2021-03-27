@@ -7,10 +7,9 @@ on:
     paths:
       - 'src/**'
       - 'docs/**'
-      - '.github/workflows/deployment.yml'
+      - '.github/workflows/docs.yml'
       - 'scripts/docs.ts'
       - 'package.json'
-      - 'README.md'
   workflow_dispatch:
 
 jobs:
