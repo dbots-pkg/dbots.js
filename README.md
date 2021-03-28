@@ -43,7 +43,7 @@
 
 ## About
 
-`dbots` helps [Discord](https://discordapp.com) bot developers group all your statistic posting needs into one poster, complete with seperate posting, API wrappers for supported lists, and an interval to post to all services every `n` seconds.
+`dbots` helps [Discord](https://discordapp.com) bot developers group all your statistic posting needs into one poster, complete with separate posting, API wrappers for supported lists, and an interval to post to all services every `n` seconds.
 
 ## Installing
 
@@ -72,7 +72,7 @@ yarn add ssh://github.com/dbots-pkg/dbots.js#master
 ## Supported Services
 
 The supported services list has been moved into the website.
-You can see a full (and automatically updated) list of usables services [here](https://dbots.js.org/#/docs/main/latest/general/services).
+You can see a full (and automatically updated) list of usable services [here](https://dbots.js.org/#/docs/main/latest/general/services).
 
 ## Changelog
 
@@ -80,7 +80,7 @@ You can see the changelog for every version [here](https://dbots.js.org/#/docs/m
 
 ## Contribution
 
-Any contribution may be useful for the package! Make sure when making issues or PRs that the issue has not been addressed yet in a past issue/PR.
+Any contribution may be useful for the package! Make sure when making issues or PRs that the matter has not been addressed yet in a past issue/PR.
 
 ## Other Links
 
