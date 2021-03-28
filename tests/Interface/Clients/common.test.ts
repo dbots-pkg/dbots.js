@@ -6,51 +6,80 @@ import Collection from '@discordjs/collection'
 const clientsDir = path.join(__dirname, '../../../src/Interface/Clients')
 
 const fakeClients = {
-  Discordie: {
-    Guilds: {
-      size: 123,
-      toArray: () => [1, 2, 3].map((n) => ({ member_count: n }))
-    },
-    VoiceConnections: [1, 2, 3],
-    User: { id: 'abc' },
-    options: {
-      shardId: 'abc',
-      shardCount: 123
+  Discordie: [
+    {
+      Guilds: {
+        size: 123,
+        toArray: () => [1, 2, 3].map((n) => ({ member_count: n }))
+      },
+      VoiceConnections: [1, 2, 3],
+      User: { id: 'abc' },
+      options: {
+        shardId: 'abc',
+        shardCount: 123
+      }
     }
-  },
-  DiscordIO: {
-    servers: [1, 2, 3].map((n) => ({ member_count: n })),
-    _vChannels: [1, 2, 3],
-    id: 'abc',
-    _shard: ['abc', 123]
-  },
-  DiscordJS: {
-    guilds: {
-      constructor: { name: 'GuildManager' },
-      cache: new Collection([1, 2, 3].map((n) => [n, { memberCount: n }]))
-    },
-    voice: { broadcasts: [1, 2, 3] },
-    user: { id: 'abc' },
-    shard: {
+  ],
+  DiscordIO: [
+    {
+      servers: [1, 2, 3].map((n) => ({ member_count: n })),
+      _vChannels: [1, 2, 3],
       id: 'abc',
-      count: 123
+      _shard: ['abc', 123]
     }
-  },
-  Eris: {
-    guilds: new Collection([1, 2, 3].map((n) => [n, { memberCount: n }])),
-    voiceConnections: {
-      constructor: { name: 'VoiceConnectionManager' },
-      size: 123
+  ],
+  DiscordJS: [
+    {
+      // v11
+      guilds: new Collection([1, 2, 3].map((n) => [n, { memberCount: n }])),
+      broadcasts: { size: 123 },
+      user: { id: 'abc' },
+      shard: {
+        id: 'abc',
+        count: 123
+      }
     },
-    user: { id: 'abc' }
-  },
-  Paracord: {
-    guilds: {
-      values: [1, 2, 3].map((n) => [n, { member_count: n }]),
-      size: 123
+    {
+      // v12
+      guilds: {
+        constructor: { name: 'GuildManager' },
+        cache: new Collection([1, 2, 3].map((n) => [n, { memberCount: n }]))
+      },
+      voice: { broadcasts: [1, 2, 3] },
+      user: { id: 'abc' },
+      shard: {
+        ids: [123],
+        count: 123
+      }
     },
-    user: { id: 'abc' }
-  }
+    {
+      // v12, unsupported sharding
+      testAsEmpty: true,
+      shard: {
+        ids: [1, 2, 3],
+        count: 123
+      }
+    }
+  ],
+  Eris: [
+    {
+      guilds: new Collection([1, 2, 3].map((n) => [n, { memberCount: n }])),
+      voiceConnections: {
+        constructor: { name: 'VoiceConnectionManager' },
+        size: 123
+      },
+      user: { id: 'abc' }
+    }
+  ],
+  Paracord: [
+    {
+      guilds: {
+        values: [1, 2, 3].map((n) => [n, { member_count: n }]),
+        size: 123
+      },
+      user: { id: 'abc' }
+    }
+  ]
 }
 const noVoiceFillers: (keyof typeof fakeClients)[] = ['Paracord']
 const noShardFillers: (keyof typeof fakeClients)[] = ['Eris', 'Paracord']
@@ -64,7 +93,6 @@ fs.readdirSync(clientsDir).forEach((file) => {
 
     describe(`${fileName} class`, () => {
       const emptyClient = new Client({})
-      const fakeClient = fakeClients[fileName]
 
       const testClient = (c: ClientFiller, name: string, empty = false) => {
         const eType = empty ? 'undefined' : undefined
@@ -108,7 +136,13 @@ fs.readdirSync(clientsDir).forEach((file) => {
       }
 
       testClient(emptyClient, 'empty client', true)
-      if (fakeClient) testClient(new Client(fakeClient), 'fake client')
+      fakeClients[fileName]?.forEach((client: any, index: number) =>
+        testClient(
+          new Client(client),
+          `fake client [${index}]`,
+          client.testAsEmpty
+        )
+      )
     })
   })
 })
