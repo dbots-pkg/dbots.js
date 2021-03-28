@@ -57,12 +57,6 @@ export default class DiscordJS extends ClientFiller {
         count: this.client.shard.count
       }
 
-    if (typeof this.client.options?.shards == 'number')
-      // v12 supported, manual
-      return {
-        id: this.client.options.shards,
-        count: this.client.options.shardCount
-      }
 
     return undefined
   }
