@@ -9,10 +9,12 @@ import { ClientFiller } from '../ClientFiller'
 export default class DiscordJS extends ClientFiller {
   get userCount(): number {
     if (this.client.guilds?.constructor?.name === 'GuildManager')
+      // v12
       return this.client.guilds?.cache?.reduce(
         (count: number, guild: AnyObject) => count + guild.memberCount,
         0
       )
+    // v11
     else
       return this.client.guilds?.reduce(
         (count: number, guild: AnyObject) => count + guild.memberCount,
@@ -22,13 +24,16 @@ export default class DiscordJS extends ClientFiller {
 
   get serverCount(): number {
     if (this.client.guilds?.constructor?.name === 'GuildManager')
+      // v12
       return this.client.guilds?.cache?.size
-    else return this.client.guilds?.size
+    else return this.client.guilds?.size // v11
   }
 
   get voiceConnections(): number {
-    if (this.client.voice) return this.client.voice.broadcasts?.length || 0
-    else return this.client.broadcasts?.size
+    if (this.client.voice)
+      // v12
+      return this.client.voice.broadcasts?.length || 0
+    else return this.client.broadcasts?.size // v11
   }
 
   get clientID(): string | undefined {
@@ -36,10 +41,7 @@ export default class DiscordJS extends ClientFiller {
   }
 
   get shard(): Shard | undefined {
-    if (
-      (this.client.shard?.ids && this.client.shard?.ids.length !== 1) ||
-      this.client.options?.shards instanceof Array
-    )
+    if (this.client.shard?.ids && this.client.shard?.ids.length !== 1)
       // v12 unsupported
       return undefined
 
@@ -56,7 +58,6 @@ export default class DiscordJS extends ClientFiller {
         id: this.client.shard.ids[0],
         count: this.client.shard.count
       }
-
 
     return undefined
   }
