@@ -15,6 +15,7 @@ module.exports = {
   entry: './src/index.ts',
   mode: prod ? 'production' : 'development',
   devtool: 'source-map',
+  cache: false,
   output: {
     path: path.resolve('./webpack'),
     filename,
@@ -48,7 +49,6 @@ module.exports = {
   optimization: {
     minimizer: [
       new TerserJSPlugin({
-        cache: false,
         terserOptions: {
           mangle: { keep_classnames: true },
           compress: { keep_classnames: true },
