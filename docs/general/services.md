@@ -1,4 +1,4 @@
-# Supported Services (31)
+# Supported Services (32)
 
 <div align=center>
   <p>
@@ -272,6 +272,19 @@ Website: https://discordservices.net
 Keys: `disforge`, `disforge.com`  
 Class: [dbots.Disforge](/#/docs/main/$$$ref/class/Disforge)  
 Website: https://disforge.com/bots
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://cdn.discordapp.com/avatars/798951566634778641/dfb619dd43f9039dbd4d7854845aa0ca.png" alt="fateslist logo" width="100" align="left" />
+  </p>
+  <i id="fateslist"></i>
+  <i id="fateslist.xyz"></i>
+  <a href="https://fateslist.xyz/"><h1>Fates List</h1></a>
+
+Keys: `fateslist`, `fateslist.xyz`  
+Class: [dbots.FatesList](/#/docs/main/$$$ref/class/FatesList)  
+Website: https://fateslist.xyz/
 </div>
 
 <div align=center>
