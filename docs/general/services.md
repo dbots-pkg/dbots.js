@@ -302,15 +302,15 @@ Website: https://glennbotlist.xyz
 
 <div align=center>
   <p>
-    <img src="https://i.imgur.com/x0LCfAh.png" alt="infinitybots logo" width="100" align="left" />
+    <img src="https://i.imgur.com/x0LCfAh.png" alt="infinitybotlist logo" width="100" align="left" />
   </p>
-  <i id="infinitybots"></i>
-  <i id="infinitybots.xyz"></i>
-  <a href="https://infinitybots.xyz"><h1>Infinity Bot List</h1></a>
+  <i id="infinitybotlist"></i>
+  <i id="infinitybotlist.com"></i>
+  <a href="https://infinitybotlist.com/"><h1>Infinity Bot List</h1></a>
 
-Keys: `infinitybots`, `infinitybots.xyz`  
-Class: [InfinityBots](/#/docs/main/$$$ref/class/InfinityBots)  
-Website: https://infinitybots.xyz
+Keys: `infinitybotlist`, `infinitybotlist.com`  
+Class: [InfinityBotList](/#/docs/main/$$$ref/class/InfinityBotList)  
+Website: https://infinitybotlist.com/
 </div>
 
 <div align=center>
