@@ -10,4 +10,3 @@ export * as Util from './Utils/Util'
 
 export { Service }
 export const getService = Service.get
-export const serviceClasses = Service.getAll()

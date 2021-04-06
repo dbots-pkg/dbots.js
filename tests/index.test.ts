@@ -11,6 +11,5 @@ describe('Library exports', () => {
     expect(typeof dbots.Util).toBe('object')
     expect(typeof dbots.Service).toBe('function')
     expect(typeof dbots.getService).toBe('function')
-    expect(typeof dbots.serviceClasses).toBe('object')
   })
 })
