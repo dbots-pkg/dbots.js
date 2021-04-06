@@ -224,19 +224,6 @@ Website: https://bots.discordlabs.org/
 
 <div align=center>
   <p>
-    <img src="https://discordlistology.com/idiscord.png" alt="discordlistology logo" width="100" align="left" />
-  </p>
-  <i id="discordlistology"></i>
-  <i id="discordlistology.com"></i>
-  <a href="https://discordlistology.com/"><h1>DiscordListology</h1></a>
-
-Keys: `discordlistology`, `discordlistology.com`  
-Class: [DiscordListology](/#/docs/main/$$$ref/class/DiscordListology)  
-Website: https://discordlistology.com/
-</div>
-
-<div align=center>
-  <p>
     <img src="https://discordlist.space/img/android-chrome-512x512.png" alt="discordlistspace logo" width="100" align="left" />
   </p>
   <i id="discordlistspace"></i>
@@ -248,6 +235,19 @@ Website: https://discordlistology.com/
 Keys: `discordlistspace`, `discordlist.space`, `botlistspace`, `botlist.space`  
 Class: [DiscordListSpace](/#/docs/main/$$$ref/class/DiscordListSpace)  
 Website: https://discordlist.space
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://discordlistology.com/idiscord.png" alt="discordlistology logo" width="100" align="left" />
+  </p>
+  <i id="discordlistology"></i>
+  <i id="discordlistology.com"></i>
+  <a href="https://discordlistology.com/"><h1>DiscordListology</h1></a>
+
+Keys: `discordlistology`, `discordlistology.com`  
+Class: [DiscordListology](/#/docs/main/$$$ref/class/DiscordListology)  
+Website: https://discordlistology.com/
 </div>
 
 <div align=center>
