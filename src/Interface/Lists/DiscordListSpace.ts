@@ -3,7 +3,7 @@ import { Util, CountResolvable, IDResolvable } from '../../Utils/Util'
 import { Query } from '../../Utils/Constants'
 
 /**
- * Represents the botlist.space service.
+ * Represents the discordlist.space service.
  * @see https://docs.botlist.space/
  */
 export default class DiscordListSpace extends Service {
