@@ -27,7 +27,7 @@ for (const filename of listClasses) {
 Keys: ${aliases.map((key: string) => `\`${key}\``).join(', ')}${
     '  ' /* This is just to avoid prettier deleting the spaces*/
   }
-Class: [dbots.${className}](/#/docs/main/$$$ref/class/${className})${'  '}
+Class: [${className}](/#/docs/main/$$$ref/class/${className})${'  '}
 Website: ${websiteURL}
 </div>`
 }
