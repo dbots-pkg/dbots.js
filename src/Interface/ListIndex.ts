@@ -6,7 +6,6 @@ import Arcane from './Lists/Arcane'
 import AstroBotList from './Lists/AstroBotList'
 import BladeBotList from './Lists/BladeBotList'
 import Blist from './Lists/Blist'
-import BotListSpace from './Lists/BotListSpace'
 import BotsDataBase from './Lists/BotsDataBase'
 import BotsForDiscord from './Lists/BotsForDiscord'
 import BotsOnDiscord from './Lists/BotsOnDiscord'
@@ -21,6 +20,7 @@ import DiscordBotsGG from './Lists/DiscordBotsGG'
 import DiscordExtremeList from './Lists/DiscordExtremeList'
 import DiscordLabs from './Lists/DiscordLabs'
 import DiscordListology from './Lists/DiscordListology'
+import DiscordListSpace from './Lists/DiscordListSpace'
 import DiscordServices from './Lists/DiscordServices'
 import Disforge from './Lists/Disforge'
 import FatesList from './Lists/FatesList'
@@ -45,8 +45,6 @@ export const serviceList = {
   'bladebotlist.xyz': BladeBotList,
   'blist': Blist,
   'blist.xyz': Blist,
-  'botlistspace': BotListSpace,
-  'botlist.space': BotListSpace,
   'botsdatabase': BotsDataBase,
   'botsdatabase.com': BotsDataBase,
   'botsfordiscord': BotsForDiscord,
@@ -76,6 +74,10 @@ export const serviceList = {
   'discordlabs.org': DiscordLabs,
   'discordlistology': DiscordListology,
   'discordlistology.com': DiscordListology,
+  'discordlistspace': DiscordListSpace,
+  'discordlist.space': DiscordListSpace,
+  'botlistspace': DiscordListSpace,
+  'botlist.space': DiscordListSpace,
   'discordservices': DiscordServices,
   'discordservices.net': DiscordServices,
   'disforge': Disforge,
