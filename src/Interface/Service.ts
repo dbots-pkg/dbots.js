@@ -63,11 +63,11 @@ export class Service {
    * @param key The name of the service to get
    * @param extras An array of {@link CustomService}s to include
    */
+  static get(key: string, extras?: CustomService[]): typeof Service | null
   static get<T extends keyof typeof serviceList>(
     key: T,
     extras?: CustomService[]
   ): typeof serviceList[T]
-  static get(key: string, extras?: CustomService[]): typeof Service | null
   static get(key: string, extras: CustomService[] = []): typeof Service | null {
     if (!key || typeof key !== 'string') return null
 
