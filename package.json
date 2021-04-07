@@ -8,6 +8,7 @@
   "jsdelivr": "./webpack/dbots.min.js",
   "scripts": {
     "build": "([ ! -d \"lib/\" ] || rm -r lib/*) && npx tsc",
+    "build:source": "npx ts-node scripts/list-index",
     "build:prepare": "[ -d \"lib/\" ] || npm run build",
     "changelog": "ts-node scripts/changelog && npm i --package-lock-only",
     "docs": "ts-node scripts/docs",

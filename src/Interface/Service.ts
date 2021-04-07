@@ -6,6 +6,7 @@ const { Error } = errors
 import buildURL from 'axios/lib/helpers/buildURL'
 import { CustomService, Query, Shard } from '../Utils/Constants'
 import { assert, CountResolvable, IDResolvable } from '../Utils/Util'
+import { serviceList } from './ListIndex'
 
 /** Options provided when sending a service request */
 export interface ServiceRequestOptions {
@@ -62,6 +63,11 @@ export class Service {
    * @param key The name of the service to get
    * @param extras An array of {@link CustomService}s to include
    */
+  static get<T extends keyof typeof serviceList>(
+    key: T,
+    extras?: CustomService[]
+  ): typeof serviceList[T]
+  static get(key: string, extras?: CustomService[]): typeof Service | null
   static get(key: string, extras: CustomService[] = []): typeof Service | null {
     if (!key || typeof key !== 'string') return null
 
