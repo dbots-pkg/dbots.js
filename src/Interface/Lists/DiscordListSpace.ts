@@ -3,33 +3,38 @@ import { Util, CountResolvable, IDResolvable } from '../../Utils/Util'
 import { Query } from '../../Utils/Constants'
 
 /**
- * Represents the botlist.space service.
+ * Represents the discordlist.space service.
  * @see https://docs.botlist.space/
  */
-export default class BotListSpace extends Service {
+export default class DiscordListSpace extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['botlistspace', 'botlist.space']
+    return [
+      'discordlistspace',
+      'discordlist.space',
+      'botlistspace',
+      'botlist.space'
+    ]
   }
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://botlist.space/img/android-chrome-512x512.png'
+    return 'https://discordlist.space/img/android-chrome-512x512.png'
   }
 
   /** Service's name. */
   static get serviceName() {
-    return 'botlist.space'
+    return 'discordlist.space'
   }
 
   /** The website URL. */
   static get websiteURL() {
-    return 'https://botlist.space'
+    return 'https://discordlist.space'
   }
 
   /** The base URL of the service's API. */
   static get baseURL() {
-    return 'https://api.botlist.space/v1'
+    return 'https://api.discordlist.space/v1'
   }
 
   /**
