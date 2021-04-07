@@ -54,19 +54,6 @@ Website: https://blist.xyz
 
 <div align=center>
   <p>
-    <img src="https://botlist.space/img/android-chrome-512x512.png" alt="botlistspace logo" width="100" align="left" />
-  </p>
-  <i id="botlistspace"></i>
-  <i id="botlist.space"></i>
-  <a href="https://botlist.space"><h1>botlist.space</h1></a>
-
-Keys: `botlistspace`, `botlist.space`  
-Class: [BotListSpace](/#/docs/main/$$$ref/class/BotListSpace)  
-Website: https://botlist.space
-</div>
-
-<div align=center>
-  <p>
     <img src="https://botsdatabase.com/images/icons/favicon-96x96.png" alt="botsdatabase logo" width="100" align="left" />
   </p>
   <i id="botsdatabase"></i>
@@ -233,6 +220,21 @@ Website: https://discordextremelist.xyz/
 Keys: `discordlabs`, `discordlabs.org`  
 Class: [DiscordLabs](/#/docs/main/$$$ref/class/DiscordLabs)  
 Website: https://bots.discordlabs.org/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://discordlist.space/img/android-chrome-512x512.png" alt="discordlistspace logo" width="100" align="left" />
+  </p>
+  <i id="discordlistspace"></i>
+  <i id="discordlist.space"></i>
+  <i id="botlistspace"></i>
+  <i id="botlist.space"></i>
+  <a href="https://discordlist.space"><h1>discordlist.space</h1></a>
+
+Keys: `discordlistspace`, `discordlist.space`, `botlistspace`, `botlist.space`  
+Class: [DiscordListSpace](/#/docs/main/$$$ref/class/DiscordListSpace)  
+Website: https://discordlist.space
 </div>
 
 <div align=center>
