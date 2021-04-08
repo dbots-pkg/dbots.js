@@ -6,14 +6,11 @@ import Arcane from './Lists/Arcane'
 import AstroBotList from './Lists/AstroBotList'
 import BladeBotList from './Lists/BladeBotList'
 import Blist from './Lists/Blist'
-import BotsDataBase from './Lists/BotsDataBase'
 import BotsForDiscord from './Lists/BotsForDiscord'
 import BotsOnDiscord from './Lists/BotsOnDiscord'
 import Carbon from './Lists/Carbon'
 import DBots from './Lists/DBots'
-import DiscordAppsDev from './Lists/DiscordAppsDev'
 import DiscordBoats from './Lists/DiscordBoats'
-import DiscordBotDirectory from './Lists/DiscordBotDirectory'
 import DiscordBotList from './Lists/DiscordBotList'
 import DiscordBotsCo from './Lists/DiscordBotsCo'
 import DiscordBotsGG from './Lists/DiscordBotsGG'
@@ -26,8 +23,6 @@ import Disforge from './Lists/Disforge'
 import FatesList from './Lists/FatesList'
 import GlennBotList from './Lists/GlennBotList'
 import InfinityBotList from './Lists/InfinityBotList'
-import ListMyBots from './Lists/ListMyBots'
-import ParadiseBots from './Lists/ParadiseBots'
 import SpaceBotsList from './Lists/SpaceBotsList'
 import TopCord from './Lists/TopCord'
 import TopGG from './Lists/TopGG'
@@ -45,8 +40,6 @@ export const serviceList = {
   'bladebotlist.xyz': BladeBotList,
   'blist': Blist,
   'blist.xyz': Blist,
-  'botsdatabase': BotsDataBase,
-  'botsdatabase.com': BotsDataBase,
   'botsfordiscord': BotsForDiscord,
   'botsfordiscord.com': BotsForDiscord,
   'botsondiscord': BotsOnDiscord,
@@ -56,12 +49,8 @@ export const serviceList = {
   'carbon': Carbon,
   'dbots': DBots,
   'dbots.co': DBots,
-  'discordappsdev': DiscordAppsDev,
-  'discordapps.dev': DiscordAppsDev,
   'discordboats': DiscordBoats,
   'discord.boats': DiscordBoats,
-  'discordbotdirectory': DiscordBotDirectory,
-  'discordbotdirectory.net': DiscordBotDirectory,
   'discordbotlist': DiscordBotList,
   'discordbotlist.com': DiscordBotList,
   'discordbotsco': DiscordBotsCo,
@@ -88,10 +77,6 @@ export const serviceList = {
   'glennbotlist.xyz': GlennBotList,
   'infinitybotlist': InfinityBotList,
   'infinitybotlist.com': InfinityBotList,
-  'listmybots': ListMyBots,
-  'listmybots.com': ListMyBots,
-  'paradisebots': ParadiseBots,
-  'paradisebots.net': ParadiseBots,
   'spacebotslist': SpaceBotsList,
   'space-bot-list.xyz': SpaceBotsList,
   'topcord': TopCord,
