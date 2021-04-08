@@ -1,17 +1,4 @@
-# Supported Services (32)
-
-<div align=center>
-  <p>
-    <img src="https://arcane-center.xyz/src/images/favicons/favicon.png" alt="arcane logo" width="100" align="left" />
-  </p>
-  <i id="arcane"></i>
-  <i id="arcane-center.xyz"></i>
-  <a href="https://arcane-center.xyz"><h1>Arcane Bot List</h1></a>
-
-Keys: `arcane`, `arcane-center.xyz`  
-Class: [Arcane](/#/docs/main/$$$ref/class/Arcane)  
-Website: https://arcane-center.xyz
-</div>
+# Supported Services (26)
 
 <div align=center>
   <p>
@@ -50,19 +37,6 @@ Website: https://bladebotlist.xyz
 Keys: `blist`, `blist.xyz`  
 Class: [Blist](/#/docs/main/$$$ref/class/Blist)  
 Website: https://blist.xyz
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://botsdatabase.com/images/icons/favicon-96x96.png" alt="botsdatabase logo" width="100" align="left" />
-  </p>
-  <i id="botsdatabase"></i>
-  <i id="botsdatabase.com"></i>
-  <a href="https://botsdatabase.com"><h1>BotsDataBase</h1></a>
-
-Keys: `botsdatabase`, `botsdatabase.com`  
-Class: [BotsDataBase](/#/docs/main/$$$ref/class/BotsDataBase)  
-Website: https://botsdatabase.com
 </div>
 
 <div align=center>
@@ -120,19 +94,6 @@ Website: https://dbots.co/
 
 <div align=center>
   <p>
-    <img src="https://api.discordapps.dev/img/logo/logo128.png" alt="discordappsdev logo" width="100" align="left" />
-  </p>
-  <i id="discordappsdev"></i>
-  <i id="discordapps.dev"></i>
-  <a href="https://discordapps.dev"><h1>Discord Apps</h1></a>
-
-Keys: `discordappsdev`, `discordapps.dev`  
-Class: [DiscordAppsDev](/#/docs/main/$$$ref/class/DiscordAppsDev)  
-Website: https://discordapps.dev
-</div>
-
-<div align=center>
-  <p>
     <img src="https://discord.boats/android-icon-192x192.png" alt="discordboats logo" width="100" align="left" />
   </p>
   <i id="discordboats"></i>
@@ -142,19 +103,6 @@ Website: https://discordapps.dev
 Keys: `discordboats`, `discord.boats`  
 Class: [DiscordBoats](/#/docs/main/$$$ref/class/DiscordBoats)  
 Website: https://discord.boats
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://discordbotdirectory.net/assets/img/logo.png" alt="discordbotdirectory logo" width="100" align="left" />
-  </p>
-  <i id="discordbotdirectory"></i>
-  <i id="discordbotdirectory.net"></i>
-  <a href="https://discordbotdirectory.net"><h1>Discord Bot Directory</h1></a>
-
-Keys: `discordbotdirectory`, `discordbotdirectory.net`  
-Class: [DiscordBotDirectory](/#/docs/main/$$$ref/class/DiscordBotDirectory)  
-Website: https://discordbotdirectory.net
 </div>
 
 <div align=center>
@@ -313,32 +261,6 @@ Website: https://glennbotlist.xyz
 Keys: `infinitybotlist`, `infinitybotlist.com`  
 Class: [InfinityBotList](/#/docs/main/$$$ref/class/InfinityBotList)  
 Website: https://infinitybotlist.com/
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://get.snaz.in/5Vm5J7i.png" alt="listmybots logo" width="100" align="left" />
-  </p>
-  <i id="listmybots"></i>
-  <i id="listmybots.com"></i>
-  <a href="https://listmybots.com/"><h1>List My Bots</h1></a>
-
-Keys: `listmybots`, `listmybots.com`  
-Class: [ListMyBots](/#/docs/main/$$$ref/class/ListMyBots)  
-Website: https://listmybots.com/
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://i.imgur.com/Df2seyl.png" alt="paradisebots logo" width="100" align="left" />
-  </p>
-  <i id="paradisebots"></i>
-  <i id="paradisebots.net"></i>
-  <a href="https://paradisebots.net/"><h1>Paradise Bots</h1></a>
-
-Keys: `paradisebots`, `paradisebots.net`  
-Class: [ParadiseBots](/#/docs/main/$$$ref/class/ParadiseBots)  
-Website: https://paradisebots.net/
 </div>
 
 <div align=center>
