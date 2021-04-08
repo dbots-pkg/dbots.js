@@ -9,6 +9,32 @@ You can see the docs for every version at [here](https://dbots.js.org/#/docs).
 
 ## [Unreleased]
 
+## [9.0.0] - 2021-04-08
+
+### Global breaking changes:
+
+- `serviceClasses`: the `serviceClasses` property will no longer be exported as a member of the module. You can still get a record with every list using `Service.getAll()`. (#203)
+- We're dropping support for internal class names: that means that from now on, we could change the service class names without marking it as a breaking change. In order to avoid issues with your code, please use the `Service.get()` method to get service classes, instead of importing them directly. This version already contains some changes to class names, so make sure that you're importing them in the supported way. (#203)
+- Removed services: Arcane, BotsDataBase, DiscordAppsDev, DiscordBotsDirectory, ListMyBots, ParadiseBots (#204).
+  These lists have been removed because they've been shut down.
+
+More list-specific breaking changes are listed below
+
+### Fixed:
+
+- **BREAKING** InfinityBots: update list name, aliases and URL (#199)
+- The package file now has a proper typings field
+- Clients: the fillers now calculate the user count using each guild's member count, instead of relying on the user cache size (ref #182)
+- Clients: improved consistency in getters' return types
+- DiscordJS: fixed the way that the filler gets the shard ID for discord.js@v12 (#184)
+- BotListSpace: update list name and URL (#202)
+
+### Added:
+
+- New service: FatesList (#186)
+
+### Fixed:
+
 ## [8.0.2] - 2021-03-23
 
 ### Fixed:
@@ -186,7 +212,7 @@ You can also refer to issue #71.
 - Update endpoints for ListMyBots, GlennBotList and DiscordBotList.
 
 <!-- prettier-ignore -->
-[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.2...HEAD
+[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v9.0.0...HEAD
 [4.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...v4.0.0
 [4.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.0.0...v4.1.0
 [5.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.1.0...v5.0.0
@@ -203,3 +229,4 @@ You can also refer to issue #71.
 [8.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v7.0.1...v8.0.0
 [8.0.1]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.0...v8.0.1
 [8.0.2]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.1...v8.0.2
+[9.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.2...v9.0.0
