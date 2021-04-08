@@ -15,9 +15,13 @@ module.exports = {
   plugins: ['@typescript-eslint', 'jest'],
   rules: {
     'prettier/prettier': 'warn',
-    'no-cond-assign': [2, 'except-parens'],
-    'no-unused-vars': 0,
-    '@typescript-eslint/no-unused-vars': 1,
+    'no-cond-assign': ['error', 'except-parens'],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    'no-redeclare': 'off',
+    '@typescript-eslint/no-redeclare': 'warn',
+    'no-dupe-class-members': 'off',
+    '@typescript-eslint/no-dupe-class-members': 'warn',
     'no-empty': [
       'error',
       {

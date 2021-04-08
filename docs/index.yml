@@ -16,3 +16,5 @@
       path: no-client.js
     - name: Custom Services
       path: custom-service.js
+    - name: Using Service classes
+      path: service-class.js
