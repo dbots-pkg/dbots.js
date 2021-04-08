@@ -1,17 +1,4 @@
-# Supported Services (27)
-
-<div align=center>
-  <p>
-    <img src="https://arcane-center.xyz/src/images/favicons/favicon.png" alt="arcane logo" width="100" align="left" />
-  </p>
-  <i id="arcane"></i>
-  <i id="arcane-center.xyz"></i>
-  <a href="https://arcane-center.xyz"><h1>Arcane Bot List</h1></a>
-
-Keys: `arcane`, `arcane-center.xyz`  
-Class: [Arcane](/#/docs/main/$$$ref/class/Arcane)  
-Website: https://arcane-center.xyz
-</div>
+# Supported Services (26)
 
 <div align=center>
   <p>
