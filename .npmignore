@@ -10,19 +10,20 @@ logs/
 deploy/
 
 # Miscellaneous
+.dependabot/
+.github/
 .tmp/
 .vscode/
+coverage/
+docs/
 scripts/
 static/
-docs/
-coverage/
+test/
 
-# NPM ignore
+# Config files
 .eslintrc.json
 .gitattributes
 .gitignore
-webpack.config.js
-.github/
-.dependabot/
-test/
+codecov.yml
 tsconfig.json
+webpack.config.js
