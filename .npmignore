@@ -27,3 +27,7 @@ test/
 codecov.yml
 tsconfig.json
 webpack.config.js
+.editorconfig
+.eslintignore
+.prettierrc
+jest.config.js
