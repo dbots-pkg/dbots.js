@@ -68,7 +68,7 @@
     "ts-docgen": "github:dbots-pkg/ts-docgen#v2",
     "ts-jest": "^26.4.4",
     "ts-loader": "^9.0.0",
-    "ts-node": "^9.0.0",
+    "ts-node": "^10.0.0",
     "typedoc-plugin-as-member-of": "^1.0.2",
     "typescript": "v4.2.x",
     "webpack": "^5.27.2",
