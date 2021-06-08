@@ -174,37 +174,53 @@ describe('Poster module', () => {
 
     describe('startInterval method', () => {
       const p = new Poster({ client: {} })
-      beforeEach(() => jest.useFakeTimers())
+      beforeAll(() => {
+        jest.useFakeTimers()
+      })
+
+      afterAll(() => {
+        jest.useRealTimers()
+      })
 
       it('should return the interval ID', () => {
         expect(new Poster({ client: {} }).startInterval()).toBeDefined()
       })
 
       it('should call clearTimeout (but only from the second use)', () => {
+        const spy = jest.spyOn(global, 'clearTimeout')
+
         const firstID = p.startInterval()
-        expect(clearTimeout).not.toHaveBeenCalled()
+        expect(spy).not.toHaveBeenCalled()
         p.startInterval()
-        expect(clearTimeout).toHaveBeenCalledTimes(1)
-        expect(clearTimeout).toHaveBeenLastCalledWith(firstID)
+        expect(spy).toHaveBeenCalledTimes(1)
+        expect(spy).toHaveBeenLastCalledWith(firstID)
+
+        spy.mockRestore()
       })
 
       it('should call setInterval', () => {
+        const spy = jest.spyOn(global, 'setInterval')
+
         p.startInterval(123)
-        expect(setInterval).toHaveBeenCalledWith(expect.any(Function), 123)
+        expect(spy).toHaveBeenCalledWith(expect.any(Function), 123)
+
+        spy.mockRestore()
       })
     })
 
     describe('stopInterval method', () => {
       const p = new Poster({ client: {} })
       it("should call clearTimeout (if there's an interval)", () => {
-        jest.useFakeTimers()
+        const spy = jest.spyOn(global, 'clearTimeout')
 
         p.stopInterval()
-        expect(clearTimeout).not.toHaveBeenCalled()
+        expect(spy).not.toHaveBeenCalled()
 
         const id = p.startInterval()
         p.stopInterval()
-        expect(clearTimeout).toHaveBeenLastCalledWith(id)
+        expect(spy).toHaveBeenLastCalledWith(id)
+
+        spy.mockRestore()
       })
     })
 
