@@ -45,11 +45,12 @@ Website: https://blist.xyz
   </p>
   <i id="botsfordiscord"></i>
   <i id="botsfordiscord.com"></i>
-  <a href="https://botsfordiscord.com"><h1>Bots For Discord</h1></a>
+  <i id="discords"></i>
+  <a href="https://discords.com/bots"><h1>Bots For Discord</h1></a>
 
-Keys: `botsfordiscord`, `botsfordiscord.com`  
+Keys: `botsfordiscord`, `botsfordiscord.com`, `discords`  
 Class: [BotsForDiscord](/#/docs/main/$$$ref/class/BotsForDiscord)  
-Website: https://botsfordiscord.com
+Website: https://discords.com/bots
 </div>
 
 <div align=center>
