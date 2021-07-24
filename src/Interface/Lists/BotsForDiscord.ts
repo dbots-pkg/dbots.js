@@ -4,7 +4,7 @@ import { Query } from '../../Utils/Constants'
 
 /**
  * Represents the Bots For Discord service.
- * @see https://discords.com/bots/
+ * @see https://docs.botsfordiscord.com/
  */
 export default class BotsForDiscord extends Service {
   /** The values that can be used to select the service. */
