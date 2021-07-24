@@ -39,6 +39,7 @@ export const serviceList = {
   'blist.xyz': Blist,
   'botsfordiscord': BotsForDiscord,
   'botsfordiscord.com': BotsForDiscord,
+  'discords': BotsForDiscord,
   'botsondiscord': BotsOnDiscord,
   'bots.ondiscord.xyz': BotsOnDiscord,
   'carbonitex': Carbon,

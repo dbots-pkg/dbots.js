@@ -9,7 +9,7 @@ import { Query } from '../../Utils/Constants'
 export default class BotsForDiscord extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['botsfordiscord', 'botsfordiscord.com']
+    return ['botsfordiscord', 'botsfordiscord.com', 'discords']
   }
 
   /** The logo URL. */
@@ -24,12 +24,12 @@ export default class BotsForDiscord extends Service {
 
   /** The website URL. */
   static get websiteURL() {
-    return 'https://botsfordiscord.com'
+    return 'https://discords.com/bots'
   }
 
   /** The base URL of the service's API. */
   static get baseURL() {
-    return 'https://botsfordiscord.com/api'
+    return 'https://discords.com/bots/api'
   }
 
   /**
