@@ -41,7 +41,7 @@ Website: https://blist.xyz
 
 <div align=center>
   <p>
-    <img src="https://botsfordiscord.com/img/manifest/icon-512x512.png" alt="botsfordiscord logo" width="100" align="left" />
+    <img src="https://discords.com/bots/img/manifest/icon-512x512.png" alt="botsfordiscord logo" width="100" align="left" />
   </p>
   <i id="botsfordiscord"></i>
   <i id="botsfordiscord.com"></i>
