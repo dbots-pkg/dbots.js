@@ -9,6 +9,11 @@ You can see the docs for every version at [here](https://dbots.js.org/#/docs).
 
 ## [Unreleased]
 
+## [9.0.1] - 2021-08-04
+
+### Fixed:
+- BotsForDiscord: updated the base API URL and the logo URL
+
 ## [9.0.0] - 2021-04-08
 
 ### Global breaking changes:
@@ -212,7 +217,7 @@ You can also refer to issue #71.
 - Update endpoints for ListMyBots, GlennBotList and DiscordBotList.
 
 <!-- prettier-ignore -->
-[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v9.0.0...HEAD
+[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v9.0.1...HEAD
 [4.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...v4.0.0
 [4.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.0.0...v4.1.0
 [5.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.1.0...v5.0.0
@@ -230,3 +235,4 @@ You can also refer to issue #71.
 [8.0.1]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.0...v8.0.1
 [8.0.2]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.1...v8.0.2
 [9.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.2...v9.0.0
+[9.0.1]: https://github.com/dbots-pkg/dbots.js/compare/v9.0.0...v9.0.1
