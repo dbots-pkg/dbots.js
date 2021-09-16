@@ -1,5 +1,5 @@
 import { Service, ServicePostOptions } from '../Service'
-import { Util, IDResolvable } from '../../Utils/Util'
+import { Util } from '../../Utils/Util'
 
 /**
  * Represents the DiscordBotlistEU service.
