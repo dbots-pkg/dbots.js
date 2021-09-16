@@ -48,9 +48,8 @@ export default class DiscordBotlistEU extends Service {
 
   /**
    * Get's the bots votes
-   * @param id The bot's ID
    */
-  getVotes(id: IDResolvable) {
+  getVotes() {
     return this._request(
       {
         url: `/votes`,
