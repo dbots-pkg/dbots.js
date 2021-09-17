@@ -41,19 +41,39 @@ export default class DiscordBotlistEU extends Service {
     return super._post({
       method: 'post',
       url: `/update`,
-      headers: { Authorization: token },
+      headers: { Authorization: `Bearer ${token}` },
       data: { serverCount: Util.resolveCount(serverCount) }
     })
   }
 
-  /**
-   * Get's the bots votes
-   */
+  /** Gets this bot */
+  getBot() {
+    return this._request(
+      {
+        url: `/ping`,
+        headers: { Authorization: `Bearer ${this.token}` }
+      },
+      { requiresToken: true }
+    )
+  }
+
+  /** Gets this bot's analytics */
+  getAnalytics() {
+    return this._request(
+      {
+        url: `/analytics`,
+        headers: { Authorization: `Bearer ${this.token}` }
+      },
+      { requiresToken: true }
+    )
+  }
+
+  /** Gets the bot's votes */
   getVotes() {
     return this._request(
       {
         url: `/votes`,
-        headers: { Authorization: this.token }
+        headers: { Authorization: `Bearer ${this.token}` }
       },
       { requiresToken: true }
     )
