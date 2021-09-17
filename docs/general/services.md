@@ -1,4 +1,4 @@
-# Supported Services (26)
+# Supported Services (27)
 
 <div align=center>
   <p>
@@ -117,6 +117,19 @@ Website: https://discord.boats
 Keys: `discordbotlist`, `discordbotlist.com`  
 Class: [DiscordBotList](/#/docs/main/$$$ref/class/DiscordBotList)  
 Website: https://discordbotlist.com
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://cdn.discord-botlist.eu/pictures/logo.png" alt="dbleu logo" width="100" align="left" />
+  </p>
+  <i id="dbleu"></i>
+  <i id="discordbotlisteu"></i>
+  <a href="https://discord-botlist.eu/"><h1>DiscordBotlist.EU</h1></a>
+
+Keys: `dbleu`, `discordbotlisteu`  
+Class: [DiscordBotlistEU](/#/docs/main/$$$ref/class/DiscordBotlistEU)  
+Website: https://discord-botlist.eu/
 </div>
 
 <div align=center>
