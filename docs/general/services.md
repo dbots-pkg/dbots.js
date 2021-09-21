@@ -292,7 +292,7 @@ Website: https://space-bot-list.xyz/
 
 <div align=center>
   <p>
-    <img src="https://avatars0.githubusercontent.com/u/69593894?v=4" alt="topcord logo" width="100" align="left" />
+    <img src="https://topcord.xyz/icons/TopCord.png" alt="topcord logo" width="100" align="left" />
   </p>
   <i id="topcord"></i>
   <i id="topcord.xyz"></i>
