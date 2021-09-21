@@ -13,7 +13,7 @@ export default class TopCord extends Service {
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://avatars0.githubusercontent.com/u/69593894?v=4'
+    return 'https://topcord.xyz/icons/TopCord.png'
   }
 
   /** Service's name. */
