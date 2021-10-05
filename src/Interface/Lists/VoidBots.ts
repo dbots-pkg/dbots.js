@@ -33,7 +33,7 @@ export default class VoidBots extends Service {
 
   /**
    * Posts statistics to this service.
-   * @param options The options of the request
+   * @param options The options of the request.
    */
   static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
@@ -52,7 +52,7 @@ export default class VoidBots extends Service {
 
   /**
    * Gets the bot listed on this service.
-   * @param id The bot's ID
+   * @param id The bot's ID.
    */
   getBot(id: IDResolvable) {
     return this._request(
@@ -68,13 +68,13 @@ export default class VoidBots extends Service {
 
   /**
    * Checks whether or not a user has voted for a bot on this service.
-   * @param botId The bot's ID
-   * @param userID The user's ID
+   * @param botID The bot's ID.
+   * @param userID The user's ID.
    */
-  userVoted(botId: IDResolvable, userID: IDResolvable) {
+  userVoted(botID: IDResolvable, userID: IDResolvable) {
     return this._request(
       {
-        url: `/bot/voted/${Util.resolveID(botId)}/${Util.resolveID(userID)}`,
+        url: `/bot/voted/${Util.resolveID(botID)}/${Util.resolveID(userID)}`,
         headers: {
           Authorization: this.token
         }
@@ -85,7 +85,7 @@ export default class VoidBots extends Service {
 
   /**
    * Gets the bot's reviews on this service.
-   * @param id The bot's ID
+   * @param id The bot's ID.
    */
   getBotReviews(id: IDResolvable) {
     return this._request(
@@ -99,7 +99,7 @@ export default class VoidBots extends Service {
 
   /**
    * Gets the bot's analytics on this service.
-   * @param id The bot's ID
+   * @param id The bot's ID.
    */
   getBotAnalytics(id: IDResolvable) {
     return this._request(

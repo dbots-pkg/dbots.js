@@ -34,7 +34,7 @@ export default class TopGG extends Service {
 
   /**
    * Posts statistics to this service.
-   * @param options The options of the request
+   * @param options The options of the request.
    */
   static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
@@ -54,7 +54,7 @@ export default class TopGG extends Service {
 
   /**
    * Gets the user listed on this service.
-   * @param id The user's ID
+   * @param id The user's ID.
    */
   getUser(id: IDResolvable) {
     return this._request(
@@ -68,7 +68,7 @@ export default class TopGG extends Service {
 
   /**
    * Gets the a of bots on this service that match your query (refer to Top.gg docs for query parameters).
-   * @param query The query string that will be used in the request
+   * @param query The query string that will be used in the request.
    */
   getBots(query: Query) {
     return this._request(
@@ -79,7 +79,7 @@ export default class TopGG extends Service {
 
   /**
    * Gets the bot listed on this service.
-   * @param id The bot's ID
+   * @param id The bot's ID.
    */
   getBot(id: IDResolvable) {
     return this._request(
@@ -93,7 +93,7 @@ export default class TopGG extends Service {
 
   /**
    * Gets the bot's stats listed on this service.
-   * @param id The bot's ID
+   * @param id The bot's ID.
    */
   getBotStats(id: IDResolvable) {
     return this._request(
@@ -107,7 +107,7 @@ export default class TopGG extends Service {
 
   /**
    * Gets the list of people who voted this bot on this service.
-   * @param id The bot's ID
+   * @param id The bot's ID.
    */
   getBotVotes(id: IDResolvable) {
     return this._request(
@@ -121,13 +121,13 @@ export default class TopGG extends Service {
 
   /**
    * Checks whether or not a user has voted for a bot on this service.
-   * @param botId The bot's ID
-   * @param userID The user's ID
+   * @param botID The bot's ID.
+   * @param userID The user's ID.
    */
-  userVoted(botId: IDResolvable, userID: IDResolvable) {
+  userVoted(botID: IDResolvable, userID: IDResolvable) {
     return this._request(
       {
-        url: `/bots/${Util.resolveID(botId)}/check`,
+        url: `/bots/${Util.resolveID(botID)}/check`,
         params: { userId: Util.resolveID(userID) },
         headers: { Authorization: this.token }
       },
@@ -137,9 +137,9 @@ export default class TopGG extends Service {
 
   /**
    * Gets the widget URL for this bot.
-   * @param id The bot's ID
-   * @param query The query string that will be used in the request
-   * @param smallWidget The sub-path name to turn the widget into a badge (i.e. owner)
+   * @param id The bot's ID.
+   * @param query The query string that will be used in the request.
+   * @param smallWidget The sub-path name to turn the widget into a badge (i.e. owner).
    */
   getWidgetURL(id: IDResolvable, query?: Query, smallWidget?: string) {
     const subPath = smallWidget ? `${smallWidget}/` : ''

@@ -33,7 +33,7 @@ export default class BladeBotList extends Service {
 
   /**
    * Posts statistics to this service.
-   * @param options The options of the request
+   * @param options The options of the request.
    */
   static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
@@ -52,20 +52,20 @@ export default class BladeBotList extends Service {
 
   /**
    * Gets the bot listed on this service.
-   * @param id The bot's ID
+   * @param id The bot's ID.
    */
   getBot(id: IDResolvable) {
     return this._request({ url: `/bots/${Util.resolveID(id)}` })
   }
 
   /**
-   * Checks whether a user has given a vote to the bot
-   * @param botId The bot's ID
-   * @param userID The user's ID
+   * Checks whether a user has given a vote to the bot.
+   * @param botID The bot's ID.
+   * @param userID The user's ID.
    */
-  userVoted(botId: IDResolvable, userID: IDResolvable) {
+  userVoted(botID: IDResolvable, userID: IDResolvable) {
     return this._request({
-      url: `/bots/${Util.resolveID(botId)}/votes/${Util.resolveID(userID)}`
+      url: `/bots/${Util.resolveID(botID)}/votes/${Util.resolveID(userID)}`
     })
   }
 }
