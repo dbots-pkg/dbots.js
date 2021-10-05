@@ -1,17 +1,4 @@
-# Supported Services (27)
-
-<div align=center>
-  <p>
-    <img src="https://cdn.bot-list.xyz/7364djcas.png" alt="astrobotlist logo" width="100" align="left" />
-  </p>
-  <i id="astrobotlist"></i>
-  <i id="botlists.com"></i>
-  <a href="https://botlists.com"><h1>Astro Bot List</h1></a>
-
-Keys: `astrobotlist`, `botlists.com`  
-Class: [AstroBotList](/#/docs/main/$$$ref/class/AstroBotList)  
-Website: https://botlists.com
-</div>
+# Supported Services (26)
 
 <div align=center>
   <p>
