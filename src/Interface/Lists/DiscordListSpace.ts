@@ -1,5 +1,5 @@
 import { Service, ServicePostOptions } from '../Service'
-import { Util, CountResolvable, IDResolvable } from '../../Utils/Util'
+import { Util, IDResolvable } from '../../Utils/Util'
 import { Query } from '../../Utils/Constants'
 
 /**
@@ -34,7 +34,7 @@ export default class DiscordListSpace extends Service {
 
   /** The base URL of the service's API. */
   static get baseURL() {
-    return 'https://api.discordlist.space/v1'
+    return 'https://api.discordlist.space/v2'
   }
 
   /**
@@ -47,7 +47,7 @@ export default class DiscordListSpace extends Service {
     return super._post({
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}`,
-      headers: { Authorization: token },
+      headers: { Authorization: token, 'Content-Type': 'application/json' },
       data: { server_count: Util.resolveCount(serverCount) }
     })
   }
@@ -57,19 +57,69 @@ export default class DiscordListSpace extends Service {
     return this._request({ url: '/statistics' })
   }
 
-  /** Gets a list of bots on this service. */
-  getBots() {
-    return this._request({ url: '/bots' })
+  /**
+   * Gets all the available languages that bots or servers can set as their language.
+   * @param query The query to use in the request.
+   */
+  getLanguages(query?: Query) {
+    return this._request({ url: '/languages', params: query })
   }
 
-  /** Gets the bot listed on this service. */
+  /**
+   * Gets all available tags for use on bots or servers.
+   * @param query The query to use in the request.
+   */
+  getTags(query?: Query) {
+    return this._request({ url: '/tags', params: query })
+  }
+
+  /**
+   * Gets a list of bots on this service.
+   * @param query The query to use in the request.
+   */
+  getBots(query?: Query) {
+    return this._request({ url: '/bots', params: query })
+  }
+
+  /**
+   * Gets the bot listed on this service.
+   * @param id The bot's ID.
+   */
   getBot(id: IDResolvable) {
     return this._request({ url: `/bots/${Util.resolveID(id)}` })
   }
 
   /**
+   * Gets the reviews of a bot.
+   * @param id The bot's ID.
+   * @param query The query to use in the request.
+   */
+  getBotReviews(id: IDResolvable, query?: Query) {
+    return this._request({
+      url: `/bots/${Util.resolveID(id)}/reviews`,
+      params: query
+    })
+  }
+
+  /**
+   * Gets the analytics on a bot.
+   * @param id The bot's ID.
+   * @param query The query to use in the request.
+   */
+  getBotAnalytics(id: IDResolvable, query?: Query) {
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(id)}/analytics`,
+        headers: { Authorization: this.token },
+        params: query
+      },
+      { requiresToken: true }
+    )
+  }
+
+  /**
    * Gets the list of people who voted this bot on this service.
-   * @param id The bot's ID
+   * @param id The bot's ID.
    */
   getBotVotes(id: IDResolvable) {
     return this._request(
@@ -84,16 +134,65 @@ export default class DiscordListSpace extends Service {
   }
 
   /**
-   * Gets the uptime of a bot listed on this service.
-   * @param id The bot's ID
+   * Checks if a specific user has upvoted the bot.
+   * @param botID The bot's ID.
+   * @param userID The user's ID.
    */
-  getBotUptime(id: IDResolvable) {
-    return this._request({ url: `/bots/${Util.resolveID(id)}/uptime` })
+  getUserUpvote(botID: IDResolvable, userID: IDResolvable) {
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(botID)}/upvotes/status/${Util.resolveID(
+          userID
+        )}`,
+        headers: { Authorization: this.token }
+      },
+      { requiresToken: true }
+    )
+  }
+
+  /**
+   * Gets the top upvoters of this month.
+   * @param id The bot's ID.
+   * @param query The query to use with the request.
+   */
+  getUpvoteLeaderboard(id: IDResolvable, query?: Query) {
+    return this._request({
+      url: `/bots/${Util.resolveID(id)}/upvotes/leaderboard`,
+      params: query
+    })
+  }
+
+  /**
+   * Gets the bot listing audit log.
+   * @param id The bot's ID.
+   * @param query The query to use with the request.
+   */
+  getAuditLog(id: IDResolvable, query?: Query) {
+    return this._request(
+      {
+        url: `/bots/${Util.resolveID(id)}/audit`,
+        headers: { Authorization: this.token },
+        params: query
+      },
+      { requiresToken: true }
+    )
+  }
+
+  /**
+   * Gets the owners of the bot listing.
+   * @param id The bot's ID.
+   * @param query The query to use in the request.
+   */
+  getBotOwners(id: IDResolvable, query?: Query) {
+    return this._request({
+      url: `/bots/${Util.resolveID(id)}/owners`,
+      params: query
+    })
   }
 
   /**
    * Gets the user listed on this service.
-   * @param id The user's ID
+   * @param id The user's ID.
    */
   getUser(id: IDResolvable) {
     return this._request({ url: `/users/${Util.resolveID(id)}` })
@@ -101,29 +200,24 @@ export default class DiscordListSpace extends Service {
 
   /**
    * Gets the user's bots listed for this service.
-   * @param id The user's ID
+   * @param id The user's ID.
    */
   getUserBots(id: IDResolvable) {
-    return this._request({ url: `/users/${Util.resolveID(id)}/bots` })
+    return this._request({
+      url: `/users/${Util.resolveID(id)}/bots`,
+      headers: { Authorization: this.token }
+    })
   }
 
   /**
-   * Gets the widget URL for this bot.
-   * @param id The bot's ID
-   * @param style The style of the widget, cannot be zero
-   * @param query The query string that will be used in the request
+   * Get all the lists that a user owns.
+   * @param id The user's ID.
+   * @param query The query to use in the request.
    */
-  getWidgetURL(
-    id: IDResolvable,
-    style: CountResolvable = 1,
-    query: Query = {}
-  ) {
-    return this._appendQuery(
-      `https://api.botlist.space/widget/${Util.resolveID(
-        id
-      )}/${Util.resolveCount(style)}`,
-      query,
-      false
-    )
+  getUserReviews(id: IDResolvable, query?: Query) {
+    return this._request({
+      url: `/users/${Util.resolveID(id)}/reviews`,
+      params: query
+    })
   }
 }
