@@ -33,17 +33,18 @@ export default class InfinityBotList extends Service {
 
   /**
    * Posts statistics to this service.
-   * @param options The options of the request
+   * @param options The options of the request.
    */
   static post(options: ServicePostOptions) {
     const { clientID, token, serverCount, shard } = options
     return super._post({
       method: 'post',
-      url: `/bot/${Util.resolveID(clientID)}`,
+      url: `/bot/${Util.resolveID(clientID)}/stats`,
       headers: {
         authorization: token
       },
       data: {
+        botid: clientID,
         servers: Util.resolveCount(serverCount),
         ...(shard?.count
           ? {
@@ -56,17 +57,17 @@ export default class InfinityBotList extends Service {
 
   /**
    * Gets the bot listed on this service.
-   * @param id The bot's ID
+   * @param id The bot's ID.
    */
   getBot(id: IDResolvable) {
     return this._request({
-      url: `/bot/${Util.resolveID(id)}/info`
+      url: `/bot/${Util.resolveID(id)}`
     })
   }
 
   /**
    * Gets the user listed on this service.
-   * @param id The user's ID
+   * @param id The user's ID.
    */
   getUser(id: IDResolvable) {
     return this._request({
