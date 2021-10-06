@@ -10,7 +10,6 @@ import DBots from './Lists/DBots'
 import DiscordBoats from './Lists/DiscordBoats'
 import DiscordBotList from './Lists/DiscordBotList'
 import DiscordBotlistEU from './Lists/DiscordBotlistEU'
-import DiscordBotsCo from './Lists/DiscordBotsCo'
 import DiscordBotsGG from './Lists/DiscordBotsGG'
 import DiscordExtremeList from './Lists/DiscordExtremeList'
 import DiscordLabs from './Lists/DiscordLabs'
@@ -51,8 +50,6 @@ export const serviceList = {
   'discordbotlist.com': DiscordBotList,
   'dbleu': DiscordBotlistEU,
   'discordbotlisteu': DiscordBotlistEU,
-  'discordbotsco': DiscordBotsCo,
-  'discordbots.co': DiscordBotsCo,
   'discordbotsgg': DiscordBotsGG,
   'discord.bots.gg': DiscordBotsGG,
   'discordextremelist': DiscordExtremeList,
