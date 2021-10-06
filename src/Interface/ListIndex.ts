@@ -4,7 +4,6 @@
 
 import BladeBotList from './Lists/BladeBotList'
 import Blist from './Lists/Blist'
-import BotsForDiscord from './Lists/BotsForDiscord'
 import BotsOnDiscord from './Lists/BotsOnDiscord'
 import Carbon from './Lists/Carbon'
 import DBots from './Lists/DBots'
@@ -17,6 +16,7 @@ import DiscordExtremeList from './Lists/DiscordExtremeList'
 import DiscordLabs from './Lists/DiscordLabs'
 import DiscordListology from './Lists/DiscordListology'
 import DiscordListSpace from './Lists/DiscordListSpace'
+import DiscordsCom from './Lists/DiscordsCom'
 import DiscordServices from './Lists/DiscordServices'
 import Disforge from './Lists/Disforge'
 import FatesList from './Lists/FatesList'
@@ -35,9 +35,6 @@ export const serviceList = {
   'bladebotlist.xyz': BladeBotList,
   'blist': Blist,
   'blist.xyz': Blist,
-  'botsfordiscord': BotsForDiscord,
-  'botsfordiscord.com': BotsForDiscord,
-  'discords': BotsForDiscord,
   'botsondiscord': BotsOnDiscord,
   'bots.ondiscord.xyz': BotsOnDiscord,
   'carbonitex': Carbon,
@@ -65,6 +62,10 @@ export const serviceList = {
   'discordlist.space': DiscordListSpace,
   'botlistspace': DiscordListSpace,
   'botlist.space': DiscordListSpace,
+  'botsfordiscord': DiscordsCom,
+  'botsfordiscord.com': DiscordsCom,
+  'discords': DiscordsCom,
+  'discords.com': DiscordsCom,
   'discordservices': DiscordServices,
   'discordservices.net': DiscordServices,
   'disforge': Disforge,
