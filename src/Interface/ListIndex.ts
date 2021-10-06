@@ -22,6 +22,7 @@ import FatesList from './Lists/FatesList'
 import GlennBotList from './Lists/GlennBotList'
 import InfinityBotList from './Lists/InfinityBotList'
 import Listcord from './Lists/Listcord'
+import MotionBotList from './Lists/MotionBotList'
 import SpaceBotsList from './Lists/SpaceBotsList'
 import TopCord from './Lists/TopCord'
 import TopGG from './Lists/TopGG'
@@ -78,6 +79,10 @@ export const serviceList = {
   'infinitybotlist.com': InfinityBotList,
   'listcord': Listcord,
   'listcord.gg': Listcord,
+  'motion': MotionBotList,
+  'motiondevelopment': MotionBotList,
+  'motionbotlist': MotionBotList,
+  'motiondevelopment.top': MotionBotList,
   'spacebotslist': SpaceBotsList,
   'space-bot-list.xyz': SpaceBotsList,
   'topcord': TopCord,
