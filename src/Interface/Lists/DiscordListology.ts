@@ -13,7 +13,7 @@ export default class DiscordListology extends Service {
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://discordlistology.com/idiscord.png'
+    return 'https://i.imgur.com/DmSCuSk.png'
   }
 
   /** Service's name. */
