@@ -1,16 +1,18 @@
-# Supported Services (26)
+# Supported Services (27)
 
 <div align=center>
   <p>
-    <img src="https://bladebotlist.xyz/img/logo.svg" alt="bladebotlist logo" width="100" align="left" />
+    <img src="https://bladelist.gg/static/img/logo.png" alt="bladebotlist logo" width="100" align="left" />
   </p>
   <i id="bladebotlist"></i>
   <i id="bladebotlist.xyz"></i>
-  <a href="https://bladebotlist.xyz"><h1>BladeBotList</h1></a>
+  <i id="bladelist"></i>
+  <i id="bladelist.gg"></i>
+  <a href="https://bladelist.gg"><h1>BladeList</h1></a>
 
-Keys: `bladebotlist`, `bladebotlist.xyz`  
-Class: [BladeBotList](/#/docs/main/$$$ref/class/BladeBotList)  
-Website: https://bladebotlist.xyz
+Keys: `bladebotlist`, `bladebotlist.xyz`, `bladelist`, `bladelist.gg`  
+Class: [BladeList](/#/docs/main/$$$ref/class/BladeList)  
+Website: https://bladelist.gg
 </div>
 
 <div align=center>
@@ -24,20 +26,6 @@ Website: https://bladebotlist.xyz
 Keys: `blist`, `blist.xyz`  
 Class: [Blist](/#/docs/main/$$$ref/class/Blist)  
 Website: https://blist.xyz
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://discords.com/bots/img/manifest/icon-512x512.png" alt="botsfordiscord logo" width="100" align="left" />
-  </p>
-  <i id="botsfordiscord"></i>
-  <i id="botsfordiscord.com"></i>
-  <i id="discords"></i>
-  <a href="https://discords.com/bots"><h1>Bots For Discord</h1></a>
-
-Keys: `botsfordiscord`, `botsfordiscord.com`, `discords`  
-Class: [BotsForDiscord](/#/docs/main/$$$ref/class/BotsForDiscord)  
-Website: https://discords.com/bots
 </div>
 
 <div align=center>
@@ -117,19 +105,6 @@ Website: https://discordbotlist.com
 Keys: `dbleu`, `discordbotlisteu`  
 Class: [DiscordBotlistEU](/#/docs/main/$$$ref/class/DiscordBotlistEU)  
 Website: https://discord-botlist.eu/
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://cdn.discordapp.com/avatars/688927563409522694/17cfd572fd3e2d3285534c12e0f58422.png" alt="discordbotsco logo" width="100" align="left" />
-  </p>
-  <i id="discordbotsco"></i>
-  <i id="discordbots.co"></i>
-  <a href="https://discordbots.co"><h1>DiscordBots.co</h1></a>
-
-Keys: `discordbotsco`, `discordbots.co`  
-Class: [DiscordBotsCo](/#/docs/main/$$$ref/class/DiscordBotsCo)  
-Website: https://discordbots.co
 </div>
 
 <div align=center>
@@ -214,6 +189,21 @@ Website: https://discordservices.net
 
 <div align=center>
   <p>
+    <img src="https://discords.com/bots/img/manifest/icon-512x512.png" alt="botsfordiscord logo" width="100" align="left" />
+  </p>
+  <i id="botsfordiscord"></i>
+  <i id="botsfordiscord.com"></i>
+  <i id="discords"></i>
+  <i id="discords.com"></i>
+  <a href="https://discords.com/bots"><h1>Discords.com</h1></a>
+
+Keys: `botsfordiscord`, `botsfordiscord.com`, `discords`, `discords.com`  
+Class: [DiscordsCom](/#/docs/main/$$$ref/class/DiscordsCom)  
+Website: https://discords.com/bots
+</div>
+
+<div align=center>
+  <p>
     <img src="https://disforge.com/assets/img/ui/categories/all-bots.png" alt="disforge logo" width="100" align="left" />
   </p>
   <i id="disforge"></i>
@@ -262,6 +252,34 @@ Website: https://glennbotlist.xyz
 Keys: `infinitybotlist`, `infinitybotlist.com`  
 Class: [InfinityBotList](/#/docs/main/$$$ref/class/InfinityBotList)  
 Website: https://infinitybotlist.com/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://cdn.discordapp.com/avatars/803339251940196383/50e92bb535cf88641ec22756937e6950.webp" alt="listcord logo" width="100" align="left" />
+  </p>
+  <i id="listcord"></i>
+  <i id="listcord.gg"></i>
+  <a href="https://listcord.gg/"><h1>Listcord</h1></a>
+
+Keys: `listcord`, `listcord.gg`  
+Class: [Listcord](/#/docs/main/$$$ref/class/Listcord)  
+Website: https://listcord.gg/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://www.motiondevelopment.top/favicon.ico" alt="motion logo" width="100" align="left" />
+  </p>
+  <i id="motion"></i>
+  <i id="motiondevelopment"></i>
+  <i id="motionbotlist"></i>
+  <i id="motiondevelopment.top"></i>
+  <a href="https://www.motiondevelopment.top/bot"><h1>Motion Botlist</h1></a>
+
+Keys: `motion`, `motiondevelopment`, `motionbotlist`, `motiondevelopment.top`  
+Class: [MotionBotList](/#/docs/main/$$$ref/class/MotionBotList)  
+Website: https://www.motiondevelopment.top/bot
 </div>
 
 <div align=center>
