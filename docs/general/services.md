@@ -163,7 +163,7 @@ Website: https://discordlist.space
 
 <div align=center>
   <p>
-    <img src="https://discordlistology.com/idiscord.png" alt="discordlistology logo" width="100" align="left" />
+    <img src="https://i.imgur.com/DmSCuSk.png" alt="discordlistology logo" width="100" align="left" />
   </p>
   <i id="discordlistology"></i>
   <i id="discordlistology.com"></i>
