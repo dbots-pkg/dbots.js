@@ -56,7 +56,7 @@ export default class DiscordsCom extends Service {
   }
 
   /**
-   * Gets the list of people who voted this bot on this service.
+   * Gets the list of people who voted a bot.
    * @param id The bot's ID.
    */
   getBotVotes(id: IDResolvable) {
@@ -66,6 +66,22 @@ export default class DiscordsCom extends Service {
         headers: {
           Authorization: this.token,
           'Content-Type': 'application/json'
+        }
+      },
+      { requiresToken: true }
+    )
+  }
+
+  /**
+   * Gets the list of people who voted a bot in the last 12 hours.
+   * @param id The bot's ID.
+   */
+  getBotVotes12h(id: IDResolvable) {
+    return this._request(
+      {
+        url: `/bot/${Util.resolveID(id)}/votes12h`,
+        headers: {
+          Authorization: this.token
         }
       },
       { requiresToken: true }
