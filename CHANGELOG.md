@@ -9,9 +9,34 @@ You can see the docs for every version at [here](https://dbots.js.org/#/docs).
 
 ## [Unreleased]
 
+## [10.0.0] - 2021-10-08
+
+### Removed:
+
+- **[BREAKING]** AstroBotList (#334)
+- **[BREAKING]** DiscordBotsCo (#334)
+
+### Added:
+
+- Listcord (#334)
+- MotionBotlist (#334)
+- DiscordBotlistEU (#318, #319)
+- DiscordLabs: support votes endpoint (#334)
+- BotsForDiscord -> DiscordsCom: support `hasVoted12h` endpoint (#334)
+
+### Fixed:
+
+- **[BREAKING]** DiscordListSpace: update endpoints to new API version (#334)
+- **[BREAKING]** BladeBotLit -> BladeList: update endpoints to new API version (#334)
+- BotsForDiscord -> DiscordsCom: add endpoint requirements (#334)
+- InfinityBotList: update endpoints (#334)
+- DiscordListology: fix logo in docs (#334)
+- TopCord: fix logo in docs (#320)
+
 ## [9.0.1] - 2021-08-04
 
 ### Fixed:
+
 - BotsForDiscord: updated the base API URL and the logo URL
 
 ## [9.0.0] - 2021-04-08
@@ -27,7 +52,7 @@ More list-specific breaking changes are listed below
 
 ### Fixed:
 
-- **BREAKING** InfinityBots: update list name, aliases and URL (#199)
+- **[BREAKING]** InfinityBots: update list name, aliases and URL (#199)
 - The package file now has a proper typings field
 - Clients: the fillers now calculate the user count using each guild's member count, instead of relying on the user cache size (ref #182)
 - Clients: improved consistency in getters' return types
@@ -217,7 +242,7 @@ You can also refer to issue #71.
 - Update endpoints for ListMyBots, GlennBotList and DiscordBotList.
 
 <!-- prettier-ignore -->
-[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v9.0.1...HEAD
+[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v10.0.0...HEAD
 [4.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...v4.0.0
 [4.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.0.0...v4.1.0
 [5.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.1.0...v5.0.0
@@ -236,3 +261,4 @@ You can also refer to issue #71.
 [8.0.2]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.1...v8.0.2
 [9.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.2...v9.0.0
 [9.0.1]: https://github.com/dbots-pkg/dbots.js/compare/v9.0.0...v9.0.1
+[10.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v9.0.0...v10.0.0
