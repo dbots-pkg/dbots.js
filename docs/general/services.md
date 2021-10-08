@@ -2,28 +2,17 @@
 
 <div align=center>
   <p>
-    <img src="https://cdn.bot-list.xyz/7364djcas.png" alt="astrobotlist logo" width="100" align="left" />
-  </p>
-  <i id="astrobotlist"></i>
-  <i id="botlists.com"></i>
-  <a href="https://botlists.com"><h1>Astro Bot List</h1></a>
-
-Keys: `astrobotlist`, `botlists.com`  
-Class: [AstroBotList](/#/docs/main/$$$ref/class/AstroBotList)  
-Website: https://botlists.com
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://bladebotlist.xyz/img/logo.svg" alt="bladebotlist logo" width="100" align="left" />
+    <img src="https://bladelist.gg/static/img/logo.png" alt="bladebotlist logo" width="100" align="left" />
   </p>
   <i id="bladebotlist"></i>
   <i id="bladebotlist.xyz"></i>
-  <a href="https://bladebotlist.xyz"><h1>BladeBotList</h1></a>
+  <i id="bladelist"></i>
+  <i id="bladelist.gg"></i>
+  <a href="https://bladelist.gg"><h1>BladeList</h1></a>
 
-Keys: `bladebotlist`, `bladebotlist.xyz`  
-Class: [BladeBotList](/#/docs/main/$$$ref/class/BladeBotList)  
-Website: https://bladebotlist.xyz
+Keys: `bladebotlist`, `bladebotlist.xyz`, `bladelist`, `bladelist.gg`  
+Class: [BladeList](/#/docs/main/$$$ref/class/BladeList)  
+Website: https://bladelist.gg
 </div>
 
 <div align=center>
@@ -37,20 +26,6 @@ Website: https://bladebotlist.xyz
 Keys: `blist`, `blist.xyz`  
 Class: [Blist](/#/docs/main/$$$ref/class/Blist)  
 Website: https://blist.xyz
-</div>
-
-<div align=center>
-  <p>
-    <img src="https://discords.com/bots/img/manifest/icon-512x512.png" alt="botsfordiscord logo" width="100" align="left" />
-  </p>
-  <i id="botsfordiscord"></i>
-  <i id="botsfordiscord.com"></i>
-  <i id="discords"></i>
-  <a href="https://discords.com/bots"><h1>Bots For Discord</h1></a>
-
-Keys: `botsfordiscord`, `botsfordiscord.com`, `discords`  
-Class: [BotsForDiscord](/#/docs/main/$$$ref/class/BotsForDiscord)  
-Website: https://discords.com/bots
 </div>
 
 <div align=center>
@@ -134,19 +109,6 @@ Website: https://discord-botlist.eu/
 
 <div align=center>
   <p>
-    <img src="https://cdn.discordapp.com/avatars/688927563409522694/17cfd572fd3e2d3285534c12e0f58422.png" alt="discordbotsco logo" width="100" align="left" />
-  </p>
-  <i id="discordbotsco"></i>
-  <i id="discordbots.co"></i>
-  <a href="https://discordbots.co"><h1>DiscordBots.co</h1></a>
-
-Keys: `discordbotsco`, `discordbots.co`  
-Class: [DiscordBotsCo](/#/docs/main/$$$ref/class/DiscordBotsCo)  
-Website: https://discordbots.co
-</div>
-
-<div align=center>
-  <p>
     <img src="https://pbs.twimg.com/profile_images/1071582837030060032/kKV-I01n_400x400.jpg" alt="discordbotsgg logo" width="100" align="left" />
   </p>
   <i id="discordbotsgg"></i>
@@ -201,7 +163,7 @@ Website: https://discordlist.space
 
 <div align=center>
   <p>
-    <img src="https://discordlistology.com/idiscord.png" alt="discordlistology logo" width="100" align="left" />
+    <img src="https://i.imgur.com/DmSCuSk.png" alt="discordlistology logo" width="100" align="left" />
   </p>
   <i id="discordlistology"></i>
   <i id="discordlistology.com"></i>
@@ -223,6 +185,21 @@ Website: https://discordlistology.com/
 Keys: `discordservices`, `discordservices.net`  
 Class: [DiscordServices](/#/docs/main/$$$ref/class/DiscordServices)  
 Website: https://discordservices.net
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://discords.com/bots/img/manifest/icon-512x512.png" alt="botsfordiscord logo" width="100" align="left" />
+  </p>
+  <i id="botsfordiscord"></i>
+  <i id="botsfordiscord.com"></i>
+  <i id="discords"></i>
+  <i id="discords.com"></i>
+  <a href="https://discords.com/bots"><h1>Discords.com</h1></a>
+
+Keys: `botsfordiscord`, `botsfordiscord.com`, `discords`, `discords.com`  
+Class: [DiscordsCom](/#/docs/main/$$$ref/class/DiscordsCom)  
+Website: https://discords.com/bots
 </div>
 
 <div align=center>
@@ -275,6 +252,34 @@ Website: https://glennbotlist.xyz
 Keys: `infinitybotlist`, `infinitybotlist.com`  
 Class: [InfinityBotList](/#/docs/main/$$$ref/class/InfinityBotList)  
 Website: https://infinitybotlist.com/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://cdn.discordapp.com/avatars/803339251940196383/50e92bb535cf88641ec22756937e6950.webp" alt="listcord logo" width="100" align="left" />
+  </p>
+  <i id="listcord"></i>
+  <i id="listcord.gg"></i>
+  <a href="https://listcord.gg/"><h1>Listcord</h1></a>
+
+Keys: `listcord`, `listcord.gg`  
+Class: [Listcord](/#/docs/main/$$$ref/class/Listcord)  
+Website: https://listcord.gg/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://www.motiondevelopment.top/favicon.ico" alt="motion logo" width="100" align="left" />
+  </p>
+  <i id="motion"></i>
+  <i id="motiondevelopment"></i>
+  <i id="motionbotlist"></i>
+  <i id="motiondevelopment.top"></i>
+  <a href="https://www.motiondevelopment.top/bot"><h1>Motion Botlist</h1></a>
+
+Keys: `motion`, `motiondevelopment`, `motionbotlist`, `motiondevelopment.top`  
+Class: [MotionBotList](/#/docs/main/$$$ref/class/MotionBotList)  
+Website: https://www.motiondevelopment.top/bot
 </div>
 
 <div align=center>

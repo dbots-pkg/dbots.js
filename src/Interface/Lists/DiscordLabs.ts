@@ -60,4 +60,12 @@ export default class DiscordLabs extends Service {
   getBot(id: IDResolvable) {
     return this._request({ url: `/bot/${Util.resolveID(id)}` })
   }
+
+  /**
+   * Gets the votes for this bot.
+   * @param id The bot's id.
+   */
+  getVotes(id: IDResolvable) {
+    return this._request({ url: `/bot/${Util.resolveID(id)}/votes` })
+  }
 }

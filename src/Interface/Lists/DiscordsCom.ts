@@ -3,13 +3,13 @@ import { Util, IDResolvable } from '../../Utils/Util'
 import { Query } from '../../Utils/Constants'
 
 /**
- * Represents the Bots For Discord service.
+ * Represents the Discords.com service (formerly Bots For Discord).
  * @see https://docs.botsfordiscord.com/
  */
-export default class BotsForDiscord extends Service {
+export default class DiscordsCom extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['botsfordiscord', 'botsfordiscord.com', 'discords']
+    return ['botsfordiscord', 'botsfordiscord.com', 'discords', 'discords.com']
   }
 
   /** The logo URL. */
@@ -19,7 +19,7 @@ export default class BotsForDiscord extends Service {
 
   /** Service's name. */
   static get serviceName() {
-    return 'Bots For Discord'
+    return 'Discords.com'
   }
 
   /** The website URL. */
@@ -35,7 +35,7 @@ export default class BotsForDiscord extends Service {
   /**
    * Posts statistics to this service.
    * <warn>Shard data posting is not supported for this service.</warn>
-   * @param options The options of the request
+   * @param options The options of the request.
    */
   static post(options: ServicePostOptions) {
     const { token, clientID, serverCount } = options
@@ -49,23 +49,48 @@ export default class BotsForDiscord extends Service {
 
   /**
    * Gets the bot listed on this service.
-   * @param id The bot's ID
+   * @param id The bot's ID.
    */
   getBot(id: IDResolvable) {
     return this._request({ url: `/bot/${Util.resolveID(id)}` })
   }
 
   /**
-   * Gets the list of people who voted this bot on this service.
-   * @param id The bot's ID
+   * Gets the list of people who voted a bot.
+   * @param id The bot's ID.
    */
   getBotVotes(id: IDResolvable) {
-    return this._request({ url: `/bot/${Util.resolveID(id)}/votes` })
+    return this._request(
+      {
+        url: `/bot/${Util.resolveID(id)}/votes`,
+        headers: {
+          Authorization: this.token,
+          'Content-Type': 'application/json'
+        }
+      },
+      { requiresToken: true }
+    )
+  }
+
+  /**
+   * Gets the list of people who voted a bot in the last 12 hours.
+   * @param id The bot's ID.
+   */
+  getBotVotes12h(id: IDResolvable) {
+    return this._request(
+      {
+        url: `/bot/${Util.resolveID(id)}/votes12h`,
+        headers: {
+          Authorization: this.token
+        }
+      },
+      { requiresToken: true }
+    )
   }
 
   /**
    * Gets the user listed on this service.
-   * @param id The user's ID
+   * @param id The user's ID.
    */
   getUser(id: IDResolvable) {
     return this._request({ url: `/user/${Util.resolveID(id)}` })
@@ -73,7 +98,7 @@ export default class BotsForDiscord extends Service {
 
   /**
    * Gets the user's bots listed for this service.
-   * @param id The user's ID
+   * @param id The user's ID.
    */
   getUserBots(id: IDResolvable) {
     return this._request({ url: `/user/${Util.resolveID(id)}/bots` })
@@ -81,8 +106,8 @@ export default class BotsForDiscord extends Service {
 
   /**
    * Gets the widget URL for this bot.
-   * @param id The bot's ID
-   * @param query The query string that will be used in the request
+   * @param id The bot's ID.
+   * @param query The query that will be used in the request.
    */
   getWidgetURL(id: IDResolvable, query?: Query) {
     return this._appendQuery(`/bot/${Util.resolveID(id)}/widget`, query || {})
