@@ -3,7 +3,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 
 /**
  * Represents the Discord Extreme List service.
- * @see https://docs.discordextremelist.xyz/
+ * @see https://discordextremelist.xyz/docs
  */
 export default class DiscordExtremeList extends Service {
   /** The values that can be used to select the service. */
