@@ -4,7 +4,7 @@ import { Query } from '../../Utils/Constants'
 
 /**
  * Represents the discordlist.space service.
- * @see https://docs.botlist.space/
+ * @see https://docs.discordlist.space/
  */
 export default class DiscordListSpace extends Service {
   /** The values that can be used to select the service. */
