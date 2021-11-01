@@ -4,7 +4,7 @@ import { Query } from '../../Utils/Constants'
 
 /**
  * Represents the FatesList service.
- * @see https://fateslist.xyz/api/docs/endpoints
+ * @see https://apidocs.fateslist.xyz/
  */
 export default class FatesList extends Service {
   /** The values that can be used to select the service. */
@@ -121,7 +121,7 @@ export default class FatesList extends Service {
   }
 
   /**
-   * Regenrates the API token
+   * Regenerates the API token
    * @param botID The bot's ID
    */
   regenerateToken(botID: IDResolvable) {
