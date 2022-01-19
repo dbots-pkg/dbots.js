@@ -148,19 +148,6 @@ Website: https://bots.discordlabs.org/
 
 <div align=center>
   <p>
-    <img src="https://i.imgur.com/DmSCuSk.png" alt="discordlistology logo" width="100" align="left" />
-  </p>
-  <i id="discordlistology"></i>
-  <i id="discordlistology.com"></i>
-  <a href="https://discordlistology.com/"><h1>DiscordListology</h1></a>
-
-Keys: `discordlistology`, `discordlistology.com`  
-Class: [DiscordListology](/#/docs/main/$$$ref/class/DiscordListology)  
-Website: https://discordlistology.com/
-</div>
-
-<div align=center>
-  <p>
     <img src="https://discordlist.space/img/android-chrome-512x512.png" alt="discordlistspace logo" width="100" align="left" />
   </p>
   <i id="discordlistspace"></i>
@@ -176,17 +163,15 @@ Website: https://discordlist.space
 
 <div align=center>
   <p>
-    <img src="https://discords.com/bots/img/manifest/icon-512x512.png" alt="botsfordiscord logo" width="100" align="left" />
+    <img src="https://i.imgur.com/DmSCuSk.png" alt="discordlistology logo" width="100" align="left" />
   </p>
-  <i id="botsfordiscord"></i>
-  <i id="botsfordiscord.com"></i>
-  <i id="discords"></i>
-  <i id="discords.com"></i>
-  <a href="https://discords.com/bots"><h1>Discords.com</h1></a>
+  <i id="discordlistology"></i>
+  <i id="discordlistology.com"></i>
+  <a href="https://discordlistology.com/"><h1>DiscordListology</h1></a>
 
-Keys: `botsfordiscord`, `botsfordiscord.com`, `discords`, `discords.com`  
-Class: [DiscordsCom](/#/docs/main/$$$ref/class/DiscordsCom)  
-Website: https://discords.com/bots
+Keys: `discordlistology`, `discordlistology.com`  
+Class: [DiscordListology](/#/docs/main/$$$ref/class/DiscordListology)  
+Website: https://discordlistology.com/
 </div>
 
 <div align=center>
@@ -200,6 +185,21 @@ Website: https://discords.com/bots
 Keys: `discordservices`, `discordservices.net`  
 Class: [DiscordServices](/#/docs/main/$$$ref/class/DiscordServices)  
 Website: https://discordservices.net
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://discords.com/bots/img/manifest/icon-512x512.png" alt="botsfordiscord logo" width="100" align="left" />
+  </p>
+  <i id="botsfordiscord"></i>
+  <i id="botsfordiscord.com"></i>
+  <i id="discords"></i>
+  <i id="discords.com"></i>
+  <a href="https://discords.com/bots"><h1>Discords.com</h1></a>
+
+Keys: `botsfordiscord`, `botsfordiscord.com`, `discords`, `discords.com`  
+Class: [DiscordsCom](/#/docs/main/$$$ref/class/DiscordsCom)  
+Website: https://discords.com/bots
 </div>
 
 <div align=center>
