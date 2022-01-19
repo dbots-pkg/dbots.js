@@ -19,7 +19,6 @@ import DiscordsCom from './Lists/DiscordsCom'
 import DiscordServices from './Lists/DiscordServices'
 import Disforge from './Lists/Disforge'
 import FatesList from './Lists/FatesList'
-import GlennBotList from './Lists/GlennBotList'
 import InfinityBotList from './Lists/InfinityBotList'
 import Listcord from './Lists/Listcord'
 import MotionBotList from './Lists/MotionBotList'
@@ -73,8 +72,6 @@ export const serviceList = {
   'disforge.com': Disforge,
   'fateslist': FatesList,
   'fateslist.xyz': FatesList,
-  'glennbotlist': GlennBotList,
-  'glennbotlist.xyz': GlennBotList,
   'infinitybotlist': InfinityBotList,
   'infinitybotlist.com': InfinityBotList,
   'listcord': Listcord,
