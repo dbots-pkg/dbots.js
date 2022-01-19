@@ -9,6 +9,19 @@ You can see the docs for every version at [here](https://dbots.js.org/#/docs).
 
 ## [Unreleased]
 
+## [11.0.0] - 2022-01-19
+
+### Removed:
+
+- **[BREAKING]** GlennBotList: service is dead
+
+### Fixed:
+
+- **[BREAKING]** FatesList: update API to latest version & remove additional endpoints for maintainability
+- InfinityBotList: update endpoints
+- DiscordListSpace: fix request body & docs URL
+- DiscordExtremeList: fix docs URL
+
 ## [10.0.0] - 2021-10-08
 
 ### Removed:
@@ -242,7 +255,7 @@ You can also refer to issue #71.
 - Update endpoints for ListMyBots, GlennBotList and DiscordBotList.
 
 <!-- prettier-ignore -->
-[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v10.0.0...HEAD
+[Unreleased]: https://github.com/dbots-pkg/dbots.js/compare/v11.0.0...HEAD
 [4.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v3.0.1...v4.0.0
 [4.1.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.0.0...v4.1.0
 [5.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v4.1.0...v5.0.0
@@ -262,3 +275,4 @@ You can also refer to issue #71.
 [9.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v8.0.2...v9.0.0
 [9.0.1]: https://github.com/dbots-pkg/dbots.js/compare/v9.0.0...v9.0.1
 [10.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v9.0.0...v10.0.0
+[11.0.0]: https://github.com/dbots-pkg/dbots.js/compare/v10.0.0...v11.0.0
