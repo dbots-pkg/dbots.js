@@ -48,7 +48,7 @@ export default class DiscordListSpace extends Service {
       method: 'post',
       url: `/bots/${Util.resolveID(clientID)}`,
       headers: { Authorization: token, 'Content-Type': 'application/json' },
-      data: { server_count: Util.resolveCount(serverCount) }
+      data: { serverCount: Util.resolveCount(serverCount) }
     })
   }
 
