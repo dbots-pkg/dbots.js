@@ -44,7 +44,7 @@
   },
   "homepage": "https://dbots.js.org",
   "dependencies": {
-    "axios": "^0.25.0",
+    "axios": "^0.26.0",
     "promise.allsettled": "^1.0.2"
   },
   "devDependencies": {
