@@ -153,7 +153,7 @@ export class Poster {
   startInterval(interval = 1800000) {
     this._interval && clearTimeout(this._interval)
 
-    this._interval = (setInterval(
+    this._interval = setInterval(
       () =>
         this.post()
           .then((result) => {
@@ -162,7 +162,7 @@ export class Poster {
           })
           .catch((error) => this.runHandlers('autopostFail', error)),
       interval
-    ) as unknown) as number
+    ) as unknown as number
     return this._interval
   }
 

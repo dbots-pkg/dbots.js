@@ -36,14 +36,8 @@ export default class DiscordBotList extends Service {
    * @param options The options of the request
    */
   static post(options: ServicePostOptions) {
-    const {
-      token,
-      clientID,
-      serverCount,
-      shard,
-      userCount,
-      voiceConnections
-    } = options
+    const { token, clientID, serverCount, shard, userCount, voiceConnections } =
+      options
     const data: AnyObject = { guilds: Util.resolveCount(serverCount) }
     if (shard) data.shard_id = shard.id
     if (userCount) data.users = Util.resolveCount(userCount)
