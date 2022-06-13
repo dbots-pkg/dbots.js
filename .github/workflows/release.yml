@@ -32,7 +32,7 @@ jobs:
           node-version: 12.x
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build documentation
         run: npm run docs
@@ -55,7 +55,7 @@ jobs:
         with:
           registry-url: 'https://registry.npmjs.org'
 
-      - run: npm install
+      - run: npm ci
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -74,7 +74,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com/'
           scope: '@dbots-pkg'
 
-      - run: npm install
+      - run: npm ci
       - run: npm run gpr
       - run: npm publish
         env:
