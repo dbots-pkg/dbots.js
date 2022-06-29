@@ -3,7 +3,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 
 /**
  * Represents the Radar Bot Directory service.
- * @see https://radarbotdirectory.xyz/docs/
+ * @see https://docs.radarbotdirectory.xyz/
  */
 export default class RadarBotDirectory extends Service {
   /** The values that can be used to select the service. */
