@@ -1,6 +1,5 @@
 import { Service, ServicePostOptions } from '../Service'
 import { Util, IDResolvable } from '../../Utils/Util'
-import { Query } from '../../Utils/Constants'
 
 /**
  * Represents the Radar Bot Directory service.
@@ -47,7 +46,7 @@ export default class RadarBotDirectory extends Service {
             guilds: Util.resolveCount(serverCount),
             shards: shard.count
           }
-        : { server_count: Util.resolveCount(serverCount) }
+        : { guilds: Util.resolveCount(serverCount) }
     })
   }
 
@@ -63,13 +62,13 @@ export default class RadarBotDirectory extends Service {
 
   /**
    * Gets the Unix Epoch Timestamp of the last vote on this bot from this user on this service.
-   * @param id The bot's ID
-   * @param user The user's ID
+   * @param botID The bot's ID
+   * @param userID The user's ID
    */
-  getBotVotes(id: IDResolvable, user: IDResolvable) {
+  getBotVotes(botID: IDResolvable, userID: IDResolvable) {
     return this._request(
       {
-        url: `/lastvoted/${Util.resolveID(user)}/${Util.resolveID(id)}`,
+        url: `/lastvoted/${Util.resolveID(userID)}/${Util.resolveID(botID)}`,
         headers: { Authorization: this.token }
       },
       {
