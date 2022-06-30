@@ -1,4 +1,4 @@
-# Supported Services (26)
+# Supported Services (27)
 
 <div align=center>
   <p>
@@ -267,6 +267,20 @@ Website: https://listcord.gg/
 Keys: `motion`, `motiondevelopment`, `motionbotlist`, `motiondevelopment.top`  
 Class: [MotionBotList](/#/docs/main/$$$ref/class/MotionBotList)  
 Website: https://www.motiondevelopment.top/bot
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://theoverlook.xyz/Images/RBD/botlistlogo.png" alt="radar logo" width="100" align="left" />
+  </p>
+  <i id="radar"></i>
+  <i id="radarbots"></i>
+  <i id="radarbotdirectory.xyz"></i>
+  <a href="https://radarbotdirectory.xyz"><h1>Radar Bot Directory</h1></a>
+
+Keys: `radar`, `radarbots`, `radarbotdirectory.xyz`  
+Class: [RadarBotList](/#/docs/main/$$$ref/class/RadarBotList)  
+Website: https://radarbotdirectory.xyz
 </div>
 
 <div align=center>
