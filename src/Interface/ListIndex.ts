@@ -7,6 +7,7 @@ import Blist from './Lists/Blist'
 import BotsOnDiscord from './Lists/BotsOnDiscord'
 import Carbon from './Lists/Carbon'
 import DBots from './Lists/DBots'
+import DList from './Lists/DList'
 import DiscordBoats from './Lists/DiscordBoats'
 import DiscordBotList from './Lists/DiscordBotList'
 import DiscordBotlistEU from './Lists/DiscordBotlistEU'
@@ -45,6 +46,10 @@ export const serviceList = {
   'carbon': Carbon,
   'dbots': DBots,
   'dbots.co': DBots,
+  'dlistgg': DList,
+  'dlist.gg': DList,
+  'discordlistgg': DList,
+  'discordlist.gg': DList,
   'discordboats': DiscordBoats,
   'discord.boats': DiscordBoats,
   'discordbotlist': DiscordBotList,

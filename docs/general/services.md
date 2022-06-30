@@ -70,6 +70,21 @@ Website: https://dbots.co/
 
 <div align=center>
   <p>
+    <img src="https://avatars.githubusercontent.com/u/68995595" alt="dlistgg logo" width="100" align="left" />
+  </p>
+  <i id="dlistgg"></i>
+  <i id="dlist.gg"></i>
+  <i id="discordlistgg"></i>
+  <i id="discordlist.gg"></i>
+  <a href="https://discordlist.gg"><h1>dlist.gg</h1></a>
+
+Keys: `dlistgg`, `dlist.gg`, `discordlistgg`, `discordlist.gg`  
+Class: [DList](/#/docs/main/$$$ref/class/DList)  
+Website: https://discordlist.gg
+</div>
+
+<div align=center>
+  <p>
     <img src="https://discord.boats/android-icon-192x192.png" alt="discordboats logo" width="100" align="left" />
   </p>
   <i id="discordboats"></i>
