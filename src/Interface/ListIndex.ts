@@ -7,16 +7,17 @@ import Blist from './Lists/Blist'
 import BotsOnDiscord from './Lists/BotsOnDiscord'
 import Carbon from './Lists/Carbon'
 import DBots from './Lists/DBots'
+import DList from './Lists/DList'
 import DiscordBoats from './Lists/DiscordBoats'
 import DiscordBotList from './Lists/DiscordBotList'
 import DiscordBotlistEU from './Lists/DiscordBotlistEU'
 import DiscordBotsGG from './Lists/DiscordBotsGG'
 import DiscordExtremeList from './Lists/DiscordExtremeList'
 import DiscordLabs from './Lists/DiscordLabs'
-import DiscordListology from './Lists/DiscordListology'
 import DiscordListSpace from './Lists/DiscordListSpace'
-import DiscordsCom from './Lists/DiscordsCom'
+import DiscordListology from './Lists/DiscordListology'
 import DiscordServices from './Lists/DiscordServices'
+import DiscordsCom from './Lists/DiscordsCom'
 import Disforge from './Lists/Disforge'
 import FatesList from './Lists/FatesList'
 import InfinityBotList from './Lists/InfinityBotList'
@@ -44,6 +45,10 @@ export const serviceList = {
   'carbon': Carbon,
   'dbots': DBots,
   'dbots.co': DBots,
+  'dlistgg': DList,
+  'dlist.gg': DList,
+  'discordlistgg': DList,
+  'discordlist.gg': DList,
   'discordboats': DiscordBoats,
   'discord.boats': DiscordBoats,
   'discordbotlist': DiscordBotList,
@@ -56,18 +61,18 @@ export const serviceList = {
   'discordextremelist.xyz': DiscordExtremeList,
   'discordlabs': DiscordLabs,
   'discordlabs.org': DiscordLabs,
-  'discordlistology': DiscordListology,
-  'discordlistology.com': DiscordListology,
   'discordlistspace': DiscordListSpace,
   'discordlist.space': DiscordListSpace,
   'botlistspace': DiscordListSpace,
   'botlist.space': DiscordListSpace,
+  'discordlistology': DiscordListology,
+  'discordlistology.com': DiscordListology,
+  'discordservices': DiscordServices,
+  'discordservices.net': DiscordServices,
   'botsfordiscord': DiscordsCom,
   'botsfordiscord.com': DiscordsCom,
   'discords': DiscordsCom,
   'discords.com': DiscordsCom,
-  'discordservices': DiscordServices,
-  'discordservices.net': DiscordServices,
   'disforge': Disforge,
   'disforge.com': Disforge,
   'fateslist': FatesList,
