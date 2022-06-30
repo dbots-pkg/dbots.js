@@ -1,4 +1,4 @@
-# Supported Services (26)
+# Supported Services (27)
 
 <div align=center>
   <p>
@@ -66,6 +66,21 @@ Website: https://www.carbonitex.net/Discord/bots
 Keys: `dbots`, `dbots.co`  
 Class: [DBots](/#/docs/main/$$$ref/class/DBots)  
 Website: https://dbots.co/
+</div>
+
+<div align=center>
+  <p>
+    <img src="https://avatars.githubusercontent.com/u/68995595" alt="dlistgg logo" width="100" align="left" />
+  </p>
+  <i id="dlistgg"></i>
+  <i id="dlist.gg"></i>
+  <i id="discordlistgg"></i>
+  <i id="discordlist.gg"></i>
+  <a href="https://discordlist.gg"><h1>dlist.gg</h1></a>
+
+Keys: `dlistgg`, `dlist.gg`, `discordlistgg`, `discordlist.gg`  
+Class: [DList](/#/docs/main/$$$ref/class/DList)  
+Website: https://discordlist.gg
 </div>
 
 <div align=center>
