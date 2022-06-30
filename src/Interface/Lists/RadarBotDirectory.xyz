@@ -29,7 +29,7 @@ export default class RadarBotDirectory extends Service {
 
   /** The base URL of the service's API. */
   static get baseURL() {
-    return 'https://radarbotdirectory.xyz/api/'
+    return 'https://radarbotdirectory.xyz/api'
   }
 
   /**
