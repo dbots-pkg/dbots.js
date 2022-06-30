@@ -47,7 +47,7 @@ export default class RadarBotDirectory extends Service {
             guilds: Util.resolveCount(serverCount),
             shards: shard.count
           }
-        : { server_count: Util.resolveCount(serverCount) }
+        : { guilds: Util.resolveCount(serverCount) }
     })
   }
 
