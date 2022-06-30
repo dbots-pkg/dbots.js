@@ -6,7 +6,7 @@ import { Query } from '../../Utils/Constants'
  * Represents the Radar Bot Directory service.
  * @see https://docs.radarbotdirectory.xyz/
  */
-export default class radarbotdirectory extends Service {
+export default class RadarBotDirectory extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
     return ['radar', 'radarbots', 'radarbotdirectory.xyz']
