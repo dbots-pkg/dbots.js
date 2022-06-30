@@ -63,13 +63,13 @@ export default class RadarBotDirectory extends Service {
 
   /**
    * Gets the Unix Epoch Timestamp of the last time this user voted for this bot on this service.
-   * @param id The bot's ID
-   * @param userid The user's ID
+   * @param botID The bot's ID
+   * @param userID The user's ID
    */
-  getBotVotes(id: IDResolvable) {
+  getBotVotes(botID: IDResolvable, userID: IDResolvable) {
     return this._request(
       {
-        url: `/lastvoted/${Util.resolveID(userid)}/${Util.resolveID(id)}`,
+        url: `/lastvoted/${Util.resolveID(userID)}/${Util.resolveID(botID)}`,
         headers: { Authorization: this.token }
       },
       {
