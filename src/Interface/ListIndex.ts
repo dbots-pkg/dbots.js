@@ -13,15 +13,16 @@ import DiscordBotlistEU from './Lists/DiscordBotlistEU'
 import DiscordBotsGG from './Lists/DiscordBotsGG'
 import DiscordExtremeList from './Lists/DiscordExtremeList'
 import DiscordLabs from './Lists/DiscordLabs'
-import DiscordListology from './Lists/DiscordListology'
 import DiscordListSpace from './Lists/DiscordListSpace'
-import DiscordsCom from './Lists/DiscordsCom'
+import DiscordListology from './Lists/DiscordListology'
 import DiscordServices from './Lists/DiscordServices'
+import DiscordsCom from './Lists/DiscordsCom'
 import Disforge from './Lists/Disforge'
 import FatesList from './Lists/FatesList'
 import InfinityBotList from './Lists/InfinityBotList'
 import Listcord from './Lists/Listcord'
 import MotionBotList from './Lists/MotionBotList'
+import RadarBotList from './Lists/RadarBotList'
 import SpaceBotsList from './Lists/SpaceBotsList'
 import TopCord from './Lists/TopCord'
 import TopGG from './Lists/TopGG'
@@ -56,18 +57,18 @@ export const serviceList = {
   'discordextremelist.xyz': DiscordExtremeList,
   'discordlabs': DiscordLabs,
   'discordlabs.org': DiscordLabs,
-  'discordlistology': DiscordListology,
-  'discordlistology.com': DiscordListology,
   'discordlistspace': DiscordListSpace,
   'discordlist.space': DiscordListSpace,
   'botlistspace': DiscordListSpace,
   'botlist.space': DiscordListSpace,
+  'discordlistology': DiscordListology,
+  'discordlistology.com': DiscordListology,
+  'discordservices': DiscordServices,
+  'discordservices.net': DiscordServices,
   'botsfordiscord': DiscordsCom,
   'botsfordiscord.com': DiscordsCom,
   'discords': DiscordsCom,
   'discords.com': DiscordsCom,
-  'discordservices': DiscordServices,
-  'discordservices.net': DiscordServices,
   'disforge': Disforge,
   'disforge.com': Disforge,
   'fateslist': FatesList,
@@ -80,6 +81,9 @@ export const serviceList = {
   'motiondevelopment': MotionBotList,
   'motionbotlist': MotionBotList,
   'motiondevelopment.top': MotionBotList,
+  'radar': RadarBotList,
+  'radarbots': RadarBotList,
+  'radarbotdirectory.xyz': RadarBotList,
   'spacebotslist': SpaceBotsList,
   'space-bot-list.xyz': SpaceBotsList,
   'topcord': TopCord,
