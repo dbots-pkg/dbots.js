@@ -1,4 +1,4 @@
-import Collection from '@discordjs/collection'
+import { Collection } from '@discordjs/collection'
 import * as PosterModule from '../../src/Interface/Poster'
 import { Service } from '../../src/Interface/Service'
 import TopGG from '../../src/Interface/Lists/TopGG'
