@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { ClientFiller } from '../../../src/Interface/ClientFiller'
-import Collection from '@discordjs/collection'
+import { Collection } from '@discordjs/collection'
 
 const clientsDir = path.join(__dirname, '../../../src/Interface/Clients')
 
