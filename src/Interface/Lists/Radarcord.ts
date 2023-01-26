@@ -2,8 +2,8 @@ import { Service, ServicePostOptions } from '../Service'
 import { Util, IDResolvable } from '../../Utils/Util'
 
 /**
- * Represents the Radar Bot Directory service.
- * @see https://docs.radarbotdirectory.xyz/
+ * Represents the Radarcord service.
+ * @see https://docs.radarcord.net/
  */
 export default class Radarcord extends Service {
   /** The values that can be used to select the service. */
