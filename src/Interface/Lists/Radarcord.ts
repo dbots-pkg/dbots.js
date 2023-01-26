@@ -8,7 +8,7 @@ import { Util, IDResolvable } from '../../Utils/Util'
 export default class Radarcord extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['radar', 'radarcord', 'radarcord.net']
+    return ['radar', 'radarbots', 'radarbotdirectory.xyz', 'radarcord', 'radarcord.net']
   }
 
   /** The logo URL. */
