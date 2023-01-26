@@ -90,7 +90,7 @@ export default class Radarcord extends Service {
   }
 
   /**
-   * Returns a 1 or 0 depending on whether the user has voted for the bot
+   * Gets whether the user has voted for the bot
    * @param botID The bot's ID
    * @param userID The user's ID
    */
