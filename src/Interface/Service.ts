@@ -1,9 +1,8 @@
+import qs from 'qs'
 import { formatRequest, RequestForm } from '../Utils/FormatRequest'
 import { errors } from '../Utils/DBotsError'
 const { Error } = errors
 
-// @ts-expect-error
-import buildURL from 'axios/lib/helpers/buildURL'
 import { CustomService, Query, Shard } from '../Utils/Constants'
 import { assert, CountResolvable, IDResolvable } from '../Utils/Util'
 import { serviceList } from './ListIndex'
@@ -67,7 +66,7 @@ export class Service {
   static get<T extends keyof typeof serviceList>(
     key: T,
     extras?: CustomService[]
-  ): typeof serviceList[T]
+  ): (typeof serviceList)[T]
   static get(key: string, extras: CustomService[] = []): typeof Service | null {
     if (!key || typeof key !== 'string') return null
 
@@ -139,7 +138,11 @@ export class Service {
 
     if (this.constructor.baseURL && appendBaseURL)
       url = this.constructor.baseURL + url
-    return buildURL(url, query)
+
+    const queryString = qs.stringify(query)
+    if (queryString) url += (url.includes('?') ? '&' : '?') + queryString
+
+    return url
   }
 
   /** The values that can be used to select the service. */
@@ -173,7 +176,7 @@ export class Service {
 
   static post(
     options: ServicePostOptions // eslint-disable-line @typescript-eslint/no-unused-vars
-  ): ReturnType<typeof Service['_post']> {
+  ): ReturnType<(typeof Service)['_post']> {
     throw 'This is just a placeholder method, it should not be called'
   }
 }

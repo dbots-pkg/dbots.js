@@ -2,8 +2,8 @@ name: Test
 on:
   push:
     branches:
-      - "*"
-      - "!docs"
+      - '*'
+      - '!docs'
   pull_request:
   workflow_dispatch:
 
@@ -12,7 +12,11 @@ jobs:
     name: Run Jest
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
       - run: npm ci
 
       - name: Run tests
@@ -25,7 +29,11 @@ jobs:
     name: Run linters
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
       - run: npm ci
       - run: npm run lint
 
@@ -33,7 +41,10 @@ jobs:
     name: Run webpack
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
       - run: npm ci
       - run: npm run webpack
-
