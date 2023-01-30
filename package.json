@@ -45,13 +45,15 @@
   "homepage": "https://dbots.js.org",
   "dependencies": {
     "axios": "^1.2.6",
-    "promise.allsettled": "^1.0.2"
+    "promise.allsettled": "^1.0.2",
+    "qs": "^6.11.0"
   },
   "devDependencies": {
     "@discordjs/collection": "^1.0.0",
     "@types/jest": "^27.0.1",
     "@types/node": "^12.20.16",
     "@types/promise.allsettled": "^1.0.3",
+    "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "cross-env": "^7.0.2",
