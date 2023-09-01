@@ -54,7 +54,7 @@
     "@types/node": "^12.20.16",
     "@types/promise.allsettled": "^1.0.3",
     "@types/qs": "^6.9.7",
-    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@typescript-eslint/parser": "^5.27.1",
     "cross-env": "^7.0.2",
     "eslint": "^8.17.0",
