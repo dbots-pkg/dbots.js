@@ -39,7 +39,7 @@ export default class DList extends Service {
   static post(options: ServicePostOptions) {
     const { token, clientID, serverCount } = options
     return super._post({
-      method: 'post',
+      method: 'put',
       url: `/bots/${Util.resolveID(clientID)}/guilds`,
       headers: { Authorization: `Bearer ${token}` },
       params: {
