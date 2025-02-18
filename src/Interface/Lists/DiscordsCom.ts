@@ -41,7 +41,7 @@ export default class DiscordsCom extends Service {
     const { token, clientID, serverCount } = options
     return super._post({
       method: 'post',
-      url: `/bot/${Util.resolveID(clientID)}`,
+      url: `/bot/${Util.resolveID(clientID)}/setservers`,
       headers: { Authorization: token },
       data: { server_count: Util.resolveCount(serverCount) }
     })
