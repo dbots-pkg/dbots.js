@@ -4,7 +4,7 @@ import { Query } from '../../Utils/Constants'
 
 /**
  * Represents the Discords.com service (formerly Bots For Discord).
- * @see https://docs.botsfordiscord.com/
+ * @see https://docs.discords.com/
  */
 export default class DiscordsCom extends Service {
   /** The values that can be used to select the service. */
@@ -41,7 +41,7 @@ export default class DiscordsCom extends Service {
     const { token, clientID, serverCount } = options
     return super._post({
       method: 'post',
-      url: `/bot/${Util.resolveID(clientID)}`,
+      url: `/bot/${Util.resolveID(clientID)}/setservers`,
       headers: { Authorization: token },
       data: { server_count: Util.resolveCount(serverCount) }
     })
