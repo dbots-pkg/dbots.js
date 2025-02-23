@@ -4,6 +4,7 @@
 
 import BladeList from './Lists/BladeList'
 import Blist from './Lists/Blist'
+import BotlistMe from './Lists/BotlistMe'
 import BotsOnDiscord from './Lists/BotsOnDiscord'
 import Carbon from './Lists/Carbon'
 import DBots from './Lists/DBots'
@@ -39,6 +40,8 @@ export const serviceList = {
   'bladelist.gg': BladeList,
   'blist': Blist,
   'blist.xyz': Blist,
+  'botlistme': BotlistMe,
+  'botlist.me': BotlistMe,
   'botsondiscord': BotsOnDiscord,
   'bots.ondiscord.xyz': BotsOnDiscord,
   'carbonitex': Carbon,

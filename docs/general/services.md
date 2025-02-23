@@ -30,6 +30,19 @@ Website: https://blist.xyz
 
 <div align=center>
   <p>
+    <img src="https://botlist.me/icon.png" alt="botlistme logo" width="100" align="left" />
+  </p>
+  <i id="botlistme"></i>
+  <i id="botlist.me"></i>
+  <a href="https://botlist.me"><h1>BotlistMe</h1></a>
+
+Keys: `botlistme`, `botlist.me`  
+Class: [BotlistMe](/#/docs/main/$$$ref/class/BotlistMe)  
+Website: https://botlist.me
+</div>
+
+<div align=center>
+  <p>
     <img src="https://bots.ondiscord.xyz/favicon/android-chrome-256x256.png" alt="botsondiscord logo" width="100" align="left" />
   </p>
   <i id="botsondiscord"></i>
