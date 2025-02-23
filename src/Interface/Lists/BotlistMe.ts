@@ -13,7 +13,7 @@ export default class BotlistMe extends Service {
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://docs.botlist.me/icon.png'
+    return 'https://botlist.me/icon.png'
   }
 
   /** Service's name. */
