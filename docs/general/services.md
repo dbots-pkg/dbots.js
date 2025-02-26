@@ -1,4 +1,4 @@
-# Supported Services (28)
+# Supported Services (29)
 
 <div align=center>
   <p>
@@ -34,11 +34,11 @@ Website: https://blist.xyz
   </p>
   <i id="botlistme"></i>
   <i id="botlist.me"></i>
-  <a href="https://botlist.me"><h1>BotlistMe</h1></a>
+  <a href="https://botlist.me/"><h1>BotlistMe</h1></a>
 
 Keys: `botlistme`, `botlist.me`  
 Class: [BotlistMe](/#/docs/main/$$$ref/class/BotlistMe)  
-Website: https://botlist.me
+Website: https://botlist.me/
 </div>
 
 <div align=center>
