@@ -24,7 +24,7 @@ import FatesList from './Lists/FatesList'
 import InfinityBotList from './Lists/InfinityBotList'
 import Listcord from './Lists/Listcord'
 import MotionBotList from './Lists/MotionBotList'
-import RadarBotList from './Lists/RadarBotList'
+import Radarcord from './Lists/Radarcord'
 import SpaceBotsList from './Lists/SpaceBotsList'
 import TopCord from './Lists/TopCord'
 import TopGG from './Lists/TopGG'
@@ -89,9 +89,11 @@ export const serviceList = {
   'motiondevelopment': MotionBotList,
   'motionbotlist': MotionBotList,
   'motiondevelopment.top': MotionBotList,
-  'radar': RadarBotList,
-  'radarbots': RadarBotList,
-  'radarbotdirectory.xyz': RadarBotList,
+  'radar': Radarcord,
+  'radarbots': Radarcord,
+  'radarbotdirectory.xyz': Radarcord,
+  'radarcord': Radarcord,
+  'radarcord.net': Radarcord,
   'spacebotslist': SpaceBotsList,
   'space-bot-list.xyz': SpaceBotsList,
   'topcord': TopCord,

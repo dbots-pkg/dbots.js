@@ -2,33 +2,39 @@ import { Service, ServicePostOptions } from '../Service'
 import { Util, IDResolvable } from '../../Utils/Util'
 
 /**
- * Represents the Radar Bot Directory service.
- * @see https://docs.radarbotdirectory.xyz/
+ * Represents the Radarcord service (formerly Radar Bot Directory).
+ * @see https://docs.radarcord.net/
  */
-export default class RadarBotDirectory extends Service {
+export default class Radarcord extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['radar', 'radarbots', 'radarbotdirectory.xyz']
+    return [
+      'radar',
+      'radarbots',
+      'radarbotdirectory.xyz',
+      'radarcord',
+      'radarcord.net'
+    ]
   }
 
   /** The logo URL. */
   static get logoURL() {
-    return 'https://theoverlook.xyz/Images/RBD/botlistlogo.png'
+    return 'https://radarcord.net/static/logo.png'
   }
 
   /** Service's name. */
   static get serviceName() {
-    return 'Radar Bot Directory'
+    return 'Radarcord'
   }
 
   /** The website URL. */
   static get websiteURL() {
-    return 'https://radarbotdirectory.xyz'
+    return 'https://radarcord.net/'
   }
 
   /** The base URL of the service's API. */
   static get baseURL() {
-    return 'https://radarbotdirectory.xyz/api'
+    return 'https://api.radarcord.net'
   }
 
   /**
@@ -38,7 +44,7 @@ export default class RadarBotDirectory extends Service {
   static post(options: ServicePostOptions) {
     const { token, clientID, serverCount, shard } = options
     return super._post({
-      method: 'patch',
+      method: 'post',
       url: `/bot/${Util.resolveID(clientID)}/stats/`,
       headers: { Authorization: token },
       data: shard
@@ -73,5 +79,13 @@ export default class RadarBotDirectory extends Service {
         requiresToken: true
       }
     )
+  }
+
+  /**
+   * Gets the bot's reviews on this service.
+   * @param id The bot's ID
+   */
+  getBotReviews(id: IDResolvable) {
+    return this._request({ url: `/bot/${Util.resolveID(id)}/reviews` })
   }
 }
