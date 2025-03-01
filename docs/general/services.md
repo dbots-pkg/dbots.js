@@ -299,16 +299,18 @@ Website: https://www.motiondevelopment.top/bot
 
 <div align=center>
   <p>
-    <img src="https://theoverlook.xyz/Images/RBD/botlistlogo.png" alt="radar logo" width="100" align="left" />
+    <img src="https://radarcord.net/static/logo.png" alt="radar logo" width="100" align="left" />
   </p>
   <i id="radar"></i>
   <i id="radarbots"></i>
   <i id="radarbotdirectory.xyz"></i>
-  <a href="https://radarbotdirectory.xyz"><h1>Radar Bot Directory</h1></a>
+  <i id="radarcord"></i>
+  <i id="radarcord.net"></i>
+  <a href="https://radarcord.net/"><h1>Radarcord</h1></a>
 
-Keys: `radar`, `radarbots`, `radarbotdirectory.xyz`  
-Class: [RadarBotList](/#/docs/main/$$$ref/class/RadarBotList)  
-Website: https://radarbotdirectory.xyz
+Keys: `radar`, `radarbots`, `radarbotdirectory.xyz`, `radarcord`, `radarcord.net`  
+Class: [Radarcord](/#/docs/main/$$$ref/class/Radarcord)  
+Website: https://radarcord.net/
 </div>
 
 <div align=center>
