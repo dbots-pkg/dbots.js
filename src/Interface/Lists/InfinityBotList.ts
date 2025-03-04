@@ -3,12 +3,12 @@ import { IDResolvable, Util } from '../../Utils/Util'
 
 /**
  * Represents the Infinity Bot List service.
- * @see https://api.infinitybotlist.com/docs
+ * @see https://spider.infinitybots.gg/docs
  */
 export default class InfinityBotList extends Service {
   /** The values that can be used to select the service. */
   static get aliases() {
-    return ['infinitybotlist', 'infinitybotlist.com']
+    return ['infinitybotlist', 'infinitybotlist.com', 'infinitybots', 'infinitybots.gg'] 
   }
 
   /** The logo URL. */
@@ -23,12 +23,12 @@ export default class InfinityBotList extends Service {
 
   /** The website URL. */
   static get websiteURL() {
-    return 'https://infinitybotlist.com/'
+    return 'https://infinitybots.gg/'
   }
 
   /** The base URL of the service's API. */
   static get baseURL() {
-    return 'https://api.infinitybotlist.com'
+    return 'https://spider.infinitybots.gg'
   }
 
   /**
@@ -68,7 +68,7 @@ export default class InfinityBotList extends Service {
   /** Gets a list of all bots on this service. */
   getBots() {
     return this._request({
-      url: '/bots/all'
+      url: '/bots/@all'
     })
   }
 
@@ -78,28 +78,7 @@ export default class InfinityBotList extends Service {
    */
   getUser(id: IDResolvable) {
     return this._request({
-      url: `/user/${Util.resolveID(id)}`
-    })
-  }
-
-  /**
-   * Check's whether a user is part of the staff.
-   * @param id The user's ID.
-   */
-  checkStaff(id: IDResolvable) {
-    return this._request({
-      url: `staff/check/${Util.resolveID(id)}`
-    })
-  }
-
-  /**
-   * Checks whether a user has voted for the bot.
-   * @param botId The bot's ID.
-   * @param userId The user's ID.
-   */
-  userVoted(botId: IDResolvable, userId: IDResolvable) {
-    return this._request({
-      url: `/votes/${Util.resolveID(botId)}/${Util.resolveID(userId)}`
+      url: `/users/${Util.resolveID(id)}`
     })
   }
 }
