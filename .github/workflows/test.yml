@@ -10,7 +10,7 @@ on:
 jobs:
   test:
     name: Run Jest
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -27,7 +27,7 @@ jobs:
 
   lint:
     name: Run linters
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -39,7 +39,7 @@ jobs:
 
   webpack:
     name: Run webpack
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
